@@ -1,0 +1,670 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- PRE-LAUNCH INDEXING TOGGLE: noindex site-wide until Joseph signs off on copy. At launch, change to "index, follow" (or remove). -->
+  <meta name="robots" content="noindex, follow">
+
+  <title>HerdMaster, Rabbit and Cavy Herd, Breeding and Show App for iPhone</title>
+  <meta name="description" content="A native iOS app for serious rabbit and cavy breeders: pedigrees, breeding, litters, health, and shows. Works offline, syncs through your own iCloud.">
+  <link rel="canonical" href="https://herdmaster.app/">
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="HerdMaster">
+  <meta property="og:title" content="HerdMaster, Rabbit and Cavy Breeding and Show App for iPhone">
+  <meta property="og:description" content="Pedigrees, breeding, litters, health, and show records for serious rabbit and cavy breeders. Offline, with private iCloud sync.">
+  <meta property="og:url" content="https://herdmaster.app/">
+  <meta property="og:image" content="https://herdmaster.app/assets/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="HerdMaster, Rabbit and Cavy Breeding and Show App for iPhone">
+  <meta name="twitter:description" content="Pedigrees, breeding, litters, health, and show records for serious rabbit and cavy breeders. Offline, with private iCloud sync.">
+  <meta name="twitter:image" content="https://herdmaster.app/assets/og-image.png">
+
+  <!-- Favicons / PWA -->
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#222B37">
+
+  <!-- Fonts -->
+
+  <link rel="stylesheet" href="assets/site.css">
+
+  <!-- Google Analytics 4. Replace [GA4 ID] with the real Measurement ID to activate; inert while it is a placeholder. -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    var GA_MEASUREMENT_ID = '[GA4 ID]';
+    if (GA_MEASUREMENT_ID.indexOf('[') === -1) {
+      var gaS = document.createElement('script'); gaS.async = true;
+      gaS.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_MEASUREMENT_ID;
+      document.head.appendChild(gaS);
+      gtag('js', new Date()); gtag('config', GA_MEASUREMENT_ID);
+    }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://herdmaster.app/#website",
+        "name": "HerdMaster",
+        "url": "https://herdmaster.app/",
+        "publisher": { "@id": "https://herdmaster.app/#org" }
+      },
+      {
+        "@type": "MobileApplication",
+        "name": "HerdMaster",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "iOS 17",
+        "description": "Native iOS app for rabbit and cavy breeders: pedigrees, breeding, litters, health, and show records. Works offline, syncs privately through iCloud.",
+        "publisher": { "@id": "https://herdmaster.app/#org" },
+        "offers": { "@type": "AggregateOffer", "lowPrice": "0", "highPrice": "129.99", "priceCurrency": "USD", "offerCount": "4" }
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://herdmaster.app/#org",
+        "name": "HerdMaster",
+        "url": "https://herdmaster.app",
+        "logo": "https://herdmaster.app/assets/logo.png",
+        "founder": { "@type": "Person", "name": "Joseph Kim" }
+      }
+    ]
+  }
+  </script>
+</head>
+<body data-page="home">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ===== Sticky white header (slides in on scroll; the standard header on all other pages) ===== -->
+  <header class="header-main" id="headerMain">
+    <div class="container hm-inner">
+      <a class="brand" href="index.html" aria-label="HerdMaster home"><img src="assets/logo.png" alt="HerdMaster"></a>
+      <nav class="hm-nav" aria-label="Primary">
+        <ul class="hm-links">
+          <li><a href="features/index.html">Features</a></li>
+          <li><a href="pricing/index.html">Pricing</a></li>
+          <li><a href="getting-started/index.html">Getting Started</a></li>
+          <li><a href="faq/index.html">FAQ</a></li>
+          <li><a href="contact/index.html">Contact</a></li>
+        </ul>
+        <a href="#launch" class="btn btn-primary">Join Launch</a>
+        <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Shared mobile menu (full height; opened by either header's hamburger) -->
+  <nav class="mnav" id="mnav" aria-label="Mobile menu">
+    <a class="mlink" href="features/index.html">Features</a>
+    <a class="mlink" href="pricing/index.html">Pricing</a>
+    <a class="mlink" href="getting-started/index.html">Getting Started</a>
+    <a class="mlink" href="faq/index.html">FAQ</a>
+    <a class="mlink" href="contact/index.html">Contact</a>
+    <div class="mnav-cta"><a href="#launch" class="btn btn-primary">Join Launch</a></div>
+  </nav>
+
+  <main id="main">
+
+  <!-- ============ 1 · HERO (with transparent top header) ============ -->
+  <section class="hero" id="top">
+    <!-- transparent centered header sits over the hero gradient -->
+    <header class="header-top">
+      <a class="ht-logo" href="index.html" aria-label="HerdMaster home"><img src="assets/logo.png" alt="HerdMaster, Rabbit and Cavy"></a>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      <nav aria-label="Primary">
+        <a href="features/index.html">Features</a>
+        <a href="pricing/index.html">Pricing</a>
+        <a href="getting-started/index.html">Getting Started</a>
+        <a href="faq/index.html">FAQ</a>
+        <a href="contact/index.html">Contact</a>
+      </nav>
+    </header>
+
+    <div class="container hero-inner">
+      <div class="hero-copy fade">
+        <h1>Your whole rabbitry, in your <br class="hb">pocket, <b>even in the barn.</b></h1>
+        <p class="subhead">Pedigrees, breeding, litters, and shows in one app.</p>
+        <form class="capture" data-capture novalidate>
+          <input type="email" placeholder="Enter your email" aria-label="Email address" required>
+          <button type="submit" class="btn btn-primary">Join the launch list</button>
+        </form>
+        <p class="reassure">One email when it's live. Free tier at launch, no credit card, no spam.</p>
+        <p class="form-note" data-note aria-live="polite"></p>
+      </div>
+
+      <div class="hero-stage fade">
+        <!-- LEFT column: credibility; App Store badge is last (bottom) -->
+        <div class="bub-col left">
+          <div class="bubble light">
+            <span class="bi bi-teal" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 256 256" fill="currentColor"><path d="M140,80v41.21l34.17,20.5a12,12,0,1,1-12.34,20.58l-40-24A12,12,0,0,1,116,128V80a12,12,0,0,1,24,0ZM128,28A99.38,99.38,0,0,0,57.24,57.34c-4.69,4.74-9,9.37-13.24,14V64a12,12,0,0,0-24,0v40a12,12,0,0,0,12,12H72a12,12,0,0,0,0-24H57.77C63,86,68.37,80.22,74.26,74.26a76,76,0,1,1,1.58,109,12,12,0,0,0-16.48,17.46A100,100,0,1,0,128,28Z"/></svg></span>
+            <span>45 years breeding</span>
+          </div>
+          <div class="bubble light gold-bd">
+            <span class="bi bi-gold" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 256 256" fill="currentColor"><path d="M232,60H212V48a12,12,0,0,0-12-12H56A12,12,0,0,0,44,48V60H24A20,20,0,0,0,4,80V96a44.05,44.05,0,0,0,44,44h.77A84.18,84.18,0,0,0,116,195.15V212H96a12,12,0,0,0,0,24h64a12,12,0,0,0,0-24H140V195.11c30.94-4.51,56.53-26.2,67-55.11h1a44.05,44.05,0,0,0,44-44V80A20,20,0,0,0,232,60ZM28,96V84H44v28c0,1.21,0,2.41.09,3.61A20,20,0,0,1,28,96Zm160,15.1c0,33.33-26.71,60.65-59.54,60.9A60,60,0,0,1,68,112V60H188ZM228,96a20,20,0,0,1-16.12,19.62c.08-1.5.12-3,.12-4.52V84h16Z"/></svg></span>
+            <span>ARBA Best in Show</span>
+          </div>
+          <div class="bubble light">
+            <span class="bi bi-teal" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 256 256" fill="currentColor"><path d="M234.38,210a123.36,123.36,0,0,0-60.78-53.23,76,76,0,1,0-91.2,0A123.36,123.36,0,0,0,21.62,210a12,12,0,1,0,20.77,12c18.12-31.32,50.12-50,85.61-50s67.49,18.69,85.61,50a12,12,0,0,0,20.77-12ZM76,96a52,52,0,1,1,52,52A52.06,52.06,0,0,1,76,96Z"/></svg></span>
+            <span>Built by a breeder</span>
+          </div>
+          <a class="appstore-badge as-badge" href="#launch" aria-label="Coming soon to the App Store">
+            <span class="ab-icon"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 1.6c.1 1-.3 2-1 2.8-.7.8-1.8 1.4-2.8 1.3-.1-1 .4-2 1-2.7.8-.8 1.9-1.4 2.8-1.4ZM18.8 12.6c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.1-2.8.8-3.5.8-.7 0-1.8-.8-3-.8-1.5 0-2.9.9-3.7 2.3-1.6 2.7-.4 6.8 1.1 9 .7 1.1 1.6 2.3 2.8 2.3 1.1 0 1.5-.7 2.9-.7 1.3 0 1.7.7 2.9.7 1.2 0 2-1.1 2.7-2.2.9-1.3 1.2-2.5 1.2-2.6-.1 0-2.3-.9-2.3-3.5Z"/></svg></span>
+            <span class="ab-t"><small>Coming soon</small><strong>APP STORE</strong></span>
+          </a>
+        </div>
+
+        <div class="phone">
+          <div class="screen">
+            <div class="au" role="img" aria-label="HerdMaster dashboard">
+              <div class="au-status">
+                <span class="t">9:13</span>
+                <span class="sys">
+                  <svg viewBox="0 0 256 256" fill="currentColor"><rect x="12" y="148" width="40" height="80" rx="10"/><rect x="80" y="108" width="40" height="120" rx="10"/><rect x="148" y="64" width="40" height="164" rx="10"/><rect x="216" y="20" width="40" height="208" rx="10"/></svg>
+                  <svg viewBox="0 0 256 256" fill="currentColor"><path d="M140,204a12,12,0,1,1-12-12A12,12,0,0,1,140,204ZM237.08,87A172,172,0,0,0,18.92,87,8,8,0,0,0,29.08,99.37a156,156,0,0,1,197.84,0A8,8,0,0,0,237.08,87ZM205,122.77a124,124,0,0,0-153.94,0A8,8,0,0,0,61,135.31a108,108,0,0,1,134.06,0,8,8,0,0,0,11.24-1.3A8,8,0,0,0,205,122.77Zm-32.26,35.76a76.05,76.05,0,0,0-89.42,0,8,8,0,0,0,9.42,12.94,60,60,0,0,1,70.58,0,8,8,0,1,0,9.42-12.94Z"/></svg>
+                  <svg viewBox="0 0 256 256" fill="currentColor"><path d="M200,56H32A24,24,0,0,0,8,80v96a24,24,0,0,0,24,24H200a24,24,0,0,0,24-24V80A24,24,0,0,0,200,56Zm8,120a8,8,0,0,1-8,8H32a8,8,0,0,1-8-8V80a8,8,0,0,1,8-8H200a8,8,0,0,1,8,8ZM104,96v64a8,8,0,0,1-16,0V96a8,8,0,0,1,16,0ZM64,96v64a8,8,0,0,1-16,0V96a8,8,0,0,1,16,0Zm192,0v64a8,8,0,0,1-16,0V96a8,8,0,0,1,16,0Z"/></svg>
+                </span>
+              </div>
+              <div class="au-view">
+                <div class="au-scroll"><div class="au-pad">
+                  <div class="au-greet">
+                    <div><div class="g1">Good morning</div><div class="g2">HERDMASTER</div></div>
+                    <span class="au-bell"><svg viewBox="0 0 256 256" fill="currentColor"><path d="M221.8,175.94C216.25,166.38,208,139.33,208,104a80,80,0,1,0-160,0c0,35.34-8.26,62.38-13.81,71.94A16,16,0,0,0,48,200H88.81a40,40,0,0,0,78.38,0H208a16,16,0,0,0,13.8-24.06ZM128,216a24,24,0,0,1-22.62-16h45.24A24,24,0,0,1,128,216ZM48,184c7.7-13.24,16-43.92,16-80a64,64,0,1,1,128,0c0,36.05,8.28,66.73,16,80Z"/></svg></span>
+                  </div>
+                  <div class="au-stats">
+                    <div class="au-stat"><span class="ic ic-teal"><svg viewBox="0 0 256 256" fill="currentColor"><path d="M112,164a12,12,0,1,1-12-12A12,12,0,0,1,112,164Zm44-12a12,12,0,1,0,12,12A12,12,0,0,0,156,152Zm60,36a52,52,0,0,1-88,37.52A52,52,0,1,1,56.72,149.8,71.58,71.58,0,0,1,63,129C44,91.1,32.53,40.76,45.64,19.08A22,22,0,0,1,65.06,8c14.12,0,26,11.89,36.44,36.36,6.22,14.62,10.85,31.32,14,44.74a71.8,71.8,0,0,1,25,0c3.13-13.42,7.76-30.12,14-44.74C164.9,19.89,176.82,8,190.94,8a22,22,0,0,1,19.42,11.08C223.47,40.76,212,91.1,193,129a71.58,71.58,0,0,1,6.26,20.76A51.77,51.77,0,0,1,216,188ZM155.89,93.63a71.72,71.72,0,0,1,26.88,19.64A218.45,218.45,0,0,0,197.6,67.08c3.49-18.13,3.15-33-.93-39.72A6,6,0,0,0,190.94,24c-6.61,0-14.52,9.7-21.72,26.62C163.29,64.56,158.87,80.74,155.89,93.63ZM73.23,113.27a71.72,71.72,0,0,1,26.88-19.64c-3-12.89-7.4-29.07-13.33-43C79.58,33.7,71.67,24,65.06,24a6,6,0,0,0-5.73,3.36C55.25,34.1,54.91,49,58.4,67.08A218.45,218.45,0,0,0,73.23,113.27ZM200,188a35.87,35.87,0,0,0-13.34-28,8,8,0,0,1-2.92-5.45,56,56,0,0,0-111.48,0A8,8,0,0,1,69.34,160a36,36,0,1,0,47.28,54.21l-9.74-8.09a8,8,0,1,1,10.24-12.3L128,202.9l10.88-9.05a8,8,0,0,1,10.24,12.3l-9.74,8.09A36,36,0,0,0,200,188Z"/></svg></span><div class="n">79</div><div class="l">Total Active Animals</div></div>
+                    <div class="au-stat"><span class="ic ic-pink"><svg viewBox="0 0 256 256" fill="currentColor"><path d="M178,40c-20.65,0-38.73,8.88-50,23.89C116.73,48.88,98.65,40,78,40a62.07,62.07,0,0,0-62,62c0,70,103.79,126.66,108.21,129a8,8,0,0,0,7.58,0C136.21,228.66,240,172,240,102A62.07,62.07,0,0,0,178,40ZM128,214.8C109.74,204.16,32,155.69,32,102A46.06,46.06,0,0,1,78,56c19.45,0,35.78,10.36,42.6,27a8,8,0,0,0,14.8,0c6.82-16.67,23.15-27,42.6-27a46.06,46.06,0,0,1,46,46C224,155.61,146.24,204.15,128,214.8Z"/></svg></span><div class="n">27</div><div class="l">Open Dams</div></div>
+                    <div class="au-stat"><span class="ic ic-gold"><svg viewBox="0 0 256 256" fill="currentColor"><path d="M208,32H184V24a8,8,0,0,0-16,0v8H88V24a8,8,0,0,0-16,0v8H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V48A16,16,0,0,0,208,32ZM72,48v8a8,8,0,0,0,16,0V48h80v8a8,8,0,0,0,16,0V48h24V80H48V48ZM208,208H48V96H208V208Zm-68-76a12,12,0,1,1-12-12A12,12,0,0,1,140,132Zm44,0a12,12,0,1,1-12-12A12,12,0,0,1,184,132ZM96,172a12,12,0,1,1-12-12A12,12,0,0,1,96,172Zm44,0a12,12,0,1,1-12-12A12,12,0,0,1,140,172Zm44,0a12,12,0,1,1-12-12A12,12,0,0,1,184,172Z"/></svg></span><div class="n">13</div><div class="l">Active Breeding</div></div>
+                    <div class="au-stat"><span class="ic ic-blue"><svg viewBox="0 0 256 256" fill="currentColor"><path d="M224,48V96a8,8,0,0,1-8,8H168a8,8,0,0,1,0-16h28.69L182.06,73.37a79.56,79.56,0,0,0-56.13-23.43h-.45A79.52,79.52,0,0,0,69.59,72.71,8,8,0,0,1,58.41,61.27a96,96,0,0,1,135,.79L208,76.69V48a8,8,0,0,1,16,0ZM186.41,183.29a80,80,0,0,1-112.47-.66L59.31,168H88a8,8,0,0,0,0-16H40a8,8,0,0,0-8,8v48a8,8,0,0,0,16,0V179.31l14.63,14.63A95.43,95.43,0,0,0,130,222.06h.53a95.36,95.36,0,0,0,67.07-27.33,8,8,0,0,0-11.18-11.44Z"/></svg></span><div class="n">4</div><div class="l">Recent Litters</div></div>
+                  </div>
+                  <div class="au-h">Quick Actions</div>
+                  <div class="au-quick">
+                    <div class="qa"><span class="b"><svg viewBox="0 0 256 256" fill="currentColor"><path d="M112,164a12,12,0,1,1-12-12A12,12,0,0,1,112,164Zm44-12a12,12,0,1,0,12,12A12,12,0,0,0,156,152Zm60,36a52,52,0,0,1-88,37.52A52,52,0,1,1,56.72,149.8,71.58,71.58,0,0,1,63,129C44,91.1,32.53,40.76,45.64,19.08A22,22,0,0,1,65.06,8c14.12,0,26,11.89,36.44,36.36,6.22,14.62,10.85,31.32,14,44.74a71.8,71.8,0,0,1,25,0c3.13-13.42,7.76-30.12,14-44.74C164.9,19.89,176.82,8,190.94,8a22,22,0,0,1,19.42,11.08C223.47,40.76,212,91.1,193,129a71.58,71.58,0,0,1,6.26,20.76A51.77,51.77,0,0,1,216,188ZM155.89,93.63a71.72,71.72,0,0,1,26.88,19.64A218.45,218.45,0,0,0,197.6,67.08c3.49-18.13,3.15-33-.93-39.72A6,6,0,0,0,190.94,24c-6.61,0-14.52,9.7-21.72,26.62C163.29,64.56,158.87,80.74,155.89,93.63ZM73.23,113.27a71.72,71.72,0,0,1,26.88-19.64c-3-12.89-7.4-29.07-13.33-43C79.58,33.7,71.67,24,65.06,24a6,6,0,0,0-5.73,3.36C55.25,34.1,54.91,49,58.4,67.08A218.45,218.45,0,0,0,73.23,113.27ZM200,188a35.87,35.87,0,0,0-13.34-28,8,8,0,0,1-2.92-5.45,56,56,0,0,0-111.48,0A8,8,0,0,1,69.34,160a36,36,0,1,0,47.28,54.21l-9.74-8.09a8,8,0,1,1,10.24-12.3L128,202.9l10.88-9.05a8,8,0,0,1,10.24,12.3l-9.74,8.09A36,36,0,0,0,200,188Z"/></svg></span><span class="lbl">Add Animal</span></div>
+                    <div class="qa"><span class="b"><svg viewBox="0 0 256 256" fill="currentColor"><path d="M160,112h48a16,16,0,0,0,16-16V48a16,16,0,0,0-16-16H160a16,16,0,0,0-16,16V64H128a24,24,0,0,0-24,24v32H72v-8A16,16,0,0,0,56,96H24A16,16,0,0,0,8,112v32a16,16,0,0,0,16,16H56a16,16,0,0,0,16-16v-8h32v32a24,24,0,0,0,24,24h16v16a16,16,0,0,0,16,16h48a16,16,0,0,0,16-16V160a16,16,0,0,0-16-16H160a16,16,0,0,0-16,16v16H128a8,8,0,0,1-8-8V88a8,8,0,0,1,8-8h16V96A16,16,0,0,0,160,112ZM56,144H24V112H56v32Zm104,16h48v48H160Zm0-112h48V96H160Z"/></svg></span><span class="lbl">Add Pedigree</span></div>
+                    <div class="qa"><span class="b"><svg viewBox="0 0 256 256" fill="currentColor"><path d="M208,32H184V24a8,8,0,0,0-16,0v8H88V24a8,8,0,0,0-16,0v8H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V48A16,16,0,0,0,208,32ZM72,48v8a8,8,0,0,0,16,0V48h80v8a8,8,0,0,0,16,0V48h24V80H48V48ZM208,208H48V96H208V208Zm-68-76a12,12,0,1,1-12-12A12,12,0,0,1,140,132Zm44,0a12,12,0,1,1-12-12A12,12,0,0,1,184,132ZM96,172a12,12,0,1,1-12-12A12,12,0,0,1,96,172Zm44,0a12,12,0,1,1-12-12A12,12,0,0,1,140,172Zm44,0a12,12,0,1,1-12-12A12,12,0,0,1,184,172Z"/></svg></span><span class="lbl">Calendar</span></div>
+                    <div class="qa"><span class="b"><svg viewBox="0 0 256 256" fill="currentColor"><path d="M240,96a8,8,0,0,1-8,8H216v16a8,8,0,0,1-16,0V104H184a8,8,0,0,1,0-16h16V72a8,8,0,0,1,16,0V88h16A8,8,0,0,1,240,96ZM144,56h8v8a8,8,0,0,0,16,0V56h8a8,8,0,0,0,0-16h-8V32a8,8,0,0,0-16,0v8h-8a8,8,0,0,0,0,16Zm72.77,97a8,8,0,0,1,1.43,8A96,96,0,1,1,95.07,37.8a8,8,0,0,1,10.6,9.06A88.07,88.07,0,0,0,209.14,150.33,8,8,0,0,1,216.77,153Zm-19.39,14.88c-1.79.09-3.59.14-5.38.14A104.11,104.11,0,0,1,88,64c0-1.79,0-3.59.14-5.38A80,80,0,1,0,197.38,167.86Z"/></svg></span><span class="lbl">Moon Calendar</span></div>
+                  </div>
+                  <div class="au-h">Recent Activity<span class="more">View All</span></div>
+                  <div class="au-act">
+                    <span class="av"><svg viewBox="0 0 256 256" fill="currentColor"><path d="M212,80a28,28,0,1,0,28,28A28,28,0,0,0,212,80Zm0,40a12,12,0,1,1,12-12A12,12,0,0,1,212,120ZM72,108a28,28,0,1,0-28,28A28,28,0,0,0,72,108ZM44,120a12,12,0,1,1,12-12A12,12,0,0,1,44,120ZM92,88A28,28,0,1,0,64,60,28,28,0,0,0,92,88Zm0-40A12,12,0,1,1,80,60,12,12,0,0,1,92,48Zm72,40a28,28,0,1,0-28-28A28,28,0,0,0,164,88Zm0-40a12,12,0,1,1-12,12A12,12,0,0,1,164,48Zm23.12,100.86a35.3,35.3,0,0,1-16.87-21.14,44,44,0,0,0-84.5,0A35.25,35.25,0,0,1,69,148.82,40,40,0,0,0,88,224a39.48,39.48,0,0,0,15.52-3.13,64.09,64.09,0,0,1,48.87,0,40,40,0,0,0,34.73-72ZM168,208a24,24,0,0,1-9.45-1.93,80.14,80.14,0,0,0-61.19,0,24,24,0,0,1-20.71-43.26,51.22,51.22,0,0,0,24.46-30.67,28,28,0,0,1,53.78,0,51.27,51.27,0,0,0,24.53,30.71A24,24,0,0,1,168,208Z"/></svg></span>
+                    <span class="m"><b>Animal updated</b><span class="nm">Wendy's Burnt Cheese</span><span class="sub">Britannia Petite • Cherry</span></span>
+                    <span class="when">Yesterday <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg></span>
+                  </div>
+                </div></div>
+              </div>
+              <div class="au-tabs">
+                <span class="tab on"><svg viewBox="0 0 256 256" fill="currentColor"><path d="M219.31,108.68l-80-80a16,16,0,0,0-22.62,0l-80,80A15.87,15.87,0,0,0,32,120v96a8,8,0,0,0,8,8h64a8,8,0,0,0,8-8V160h32v56a8,8,0,0,0,8,8h64a8,8,0,0,0,8-8V120A15.87,15.87,0,0,0,219.31,108.68ZM208,208H160V152a8,8,0,0,0-8-8H104a8,8,0,0,0-8,8v56H48V120l80-80,80,80Z"/></svg><span>HOME</span></span>
+                <span class="tab"><svg viewBox="0 0 256 256" fill="currentColor"><path d="M212,80a28,28,0,1,0,28,28A28,28,0,0,0,212,80Zm0,40a12,12,0,1,1,12-12A12,12,0,0,1,212,120ZM72,108a28,28,0,1,0-28,28A28,28,0,0,0,72,108ZM44,120a12,12,0,1,1,12-12A12,12,0,0,1,44,120ZM92,88A28,28,0,1,0,64,60,28,28,0,0,0,92,88Zm0-40A12,12,0,1,1,80,60,12,12,0,0,1,92,48Zm72,40a28,28,0,1,0-28-28A28,28,0,0,0,164,88Zm0-40a12,12,0,1,1-12,12A12,12,0,0,1,164,48Zm23.12,100.86a35.3,35.3,0,0,1-16.87-21.14,44,44,0,0,0-84.5,0A35.25,35.25,0,0,1,69,148.82,40,40,0,0,0,88,224a39.48,39.48,0,0,0,15.52-3.13,64.09,64.09,0,0,1,48.87,0,40,40,0,0,0,34.73-72ZM168,208a24,24,0,0,1-9.45-1.93,80.14,80.14,0,0,0-61.19,0,24,24,0,0,1-20.71-43.26,51.22,51.22,0,0,0,24.46-30.67,28,28,0,0,1,53.78,0,51.27,51.27,0,0,0,24.53,30.71A24,24,0,0,1,168,208Z"/></svg><span>HERD</span></span>
+                <span class="tab"><svg viewBox="0 0 256 256" fill="currentColor"><path d="M178,40c-20.65,0-38.73,8.88-50,23.89C116.73,48.88,98.65,40,78,40a62.07,62.07,0,0,0-62,62c0,70,103.79,126.66,108.21,129a8,8,0,0,0,7.58,0C136.21,228.66,240,172,240,102A62.07,62.07,0,0,0,178,40ZM128,214.8C109.74,204.16,32,155.69,32,102A46.06,46.06,0,0,1,78,56c19.45,0,35.78,10.36,42.6,27a8,8,0,0,0,14.8,0c6.82-16.67,23.15-27,42.6-27a46.06,46.06,0,0,1,46,46C224,155.61,146.24,204.15,128,214.8Z"/></svg><span>BREEDING</span></span>
+                <span class="tab"><svg viewBox="0 0 256 256" fill="currentColor"><path d="M230.92,212c-15.23-26.33-38.7-45.21-66.09-54.16a72,72,0,1,0-73.66,0C63.78,166.78,40.31,185.66,25.08,212a8,8,0,1,0,13.85,8c18.84-32.56,52.14-52,89.07-52s70.23,19.44,89.07,52a8,8,0,1,0,13.85-8ZM72,96a56,56,0,1,1,56,56A56.06,56.06,0,0,1,72,96Z"/></svg><span>PROFILE</span></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT column: capability; dark navy bubble is first (top) -->
+        <div class="bub-col right">
+          <div class="bubble dark">
+            <span class="bi bi-navy" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 256 256" fill="currentColor"><path d="M216.88,207.93a12,12,0,1,1-17.76,16.14L147.78,167.6a56.06,56.06,0,0,0-52.71,7.1,12,12,0,0,1-14.14-19.4,79.35,79.35,0,0,1,41.92-15.12L103.51,118.9a104.18,104.18,0,0,0-40.06,19.55,12,12,0,0,1-14.9-18.81A128.46,128.46,0,0,1,85.61,99.21l-17.31-19a151.14,151.14,0,0,0-36.68,22.28A12,12,0,1,1,16.39,83.91a175.52,175.52,0,0,1,35-22.38L39.12,48.07A12,12,0,1,1,56.88,31.93ZM128,188a16,16,0,1,0,16,16A16,16,0,0,0,128,188Zm64.55-49.55a12,12,0,0,0,14.9-18.81A127.27,127.27,0,0,0,170,99.05a12,12,0,0,0-7.87,22.67A103.62,103.62,0,0,1,192.55,138.45Zm47.06-54.54A176.33,176.33,0,0,0,128,44c-3.94,0-7.93.13-11.86.39a12,12,0,1,0,1.59,24c3.4-.23,6.86-.34,10.27-.34a152.24,152.24,0,0,1,96.38,34.46,12,12,0,1,0,15.23-18.55Z"/></svg></span>
+            <span>Works offline</span>
+          </div>
+          <div class="bubble light">
+            <span class="bi bi-teal" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 256 256" fill="currentColor"><path d="M160,36A92.09,92.09,0,0,0,79,84.36,68,68,0,1,0,72,220h88a92,92,0,0,0,0-184Zm0,160H72a44,44,0,0,1-1.82-88A91.86,91.86,0,0,0,68,128a12,12,0,0,0,24,0,68,68,0,1,1,68,68Zm40.49-92.49a12,12,0,0,1,0,17l-48,48a12,12,0,0,1-17,0l-24-24a12,12,0,1,1,17-17L144,143l39.51-39.52A12,12,0,0,1,200.49,103.51Z"/></svg></span>
+            <span>Private iCloud sync</span>
+          </div>
+          <div class="bubble light">
+            <span class="bi bi-teal" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 256 256" fill="currentColor"><path d="M228,144v64a12,12,0,0,1-12,12H40a12,12,0,0,1-12-12V144a12,12,0,0,1,24,0v52H204V144a12,12,0,0,1,24,0Zm-108.49,8.49a12,12,0,0,0,17,0l40-40a12,12,0,0,0-17-17L140,115V32a12,12,0,0,0-24,0v83L96.49,95.51a12,12,0,0,0-17,17Z"/></svg></span>
+            <span>Import in minutes</span>
+          </div>
+          <div class="bubble light gold-bd">
+            <span class="bi bi-gold" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 256 256" fill="currentColor"><path d="M120,160a16,16,0,1,1-16-16A16,16,0,0,1,120,160Zm32-16a16,16,0,1,0,16,16A16,16,0,0,0,152,144Zm68,44a56,56,0,0,1-92,42.89,56,56,0,0,1-75-83,75.47,75.47,0,0,1,5.59-18.74,241.48,241.48,0,0,1-19.8-58.23C35.55,54.21,33.54,31.35,42.21,17A25.89,25.89,0,0,1,65.06,4c22.63,0,40.6,27.11,53.48,80.6a74.88,74.88,0,0,1,18.92,0C150.34,31.11,168.31,4,190.94,4a25.89,25.89,0,0,1,22.85,13c8.67,14.34,6.66,37.2,3.45,53.86a241.48,241.48,0,0,1-19.8,58.23A75.6,75.6,0,0,1,203,147.84,55.76,55.76,0,0,1,220,188ZM160.53,91.32a75.84,75.84,0,0,1,18.72,12.56c.78.71,1.53,1.43,2.28,2.17a211,211,0,0,0,12.14-39.73c3.9-20.23,2.34-32.33-.42-36.9C192.43,28.07,192,28,190.94,28,184.77,28,171.51,45.4,160.53,91.32ZM74.47,106.05c.74-.73,1.5-1.46,2.28-2.17A75.84,75.84,0,0,1,95.47,91.32C84.49,45.4,71.23,28,65.06,28c-1.08,0-1.49.07-2.31,1.42C56.54,39.7,60.73,72.84,74.47,106.05ZM196,188a31.9,31.9,0,0,0-11.86-24.87,12,12,0,0,1-4.38-8.17,52,52,0,0,0-103.52,0,12,12,0,0,1-4.38,8.17,32,32,0,0,0,38.47,51.08l-6-5a12,12,0,0,1,15.34-18.46L128,197.7l8.33-6.93a12,12,0,1,1,15.34,18.46l-6,5A32,32,0,0,0,196,188Z"/></svg></span>
+            <span>Rabbits + cavies</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 2 · YOUR BREEDING LIFE (triptych) ============ -->
+  <section class="life">
+    <div class="container">
+      <div class="life-head fade">
+        <h2>Your rabbits. Your barn. <b>In your pocket.</b></h2>
+        <p class="intro">HerdMaster was built by a 45-year breeder for the real rhythm of a rabbitry: out at the hutches, at the nest box, at the show table. It works the way you do, in your hand and fully offline, so recordkeeping happens where the animals are, not back at the computer.</p>
+      </div>
+      <div class="life-grid fade">
+        <div class="life-card-wrap">
+          <div class="life-card">
+            <img src="assets/rabbit-herd-mixed-breeds.webp" loading="lazy" decoding="async" alt="A mixed group of rabbit breeds together on grass in a rabbitry exercise pen, one rabbit looking at the camera">
+            <span class="life-chip" aria-hidden="true"><svg viewBox="0 0 256 256" fill="currentColor"><path d="M112,164a12,12,0,1,1-12-12A12,12,0,0,1,112,164Zm44-12a12,12,0,1,0,12,12A12,12,0,0,0,156,152Zm60,36a52,52,0,0,1-88,37.52A52,52,0,1,1,56.72,149.8,71.58,71.58,0,0,1,63,129C44,91.1,32.53,40.76,45.64,19.08A22,22,0,0,1,65.06,8c14.12,0,26,11.89,36.44,36.36,6.22,14.62,10.85,31.32,14,44.74a71.8,71.8,0,0,1,25,0c3.13-13.42,7.76-30.12,14-44.74C164.9,19.89,176.82,8,190.94,8a22,22,0,0,1,19.42,11.08C223.47,40.76,212,91.1,193,129a71.58,71.58,0,0,1,6.26,20.76A51.77,51.77,0,0,1,216,188ZM155.89,93.63a71.72,71.72,0,0,1,26.88,19.64A218.45,218.45,0,0,0,197.6,67.08c3.49-18.13,3.15-33-.93-39.72A6,6,0,0,0,190.94,24c-6.61,0-14.52,9.7-21.72,26.62C163.29,64.56,158.87,80.74,155.89,93.63ZM73.23,113.27a71.72,71.72,0,0,1,26.88-19.64c-3-12.89-7.4-29.07-13.33-43C79.58,33.7,71.67,24,65.06,24a6,6,0,0,0-5.73,3.36C55.25,34.1,54.91,49,58.4,67.08A218.45,218.45,0,0,0,73.23,113.27ZM200,188a35.87,35.87,0,0,0-13.34-28,8,8,0,0,1-2.92-5.45,56,56,0,0,0-111.48,0A8,8,0,0,1,69.34,160a36,36,0,1,0,47.28,54.21l-9.74-8.09a8,8,0,1,1,10.24-12.3L128,202.9l10.88-9.05a8,8,0,0,1,10.24,12.3l-9.74,8.09A36,36,0,0,0,200,188Z"/></svg></span>
+            <div class="life-band"><span class="life-title">The rabbits.</span></div>
+          </div>
+          <p class="life-caption">Every doe, buck, and kit, with photos, pedigrees, varieties, and show wins.</p>
+        </div>
+        <div class="life-card-wrap">
+          <div class="life-card">
+            <img src="assets/rabbit-breeding-barn-hutches.webp" loading="lazy" decoding="async" alt="Inside a rabbit breeding barn with rows of wire cages and stacked nest boxes">
+            <span class="life-chip" aria-hidden="true"><svg viewBox="0 0 256 256" fill="currentColor"><path d="M240,192h-8V130.57l1.49,2.08a8,8,0,1,0,13-9.3l-40-56a8,8,0,0,0-2-1.94L137,18.77l-.1-.07a16,16,0,0,0-17.76,0l-.1.07L51.45,65.42a8,8,0,0,0-2,1.94l-40,56a8,8,0,1,0,13,9.3L24,130.57V192H16a8,8,0,0,0,0,16H240a8,8,0,0,0,0-16ZM112,80h32a8,8,0,1,1,0,16H112a8,8,0,1,1,0-16Zm52.64,40L128,146.17,91.36,120ZM72,125.83,114.24,156,72,186.17ZM91.36,192,128,165.83,164.64,192ZM184,186.17,141.76,156,184,125.83Z"/></svg></span>
+            <div class="life-band"><span class="life-title">The barn.</span></div>
+          </div>
+          <p class="life-caption">Log breedings, nest-box dates, palpation windows, and kindle dates right where you stand.</p>
+        </div>
+        <div class="life-card-wrap">
+          <div class="life-card">
+            <img src="assets/breeder-logging-breeding-record.webp" loading="lazy" decoding="async" alt="A breeder holding a phone and logging a breeding in the HerdMaster app at the cages">
+            <span class="life-chip" aria-hidden="true"><svg viewBox="0 0 256 256" fill="currentColor"><path d="M176,16H80A24,24,0,0,0,56,40V216a24,24,0,0,0,24,24h96a24,24,0,0,0,24-24V40A24,24,0,0,0,176,16ZM80,32h96a8,8,0,0,1,8,8v8H72V40A8,8,0,0,1,80,32Zm96,192H80a8,8,0,0,1-8-8v-8H184v8A8,8,0,0,1,176,224Z"/></svg></span>
+            <div class="life-band"><span class="life-title">In your hand.</span></div>
+          </div>
+          <p class="life-caption">Fully offline, then synced privately to your own iCloud the moment you're back online.</p>
+        </div>
+      </div>
+      <p class="life-close fade">From the nest box to the show table, HerdMaster keeps up.</p>
+    </div>
+  </section>
+
+  <!-- ============ 4 · FEATURE GRID ============ -->
+  <section id="features" class="mint-scene">
+    <div class="container">
+      <div class="center section-head fade">
+        <span class="eyebrow">All your records</span>
+        <h2>Everything a serious breeder tracks, <b>in one place.</b></h2>
+        <p class="muted measure">Eight tools that fit how a rabbitry actually runs. Tap any to see more.</p>
+      </div>
+      <div class="grid-features fade">
+        <a class="fcard" href="features/index.html#pedigrees">
+          <span class="ic"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M160,112h48a16,16,0,0,0,16-16V48a16,16,0,0,0-16-16H160a16,16,0,0,0-16,16V64H128a24,24,0,0,0-24,24v32H72v-8A16,16,0,0,0,56,96H24A16,16,0,0,0,8,112v32a16,16,0,0,0,16,16H56a16,16,0,0,0,16-16v-8h32v32a24,24,0,0,0,24,24h16v16a16,16,0,0,0,16,16h48a16,16,0,0,0,16-16V160a16,16,0,0,0-16-16H160a16,16,0,0,0-16,16v16H128a8,8,0,0,1-8-8V88a8,8,0,0,1,8-8h16V96A16,16,0,0,0,160,112ZM56,144H24V112H56v32Zm104,16h48v48H160Zm0-112h48V96H160Z"/></svg></span>
+          <h3>Pedigrees</h3>
+          <p>4-generation trees, completeness indicators, one-tap PDF export.</p>
+        </a>
+        <a class="fcard" href="features/index.html#breeding">
+          <span class="ic"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M240,102c0,70-103.79,126.66-108.21,129a8,8,0,0,1-7.58,0C119.79,228.66,16,172,16,102A62.07,62.07,0,0,1,78,40c20.65,0,38.73,8.88,50,23.89C139.27,48.88,157.35,40,178,40A62.07,62.07,0,0,1,240,102Z"/></svg></span>
+          <h3>Breeding</h3>
+          <p>Pairings, palpation and nest-box timing, and expected kindle dates, organized by doe.</p>
+        </a>
+        <a class="fcard" href="features/index.html#litters">
+          <span class="ic"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M240,108a28,28,0,1,1-28-28A28,28,0,0,1,240,108ZM72,108a28,28,0,1,0-28,28A28,28,0,0,0,72,108ZM92,88A28,28,0,1,0,64,60,28,28,0,0,0,92,88Zm72,0a28,28,0,1,0-28-28A28,28,0,0,0,164,88Zm23.12,60.86a35.3,35.3,0,0,1-16.87-21.14,44,44,0,0,0-84.5,0A35.25,35.25,0,0,1,69,148.82,40,40,0,0,0,88,224a39.48,39.48,0,0,0,15.52-3.13,64.09,64.09,0,0,1,48.87,0,40,40,0,0,0,34.73-72Z"/></svg></span>
+          <h3>Litters &amp; Kits</h3>
+          <p>Litters, kit counts, weaning, weights, and tattoo promotion.</p>
+        </a>
+        <a class="fcard" href="features/index.html#herd">
+          <span class="ic"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M120,56v48a16,16,0,0,1-16,16H56a16,16,0,0,1-16-16V56A16,16,0,0,1,56,40h48A16,16,0,0,1,120,56Zm80-16H152a16,16,0,0,0-16,16v48a16,16,0,0,0,16,16h48a16,16,0,0,0,16-16V56A16,16,0,0,0,200,40Zm-96,96H56a16,16,0,0,0-16,16v48a16,16,0,0,0,16,16h48a16,16,0,0,0,16-16V152A16,16,0,0,0,104,136Zm96,0H152a16,16,0,0,0-16,16v48a16,16,0,0,0,16,16h48a16,16,0,0,0,16-16V152A16,16,0,0,0,200,136Z"/></svg></span>
+          <h3>Herd</h3>
+          <p>Every animal, breed and variety validated, with photos, statuses, and fast search.</p>
+        </a>
+        <a class="fcard" href="features/index.html#shows">
+          <span class="ic"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M216,96A88,88,0,1,0,72,163.83V240a8,8,0,0,0,11.58,7.16L128,225l44.43,22.21A8.07,8.07,0,0,0,176,248a8,8,0,0,0,8-8V163.83A87.85,87.85,0,0,0,216,96ZM56,96a72,72,0,1,1,72,72A72.08,72.08,0,0,1,56,96Zm16,0a56,56,0,1,1,56,56A56.06,56.06,0,0,1,72,96Z"/></svg></span>
+          <h3>Shows</h3>
+          <p>Wins, awards, and Grand Champion leg tracking.</p>
+        </a>
+        <a class="fcard" href="features/index.html#imports">
+          <span class="ic"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M224,40V80a8,8,0,0,1-16,0V48H176a8,8,0,0,1,0-16h40A8,8,0,0,1,224,40ZM80,208H48V176a8,8,0,0,0-16,0v40a8,8,0,0,0,8,8H80a8,8,0,0,0,0-16Zm136-40a8,8,0,0,0-8,8v32H176a8,8,0,0,0,0,16h40a8,8,0,0,0,8-8V176A8,8,0,0,0,216,168ZM40,88a8,8,0,0,0,8-8V48H80a8,8,0,0,0,0-16H40a8,8,0,0,0-8,8V80A8,8,0,0,0,40,88Zm32-8v96a8,8,0,0,0,8,8h96a8,8,0,0,0,8-8V80a8,8,0,0,0-8-8H80A8,8,0,0,0,72,80Z"/></svg></span>
+          <h3>Pedigree Import</h3>
+          <p>Import a full Evans pedigree, or scan a paper pedigree with OCR.</p>
+        </a>
+        <a class="fcard" href="features/index.html#health">
+          <span class="ic"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M240,102c0,70-103.79,126.66-108.21,129a8,8,0,0,1-7.58,0c-3.35-1.8-63.55-34.69-92.68-80.89A4,4,0,0,1,34.92,144H72a8,8,0,0,0,6.66-3.56l9.34-14,25.34,38a8,8,0,0,0,9.16,3.16,8.23,8.23,0,0,0,4.28-3.34L140.28,144H160a8,8,0,0,0,8-8.53,8.18,8.18,0,0,0-8.25-7.47H136a8,8,0,0,0-6.66,3.56l-9.34,14-25.34-38a8,8,0,0,0-9.17-3.16,8.25,8.25,0,0,0-4.27,3.34L67.72,128H23.53a4,4,0,0,1-3.83-2.81A76.93,76.93,0,0,1,16,102,62.07,62.07,0,0,1,78,40c20.65,0,38.73,8.88,50,23.89C139.27,48.88,157.35,40,178,40A62.07,62.07,0,0,1,240,102Z"/></svg></span>
+          <h3>Health</h3>
+          <p>Recurring health tasks, treatments, and weight history.</p>
+        </a>
+        <a class="fcard" href="features/index.html#offline">
+          <span class="ic"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M247.93,124.52C246.11,77.54,207.07,40,160.06,40A88.1,88.1,0,0,0,81.29,88.67h0A87.48,87.48,0,0,0,72,127.73,8.18,8.18,0,0,1,64.57,136,8,8,0,0,1,56,128a103.66,103.66,0,0,1,5.34-32.92,4,4,0,0,0-4.75-5.18A64.09,64.09,0,0,0,8,152c0,35.19,29.75,64,65,64H160A88.09,88.09,0,0,0,247.93,124.52Zm-50.27-6.86-48,48a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L144,148.69l42.34-42.35a8,8,0,0,1,11.32,11.32Z"/></svg></span>
+          <h3>Offline + iCloud Sync</h3>
+          <p>Works fully offline; syncs privately through your own iCloud.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 5 · HOW IT WORKS ============ -->
+  <section class="how">
+    <div class="container">
+      <div class="center section-head fade">
+        <span class="eyebrow">How it works</span>
+        <h2>Here's what happens <b>once you dive in.</b></h2>
+        <p class="muted measure">No long setup. You'll be tracking real records the same afternoon.</p>
+      </div>
+      <div class="steps fade">
+        <div class="step-card">
+          <div class="step-bar">
+            <span class="num">01</span>
+            <span class="sic"><svg width="20" height="20" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M228,144v64a12,12,0,0,1-12,12H40a12,12,0,0,1-12-12V144a12,12,0,0,1,24,0v52H204V144a12,12,0,0,1,24,0Zm-108.49,8.49a12,12,0,0,0,17,0l40-40a12,12,0,0,0-17-17L140,115V32a12,12,0,0,0-24,0v83L96.49,95.51a12,12,0,0,0-17,17Z"/></svg></span>
+          </div>
+          <!-- recreated in HTML/CSS: the Evans Import app screen (status bar, header, Beta/Other warning, two options). The warning is hidden here in step 1 and shown in the 5b import section. -->
+          <div class="step-figure has-screen">
+            <div class="au fill">
+              <div class="au-status">
+                <span class="t">9:13</span>
+                <span class="sys">
+                  <svg viewBox="0 0 256 256" fill="currentColor"><rect x="12" y="148" width="40" height="80" rx="10"/><rect x="80" y="108" width="40" height="120" rx="10"/><rect x="148" y="64" width="40" height="164" rx="10"/><rect x="216" y="20" width="40" height="208" rx="10"/></svg>
+                  <svg viewBox="0 0 256 256" fill="currentColor"><path d="M140,204a12,12,0,1,1-12-12A12,12,0,0,1,140,204ZM237.08,87A172,172,0,0,0,18.92,87,8,8,0,0,0,29.08,99.37a156,156,0,0,1,197.84,0A8,8,0,0,0,237.08,87ZM205,122.77a124,124,0,0,0-153.94,0A8,8,0,0,0,61,135.31a108,108,0,0,1,134.06,0,8,8,0,0,0,11.24-1.3A8,8,0,0,0,205,122.77Zm-32.26,35.76a76.05,76.05,0,0,0-89.42,0,8,8,0,0,0,9.42,12.94,60,60,0,0,1,70.58,0,8,8,0,1,0,9.42-12.94Z"/></svg>
+                  <svg viewBox="0 0 256 256" fill="currentColor"><path d="M200,56H32A24,24,0,0,0,8,80v96a24,24,0,0,0,24,24H200a24,24,0,0,0,24-24V80A24,24,0,0,0,200,56Zm8,120a8,8,0,0,1-8,8H32a8,8,0,0,1-8-8V80a8,8,0,0,1,8-8H200a8,8,0,0,1,8,8ZM104,96v64a8,8,0,0,1-16,0V96a8,8,0,0,1,16,0ZM64,96v64a8,8,0,0,1-16,0V96a8,8,0,0,1,16,0Zm192,0v64a8,8,0,0,1-16,0V96a8,8,0,0,1,16,0Z"/></svg>
+                </span>
+              </div>
+              <div class="au-nav">
+                <span class="back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m15 6-6 6 6 6"/></svg></span>
+                <span class="title">Evans Import</span>
+              </div>
+              <div class="au-optwrap">
+                <div class="au-warn">
+                  <span class="wi"><svg viewBox="0 0 256 256" fill="currentColor"><path d="M236.8,188.09,149.35,36.22h0a24.76,24.76,0,0,0-42.7,0L19.2,188.09a23.51,23.51,0,0,0,0,23.72A24.35,24.35,0,0,0,40.55,224h174.9a24.35,24.35,0,0,0,21.33-12.19A23.51,23.51,0,0,0,236.8,188.09ZM120,104a8,8,0,0,1,16,0v40a8,8,0,0,1-16,0Zm8,88a12,12,0,1,1,12-12A12,12,0,0,1,128,192Z"/></svg></span>
+                  <span class="tx"><strong class="wt">Choose Beta/Other</strong><span class="wd">Do not choose Show Tails or All ACTIVE animals. Show Tails only exports full pedigrees for active animals. To include archived animals, choose Beta/Other, All animals, both Active and Archived, All Breeds, and All Other Items.</span></span>
+                </div>
+                <div class="au-opt">
+                  <span class="ic"><svg viewBox="0 0 256 256" fill="currentColor"><path d="M213.66,82.34l-56-56A8,8,0,0,0,152,24H56A16,16,0,0,0,40,40V216a16,16,0,0,0,16,16H200a16,16,0,0,0,16-16V88A8,8,0,0,0,213.66,82.34ZM160,51.31,188.69,80H160ZM200,216H56V40h88V88a8,8,0,0,0,8,8h48V216Zm-32-80a8,8,0,0,1-8,8H96a8,8,0,0,1,0-16h64A8,8,0,0,1,168,136Zm0,32a8,8,0,0,1-8,8H96a8,8,0,0,1,0-16h64A8,8,0,0,1,168,168Z"/></svg></span>
+                  <span class="tx"><strong>Import Selected Files</strong><span class="d">Pick a specific XML, XPEDX, HTM, or HTML Evans file.</span></span>
+                  <span class="cv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg></span>
+                </div>
+                <div class="au-opt">
+                  <span class="ic"><svg viewBox="0 0 256 256" fill="currentColor"><path d="M245,110.64A16,16,0,0,0,232,104H216V88a16,16,0,0,0-16-16H130.67L102.94,51.2a16.14,16.14,0,0,0-9.6-3.2H40A16,16,0,0,0,24,64V208h0a8,8,0,0,0,8,8H211.1a8,8,0,0,0,7.59-5.47l28.49-85.47A16.05,16.05,0,0,0,245,110.64ZM93.34,64,123.2,86.4A8,8,0,0,0,128,88h72v16H69.77a16,16,0,0,0-15.18,10.94L40,158.7V64Zm112,136H43.1l26.67-80H232Z"/></svg></span>
+                  <span class="tx"><strong>Import Export Folder</strong><span class="d">Recommended for full Evans XML exports. Choose the newest numbered export folder.</span></span>
+                  <span class="cv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg></span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="step-body">
+            <h3>Add or import your herd.</h3>
+            <p>Start fresh or bring everything over. Import a full Evans pedigree in one pass, or snap a paper pedigree and let OCR read it in.</p>
+          </div>
+        </div>
+        <div class="step-card">
+          <div class="step-bar">
+            <span class="num">02</span>
+            <span class="sic"><svg width="20" height="20" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M208,28H188V24a12,12,0,0,0-24,0v4H92V24a12,12,0,0,0-24,0v4H48A20,20,0,0,0,28,48V208a20,20,0,0,0,20,20H208a20,20,0,0,0,20-20V48A20,20,0,0,0,208,28ZM68,52a12,12,0,0,0,24,0h72a12,12,0,0,0,24,0h16V76H52V52ZM52,204V100H204V204Zm120.49-84.49a12,12,0,0,1,0,17l-48,48a12,12,0,0,1-17,0l-24-24a12,12,0,0,1,17-17L116,159l39.51-39.52A12,12,0,0,1,172.49,119.51Z"/></svg></span>
+          </div>
+          <div class="step-figure has-screen">
+            <div class="au" role="img" aria-label="HerdMaster active breedings">
+              <div class="au-status">
+                <span class="t">9:42</span>
+                <span class="sys">
+                  <svg viewBox="0 0 256 256" fill="currentColor"><rect x="12" y="148" width="40" height="80" rx="10"/><rect x="80" y="108" width="40" height="120" rx="10"/><rect x="148" y="64" width="40" height="164" rx="10"/><rect x="216" y="20" width="40" height="208" rx="10"/></svg>
+                  <svg viewBox="0 0 256 256" fill="currentColor"><path d="M140,204a12,12,0,1,1-12-12A12,12,0,0,1,140,204ZM237.08,87A172,172,0,0,0,18.92,87,8,8,0,0,0,29.08,99.37a156,156,0,0,1,197.84,0A8,8,0,0,0,237.08,87ZM205,122.77a124,124,0,0,0-153.94,0A8,8,0,0,0,61,135.31a108,108,0,0,1,134.06,0,8,8,0,0,0,11.24-1.3A8,8,0,0,0,205,122.77Zm-32.26,35.76a76.05,76.05,0,0,0-89.42,0,8,8,0,0,0,9.42,12.94,60,60,0,0,1,70.58,0,8,8,0,1,0,9.42-12.94Z"/></svg>
+                  <svg viewBox="0 0 256 256" fill="currentColor"><path d="M200,56H32A24,24,0,0,0,8,80v96a24,24,0,0,0,24,24H200a24,24,0,0,0,24-24V80A24,24,0,0,0,200,56Zm8,120a8,8,0,0,1-8,8H32a8,8,0,0,1-8-8V80a8,8,0,0,1,8-8H200a8,8,0,0,1,8,8ZM104,96v64a8,8,0,0,1-16,0V96a8,8,0,0,1,16,0ZM64,96v64a8,8,0,0,1-16,0V96a8,8,0,0,1,16,0Zm192,0v64a8,8,0,0,1-16,0V96a8,8,0,0,1,16,0Z"/></svg>
+                </span>
+              </div>
+              <div class="au-view">
+                <div class="au-scroll"><div class="au-pad">
+                  <div class="au-listhead"><span class="lt">Active Breedings</span><span class="ct">13</span><span class="cv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span></div>
+                  <div class="au-sub">Mini Rex</div>
+                  <div class="au-bcard">
+                    <div class="top"><span class="nmx">Clint x LVR NIB…</span><span class="au-pill">EXPECTING</span><span class="cv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg></span></div>
+                    <div class="par">CLINT x NIBBLES</div>
+                    <div class="par2">Mini Rex x Mini Rex</div>
+                    <div class="au-dates"><div><div class="k">Bred</div><div class="v">May 23, 2026</div></div><div><div class="k">Palpate</div><div class="v">Jun 6, 2026</div></div><div><div class="k">Nest</div><div class="v">Jun 20, 2026</div></div><div class="due"><div class="k">Due</div><div class="v">Jun 23, 2026</div></div></div>
+                  </div>
+                  <div class="au-bcard">
+                    <div class="top"><span class="nmx">Clint x Jalapeño</span><span class="au-pill">EXPECTING</span><span class="cv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg></span></div>
+                    <div class="par">CLINT x Zhuhai</div>
+                    <div class="par2">Mini Rex x Mini Rex</div>
+                    <div class="au-dates"><div><div class="k">Bred</div><div class="v">May 28, 2026</div></div><div><div class="k">Palpate</div><div class="v">Jun 11, 2026</div></div><div><div class="k">Nest</div><div class="v">Jun 25, 2026</div></div><div class="due"><div class="k">Due</div><div class="v">Jun 28, 2026</div></div></div>
+                  </div>
+                </div></div>
+                <span class="au-fab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+              </div>
+              <div class="au-tabs">
+                <span class="tab"><svg viewBox="0 0 256 256" fill="currentColor"><path d="M219.31,108.68l-80-80a16,16,0,0,0-22.62,0l-80,80A15.87,15.87,0,0,0,32,120v96a8,8,0,0,0,8,8h64a8,8,0,0,0,8-8V160h32v56a8,8,0,0,0,8,8h64a8,8,0,0,0,8-8V120A15.87,15.87,0,0,0,219.31,108.68ZM208,208H160V152a8,8,0,0,0-8-8H104a8,8,0,0,0-8,8v56H48V120l80-80,80,80Z"/></svg><span>HOME</span></span>
+                <span class="tab"><svg viewBox="0 0 256 256" fill="currentColor"><path d="M212,80a28,28,0,1,0,28,28A28,28,0,0,0,212,80Zm0,40a12,12,0,1,1,12-12A12,12,0,0,1,212,120ZM72,108a28,28,0,1,0-28,28A28,28,0,0,0,72,108ZM44,120a12,12,0,1,1,12-12A12,12,0,0,1,44,120ZM92,88A28,28,0,1,0,64,60,28,28,0,0,0,92,88Zm0-40A12,12,0,1,1,80,60,12,12,0,0,1,92,48Zm72,40a28,28,0,1,0-28-28A28,28,0,0,0,164,88Zm0-40a12,12,0,1,1-12,12A12,12,0,0,1,164,48Zm23.12,100.86a35.3,35.3,0,0,1-16.87-21.14,44,44,0,0,0-84.5,0A35.25,35.25,0,0,1,69,148.82,40,40,0,0,0,88,224a39.48,39.48,0,0,0,15.52-3.13,64.09,64.09,0,0,1,48.87,0,40,40,0,0,0,34.73-72ZM168,208a24,24,0,0,1-9.45-1.93,80.14,80.14,0,0,0-61.19,0,24,24,0,0,1-20.71-43.26,51.22,51.22,0,0,0,24.46-30.67,28,28,0,0,1,53.78,0,51.27,51.27,0,0,0,24.53,30.71A24,24,0,0,1,168,208Z"/></svg><span>HERD</span></span>
+                <span class="tab on"><svg viewBox="0 0 256 256" fill="currentColor"><path d="M178,40c-20.65,0-38.73,8.88-50,23.89C116.73,48.88,98.65,40,78,40a62.07,62.07,0,0,0-62,62c0,70,103.79,126.66,108.21,129a8,8,0,0,0,7.58,0C136.21,228.66,240,172,240,102A62.07,62.07,0,0,0,178,40ZM128,214.8C109.74,204.16,32,155.69,32,102A46.06,46.06,0,0,1,78,56c19.45,0,35.78,10.36,42.6,27a8,8,0,0,0,14.8,0c6.82-16.67,23.15-27,42.6-27a46.06,46.06,0,0,1,46,46C224,155.61,146.24,204.15,128,214.8Z"/></svg><span>BREEDING</span></span>
+                <span class="tab"><svg viewBox="0 0 256 256" fill="currentColor"><path d="M230.92,212c-15.23-26.33-38.7-45.21-66.09-54.16a72,72,0,1,0-73.66,0C63.78,166.78,40.31,185.66,25.08,212a8,8,0,1,0,13.85,8c18.84-32.56,52.14-52,89.07-52s70.23,19.44,89.07,52a8,8,0,1,0,13.85-8ZM72,96a56,56,0,1,1,56,56A56.06,56.06,0,0,1,72,96Z"/></svg><span>PROFILE</span></span>
+              </div>
+            </div>
+          </div>
+          <div class="step-body">
+            <h3>Track right from the barn.</h3>
+            <p>Log breedings, litters, and shows on the spot. Everything works fully offline, so no signal is no problem.</p>
+          </div>
+        </div>
+        <div class="step-card">
+          <div class="step-bar">
+            <span class="num">03</span>
+            <span class="sic"><svg width="20" height="20" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M160,36A92.09,92.09,0,0,0,79,84.36,68,68,0,1,0,72,220h88a92,92,0,0,0,0-184Zm0,160H72a44,44,0,0,1-1.82-88A91.86,91.86,0,0,0,68,128a12,12,0,0,0,24,0,68,68,0,1,1,68,68Zm40.49-92.49a12,12,0,0,1,0,17l-48,48a12,12,0,0,1-17,0l-24-24a12,12,0,1,1,17-17L144,143l39.51-39.52A12,12,0,0,1,200.49,103.51Z"/></svg></span>
+          </div>
+          <!-- No sync/settings screenshot exists in the supplied content; designed iCloud visual keeps equal height -->
+          <div class="step-figure">
+            <div class="sync-visual">
+              <span class="cloud"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M247.93,124.52C246.11,77.54,207.07,40,160.06,40A88.1,88.1,0,0,0,81.29,88.67h0A87.48,87.48,0,0,0,72,127.73,8.18,8.18,0,0,1,64.57,136,8,8,0,0,1,56,128a103.66,103.66,0,0,1,5.34-32.92,4,4,0,0,0-4.75-5.18A64.09,64.09,0,0,0,8,152c0,35.19,29.75,64,65,64H160A88.09,88.09,0,0,0,247.93,124.52Zm-50.27-6.86-48,48a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L144,148.69l42.34-42.35a8,8,0,0,1,11.32,11.32Z"/></svg></span>
+              <div class="st">Synced to your iCloud</div>
+              <div class="ss">Updated just now</div>
+              <div class="sync-rows">
+                <div><span>Herd &amp; pedigrees</span><span class="ok">Up to date</span></div>
+                <div><span>Breedings &amp; litters</span><span class="ok">Up to date</span></div>
+                <div><span>Show records</span><span class="ok">Up to date</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="step-body">
+            <h3>Sync privately via iCloud.</h3>
+            <p>Back online, your records sync through your own private iCloud. No third-party servers, nothing for us to see.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 5b · IMPORT FROM EXISTING RECORDS ============ -->
+  <section class="mint-scene">
+    <div class="container split fade">
+      <div class="device">
+        <div class="au" role="img" aria-label="HerdMaster Evans import screen">
+          <div class="au-status">
+            <span class="t">9:13</span>
+            <span class="sys">
+              <svg viewBox="0 0 256 256" fill="currentColor"><rect x="12" y="148" width="40" height="80" rx="10"/><rect x="80" y="108" width="40" height="120" rx="10"/><rect x="148" y="64" width="40" height="164" rx="10"/><rect x="216" y="20" width="40" height="208" rx="10"/></svg>
+              <svg viewBox="0 0 256 256" fill="currentColor"><path d="M140,204a12,12,0,1,1-12-12A12,12,0,0,1,140,204ZM237.08,87A172,172,0,0,0,18.92,87,8,8,0,0,0,29.08,99.37a156,156,0,0,1,197.84,0A8,8,0,0,0,237.08,87ZM205,122.77a124,124,0,0,0-153.94,0A8,8,0,0,0,61,135.31a108,108,0,0,1,134.06,0,8,8,0,0,0,11.24-1.3A8,8,0,0,0,205,122.77Zm-32.26,35.76a76.05,76.05,0,0,0-89.42,0,8,8,0,0,0,9.42,12.94,60,60,0,0,1,70.58,0,8,8,0,1,0,9.42-12.94Z"/></svg>
+              <svg viewBox="0 0 256 256" fill="currentColor"><path d="M200,56H32A24,24,0,0,0,8,80v96a24,24,0,0,0,24,24H200a24,24,0,0,0,24-24V80A24,24,0,0,0,200,56Zm8,120a8,8,0,0,1-8,8H32a8,8,0,0,1-8-8V80a8,8,0,0,1,8-8H200a8,8,0,0,1,8,8ZM104,96v64a8,8,0,0,1-16,0V96a8,8,0,0,1,16,0ZM64,96v64a8,8,0,0,1-16,0V96a8,8,0,0,1,16,0Zm192,0v64a8,8,0,0,1-16,0V96a8,8,0,0,1,16,0Z"/></svg>
+            </span>
+          </div>
+          <div class="au-nav">
+            <span class="back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m15 6-6 6 6 6"/></svg></span>
+            <span class="title">Evans Import</span>
+          </div>
+          <div class="au-optwrap">
+            <div class="au-warn">
+              <span class="wi"><svg viewBox="0 0 256 256" fill="currentColor"><path d="M236.8,188.09,149.35,36.22h0a24.76,24.76,0,0,0-42.7,0L19.2,188.09a23.51,23.51,0,0,0,0,23.72A24.35,24.35,0,0,0,40.55,224h174.9a24.35,24.35,0,0,0,21.33-12.19A23.51,23.51,0,0,0,236.8,188.09ZM120,104a8,8,0,0,1,16,0v40a8,8,0,0,1-16,0Zm8,88a12,12,0,1,1,12-12A12,12,0,0,1,128,192Z"/></svg></span>
+              <span class="tx"><strong class="wt">Choose Beta/Other</strong><span class="wd">Do not choose Show Tails or All ACTIVE animals. Show Tails only exports full pedigrees for active animals. To include archived animals, choose Beta/Other, All animals, both Active and Archived, All Breeds, and All Other Items.</span></span>
+            </div>
+            <div class="au-opt">
+              <span class="ic"><svg viewBox="0 0 256 256" fill="currentColor"><path d="M213.66,82.34l-56-56A8,8,0,0,0,152,24H56A16,16,0,0,0,40,40V216a16,16,0,0,0,16,16H200a16,16,0,0,0,16-16V88A8,8,0,0,0,213.66,82.34ZM160,51.31,188.69,80H160ZM200,216H56V40h88V88a8,8,0,0,0,8,8h48V216Zm-32-80a8,8,0,0,1-8,8H96a8,8,0,0,1,0-16h64A8,8,0,0,1,168,136Zm0,32a8,8,0,0,1-8,8H96a8,8,0,0,1,0-16h64A8,8,0,0,1,168,168Z"/></svg></span>
+              <span class="tx"><strong>Import Selected Files</strong><span class="d">Pick a specific XML, XPEDX, HTM, or HTML Evans file.</span></span>
+              <span class="cv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg></span>
+            </div>
+            <div class="au-opt">
+              <span class="ic"><svg viewBox="0 0 256 256" fill="currentColor"><path d="M245,110.64A16,16,0,0,0,232,104H216V88a16,16,0,0,0-16-16H130.67L102.94,51.2a16.14,16.14,0,0,0-9.6-3.2H40A16,16,0,0,0,24,64V208h0a8,8,0,0,0,8,8H211.1a8,8,0,0,0,7.59-5.47l28.49-85.47A16.05,16.05,0,0,0,245,110.64ZM93.34,64,123.2,86.4A8,8,0,0,0,128,88h72v16H69.77a16,16,0,0,0-15.18,10.94L40,158.7V64Zm112,136H43.1l26.67-80H232Z"/></svg></span>
+              <span class="tx"><strong>Import Export Folder</strong><span class="d">Recommended for full Evans XML exports. Choose the newest numbered export folder.</span></span>
+              <span class="cv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h2>Bring your whole herd over in minutes, <b>not weeks of retyping.</b></h2>
+        <p class="muted">However your records live today, there's a fast path in.</p>
+        <div class="path">
+          <span class="ic"><svg width="22" height="22" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M213.66,82.34l-56-56A8,8,0,0,0,152,24H56A16,16,0,0,0,40,40V216a16,16,0,0,0,16,16H200a16,16,0,0,0,16-16V88A8,8,0,0,0,213.66,82.34Zm-56,83.32-24,24a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L120,164.69V120a8,8,0,0,1,16,0v44.69l10.34-10.35a8,8,0,0,1,11.32,11.32ZM152,88V44l44,44Z"/></svg></span>
+          <div>
+            <h3>Evans XML import</h3>
+            <p>Animals, winnings, and litters all come across in one pass. Most tools only import the subject rabbit and leave you to type in the ancestors. HerdMaster brings the full pedigree.</p>
+          </div>
+        </div>
+        <div class="path">
+          <span class="ic"><svg width="22" height="22" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M224,40V80a8,8,0,0,1-16,0V48H176a8,8,0,0,1,0-16h40A8,8,0,0,1,224,40ZM80,208H48V176a8,8,0,0,0-16,0v40a8,8,0,0,0,8,8H80a8,8,0,0,0,0-16Zm136-40a8,8,0,0,0-8,8v32H176a8,8,0,0,0,0,16h40a8,8,0,0,0,8-8V176A8,8,0,0,0,216,168ZM40,88a8,8,0,0,0,8-8V48H80a8,8,0,0,0,0-16H40a8,8,0,0,0-8,8V80A8,8,0,0,0,40,88Zm32-8v96a8,8,0,0,0,8,8h96a8,8,0,0,0,8-8V80a8,8,0,0,0-8-8H80A8,8,0,0,0,72,80Z"/></svg></span>
+          <div>
+            <h3>OCR pedigree scan</h3>
+            <p>Snap or upload a paper pedigree as a photo, PDF, or scan, and HerdMaster reads it in for you to review and confirm.</p>
+          </div>
+        </div>
+        <div class="chips" aria-label="Also supported formats">
+          <span class="chip">Evans PDF</span>
+          <span class="chip">Everbreed Share Link</span>
+          <span class="chip">Everbreed Litters CSV</span>
+          <span class="chip">Evans XPEDX / HTM</span>
+          <span class="chip">Manual entry</span>
+        </div>
+        <div class="reassure-row">
+          <svg width="20" height="20" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M176.49,95.51a12,12,0,0,1,0,17l-56,56a12,12,0,0,1-17,0l-24-24a12,12,0,1,1,17-17L112,143l47.51-47.52A12,12,0,0,1,176.49,95.51ZM236,128A108,108,0,1,1,128,20,108.12,108.12,0,0,1,236,128Zm-24,0a84,84,0,1,0-84,84A84.09,84.09,0,0,0,212,128Z"/></svg>
+          <span>Every import checks for duplicates before saving, and you can roll back a failed import without touching your existing records.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 6 · PRIVACY (dark, bento) ============ -->
+  <section class="privacy">
+    <div class="container">
+      <div class="center fade">
+        <h2>Your herd data is <b>yours.</b></h2>
+        <p class="lead">Your records live in your own private iCloud, not on our servers, and they're yours to export any time.</p>
+        <div class="teal-rule"></div>
+      </div>
+      <div class="bento fade">
+        <div class="bcard big">
+          <span class="ic"><svg width="26" height="26" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M213.92,210.62a8,8,0,1,1-11.84,10.76l-33.67-37-28.1,33.88A15.93,15.93,0,0,1,128,224h0a15.93,15.93,0,0,1-12.31-5.77L11.65,92.8A15.65,15.65,0,0,1,8.11,80.91,15.93,15.93,0,0,1,14.28,70.1,188.26,188.26,0,0,1,46.6,50.35l-4.29-4.72a8.22,8.22,0,0,1,.13-11.38,8,8,0,0,1,11.48.37Zm34-129.71a15.93,15.93,0,0,0-6.17-10.81A186.67,186.67,0,0,0,128,32a191,191,0,0,0-42.49,4.75,4,4,0,0,0-2,6.59L186,156.07a4,4,0,0,0,6-.14L244.35,92.8A15.65,15.65,0,0,0,247.89,80.91Z"/></svg></span>
+          <h3>Offline is the default.</h3>
+          <p>Every feature works with no signal at all. Out in the barn, in a metal shed, or anywhere off the grid, the app keeps working exactly the same. Sync happens later, on its own, when you're back online.</p>
+        </div>
+        <div class="bcard">
+          <span class="ic"><svg width="24" height="24" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M208,80H176V56a48,48,0,0,0-96,0V80H48A16,16,0,0,0,32,96V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V96A16,16,0,0,0,208,80Zm-72,78.63V184a8,8,0,0,1-16,0V158.63a24,24,0,1,1,16,0ZM160,80H96V56a32,32,0,0,1,64,0Z"/></svg></span>
+          <h3>Saved to your iCloud, not a server.</h3>
+          <p>Your records sync through Apple's CloudKit on your own personal iCloud, not to any HerdMaster server.</p>
+        </div>
+        <div class="bcard">
+          <span class="ic"><svg width="24" height="24" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M216,112v96a16,16,0,0,1-16,16H56a16,16,0,0,1-16-16V112A16,16,0,0,1,56,96h64v48a8,8,0,0,0,16,0V96h64A16,16,0,0,1,216,112ZM136,43.31l26.34,26.35a8,8,0,0,0,11.32-11.32l-40-40a8,8,0,0,0-11.32,0l-40,40A8,8,0,0,0,93.66,69.66L120,43.31V96h16Z"/></svg></span>
+          <h3>No lock-in, ever.</h3>
+          <p>Your data is never trapped in the app. Export it and take it to another system any time you like.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 7 · PRICING ============ -->
+  <section id="launch" class="mint-scene">
+    <div class="container">
+      <div class="center section-head fade">
+        <span class="eyebrow">Pricing</span>
+        <h2>Here's the launch <b>pricing.</b></h2>
+        <p class="muted measure">HerdMaster launches on the App Store soon. There's a free tier to start, with paid plans for larger herds. ARBA members save 10%, and 4-H and FFA youth get free access. Nothing to buy yet, just join the launch list and we'll tell you the moment it goes live.</p>
+      </div>
+
+      <div class="plans fade">
+        <div class="plan free">
+          <div class="plan-head"><span class="pname">Free</span></div>
+          <div class="price">$0</div>
+          <div class="alt">The on-ramp</div>
+          <ul>
+            <li><svg width="16" height="16" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg> Up to 5 herd animals (lifetime cap)</li>
+            <li><svg width="16" height="16" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg> Pedigree ancestors don't count toward the cap</li>
+            <li><svg width="16" height="16" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg> 4-H &amp; FFA youth: free access</li>
+          </ul>
+          <a href="#top" class="btn btn-secondary">Join the launch list</a>
+        </div>
+
+        <div class="plan popular">
+          <div class="plan-head"><span class="pname">Breeder</span><span class="pill">Popular</span></div>
+          <div class="price">$79.99<small> /yr</small></div>
+          <div class="alt">$7.99/mo or $249.99 lifetime</div>
+          <ul>
+            <li><svg width="16" height="16" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg> For a growing rabbitry</li>
+            <li><svg width="16" height="16" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg> All core herd &amp; breeding tools</li>
+            <li><svg width="16" height="16" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg> Lifetime option available</li>
+          </ul>
+          <a href="#top" class="btn btn-primary">Join the launch list</a>
+        </div>
+
+        <div class="plan">
+          <div class="plan-head"><span class="pname">Show Breeder</span></div>
+          <div class="price">$99.99<small> /yr</small></div>
+          <div class="alt">$9.99/mo or $299.99 lifetime</div>
+          <ul>
+            <li><svg width="16" height="16" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg> For active show programs</li>
+            <li><svg width="16" height="16" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg> Everything in Breeder</li>
+            <li><svg width="16" height="16" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg> Show &amp; award tracking</li>
+          </ul>
+          <a href="#top" class="btn btn-secondary">Join the launch list</a>
+        </div>
+
+        <div class="plan">
+          <div class="plan-head"><span class="pname">Pro</span></div>
+          <div class="price">$129.99<small> /yr</small></div>
+          <div class="alt">$14.99/mo or $349.99 lifetime</div>
+          <ul>
+            <li><svg width="16" height="16" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg> For large herds</li>
+            <li><svg width="16" height="16" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg> Everything in Show Breeder</li>
+            <li><svg width="16" height="16" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg> The complete toolkit</li>
+          </ul>
+          <a href="#top" class="btn btn-secondary">Join the launch list</a>
+        </div>
+      </div>
+
+      <p class="arba-note fade">ARBA members save 10% with a member code. 4-H and FFA youth get free rabbit and cavy access.</p>
+      <p class="see-pricing fade"><a href="pricing/index.html">See full pricing &rarr;</a></p>
+    </div>
+  </section>
+
+  <!-- ============ 8a · FAQ ============ -->
+  <section id="faq">
+    <div class="container">
+      <div class="center section-head fade"><h2>Quick <b>answers.</b></h2></div>
+      <div class="faq fade">
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">Does it work without internet, out in the barn?
+            <span class="chev" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M216.49,104.49l-80,80a12,12,0,0,1-17,0l-80-80a12,12,0,0,1,17-17L128,159l71.51-71.52a12,12,0,0,1,17,17Z"/></svg></span>
+          </button>
+          <div class="faq-a"><p>Yes. HerdMaster is offline-first. Every feature works with no connection, and your data syncs through your private iCloud when you're back online.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">Where is my data stored? Is it private?
+            <span class="chev" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M216.49,104.49l-80,80a12,12,0,0,1-17,0l-80-80a12,12,0,0,1,17-17L128,159l71.51-71.52a12,12,0,0,1,17,17Z"/></svg></span>
+          </button>
+          <div class="faq-a"><p>In your own iCloud, through Apple's CloudKit, not on our servers, and you can export it any time.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">Can I bring my records over from Evans, Everbreed, or paper?
+            <span class="chev" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M216.49,104.49l-80,80a12,12,0,0,1-17,0l-80-80a12,12,0,0,1,17-17L128,159l71.51-71.52a12,12,0,0,1,17,17Z"/></svg></span>
+          </button>
+          <div class="faq-a"><p>Yes. Full Evans XML import brings animals, winnings, and litters across in one pass, plus Evans PDF, Everbreed Share Link and Litters CSV, Evans XPEDX and HTM fallback, and OCR scan import for paper pedigrees that you review and confirm.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">Is there an Android or iPad version?
+            <span class="chev" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M216.49,104.49l-80,80a12,12,0,0,1-17,0l-80-80a12,12,0,0,1,17-17L128,159l71.51-71.52a12,12,0,0,1,17,17Z"/></svg></span>
+          </button>
+          <div class="faq-a"><p>At launch it's iPhone, native iOS. iPad support is planned for a later phase.</p></div>
+        </div>
+      </div>
+      <p class="see-pricing fade" style="margin-top:28px"><a href="faq/index.html">See all FAQs &rarr;</a></p>
+    </div>
+  </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="assets/logo.png" alt="HerdMaster">
+          <p>Rabbit and cavy herd, breeding and show management for iPhone.</p>
+          <p class="cred">Built by a 45-year ARBA breeder.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Product</h4>
+          <ul><li><a href="features/index.html">Features</a></li><li><a href="pricing/index.html">Pricing</a></li><li><a href="getting-started/index.html">Getting Started</a></li></ul>
+        </div>
+        <div class="footer-col">
+          <h4>Help</h4>
+          <ul><li><a href="faq/index.html">FAQ</a></li><li><a href="contact/index.html">Contact</a></li></ul>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul><li><a href="privacy/index.html">Privacy Policy</a></li><li><a href="terms/index.html">Terms of Service</a></li></ul>
+        </div>
+      </div>
+      <div class="footer-bottom">&copy; 2026 Herdmaster &middot; Joseph Kim dba Herdmaster &middot; herdmaster.app</div>
+    </div>
+  </footer>
+
+  <script src="assets/site.js" defer></script>
+</body>
+</html>

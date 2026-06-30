@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Component: New Breeding</title>
+<link rel="stylesheet" href="../assets/site.css">
+<style>
+  body{ margin:0; padding:48px 20px; background:#e9eeec; font-family:-apple-system,system-ui,sans-serif; }
+  .preview{ max-width:340px; margin:0 auto; }
+  .preview-phone{ background:#0e1620; border-radius:42px; padding:12px; box-shadow:0 24px 60px -24px rgba(0,0,0,.45); }
+  .preview-phone .au{ border-radius:30px; overflow:hidden; height:auto; }
+  .preview-label{ text-align:center; color:#46566e; font-weight:600; margin-top:16px; }
+  /* screen-specific classes below, all under .au */
+  .au-bpad{ padding:6px 18px 18px; display:flex; flex-direction:column; }
+  .au-seg{ display:flex; gap:12px; margin:2px 0 18px; }
+  .au-seg .sg{ flex:1; display:flex; align-items:center; justify-content:center; gap:8px; border-radius:14px; padding:13px 10px; font-size:1rem; font-weight:700; border:1.5px solid var(--au-sep); background:#f3f6f5; color:var(--au-sec); }
+  .au-seg .sg svg{ width:22px; height:22px; }
+  .au-seg .sg.on{ background:var(--au-card); border-color:var(--au-teal); color:var(--au-teal); }
+  .au-cols{ display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:14px; }
+  .au-field .lab{ font-size:1.02rem; font-weight:800; margin-bottom:8px; }
+  .au-select{ position:relative; background:#f6f8f7; border:1px solid var(--au-sep); border-radius:13px; padding:13px 14px; font-size:.95rem; color:var(--au-sec); display:flex; align-items:center; }
+  .au-select .cv{ margin-left:auto; color:var(--au-ink); } .au-select .cv svg{ width:16px; height:16px; }
+  .au-pairpill{ background:var(--au-card); border-radius:14px; padding:17px 14px; text-align:center; font-size:1.12rem; font-weight:700; box-shadow:0 1px 3px rgba(16,32,28,.06); margin-bottom:18px; }
+  .au-datefield{ position:relative; background:#f6f8f7; border:1px solid var(--au-sep); border-radius:13px; padding:14px 14px; font-size:1rem; color:var(--au-sec); display:flex; align-items:center; margin-top:8px; }
+  .au-datefield .cal{ margin-left:auto; color:var(--au-ink); } .au-datefield .cal svg{ width:18px; height:18px; }
+  .au-bdh{ font-size:1.02rem; font-weight:800; margin:20px 0 12px; }
+  .au-dayrow{ display:flex; align-items:center; gap:12px; background:var(--au-card); border-radius:14px; padding:13px 14px; margin-bottom:11px; box-shadow:0 1px 3px rgba(16,32,28,.06); }
+  .au-dayrow .dot{ flex:0 0 auto; width:9px; height:9px; border-radius:50%; background:#b9a7e6; }
+  .au-dayrow .mid{ flex:1; min-width:0; }
+  .au-dayrow .mid .dt{ font-size:1rem; font-weight:800; }
+  .au-dayrow .mid .meta{ font-size:.82rem; color:var(--au-sec); margin-top:2px; }
+  .au-dayrow .add{ flex:0 0 auto; width:34px; height:34px; border-radius:10px; background:var(--au-tint); color:var(--au-teal); display:grid; place-items:center; }
+  .au-dayrow .add svg{ width:18px; height:18px; }
+  .au-savebtn{ margin-top:14px; background:var(--au-teal); color:#fff; border-radius:14px; padding:16px; text-align:center; font-size:1.05rem; font-weight:800; box-shadow:0 10px 22px -10px rgba(47,158,152,.7); }
+</style>
+</head><body>
+  <div class="preview">
+    <div class="preview-phone"><div class="au" role="img" aria-label="HerdMaster New Breeding screen">
+      <div class="au-status">
+        <span class="t">6:17</span>
+        <span class="sys">
+          <svg viewBox="0 0 256 256" fill="currentColor"><rect x="12" y="148" width="40" height="80" rx="10"/><rect x="80" y="108" width="40" height="120" rx="10"/><rect x="148" y="64" width="40" height="164" rx="10"/><rect x="216" y="20" width="40" height="208" rx="10"/></svg>
+          <svg viewBox="0 0 256 256" fill="currentColor"><path d="M140,204a12,12,0,1,1-12-12A12,12,0,0,1,140,204ZM237.08,87A172,172,0,0,0,18.92,87,8,8,0,0,0,29.08,99.37a156,156,0,0,1,197.84,0A8,8,0,0,0,237.08,87ZM205,122.77a124,124,0,0,0-153.94,0A8,8,0,0,0,61,135.31a108,108,0,0,1,134.06,0,8,8,0,0,0,11.24-1.3A8,8,0,0,0,205,122.77Zm-32.26,35.76a76.05,76.05,0,0,0-89.42,0,8,8,0,0,0,9.42,12.94,60,60,0,0,1,70.58,0,8,8,0,1,0,9.42-12.94Z"/></svg>
+          <svg viewBox="0 0 256 256" fill="currentColor"><path d="M200,56H32A24,24,0,0,0,8,80v96a24,24,0,0,0,24,24H200a24,24,0,0,0,24-24V80A24,24,0,0,0,200,56Zm8,120a8,8,0,0,1-8,8H32a8,8,0,0,1-8-8V80a8,8,0,0,1,8-8H200a8,8,0,0,1,8,8ZM104,96v64a8,8,0,0,1-16,0V96a8,8,0,0,1,16,0ZM64,96v64a8,8,0,0,1-16,0V96a8,8,0,0,1,16,0Zm192,0v64a8,8,0,0,1-16,0V96a8,8,0,0,1,16,0Z"/></svg>
+        </span>
+      </div>
+      <div class="au-nav">
+        <span class="back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m15 6-6 6 6 6"/></svg></span>
+        <span class="title">New Breeding</span>
+      </div>
+      <div class="au-bpad">
+
+        <div class="au-seg">
+          <div class="sg on">
+            <svg viewBox="0 0 256 256" fill="currentColor"><path d="M168,32a40,40,0,0,0-40,40,72.07,72.07,0,0,0-56,70.21V184a32,32,0,0,0,32,32h48a32,32,0,0,0,32-32V142.21A72.13,72.13,0,0,0,160,80.71,40,40,0,0,0,168,32ZM88,168a12,12,0,1,1,12-12A12,12,0,0,1,88,168Zm40,32a8,8,0,0,1-8-8,8,8,0,0,1,16,0A8,8,0,0,1,128,200Zm40-32a12,12,0,1,1,12-12A12,12,0,0,1,168,168Z"/></svg>
+            <span>Rabbit</span>
+          </div>
+          <div class="sg">
+            <svg viewBox="0 0 256 256" fill="currentColor"><path d="M216,120c-13.25,0-26.31,6.13-37.93,17.69a8,8,0,0,0,11.32,11.31C196.5,142.39,205.79,138,213.5,137.4,200.2,170.93,165.9,200,128,200S55.8,170.93,42.5,137.4c7.71.62,17,5,23.92,11.91A8,8,0,0,0,77.93,138C66.31,126.13,53.25,120,40,120a8,8,0,0,0,0,16c.41,0,.83,0,1.25.05C58.62,182.69,90.86,216,128,216s69.38-33.31,86.75-79.95c.42,0,.84-.05,1.25-.05a8,8,0,0,0,0-16ZM92,108a12,12,0,1,0-12-12A12,12,0,0,0,92,108Zm72,0a12,12,0,1,0-12-12A12,12,0,0,0,164,108Z"/></svg>
+            <span>Cavy</span>
+          </div>
+        </div>
+
+        <div class="au-cols">
+          <div class="au-field">
+            <div class="lab">Sire</div>
+            <div class="au-select"><span>Select</span><span class="cv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span></div>
+          </div>
+          <div class="au-field">
+            <div class="lab">Dam</div>
+            <div class="au-select"><span>Select</span><span class="cv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span></div>
+          </div>
+        </div>
+
+        <div class="au-pairpill">Select Sire x Select Dam</div>
+
+        <div class="au-field">
+          <div class="lab">Breeding Date</div>
+          <div class="au-datefield"><span>MM/DD/YYYY</span><span class="cal"><svg viewBox="0 0 256 256" fill="currentColor"><path d="M208,32H184V24a8,8,0,0,0-16,0v8H88V24a8,8,0,0,0-16,0v8H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V48A16,16,0,0,0,208,32ZM72,48v8a8,8,0,0,0,16,0V48h80v8a8,8,0,0,0,16,0V48h24V80H48V48Zm136,160H48V96H208V208Z"/></svg></span></div>
+        </div>
+
+        <div class="au-bdh">Best Breeding Days</div>
+
+        <div class="au-dayrow">
+          <span class="dot"></span>
+          <div class="mid"><div class="dt">Jun 8</div><div class="meta">Pisces &middot; Last Quarter &middot; Very Fruitful</div></div>
+          <span class="add"><svg viewBox="0 0 256 256" fill="currentColor"><path d="M208,32H184V24a8,8,0,0,0-16,0v8H88V24a8,8,0,0,0-16,0v8H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V48A16,16,0,0,0,208,32ZM48,48H72v8a8,8,0,0,0,16,0V48h80v8a8,8,0,0,0,16,0V48h24V80H48Zm160,160H48V96H208v112Zm-40-56a8,8,0,0,1-8,8H136v24a8,8,0,0,1-16,0V160H96a8,8,0,0,1,0-16h24V120a8,8,0,0,1,16,0v24h24A8,8,0,0,1,168,152Z"/></svg></span>
+        </div>
+        <div class="au-dayrow">
+          <span class="dot"></span>
+          <div class="mid"><div class="dt">Jun 11</div><div class="meta">Taurus &middot; Waning Crescent &middot; Fruitful</div></div>
+          <span class="add"><svg viewBox="0 0 256 256" fill="currentColor"><path d="M208,32H184V24a8,8,0,0,0-16,0v8H88V24a8,8,0,0,0-16,0v8H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V48A16,16,0,0,0,208,32ZM48,48H72v8a8,8,0,0,0,16,0V48h80v8a8,8,0,0,0,16,0V48h24V80H48Zm160,160H48V96H208v112Zm-40-56a8,8,0,0,1-8,8H136v24a8,8,0,0,1-16,0V160H96a8,8,0,0,1,0-16h24V120a8,8,0,0,1,16,0v24h24A8,8,0,0,1,168,152Z"/></svg></span>
+        </div>
+        <div class="au-dayrow">
+          <span class="dot"></span>
+          <div class="mid"><div class="dt">Jun 12</div><div class="meta">Taurus &middot; Waning Crescent &middot; Fruitful</div></div>
+          <span class="add"><svg viewBox="0 0 256 256" fill="currentColor"><path d="M208,32H184V24a8,8,0,0,0-16,0v8H88V24a8,8,0,0,0-16,0v8H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V48A16,16,0,0,0,208,32ZM48,48H72v8a8,8,0,0,0,16,0V48h80v8a8,8,0,0,0,16,0V48h24V80H48Zm160,160H48V96H208v112Zm-40-56a8,8,0,0,1-8,8H136v24a8,8,0,0,1-16,0V160H96a8,8,0,0,1,0-16h24V120a8,8,0,0,1,16,0v24h24A8,8,0,0,1,168,152Z"/></svg></span>
+        </div>
+
+        <div class="au-savebtn">Save Breeding Record</div>
+
+      </div>
+    </div></div>
+    <p class="preview-label">New Breeding</p>
+  </div>
+  <script>if(location.hash.indexOf('embed')>-1)document.body.classList.add('embed');</script>
+</body></html>

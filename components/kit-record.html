@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Component: Kit Record</title>
+<link rel="stylesheet" href="../assets/site.css">
+<style>
+  body{ margin:0; padding:48px 20px; background:#e9eeec; font-family:-apple-system,system-ui,sans-serif; }
+  .preview{ max-width:340px; margin:0 auto; }
+  .preview-phone{ background:#0e1620; border-radius:42px; padding:12px; box-shadow:0 24px 60px -24px rgba(0,0,0,.45); }
+  .preview-phone .au{ border-radius:30px; overflow:hidden; height:auto; }
+  .preview-label{ text-align:center; color:#46566e; font-weight:600; margin-top:16px; }
+  /* screen-specific classes below, all under .au */
+  .au-krwrap{ padding:2px 20px 20px; }
+  .au-krtile{ width:84px; height:84px; border-radius:21px; margin:6px auto 14px; background:var(--au-tile); border:1px solid var(--au-tile-bd); color:var(--au-tealink); display:grid; place-items:center; }
+  .au-krtile svg{ width:40px; height:40px; }
+  .au-krtitle{ text-align:center; font-size:1.7rem; font-weight:800; letter-spacing:-.01em; margin:0 0 8px; }
+  .au-krsub{ text-align:center; font-size:.95rem; line-height:1.45; color:var(--au-sec); margin:0 8px 22px; }
+  .au-krlabel{ font-size:1.18rem; font-weight:800; margin:0 0 12px; }
+  .au-krid{ display:flex; align-items:center; gap:8px; font-size:1.12rem; font-weight:700; margin-bottom:7px; }
+  .au-krdot{ flex:0 0 auto; width:7px; height:7px; border-radius:50%; background:var(--au-teal); }
+  .au-krmeta{ font-size:.8rem; color:var(--au-sec); letter-spacing:.02em; margin-bottom:11px; }
+  .au-krpills{ display:flex; gap:8px; margin-bottom:24px; }
+  .au-krpill{ font-size:.7rem; font-weight:700; border-radius:999px; padding:4px 11px; }
+  .au-krpill.gray{ color:#5b6864; background:#e7ecea; }
+  .au-krpill.amber{ color:#9a7414; background:#f5ead0; }
+  .au-field{ margin-bottom:18px; }
+  .au-field > .fl{ display:block; font-size:1.02rem; font-weight:700; margin-bottom:9px; }
+  .au-input, .au-select, .au-textarea{ width:100%; font:inherit; font-size:.96rem; color:var(--au-ink);
+    background:var(--au-card); border:1px solid var(--au-sep); border-radius:12px; padding:13px 14px; outline:none;
+    -webkit-appearance:none; appearance:none; }
+  .au-input::placeholder, .au-textarea::placeholder{ color:#9aa6a2; }
+  .au-input:focus, .au-select:focus, .au-textarea:focus{ border-color:var(--au-teal); box-shadow:0 0 0 3px rgba(47,158,152,.16); }
+  .au-textarea{ resize:none; min-height:96px; line-height:1.4; }
+  .au-input + .au-input, .au-input + .au-textarea{ margin-top:11px; }
+  .au-fieldrow{ display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:18px; }
+  .au-fieldrow .fl{ font-size:1.02rem; font-weight:700; }
+  .au-selectwrap{ position:relative; flex:0 0 auto; }
+  .au-selectwrap .au-select{ width:auto; padding-right:34px; }
+  .au-selectwrap .cv{ position:absolute; right:12px; top:50%; transform:translateY(-50%); pointer-events:none; color:var(--au-sec); }
+  .au-selectwrap .cv svg{ width:13px; height:13px; }
+  .au-savebtn{ width:100%; font:inherit; font-size:1.02rem; font-weight:700; color:#fff; background:var(--au-teal);
+    border:0; border-radius:13px; padding:15px; margin-top:6px; cursor:pointer; }
+</style>
+</head><body>
+  <div class="preview">
+    <div class="preview-phone"><div class="au" role="img" aria-label="HerdMaster Kit Record screen">
+
+      <div class="au-status">
+        <span class="t">11:21</span>
+        <span class="sys">
+          <svg viewBox="0 0 256 256" fill="currentColor"><rect x="12" y="148" width="40" height="80" rx="10"/><rect x="80" y="108" width="40" height="120" rx="10"/><rect x="148" y="64" width="40" height="164" rx="10"/><rect x="216" y="20" width="40" height="208" rx="10"/></svg>
+          <svg viewBox="0 0 256 256" fill="currentColor"><path d="M140,204a12,12,0,1,1-12-12A12,12,0,0,1,140,204ZM237.08,87A172,172,0,0,0,18.92,87,8,8,0,0,0,29.08,99.37a156,156,0,0,1,197.84,0A8,8,0,0,0,237.08,87ZM205,122.77a124,124,0,0,0-153.94,0A8,8,0,0,0,61,135.31a108,108,0,0,1,134.06,0,8,8,0,0,0,11.24-1.3A8,8,0,0,0,205,122.77Zm-32.26,35.76a76.05,76.05,0,0,0-89.42,0,8,8,0,0,0,9.42,12.94,60,60,0,0,1,70.58,0,8,8,0,1,0,9.42-12.94Z"/></svg>
+          <svg viewBox="0 0 256 256" fill="currentColor"><path d="M200,56H32A24,24,0,0,0,8,80v96a24,24,0,0,0,24,24H200a24,24,0,0,0,24-24V80A24,24,0,0,0,200,56Zm8,120a8,8,0,0,1-8,8H32a8,8,0,0,1-8-8V80a8,8,0,0,1,8-8H200a8,8,0,0,1,8,8ZM104,96v64a8,8,0,0,1-16,0V96a8,8,0,0,1,16,0ZM64,96v64a8,8,0,0,1-16,0V96a8,8,0,0,1,16,0Zm192,0v64a8,8,0,0,1-16,0V96a8,8,0,0,1,16,0Z"/></svg>
+        </span>
+      </div>
+
+      <div class="au-nav">
+        <span class="back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m15 6-6 6 6 6"/></svg></span>
+      </div>
+
+      <div class="au-krwrap">
+        <div class="au-krtile">
+          <svg viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"><path d="M32 208V48"/><path d="M32 208h192"/><path d="M56 168l48-56 40 32 56-72"/><path d="M168 72h32v32"/></svg>
+        </div>
+        <h2 class="au-krtitle">Kit Record</h2>
+        <p class="au-krsub">Log week 1 to 12 weights and health notes under the temporary identifier.</p>
+
+        <p class="au-krlabel">Temporary ID</p>
+        <div class="au-krid"><span class="au-krdot"></span>Litter 2026-05-20 Kit 1</div>
+        <div class="au-krmeta">Unknown &middot; Black &middot; Mini Rex x Mini Rex &middot; Born May 20...</div>
+        <div class="au-krpills">
+          <span class="au-krpill gray">Deceased</span>
+          <span class="au-krpill amber">Pre-tattoo</span>
+        </div>
+
+        <div class="au-fieldrow">
+          <span class="fl">Kit Status</span>
+          <span class="au-selectwrap">
+            <select class="au-select"><option>Deceased</option></select>
+            <span class="cv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
+          </span>
+        </div>
+
+        <div class="au-field">
+          <span class="fl">Kit Details</span>
+          <input class="au-input" type="text" placeholder="Name or nickname">
+          <input class="au-input" type="text" value="Black">
+          <textarea class="au-textarea" placeholder="Notes"></textarea>
+        </div>
+
+        <div class="au-fieldrow">
+          <span class="fl">Sex</span>
+          <span class="au-selectwrap">
+            <select class="au-select"><option>Unknown</option></select>
+            <span class="cv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
+          </span>
+        </div>
+
+        <button class="au-savebtn" type="button">Save Details</button>
+      </div>
+
+    </div></div>
+    <p class="preview-label">Kit Record</p>
+  </div>
+</body></html>

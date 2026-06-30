@@ -1,0 +1,7 @@
+# HerdMaster
+# Pre-launch, indexing is also blocked per-page via <meta name="robots" content="noindex">.
+# At launch, remove the noindex tags; this file already allows crawling.
+User-agent: *
+Allow: /
+
+Sitemap: https://herdmaster.app/sitemap.xml

@@ -1,0 +1,19 @@
+# Dropbox conflicted copies
+*conflicted copy*
+*Conflicted Copy*
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*~
+.idea/
+.vscode/
+
+# Build / temp
+*.log
+_head_home.html
+_tail.html
+_body.html
+index.new.html

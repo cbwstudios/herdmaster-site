@@ -1,0 +1,439 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Component: Pedigree Record</title>
+<link rel="stylesheet" href="../assets/site.css">
+<style>
+  body{ margin:0; padding:40px 20px; background:#e9eeec; font-family:"Inter",system-ui,sans-serif; }
+  .ped-doc{ max-width:1180px; margin:0 auto; background:#fbf9f4; border:1px solid var(--line); border-radius:14px; box-shadow:0 24px 60px -28px rgba(0,0,0,.35); padding:34px 38px; }
+  .preview-label{ text-align:center; color:#46566e; font-weight:600; margin-top:16px; }
+
+  /* ---------- document tokens ---------- */
+  .ped-doc{ --buck:#3b6ea5; --buck-bd:#bcd1e6; --doe:#d98aa0; --doe-bd:#ecc6d1;
+            --focal-bd:#cfd9d6; --paper:#fbf9f4; --ink:#1c2530; --soft:#76808a;
+            --hair:#e3ded3; color:var(--ink); }
+  .ped-doc *{ box-sizing:border-box; }
+
+  /* ---------- header ---------- */
+  .ped-head{ display:grid; grid-template-columns:1fr auto 1fr; align-items:start; gap:20px;
+             padding-bottom:20px; border-bottom:1px solid var(--hair); }
+  .ped-wordmark{ font-size:1.9rem; font-weight:800; letter-spacing:.16em; color:var(--ink); line-height:1; }
+  .ped-head .sub1{ font-size:.66rem; font-weight:700; letter-spacing:.22em; text-transform:uppercase; color:var(--soft); margin-top:12px; }
+  .ped-head .sub2{ font-size:.72rem; color:var(--soft); margin-top:3px; }
+  .ped-center{ text-align:center; padding-top:4px; }
+  .ped-center .lbl{ font-size:.62rem; font-weight:700; letter-spacing:.22em; text-transform:uppercase; color:var(--soft); }
+  .ped-center .rby{ font-size:1.05rem; font-weight:700; margin:6px 0 4px; }
+  .ped-center .meta{ font-size:.72rem; color:#56606a; }
+
+  /* ---------- tree grid ---------- */
+  .ped-tree{ display:grid; grid-template-columns:230px 1fr 1fr 1fr; gap:0 26px; margin-top:26px; align-items:stretch; }
+  .gen{ display:flex; flex-direction:column; justify-content:space-around; gap:14px; min-width:0; }
+  .gen.g1{ justify-content:center; }
+
+  /* ---------- bracket connectors ---------- */
+  .gen.g2, .gen.g3, .gen.g4{ position:relative; }
+  .pair{ position:relative; display:flex; flex-direction:column; justify-content:space-around; gap:14px; flex:1; }
+  /* vertical bracket lines drawn per gen via a wrapper */
+  .gen .branch{ position:relative; }
+  .gen.g2 .branch::before, .gen.g3 .branch::before, .gen.g4 .branch::before{
+    content:""; position:absolute; left:-14px; top:50%; width:14px; height:1px; background:#c9c2b4; }
+
+  /* ---------- cards ---------- */
+  .card{ background:#fff; border:1px solid var(--hair); border-radius:11px; padding:11px 12px;
+         box-shadow:0 2px 6px -4px rgba(28,37,48,.25); }
+  .card.buck{ border:1px solid var(--buck-bd); }
+  .card.doe{ border:1px solid var(--doe-bd); }
+  .card .role{ font-size:.58rem; font-weight:700; letter-spacing:.2em; text-transform:uppercase; color:var(--soft); }
+  .card .nmrow{ display:flex; align-items:center; gap:7px; margin:2px 0 1px; }
+  .card .nm{ font-weight:700; line-height:1.15; }
+  .card .ear{ font-size:.7rem; color:#3c4650; font-weight:600; }
+  .badge-gc{ font-size:.52rem; font-weight:800; letter-spacing:.04em; color:#7a6526; background:#f1e7c9;
+             border:1px solid #e2d3a0; border-radius:999px; padding:1px 5px; line-height:1.4; }
+  .sym{ font-size:.82rem; line-height:1; }
+  .sym.buck{ color:var(--buck); } .sym.doe{ color:var(--doe); }
+
+  .card .body{ display:flex; gap:9px; margin-top:7px; }
+  .card .fields{ flex:1; min-width:0; }
+  .card .f{ font-size:.62rem; color:#4a545e; line-height:1.5; }
+  .card .f b{ color:#1c2530; font-weight:600; }
+  .photo{ flex:0 0 auto; border-radius:7px; background:linear-gradient(135deg,#dfdcd4,#cfcabf);
+          border:1px solid #ccc6ba; }
+  .wins{ margin-top:7px; border-top:1px solid #efeae0; padding-top:5px; }
+  .wins .w{ font-size:.58rem; color:#5a646e; line-height:1.5; }
+
+  /* focal card - larger */
+  .card.focal{ border:1px solid var(--focal-bd); border-radius:13px; padding:16px 16px; box-shadow:0 6px 18px -10px rgba(28,37,48,.35); }
+  .card.focal .role{ color:var(--teal-dark); }
+  .card.focal .nm{ font-size:1.2rem; }
+  .card.focal .ear{ font-size:.74rem; margin-top:2px; }
+  .card.focal .photo{ width:66px; height:66px; }
+  .focal-fields{ display:grid; grid-template-columns:auto 1fr; gap:1px 10px; font-size:.66rem; }
+  .focal-fields dt{ color:var(--soft); } .focal-fields dd{ margin:0; font-weight:600; color:#1c2530; }
+  .card.focal .wins .w{ font-size:.6rem; }
+
+  /* generation card sizes step down */
+  .gen.g2 .nm{ font-size:.96rem; } .gen.g2 .photo{ width:46px; height:46px; }
+  .gen.g3 .nm{ font-size:.88rem; } .gen.g3 .photo{ width:40px; height:40px; }
+  .gen.g4 .card{ padding:9px 10px; } .gen.g4 .nm{ font-size:.8rem; } .gen.g4 .photo{ width:34px; height:34px; }
+  .gen.g4 .f{ font-size:.58rem; line-height:1.45; }
+
+  /* ---------- certification block (under focal) ---------- */
+  .cert{ margin-top:18px; }
+  .cert .ct{ font-size:.6rem; font-weight:700; letter-spacing:.2em; text-transform:uppercase; color:var(--soft); }
+  .cert .rule{ width:30px; height:2px; background:var(--teal); margin:7px 0 9px; }
+  .cert p{ font-size:.72rem; color:#3c4650; margin:0 0 18px; line-height:1.45; }
+  .sig-line{ border-bottom:1px solid #cfc9bd; height:1px; margin-bottom:5px; }
+  .sig-lbl{ font-size:.56rem; font-weight:700; letter-spacing:.18em; text-transform:uppercase; color:#a39c8e; margin-bottom:18px; }
+
+  /* ---------- footer ---------- */
+  .ped-foot{ display:flex; align-items:center; justify-content:space-between; gap:16px;
+             margin-top:26px; padding-top:16px; border-top:1px solid var(--hair); }
+  .ped-foot .doc-id{ flex:1; text-align:center; font-size:.66rem; color:var(--soft); }
+  .ped-foot .brand{ font-size:.66rem; text-align:right; }
+  .ped-foot .brand .wm{ font-weight:800; letter-spacing:.14em; color:var(--ink); }
+  .ped-foot .brand .tg{ font-size:.56rem; letter-spacing:.14em; text-transform:uppercase; color:#b0a896; margin-top:2px; }
+
+  @media (max-width:820px){ .ped-tree{ grid-template-columns:1fr; } .gen .branch::before{ display:none; } }
+</style>
+</head><body>
+  <div class="ped-doc">
+
+    <!-- ============ HEADER ============ -->
+    <header class="ped-head">
+      <div class="ped-id">
+        <div class="ped-wordmark">HERDMASTER</div>
+        <div class="sub1">Rabbit Pedigree Record</div>
+        <div class="sub2">Rabbit &amp; Cavy Herd Management</div>
+      </div>
+      <div class="ped-center">
+        <div class="lbl">Breeder &middot; Record Date</div>
+        <div class="rby">Cedar Hollow Rabbitry</div>
+        <div class="meta">ARBA #A-48291 &middot; Est. 2014 &middot; Boulder, Colorado &middot; April 23, 2026</div>
+      </div>
+      <div></div>
+    </header>
+
+    <!-- ============ 4-GENERATION TREE ============ -->
+    <div class="ped-tree">
+
+      <!-- ---- GEN 1 : FOCAL ---- -->
+      <div class="gen g1">
+        <div class="branch">
+          <div class="card focal">
+            <div class="role">Focal Animal</div>
+            <div class="nmrow">
+              <span class="nm">Cedar Hollow Atlas</span>
+              <span class="badge-gc">GC</span>
+              <span class="sym buck">&#9794;</span>
+            </div>
+            <div class="ear">Ear #: 4L7R &middot; DOB: 08 Mar 2024</div>
+            <div class="body">
+              <dl class="focal-fields">
+                <dt>Breed:</dt><dd>Holland Lop</dd>
+                <dt>Variety:</dt><dd>Broken Tort</dd>
+                <dt>Reg #:</dt><dd>ARBA 3042918</dd>
+                <dt>GC #:</dt><dd>GC-3042918</dd>
+                <dt>Weight:</dt><dd>4 lbs 8 oz</dd>
+                <dt>Legs:</dt><dd>7</dd>
+              </dl>
+              <div class="photo"></div>
+            </div>
+            <div class="wins">
+              <div class="w">BIS Open, ARBA National Convention 05/24/26</div>
+              <div class="w">BOB Broken Tort, RMHRBA Spring Show 04/14/26</div>
+              <div class="w">1st Place Broken Senior Buck, BVRBA 03/30/26</div>
+            </div>
+          </div>
+
+          <!-- certification -->
+          <div class="cert">
+            <div class="ct">Certification</div>
+            <div class="rule"></div>
+            <p>I certify that this pedigree is correct to the best of my knowledge.</p>
+            <div class="sig-line"></div>
+            <div class="sig-lbl">Breeder Signature</div>
+            <div class="sig-line"></div>
+            <div class="sig-lbl" style="margin-bottom:0">Date</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ---- GEN 2 : SIRE / DAM ---- -->
+      <div class="gen g2">
+        <div class="branch">
+          <div class="card buck">
+            <div class="role">Sire</div>
+            <div class="nmrow"><span class="nm">Birchwood Orion</span><span class="badge-gc">GC</span><span class="sym buck">&#9794;</span></div>
+            <div class="ear">Ear #: O12 &middot; DOB: 08/14/22</div>
+            <div class="body">
+              <div class="fields">
+                <div class="f"><b>Breed:</b> Holland Lop</div>
+                <div class="f"><b>Variety:</b> Broken Tort</div>
+                <div class="f"><b>Reg #:</b> 2748821</div>
+                <div class="f"><b>GC #:</b> GC-14820</div>
+                <div class="f"><b>Weight:</b> 4 lbs 10 oz</div>
+                <div class="f"><b>Legs:</b> 7</div>
+              </div>
+              <div class="photo"></div>
+            </div>
+            <div class="wins">
+              <div class="w">BOB Broken Tort, ARBA National Convention 05/24/26</div>
+              <div class="w">1st Place Broken Senior Buck, RMHRBA 04/14/26</div>
+            </div>
+          </div>
+        </div>
+        <div class="branch">
+          <div class="card doe">
+            <div class="role">Dam</div>
+            <div class="nmrow"><span class="nm">Cedar Hollow Juno</span><span class="sym doe">&#9792;</span></div>
+            <div class="ear">Ear #: J9 &middot; DOB: 05/19/22</div>
+            <div class="body">
+              <div class="fields">
+                <div class="f"><b>Breed:</b> Holland Lop</div>
+                <div class="f"><b>Variety:</b> Tortoiseshell</div>
+                <div class="f"><b>Reg #:</b> 2884019</div>
+                <div class="f"><b>GC #:</b> -</div>
+                <div class="f"><b>Weight:</b> 4 lbs 4 oz</div>
+                <div class="f"><b>Legs:</b> 2</div>
+              </div>
+              <div class="photo"></div>
+            </div>
+            <div class="wins">
+              <div class="w">BOV Tort, Front Range Specialty 02/18/26</div>
+              <div class="w">1st Place Tort Sr Doe, BVRBA 01/27/26</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ---- GEN 3 : GRANDPARENTS ---- -->
+      <div class="gen g3">
+        <div class="branch">
+          <div class="card buck">
+            <div class="nmrow"><span class="nm">Birchwood Apollo</span><span class="badge-gc">GC</span><span class="sym buck">&#9794;</span></div>
+            <div class="ear">Ear #: A4 &middot; DOB: 04/02/20</div>
+            <div class="body">
+              <div class="fields">
+                <div class="f"><b>Breed:</b> Holland Lop</div>
+                <div class="f"><b>Variety:</b> Broken Tort</div>
+                <div class="f"><b>Reg #:</b> 2611447</div>
+                <div class="f"><b>GC #:</b> GC-12104</div>
+                <div class="f"><b>Weight:</b> 4 lbs 12 oz</div>
+                <div class="f"><b>Legs:</b> 8</div>
+              </div>
+              <div class="photo"></div>
+            </div>
+            <div class="wins"><div class="w">BOB Broken Tort, Convention 05/24/26</div></div>
+          </div>
+        </div>
+        <div class="branch">
+          <div class="card doe">
+            <div class="nmrow"><span class="nm">Meadowlark Vesta</span><span class="sym doe">&#9792;</span></div>
+            <div class="ear">Ear #: V7 &middot; DOB: 07/11/20</div>
+            <div class="body">
+              <div class="fields">
+                <div class="f"><b>Breed:</b> Holland Lop</div>
+                <div class="f"><b>Variety:</b> Sable Point</div>
+                <div class="f"><b>Reg #:</b> 2598331</div>
+                <div class="f"><b>GC #:</b> -</div>
+                <div class="f"><b>Weight:</b> 4 lbs 6 oz</div>
+                <div class="f"><b>Legs:</b> 3</div>
+              </div>
+            </div>
+            <div class="wins"><div class="w">BOV Sable Point, High Plains 03/22/26</div></div>
+          </div>
+        </div>
+        <div class="branch">
+          <div class="card buck">
+            <div class="nmrow"><span class="nm">Cedar Hollow Rex</span><span class="badge-gc">GC</span><span class="sym buck">&#9794;</span></div>
+            <div class="ear">Ear #: R6 &middot; DOB: 02/18/20</div>
+            <div class="body">
+              <div class="fields">
+                <div class="f"><b>Breed:</b> Holland Lop</div>
+                <div class="f"><b>Variety:</b> Tortoiseshell</div>
+                <div class="f"><b>Reg #:</b> 2544112</div>
+                <div class="f"><b>GC #:</b> GC-11892</div>
+                <div class="f"><b>Weight:</b> 4 lbs 9 oz</div>
+                <div class="f"><b>Legs:</b> 6</div>
+              </div>
+              <div class="photo"></div>
+            </div>
+            <div class="wins"><div class="w">BOSB Tort, Rocky Mountain Open 04/06/26</div></div>
+          </div>
+        </div>
+        <div class="branch">
+          <div class="card doe">
+            <div class="nmrow"><span class="nm">Pinewood Clover</span><span class="sym doe">&#9792;</span></div>
+            <div class="ear">Ear #: C3 &middot; DOB: 09/25/20</div>
+            <div class="body">
+              <div class="fields">
+                <div class="f"><b>Breed:</b> Holland Lop</div>
+                <div class="f"><b>Variety:</b> Chestnut Agouti</div>
+                <div class="f"><b>Reg #:</b> 2617804</div>
+                <div class="f"><b>GC #:</b> -</div>
+                <div class="f"><b>Weight:</b> 4 lbs 5 oz</div>
+                <div class="f"><b>Legs:</b> -</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ---- GEN 4 : GREAT-GRANDPARENTS ---- -->
+      <div class="gen g4">
+        <div class="branch">
+          <div class="card buck">
+            <div class="nmrow"><span class="nm">Birchwood Titan</span><span class="badge-gc">GC</span><span class="sym buck">&#9794;</span></div>
+            <div class="ear">Ear #: T2 &middot; DOB: 03/14/18</div>
+            <div class="body">
+              <div class="fields">
+                <div class="f"><b>Breed:</b> Holland Lop</div>
+                <div class="f"><b>Variety:</b> Broken Tort</div>
+                <div class="f"><b>Reg #:</b> 2209210</div>
+                <div class="f"><b>GC #:</b> GC-9210</div>
+                <div class="f"><b>Weight:</b> 4 lbs 12 oz</div>
+                <div class="f"><b>Legs:</b> 8</div>
+                <div class="f">BIS 05/24/26</div>
+              </div>
+              <div class="photo"></div>
+            </div>
+          </div>
+        </div>
+        <div class="branch">
+          <div class="card doe">
+            <div class="nmrow"><span class="nm">Birchwood Willow</span><span class="sym doe">&#9792;</span></div>
+            <div class="ear">Ear #: W5 &middot; DOB: 06/02/18</div>
+            <div class="body">
+              <div class="fields">
+                <div class="f"><b>Breed:</b> Holland Lop</div>
+                <div class="f"><b>Variety:</b> Broken Tort</div>
+                <div class="f"><b>Reg #:</b> 2310885</div>
+                <div class="f"><b>GC #:</b> -</div>
+                <div class="f"><b>Weight:</b> 4 lbs 7 oz</div>
+                <div class="f"><b>Legs:</b> 2</div>
+                <div class="f">BOV 03/12/26</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="branch">
+          <div class="card buck">
+            <div class="nmrow"><span class="nm">Meadowlark Jasper</span><span class="badge-gc">GC</span><span class="sym buck">&#9794;</span></div>
+            <div class="ear">Ear #: J1 &middot; DOB: 01/28/18</div>
+            <div class="body">
+              <div class="fields">
+                <div class="f"><b>Breed:</b> Holland Lop</div>
+                <div class="f"><b>Variety:</b> Sable Point</div>
+                <div class="f"><b>Reg #:</b> 2299504</div>
+                <div class="f"><b>GC #:</b> GC-9504</div>
+                <div class="f"><b>Weight:</b> 4 lbs 6 oz</div>
+                <div class="f"><b>Legs:</b> 5</div>
+                <div class="f">BOB 04/06/26</div>
+              </div>
+              <div class="photo"></div>
+            </div>
+          </div>
+        </div>
+        <div class="branch">
+          <div class="card doe">
+            <div class="nmrow"><span class="nm">Meadowlark Hazel</span><span class="sym doe">&#9792;</span></div>
+            <div class="ear">Ear #: H6 &middot; DOB: 05/17/18</div>
+            <div class="body">
+              <div class="fields">
+                <div class="f"><b>Breed:</b> Holland Lop</div>
+                <div class="f"><b>Variety:</b> Tortoiseshell</div>
+                <div class="f"><b>Reg #:</b> 2287619</div>
+                <div class="f"><b>GC #:</b> -</div>
+                <div class="f"><b>Weight:</b> 4 lbs 4 oz</div>
+                <div class="f"><b>Legs:</b> 1</div>
+                <div class="f">-</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="branch">
+          <div class="card buck">
+            <div class="nmrow"><span class="nm">Cedar Hollow Flint</span><span class="sym buck">&#9794;</span></div>
+            <div class="ear">Ear #: F2 &middot; DOB: 04/22/18</div>
+            <div class="body">
+              <div class="fields">
+                <div class="f"><b>Breed:</b> Holland Lop</div>
+                <div class="f"><b>Variety:</b> Tortoiseshell</div>
+                <div class="f"><b>Reg #:</b> 2279012</div>
+                <div class="f"><b>GC #:</b> GC-9012</div>
+                <div class="f"><b>Weight:</b> 4 lbs 11 oz</div>
+                <div class="f"><b>Legs:</b> 6</div>
+                <div class="f">BOSB 04/20/26</div>
+              </div>
+              <div class="photo"></div>
+            </div>
+          </div>
+        </div>
+        <div class="branch">
+          <div class="card doe">
+            <div class="nmrow"><span class="nm">Cedar Hollow Maple</span><span class="sym doe">&#9792;</span></div>
+            <div class="ear">Ear #: M8 &middot; DOB: 08/09/18</div>
+            <div class="body">
+              <div class="fields">
+                <div class="f"><b>Breed:</b> Holland Lop</div>
+                <div class="f"><b>Variety:</b> Broken Tort</div>
+                <div class="f"><b>Reg #:</b> 2301442</div>
+                <div class="f"><b>GC #:</b> -</div>
+                <div class="f"><b>Weight:</b> 4 lbs 5 oz</div>
+                <div class="f"><b>Legs:</b> -</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="branch">
+          <div class="card buck">
+            <div class="nmrow"><span class="nm">Pinewood Oak</span><span class="sym buck">&#9794;</span></div>
+            <div class="ear">Ear #: O3 &middot; DOB: 10/04/18</div>
+            <div class="body">
+              <div class="fields">
+                <div class="f"><b>Breed:</b> Holland Lop</div>
+                <div class="f"><b>Variety:</b> Chestnut Agouti</div>
+                <div class="f"><b>Reg #:</b> 2315980</div>
+                <div class="f"><b>GC #:</b> -</div>
+                <div class="f"><b>Weight:</b> 4 lbs 6 oz</div>
+                <div class="f">BOB 03/18/26 + 1 more</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="branch">
+          <div class="card doe">
+            <div class="nmrow"><span class="nm">Pinewood Fern</span><span class="badge-gc">GC</span><span class="sym doe">&#9792;</span></div>
+            <div class="ear">Ear #: F9 &middot; DOB: 11/21/18</div>
+            <div class="body">
+              <div class="fields">
+                <div class="f"><b>Breed:</b> Holland Lop</div>
+                <div class="f"><b>Variety:</b> Chestnut Agouti</div>
+                <div class="f"><b>Reg #:</b> 2299318</div>
+                <div class="f"><b>GC #:</b> GC-9318</div>
+                <div class="f"><b>Weight:</b> 4 lbs 8 oz</div>
+                <div class="f"><b>Legs:</b> 4</div>
+                <div class="f">BOV 03/01/26</div>
+              </div>
+              <div class="photo"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="ped-foot">
+      <div style="flex:1"></div>
+      <div class="doc-id">Document ID &middot; HM-PED-2026-04-23-0142 &middot; Page 1 of 1</div>
+      <div class="brand">
+        <div class="wm">HERDMASTER</div>
+        <div class="tg">Breeder-First Herd Management</div>
+      </div>
+    </footer>
+
+  </div>
+  <p class="preview-label">Pedigree Record (landscape document)</p>
+  <script>if(location.hash.indexOf('embed')>-1)document.body.classList.add('embed');</script>
+</body></html>

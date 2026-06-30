@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Component: Herd list</title>
+<link rel="stylesheet" href="../assets/site.css">
+<style>
+  body{ margin:0; padding:48px 20px; background:#e9eeec; font-family:-apple-system,system-ui,sans-serif; }
+  .preview{ max-width:340px; margin:0 auto; }
+  .preview-phone{ background:#0e1620; border-radius:42px; padding:12px; box-shadow:0 24px 60px -24px rgba(0,0,0,.45); }
+  .preview-phone .au{ border-radius:30px; overflow:hidden; height:auto; position:relative; }
+  .preview-label{ text-align:center; color:#46566e; font-weight:600; margin-top:16px; }
+
+  /* Herd list screen, scoped under .au */
+  .au-hpad{ padding:6px 16px 84px; }
+  .au-toptitle{ display:flex; align-items:center; gap:9px; padding:2px 0 12px; }
+  .au-toptitle .ht{ font-size:1.6rem; font-weight:800; letter-spacing:-.01em; }
+  .au-toptitle .hc{ font-size:.72rem; font-weight:700; color:var(--au-tealink); background:var(--au-tint); border-radius:999px; padding:2px 9px; }
+  .au-toptitle .sortic{ margin-left:auto; color:var(--au-sec); } .au-toptitle .sortic svg{ width:20px; height:20px; }
+  .au-search{ display:flex; align-items:center; gap:8px; background:#fff; border:1px solid var(--au-sep); border-radius:12px; padding:10px 12px; margin-bottom:13px; color:var(--au-sec); }
+  .au-search svg{ width:16px; height:16px; flex:0 0 auto; }
+  .au-search .ph{ font-size:.9rem; }
+  .au-chips{ display:flex; gap:7px; margin-bottom:6px; }
+  .au-chip{ font-size:.76rem; font-weight:600; padding:6px 12px; border-radius:999px; background:#fff; border:1px solid var(--au-sep); color:var(--au-sec); white-space:nowrap; }
+  .au-chip.on{ background:var(--au-teal); border-color:var(--au-teal); color:#fff; }
+  .au-breedhdr{ display:flex; align-items:center; gap:9px; margin:18px 0 9px; }
+  .au-breedhdr .bn{ font-size:1.02rem; font-weight:800; }
+  .au-breedhdr .bc{ font-size:.78rem; color:var(--au-sec); }
+  .au-breedhdr .cv{ margin-left:auto; color:var(--au-sec); display:flex; } .au-breedhdr .cv svg{ width:16px; height:16px; }
+  .au-animal{ display:flex; align-items:center; gap:11px; background:#fff; border:1px solid var(--au-sep); border-radius:14px; padding:10px 12px; margin-bottom:9px; box-shadow:0 1px 2px rgba(16,32,28,.04); }
+  .au-avatar{ flex:0 0 auto; width:44px; height:44px; border-radius:12px; background:var(--au-tint); color:var(--au-tealink); display:grid; place-items:center; } .au-avatar svg{ width:25px; height:25px; }
+  .au-arow{ flex:1; min-width:0; }
+  .au-aname{ display:flex; align-items:center; gap:6px; font-size:.97rem; font-weight:700; }
+  .au-aname .sx{ color:var(--au-sec); font-weight:700; }
+  .au-gc{ font-size:.58rem; font-weight:800; letter-spacing:.04em; color:#7a5a14; background:#fbe8c6; border-radius:999px; padding:2px 6px; }
+  .au-open{ font-size:.58rem; font-weight:800; letter-spacing:.04em; color:var(--au-tealink); background:var(--au-tint); border-radius:999px; padding:2px 6px; }
+  .au-ameta{ font-size:.8rem; color:var(--au-sec); margin-top:2px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .au-aright{ flex:0 0 auto; display:flex; align-items:center; gap:7px; }
+  .au-aright .age{ font-size:.74rem; color:var(--au-sec); }
+  .au-aright .cv{ color:#c2ccd3; display:flex; } .au-aright .cv svg{ width:15px; height:15px; }
+  .preview-phone .au-fab{ bottom:80px; }
+</style>
+</head><body>
+  <div class="preview">
+    <div class="preview-phone">
+      <div class="au" role="img" aria-label="HerdMaster Herd list screen">
+        <div class="au-status">
+          <span class="t">9:41</span>
+          <span class="sys">
+            <svg viewBox="0 0 256 256" fill="currentColor"><rect x="12" y="148" width="40" height="80" rx="10"/><rect x="80" y="108" width="40" height="120" rx="10"/><rect x="148" y="64" width="40" height="164" rx="10"/><rect x="216" y="20" width="40" height="208" rx="10"/></svg>
+            <svg viewBox="0 0 256 256" fill="currentColor"><path d="M140,204a12,12,0,1,1-12-12A12,12,0,0,1,140,204ZM237.08,87A172,172,0,0,0,18.92,87,8,8,0,0,0,29.08,99.37a156,156,0,0,1,197.84,0A8,8,0,0,0,237.08,87ZM205,122.77a124,124,0,0,0-153.94,0A8,8,0,0,0,61,135.31a108,108,0,0,1,134.06,0,8,8,0,0,0,11.24-1.3A8,8,0,0,0,205,122.77Zm-32.26,35.76a76.05,76.05,0,0,0-89.42,0,8,8,0,0,0,9.42,12.94,60,60,0,0,1,70.58,0,8,8,0,1,0,9.42-12.94Z"/></svg>
+            <svg viewBox="0 0 256 256" fill="currentColor"><path d="M200,56H32A24,24,0,0,0,8,80v96a24,24,0,0,0,24,24H200a24,24,0,0,0,24-24V80A24,24,0,0,0,200,56Zm8,120a8,8,0,0,1-8,8H32a8,8,0,0,1-8-8V80a8,8,0,0,1,8-8H200a8,8,0,0,1,8,8ZM104,96v64a8,8,0,0,1-16,0V96a8,8,0,0,1,16,0ZM64,96v64a8,8,0,0,1-16,0V96a8,8,0,0,1,16,0Zm192,0v64a8,8,0,0,1-16,0V96a8,8,0,0,1,16,0Z"/></svg>
+          </span>
+        </div>
+        <div class="au-hpad">
+          <div class="au-toptitle">
+            <span class="ht">Herd</span><span class="hc">79 active</span>
+            <span class="sortic"><svg viewBox="0 0 256 256" fill="currentColor"><path d="M48,72a8,8,0,0,1,8-8H200a8,8,0,0,1,0,16H56A8,8,0,0,1,48,72Zm8,64h96a8,8,0,0,0,0-16H56a8,8,0,0,0,0,16Zm56,56H56a8,8,0,0,0,0,16h56a8,8,0,0,0,0-16Z"/></svg></span>
+          </div>
+          <div class="au-search">
+            <svg viewBox="0 0 256 256" fill="currentColor"><path d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"/></svg>
+            <span class="ph">Search name, ear number, or tattoo</span>
+          </div>
+          <div class="au-chips">
+            <span class="au-chip on">All</span>
+            <span class="au-chip">Bucks</span>
+            <span class="au-chip">Does</span>
+            <span class="au-chip">Juniors</span>
+            <span class="au-chip">For sale</span>
+          </div>
+
+          <div class="au-breedhdr"><span class="bn">Mini Rex</span><span class="bc">9 bucks &middot; 16 does</span><span class="cv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span></div>
+
+          <div class="au-animal">
+            <span class="au-avatar"><svg viewBox="0 0 256 256" fill="currentColor"><path d="M199.28,149.8A71.58,71.58,0,0,0,193,129c19-37.94,30.45-88.28,17.34-110A22,22,0,0,0,190.94,8c-14.12,0-26,11.89-36.44,36.36-6.22,14.62-10.85,31.32-14,44.74a71.8,71.8,0,0,0-25,0c-3.13-13.42-7.76-30.12-14-44.74C91.1,19.89,79.18,8,65.06,8A22,22,0,0,0,45.64,19.08C32.53,40.76,44,91.1,63,129a71.58,71.58,0,0,0-6.26,20.76A52,52,0,1,0,128,225.52l-21.12-19.37a8,8,0,1,1,10.24-12.3L128,202.9l10.88-9.05a8,8,0,0,1,10.24,12.3L128,225.52a52,52,0,1,0,71.28-75.72ZM100,176a12,12,0,1,1,12-12A12,12,0,0,1,100,176Zm56,0a12,12,0,1,1,12-12A12,12,0,0,1,156,176Z"/></svg></span>
+            <div class="au-arow">
+              <div class="au-aname">Clint <span class="sx">&male;</span><span class="au-gc">GC</span></div>
+              <div class="au-ameta">M8 &middot; Tortoiseshell &middot; 4 lbs 9 oz</div>
+            </div>
+            <div class="au-aright"><span class="age">2 yr</span><span class="cv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg></span></div>
+          </div>
+
+          <div class="au-animal">
+            <span class="au-avatar"><svg viewBox="0 0 256 256" fill="currentColor"><path d="M199.28,149.8A71.58,71.58,0,0,0,193,129c19-37.94,30.45-88.28,17.34-110A22,22,0,0,0,190.94,8c-14.12,0-26,11.89-36.44,36.36-6.22,14.62-10.85,31.32-14,44.74a71.8,71.8,0,0,0-25,0c-3.13-13.42-7.76-30.12-14-44.74C91.1,19.89,79.18,8,65.06,8A22,22,0,0,0,45.64,19.08C32.53,40.76,44,91.1,63,129a71.58,71.58,0,0,0-6.26,20.76A52,52,0,1,0,128,225.52l-21.12-19.37a8,8,0,1,1,10.24-12.3L128,202.9l10.88-9.05a8,8,0,0,1,10.24,12.3L128,225.52a52,52,0,1,0,71.28-75.72ZM100,176a12,12,0,1,1,12-12A12,12,0,0,1,100,176Zm56,0a12,12,0,1,1,12-12A12,12,0,0,1,156,176Z"/></svg></span>
+            <div class="au-arow">
+              <div class="au-aname">Jalape&ntilde;o <span class="sx">&female;</span><span class="au-open">OPEN</span></div>
+              <div class="au-ameta">J4 &middot; Broken Black &middot; 4 lbs 4 oz</div>
+            </div>
+            <div class="au-aright"><span class="age">1 yr</span><span class="cv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg></span></div>
+          </div>
+
+          <div class="au-animal">
+            <span class="au-avatar"><svg viewBox="0 0 256 256" fill="currentColor"><path d="M199.28,149.8A71.58,71.58,0,0,0,193,129c19-37.94,30.45-88.28,17.34-110A22,22,0,0,0,190.94,8c-14.12,0-26,11.89-36.44,36.36-6.22,14.62-10.85,31.32-14,44.74a71.8,71.8,0,0,0-25,0c-3.13-13.42-7.76-30.12-14-44.74C91.1,19.89,79.18,8,65.06,8A22,22,0,0,0,45.64,19.08C32.53,40.76,44,91.1,63,129a71.58,71.58,0,0,0-6.26,20.76A52,52,0,1,0,128,225.52l-21.12-19.37a8,8,0,1,1,10.24-12.3L128,202.9l10.88-9.05a8,8,0,0,1,10.24,12.3L128,225.52a52,52,0,1,0,71.28-75.72ZM100,176a12,12,0,1,1,12-12A12,12,0,0,1,100,176Zm56,0a12,12,0,1,1,12-12A12,12,0,0,1,156,176Z"/></svg></span>
+            <div class="au-arow">
+              <div class="au-aname">3C Valiant <span class="sx">&male;</span></div>
+              <div class="au-ameta">3C &middot; Black &middot; 4 lbs 6 oz</div>
+            </div>
+            <div class="au-aright"><span class="age">8 mo</span><span class="cv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg></span></div>
+          </div>
+
+          <div class="au-breedhdr"><span class="bn">Holland Lop</span><span class="bc">7 bucks &middot; 13 does</span><span class="cv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span></div>
+
+          <div class="au-animal">
+            <span class="au-avatar"><svg viewBox="0 0 256 256" fill="currentColor"><path d="M199.28,149.8A71.58,71.58,0,0,0,193,129c19-37.94,30.45-88.28,17.34-110A22,22,0,0,0,190.94,8c-14.12,0-26,11.89-36.44,36.36-6.22,14.62-10.85,31.32-14,44.74a71.8,71.8,0,0,0-25,0c-3.13-13.42-7.76-30.12-14-44.74C91.1,19.89,79.18,8,65.06,8A22,22,0,0,0,45.64,19.08C32.53,40.76,44,91.1,63,129a71.58,71.58,0,0,0-6.26,20.76A52,52,0,1,0,128,225.52l-21.12-19.37a8,8,0,1,1,10.24-12.3L128,202.9l10.88-9.05a8,8,0,0,1,10.24,12.3L128,225.52a52,52,0,1,0,71.28-75.72ZM100,176a12,12,0,1,1,12-12A12,12,0,0,1,100,176Zm56,0a12,12,0,1,1,12-12A12,12,0,0,1,156,176Z"/></svg></span>
+            <div class="au-arow">
+              <div class="au-aname">Cedar Hollow Atlas <span class="sx">&male;</span><span class="au-gc">GC</span></div>
+              <div class="au-ameta">4L7R &middot; Broken Tort &middot; 4 lbs 8 oz</div>
+            </div>
+            <div class="au-aright"><span class="age">2 yr</span><span class="cv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg></span></div>
+          </div>
+
+          <div class="au-animal">
+            <span class="au-avatar"><svg viewBox="0 0 256 256" fill="currentColor"><path d="M199.28,149.8A71.58,71.58,0,0,0,193,129c19-37.94,30.45-88.28,17.34-110A22,22,0,0,0,190.94,8c-14.12,0-26,11.89-36.44,36.36-6.22,14.62-10.85,31.32-14,44.74a71.8,71.8,0,0,0-25,0c-3.13-13.42-7.76-30.12-14-44.74C91.1,19.89,79.18,8,65.06,8A22,22,0,0,0,45.64,19.08C32.53,40.76,44,91.1,63,129a71.58,71.58,0,0,0-6.26,20.76A52,52,0,1,0,128,225.52l-21.12-19.37a8,8,0,1,1,10.24-12.3L128,202.9l10.88-9.05a8,8,0,0,1,10.24,12.3L128,225.52a52,52,0,1,0,71.28-75.72ZM100,176a12,12,0,1,1,12-12A12,12,0,0,1,100,176Zm56,0a12,12,0,1,1,12-12A12,12,0,0,1,156,176Z"/></svg></span>
+            <div class="au-arow">
+              <div class="au-aname">Cedar Hollow Juno <span class="sx">&female;</span><span class="au-open">BRED</span></div>
+              <div class="au-ameta">J9 &middot; Tortoiseshell &middot; 4 lbs 4 oz</div>
+            </div>
+            <div class="au-aright"><span class="age">2 yr</span><span class="cv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg></span></div>
+          </div>
+
+          <div class="au-animal">
+            <span class="au-avatar"><svg viewBox="0 0 256 256" fill="currentColor"><path d="M199.28,149.8A71.58,71.58,0,0,0,193,129c19-37.94,30.45-88.28,17.34-110A22,22,0,0,0,190.94,8c-14.12,0-26,11.89-36.44,36.36-6.22,14.62-10.85,31.32-14,44.74a71.8,71.8,0,0,0-25,0c-3.13-13.42-7.76-30.12-14-44.74C91.1,19.89,79.18,8,65.06,8A22,22,0,0,0,45.64,19.08C32.53,40.76,44,91.1,63,129a71.58,71.58,0,0,0-6.26,20.76A52,52,0,1,0,128,225.52l-21.12-19.37a8,8,0,1,1,10.24-12.3L128,202.9l10.88-9.05a8,8,0,0,1,10.24,12.3L128,225.52a52,52,0,1,0,71.28-75.72ZM100,176a12,12,0,1,1,12-12A12,12,0,0,1,100,176Zm56,0a12,12,0,1,1,12-12A12,12,0,0,1,156,176Z"/></svg></span>
+            <div class="au-arow">
+              <div class="au-aname">Birchwood Apollo <span class="sx">&male;</span><span class="au-gc">GC</span></div>
+              <div class="au-ameta">A4 &middot; Broken Tort &middot; 4 lbs 12 oz</div>
+            </div>
+            <div class="au-aright"><span class="age">3 yr</span><span class="cv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg></span></div>
+          </div>
+
+          <div class="au-breedhdr"><span class="bn">Britannia Petite</span><span class="bc">4 bucks &middot; 9 does</span><span class="cv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span></div>
+
+          <div class="au-animal">
+            <span class="au-avatar"><svg viewBox="0 0 256 256" fill="currentColor"><path d="M199.28,149.8A71.58,71.58,0,0,0,193,129c19-37.94,30.45-88.28,17.34-110A22,22,0,0,0,190.94,8c-14.12,0-26,11.89-36.44,36.36-6.22,14.62-10.85,31.32-14,44.74a71.8,71.8,0,0,0-25,0c-3.13-13.42-7.76-30.12-14-44.74C91.1,19.89,79.18,8,65.06,8A22,22,0,0,0,45.64,19.08C32.53,40.76,44,91.1,63,129a71.58,71.58,0,0,0-6.26,20.76A52,52,0,1,0,128,225.52l-21.12-19.37a8,8,0,1,1,10.24-12.3L128,202.9l10.88-9.05a8,8,0,0,1,10.24,12.3L128,225.52a52,52,0,1,0,71.28-75.72ZM100,176a12,12,0,1,1,12-12A12,12,0,0,1,100,176Zm56,0a12,12,0,1,1,12-12A12,12,0,0,1,156,176Z"/></svg></span>
+            <div class="au-arow">
+              <div class="au-aname">Wendy's Burnt Cheese <span class="sx">&female;</span></div>
+              <div class="au-ameta">W3 &middot; Cherry &middot; 2 lbs 4 oz</div>
+            </div>
+            <div class="au-aright"><span class="age">1 yr</span><span class="cv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg></span></div>
+          </div>
+        </div>
+
+        <span class="au-fab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+
+        <div class="au-tabs">
+          <span class="tab"><svg viewBox="0 0 256 256" fill="currentColor"><path d="M219.31,108.68l-80-80a16,16,0,0,0-22.62,0l-80,80A15.87,15.87,0,0,0,32,120v96a8,8,0,0,0,8,8h64a8,8,0,0,0,8-8V160h32v56a8,8,0,0,0,8,8h64a8,8,0,0,0,8-8V120A15.87,15.87,0,0,0,219.31,108.68ZM208,208H160V152a8,8,0,0,0-8-8H104a8,8,0,0,0-8,8v56H48V120l80-80,80,80Z"/></svg><span>HOME</span></span>
+          <span class="tab on"><svg viewBox="0 0 256 256" fill="currentColor"><path d="M212,80a28,28,0,1,0,28,28A28,28,0,0,0,212,80Zm0,40a12,12,0,1,1,12-12A12,12,0,0,1,212,120ZM72,108a28,28,0,1,0-28,28A28,28,0,0,0,72,108ZM44,120a12,12,0,1,1,12-12A12,12,0,0,1,44,120ZM92,88A28,28,0,1,0,64,60,28,28,0,0,0,92,88Zm0-40A12,12,0,1,1,80,60,12,12,0,0,1,92,48Zm72,40a28,28,0,1,0-28-28A28,28,0,0,0,164,88Zm0-40a12,12,0,1,1-12,12A12,12,0,0,1,164,48Zm23.12,100.86a35.3,35.3,0,0,1-16.87-21.14,44,44,0,0,0-84.5,0A35.25,35.25,0,0,1,69,148.82,40,40,0,0,0,88,224a39.48,39.48,0,0,0,15.52-3.13,64.09,64.09,0,0,1,48.87,0,40,40,0,0,0,34.73-72ZM168,208a24,24,0,0,1-9.45-1.93,80.14,80.14,0,0,0-61.19,0,24,24,0,0,1-20.71-43.26,51.22,51.22,0,0,0,24.46-30.67,28,28,0,0,1,53.78,0,51.27,51.27,0,0,0,24.53,30.71A24,24,0,0,1,168,208Z"/></svg><span>HERD</span></span>
+          <span class="tab"><svg viewBox="0 0 256 256" fill="currentColor"><path d="M178,40c-20.65,0-38.73,8.88-50,23.89C116.73,48.88,98.65,40,78,40a62.07,62.07,0,0,0-62,62c0,70,103.79,126.66,108.21,129a8,8,0,0,0,7.58,0C136.21,228.66,240,172,240,102A62.07,62.07,0,0,0,178,40ZM128,214.8C109.74,204.16,32,155.69,32,102A46.06,46.06,0,0,1,78,56c19.45,0,35.78,10.36,42.6,27a8,8,0,0,0,14.8,0c6.82-16.67,23.15-27,42.6-27a46.06,46.06,0,0,1,46,46C224,155.61,146.24,204.15,128,214.8Z"/></svg><span>BREEDING</span></span>
+          <span class="tab"><svg viewBox="0 0 256 256" fill="currentColor"><path d="M230.92,212c-15.23-26.33-38.7-45.21-66.09-54.16a72,72,0,1,0-73.66,0C63.78,166.78,40.31,185.66,25.08,212a8,8,0,1,0,13.85,8c18.84-32.56,52.14-52,89.07-52s70.23,19.44,89.07,52a8,8,0,1,0,13.85-8ZM72,96a56,56,0,1,1,56,56A56.06,56.06,0,0,1,72,96Z"/></svg><span>PROFILE</span></span>
+        </div>
+      </div>
+    </div>
+    <p class="preview-label">Herd list (HERD tab)</p>
+  </div>
+  <script>if(location.hash.indexOf('embed')>-1)document.body.classList.add('embed');</script>
+</body></html>

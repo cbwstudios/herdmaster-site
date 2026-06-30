@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Component: Health detail</title>
+<link rel="stylesheet" href="../assets/site.css">
+<style>
+  body{ margin:0; padding:48px 20px; background:#e9eeec; font-family:-apple-system,system-ui,sans-serif; }
+  .preview{ max-width:340px; margin:0 auto; }
+  .preview-phone{ background:#0e1620; border-radius:42px; padding:12px; box-shadow:0 24px 60px -24px rgba(0,0,0,.45); }
+  .preview-phone .au{ border-radius:30px; overflow:hidden; height:auto; }
+  .preview-label{ text-align:center; color:#46566e; font-weight:600; margin-top:16px; }
+  /* screen-specific classes below, all under .au */
+  .au-pad2{ padding:6px 18px 18px; }
+  .au-animalhead{ display:flex; flex-direction:column; align-items:center; text-align:center; padding:6px 0 4px; }
+  .au-animalhead .tile{ position:relative; width:88px; height:88px; border-radius:20px; background:var(--au-card); border:2px solid var(--au-teal); box-shadow:0 1px 3px rgba(16,32,28,.06); display:grid; place-items:center; margin-bottom:14px; }
+  .au-animalhead .tile svg{ width:46px; height:46px; color:var(--au-teal); }
+  .au-animalhead .tile .buck{ position:absolute; left:50%; bottom:-9px; transform:translateX(-50%); font-size:.56rem; font-weight:800; letter-spacing:.06em; color:#fff; background:var(--au-teal); border-radius:999px; padding:3px 9px; }
+  .au-animalhead .nm{ font-size:1.6rem; font-weight:800; letter-spacing:-.01em; line-height:1.1; }
+  .au-animalhead .breed{ font-size:1rem; font-weight:600; color:var(--au-teal); margin-top:3px; }
+  .au-subtabs{ display:flex; align-items:center; gap:18px; border-bottom:1px solid var(--au-sep); margin:18px 0 4px; overflow:hidden; }
+  .au-subtabs .st{ font-size:.92rem; font-weight:600; color:var(--au-sec); padding:8px 0 10px; white-space:nowrap; }
+  .au-subtabs .st.on{ color:var(--au-teal); border-bottom:2px solid var(--au-teal); }
+  .au-panel{ background:var(--au-tint); border-radius:16px; padding:16px; margin-top:16px; }
+  .au-panel .pt{ font-size:1.2rem; font-weight:800; margin-bottom:14px; }
+  .au-addbtn{ display:flex; flex-direction:column; align-items:center; gap:8px; background:var(--au-card); border:1.5px dashed var(--au-teal); border-radius:12px; padding:18px 14px; }
+  .au-addbtn svg{ width:22px; height:22px; color:var(--au-teal); }
+  .au-addbtn .lbl{ font-size:.86rem; font-weight:700; }
+  .au-hcard{ background:var(--au-card); border-radius:16px; padding:16px; margin-top:14px; box-shadow:0 1px 3px rgba(16,32,28,.06); }
+  .au-hcard .ct{ font-size:1.18rem; font-weight:800; margin-bottom:12px; }
+  .au-hrow{ display:flex; align-items:center; gap:12px; }
+  .au-hrow .ic{ flex:0 0 auto; width:38px; height:38px; border-radius:10px; background:var(--au-tint); color:var(--au-teal); display:grid; place-items:center; }
+  .au-hrow .ic svg{ width:20px; height:20px; }
+  .au-hrow .m{ flex:1; min-width:0; }
+  .au-hrow .m b{ display:block; font-size:.95rem; font-weight:700; }
+  .au-hrow .m .sub{ display:block; font-size:.82rem; color:var(--au-sec); margin-top:2px; }
+  .au-hrow .when{ flex:0 0 auto; font-size:.86rem; font-weight:700; color:var(--au-teal); }
+  .au-evhead{ font-size:1.18rem; font-weight:800; margin:22px 0 12px; }
+  .au-evrow{ display:flex; align-items:center; gap:12px; background:var(--au-tint); border-radius:14px; padding:14px 16px; }
+  .au-evrow .ic{ flex:0 0 auto; color:var(--au-teal); } .au-evrow .ic svg{ width:20px; height:20px; }
+  .au-evrow .lbl{ flex:1; font-size:.86rem; font-weight:700; letter-spacing:.03em; }
+  .au-evrow .cv{ flex:0 0 auto; color:var(--au-teal); } .au-evrow .cv svg{ width:16px; height:16px; }
+</style>
+</head><body>
+  <div class="preview">
+    <div class="preview-phone"><div class="au" role="img" aria-label="HerdMaster animal Health tab">
+      <div class="au-status">
+        <span class="t">11:26</span>
+        <span class="sys">
+          <svg viewBox="0 0 256 256" fill="currentColor"><rect x="12" y="148" width="40" height="80" rx="10"/><rect x="80" y="108" width="40" height="120" rx="10"/><rect x="148" y="64" width="40" height="164" rx="10"/><rect x="216" y="20" width="40" height="208" rx="10"/></svg>
+          <svg viewBox="0 0 256 256" fill="currentColor"><path d="M140,204a12,12,0,1,1-12-12A12,12,0,0,1,140,204ZM237.08,87A172,172,0,0,0,18.92,87,8,8,0,0,0,29.08,99.37a156,156,0,0,1,197.84,0A8,8,0,0,0,237.08,87ZM205,122.77a124,124,0,0,0-153.94,0A8,8,0,0,0,61,135.31a108,108,0,0,1,134.06,0,8,8,0,0,0,11.24-1.3A8,8,0,0,0,205,122.77Zm-32.26,35.76a76.05,76.05,0,0,0-89.42,0,8,8,0,0,0,9.42,12.94,60,60,0,0,1,70.58,0,8,8,0,1,0,9.42-12.94Z"/></svg>
+          <svg viewBox="0 0 256 256" fill="currentColor"><path d="M200,56H32A24,24,0,0,0,8,80v96a24,24,0,0,0,24,24H200a24,24,0,0,0,24-24V80A24,24,0,0,0,200,56Zm8,120a8,8,0,0,1-8,8H32a8,8,0,0,1-8-8V80a8,8,0,0,1,8-8H200a8,8,0,0,1,8,8ZM104,96v64a8,8,0,0,1-16,0V96a8,8,0,0,1,16,0ZM64,96v64a8,8,0,0,1-16,0V96a8,8,0,0,1,16,0Zm192,0v64a8,8,0,0,1-16,0V96a8,8,0,0,1,16,0Z"/></svg>
+        </span>
+      </div>
+      <div class="au-nav">
+        <span class="back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m15 6-6 6 6 6"/></svg></span>
+        <span class="title">Health</span>
+      </div>
+      <div class="au-pad2">
+        <div class="au-animalhead">
+          <span class="tile">
+            <svg viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"><path d="M84,164c-22,0-40-18-40-40,0-26,22-44,46-44,18,0,30,10,38,24"/><path d="M96,104c-6-20-2-44,10-60,6-8,16-4,16,6,0,18-8,38-22,52"/><path d="M134,108c2-22,14-44,30-56,8-6,18,2,14,12-8,22-24,40-42,50"/><path d="M150,128c30-6,56,8,56,36,0,24-20,40-44,40H96c-20,0-36-14-36-34"/></svg>
+            <span class="buck">BUCK</span>
+          </span>
+          <span class="nm">3C VALIANT</span>
+          <span class="breed">Mini Rex</span>
+        </div>
+        <div class="au-subtabs">
+          <span class="st">Details</span>
+          <span class="st">Weight</span>
+          <span class="st">Pedigree</span>
+          <span class="st">Breeding</span>
+          <span class="st on">Health</span>
+        </div>
+        <div class="au-panel">
+          <div class="pt">Medical Records</div>
+          <div class="au-addbtn">
+            <svg viewBox="0 0 256 256" fill="currentColor"><path d="M216,64H176V56a24,24,0,0,0-24-24H104A24,24,0,0,0,80,56v8H40A16,16,0,0,0,24,80V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V80A16,16,0,0,0,216,64ZM96,56a8,8,0,0,1,8-8h48a8,8,0,0,1,8,8v8H96ZM164,148H140v24a12,12,0,0,1-24,0V148H92a12,12,0,0,1,0-24h24V100a12,12,0,0,1,24,0v24h24a12,12,0,0,1,0,24Z"/></svg>
+            <span class="lbl">Add Health Record</span>
+          </div>
+        </div>
+        <div class="au-hcard">
+          <div class="ct">Recent Health Records</div>
+          <div class="au-hrow">
+            <span class="ic"><svg viewBox="0 0 256 256" fill="currentColor"><path d="M216,64H176V56a24,24,0,0,0-24-24H104A24,24,0,0,0,80,56v8H40A16,16,0,0,0,24,80V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V80A16,16,0,0,0,216,64ZM96,56a8,8,0,0,1,8-8h48a8,8,0,0,1,8,8v8H96ZM164,148H140v24a12,12,0,0,1-24,0V148H92a12,12,0,0,1,0-24h24V100a12,12,0,0,1,24,0v24h24a12,12,0,0,1,0,24Z"/></svg></span>
+            <span class="m"><b>Treatment</b><span class="sub">Safeguard</span></span>
+            <span class="when">06/07/2026</span>
+          </div>
+        </div>
+        <div class="au-evhead">Event Log</div>
+        <div class="au-evrow">
+          <span class="ic"><svg viewBox="0 0 256 256" fill="currentColor"><path d="M208,32H184V24a8,8,0,0,0-16,0v8H88V24a8,8,0,0,0-16,0v8H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V48A16,16,0,0,0,208,32ZM48,48H72v8a8,8,0,0,0,16,0V48h80v8a8,8,0,0,0,16,0V48h24V80H48ZM208,208H48V96H208V208Zm-34.34-77.66a8,8,0,0,1,0,11.32l-48,48a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L120,172.69l42.34-42.35A8,8,0,0,1,173.66,130.34Z"/></svg></span>
+          <span class="lbl">HEALTH EVENT LOG</span>
+          <span class="cv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg></span>
+        </div>
+      </div>
+    </div></div>
+    <p class="preview-label">Health detail</p>
+  </div>
+</body></html>

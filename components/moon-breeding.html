@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Component: Moon Breeding</title>
+<link rel="stylesheet" href="../assets/site.css">
+<style>
+  body{ margin:0; padding:48px 20px; background:#e9eeec; font-family:-apple-system,system-ui,sans-serif; }
+  .preview{ max-width:340px; margin:0 auto; }
+  .preview-phone{ background:#0e1620; border-radius:42px; padding:12px; box-shadow:0 24px 60px -24px rgba(0,0,0,.45); }
+  .preview-phone .au{ border-radius:30px; overflow:hidden; height:auto; }
+  .preview-label{ text-align:center; color:#46566e; font-weight:600; margin-top:16px; }
+  /* screen-specific classes below, all under .au */
+  .au .au-pad2{ padding:6px 16px 18px; }
+
+  /* calendar card */
+  .au .au-cal{ background:var(--au-card); border-radius:18px; padding:16px 14px 14px; box-shadow:0 1px 3px rgba(16,32,28,.06); }
+  .au .au-calhead{ display:flex; align-items:center; justify-content:space-between; padding:0 2px 12px; }
+  .au .au-calhead .mo{ font-size:1.1rem; font-weight:800; }
+  .au .au-calhead .nav{ display:flex; align-items:center; gap:18px; color:var(--au-ink); }
+  .au .au-calhead .nav svg{ width:15px; height:15px; }
+  .au .au-calwk{ display:grid; grid-template-columns:repeat(7,1fr); border-top:1px solid var(--au-sep); }
+  .au .au-calwk span{ text-align:center; font-size:.7rem; font-weight:700; color:var(--au-sec); padding:7px 0 6px; border-right:1px solid var(--au-sep); }
+  .au .au-calwk span:last-child{ border-right:0; }
+  .au .au-calgrid{ display:grid; grid-template-columns:repeat(7,1fr); }
+  .au .au-day{ position:relative; min-height:46px; padding:5px 6px 4px; border-top:1px solid var(--au-sep); border-right:1px solid var(--au-sep); display:flex; flex-direction:column; }
+  .au .au-day:nth-child(7n){ border-right:0; }
+  .au .au-day .dn{ font-size:.74rem; font-weight:600; line-height:1; }
+  .au .au-day.out .dn{ color:#c2ccc8; }
+  .au .au-day.sel{ outline:2px solid var(--au-teal); outline-offset:-2px; border-radius:7px; }
+  .au .au-day .dot{ position:absolute; top:6px; right:6px; width:5px; height:5px; border-radius:50%; }
+  .au .au-day .dot.f{ background:#3aa760; }   /* prime female */
+  .au .au-day .dot.m{ background:#e0524a; }   /* prime male */
+  .au .au-day .dot.n{ background:#c2ccc8; }   /* neutral */
+
+  /* moon glyph */
+  .au .au-moon{ width:17px; height:17px; border-radius:50%; margin:auto auto 1px; align-self:center;
+    background:#27303d; box-shadow:inset 0 0 0 1px rgba(0,0,0,.08); }
+  .au .au-moon.full{ background:#f2c84b; }
+  .au .au-moon.new{ background:#27303d; }
+  .au .au-moon.wax-c{ background:linear-gradient(90deg,#27303d 50%,#f2c84b 50%); }   /* waxing crescent-ish, right lit */
+  .au .au-moon.wan-c{ background:linear-gradient(90deg,#f2c84b 50%,#27303d 50%); }   /* waning, left lit */
+  .au .au-moon.wax-g{ background:radial-gradient(circle at 78% 50%, #f2c84b 42%, #27303d 44%); } /* gibbous, mostly lit right */
+  .au .au-moon.wan-g{ background:radial-gradient(circle at 22% 50%, #f2c84b 42%, #27303d 44%); }
+  .au .au-moon.wax-cr{ background:radial-gradient(circle at 118% 50%, #f2c84b 40%, #27303d 42%); } /* thin crescent right */
+  .au .au-moon.wan-cr{ background:radial-gradient(circle at -18% 50%, #f2c84b 40%, #27303d 42%); }
+  .au .au-day.out .au-moon{ opacity:.45; }
+
+  /* legend */
+  .au .au-legend{ display:flex; gap:8px; margin:12px 2px 0; }
+  .au .au-legend .lg{ flex:1; min-width:0; display:flex; align-items:center; gap:6px; background:var(--au-card); border:1px solid var(--au-sep); border-radius:999px; padding:7px 11px; box-shadow:0 1px 2px rgba(16,32,28,.05); }
+  .au .au-legend .lg .d{ flex:0 0 auto; width:8px; height:8px; border-radius:50%; }
+  .au .au-legend .lg .d.f{ background:#3aa760; }
+  .au .au-legend .lg .d.m{ background:#e0524a; }
+  .au .au-legend .lg .d.n{ background:#c2ccc8; }
+  .au .au-legend .lg .t{ font-size:.72rem; font-weight:600; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+
+  /* selected-day detail card */
+  .au .au-moondetail{ background:var(--au-card); border-radius:18px; padding:16px; margin-top:14px; box-shadow:0 1px 3px rgba(16,32,28,.06); }
+  .au .au-moondetail .dh{ display:flex; align-items:center; justify-content:space-between; margin-bottom:14px; }
+  .au .au-moondetail .dh .dd{ font-size:1.15rem; font-weight:800; }
+  .au .au-moondetail .dh .au-moon{ width:24px; height:24px; margin:0; }
+  .au .au-moondetail .grid{ display:grid; grid-template-columns:1fr 1fr; gap:16px 14px; }
+  .au .au-moondetail .k{ font-size:.74rem; color:var(--au-sec); margin-bottom:3px; }
+  .au .au-moondetail .v{ font-size:1.02rem; font-weight:800; line-height:1.25; }
+</style>
+</head><body>
+  <div class="preview">
+    <div class="preview-phone"><div class="au" role="img" aria-label="HerdMaster Moon Breeding calendar">
+
+      <div class="au-status">
+        <span class="t">6:17</span>
+        <span class="sys">
+          <svg viewBox="0 0 256 256" fill="currentColor"><rect x="12" y="148" width="40" height="80" rx="10"/><rect x="80" y="108" width="40" height="120" rx="10"/><rect x="148" y="64" width="40" height="164" rx="10"/><rect x="216" y="20" width="40" height="208" rx="10"/></svg>
+          <svg viewBox="0 0 256 256" fill="currentColor"><path d="M140,204a12,12,0,1,1-12-12A12,12,0,0,1,140,204ZM237.08,87A172,172,0,0,0,18.92,87,8,8,0,0,0,29.08,99.37a156,156,0,0,1,197.84,0A8,8,0,0,0,237.08,87ZM205,122.77a124,124,0,0,0-153.94,0A8,8,0,0,0,61,135.31a108,108,0,0,1,134.06,0,8,8,0,0,0,11.24-1.3A8,8,0,0,0,205,122.77Zm-32.26,35.76a76.05,76.05,0,0,0-89.42,0,8,8,0,0,0,9.42,12.94,60,60,0,0,1,70.58,0,8,8,0,1,0,9.42-12.94Z"/></svg>
+          <svg viewBox="0 0 256 256" fill="currentColor"><path d="M200,56H32A24,24,0,0,0,8,80v96a24,24,0,0,0,24,24H200a24,24,0,0,0,24-24V80A24,24,0,0,0,200,56Zm8,120a8,8,0,0,1-8,8H32a8,8,0,0,1-8-8V80a8,8,0,0,1,8-8H200a8,8,0,0,1,8,8ZM104,96v64a8,8,0,0,1-16,0V96a8,8,0,0,1,16,0ZM64,96v64a8,8,0,0,1-16,0V96a8,8,0,0,1,16,0Zm192,0v64a8,8,0,0,1-16,0V96a8,8,0,0,1,16,0Z"/></svg>
+        </span>
+      </div>
+
+      <div class="au-nav">
+        <span class="back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m15 6-6 6 6 6"/></svg></span>
+        <span class="title">Moon Breeding</span>
+      </div>
+
+      <div class="au-pad2">
+
+        <div class="au-cal">
+          <div class="au-calhead">
+            <span class="mo">June 2026</span>
+            <span class="nav">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m15 6-6 6 6 6"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg>
+            </span>
+          </div>
+
+          <div class="au-calwk"><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span></div>
+
+          <div class="au-calgrid">
+            <!-- week 1 -->
+            <div class="au-day"><span class="dn">1</span><span class="dot n"></span><span class="au-moon new"></span></div>
+            <div class="au-day"><span class="dn">2</span><span class="dot f"></span><span class="au-moon wax-cr"></span></div>
+            <div class="au-day"><span class="dn">3</span><span class="dot f"></span><span class="au-moon wax-c"></span></div>
+            <div class="au-day"><span class="dn">4</span><span class="au-moon wax-c"></span></div>
+            <div class="au-day"><span class="dn">5</span><span class="au-moon wax-g"></span></div>
+            <div class="au-day"><span class="dn">6</span><span class="au-moon wax-g"></span></div>
+            <div class="au-day"><span class="dn">7</span><span class="dot f"></span><span class="au-moon full"></span></div>
+            <!-- week 2 -->
+            <div class="au-day sel"><span class="dn">8</span><span class="dot f"></span><span class="au-moon wan-c"></span></div>
+            <div class="au-day"><span class="dn">9</span><span class="au-moon wan-g"></span></div>
+            <div class="au-day"><span class="dn">10</span><span class="au-moon wan-g"></span></div>
+            <div class="au-day"><span class="dn">11</span><span class="au-moon wan-c"></span></div>
+            <div class="au-day"><span class="dn">12</span><span class="au-moon wan-c"></span></div>
+            <div class="au-day"><span class="dn">13</span><span class="dot f"></span><span class="au-moon wan-cr"></span></div>
+            <div class="au-day"><span class="dn">14</span><span class="dot f"></span><span class="au-moon wan-cr"></span></div>
+            <!-- week 3 -->
+            <div class="au-day"><span class="dn">15</span><span class="au-moon new"></span></div>
+            <div class="au-day"><span class="dn">16</span><span class="au-moon new"></span></div>
+            <div class="au-day"><span class="dn">17</span><span class="au-moon wax-cr"></span></div>
+            <div class="au-day"><span class="dn">18</span><span class="au-moon wax-c"></span></div>
+            <div class="au-day"><span class="dn">19</span><span class="dot f"></span><span class="au-moon wax-c"></span></div>
+            <div class="au-day"><span class="dn">20</span><span class="dot f"></span><span class="au-moon wax-g"></span></div>
+            <div class="au-day"><span class="dn">21</span><span class="au-moon wax-g"></span></div>
+            <!-- week 4 -->
+            <div class="au-day"><span class="dn">22</span><span class="dot n"></span><span class="au-moon wax-g"></span></div>
+            <div class="au-day"><span class="dn">23</span><span class="dot m"></span><span class="au-moon full"></span></div>
+            <div class="au-day"><span class="dn">24</span><span class="dot m"></span><span class="au-moon wan-g"></span></div>
+            <div class="au-day"><span class="dn">25</span><span class="au-moon wan-g"></span></div>
+            <div class="au-day"><span class="dn">26</span><span class="dot f"></span><span class="au-moon wan-c"></span></div>
+            <div class="au-day"><span class="dn">27</span><span class="au-moon wan-c"></span></div>
+            <div class="au-day"><span class="dn">28</span><span class="au-moon wan-cr"></span></div>
+            <!-- week 5 -->
+            <div class="au-day"><span class="dn">29</span><span class="au-moon wan-cr"></span></div>
+            <div class="au-day"><span class="dn">30</span><span class="dot f"></span><span class="au-moon new"></span></div>
+            <div class="au-day out"><span class="dn">1</span><span class="dot n"></span><span class="au-moon new"></span></div>
+            <div class="au-day out"><span class="dn">2</span><span class="au-moon wax-cr"></span></div>
+            <div class="au-day out"><span class="dn">3</span><span class="au-moon wax-c"></span></div>
+            <div class="au-day out"><span class="dn">4</span><span class="au-moon wax-c"></span></div>
+            <div class="au-day out"><span class="dn">5</span><span class="au-moon wax-g"></span></div>
+          </div>
+        </div>
+
+        <div class="au-legend">
+          <span class="lg"><span class="d f"></span><span class="t">Prime &#9792; Days</span></span>
+          <span class="lg"><span class="d m"></span><span class="t">Prime &#9794; Days</span></span>
+          <span class="lg"><span class="d n"></span><span class="t">Neutral D</span></span>
+        </div>
+
+        <div class="au-moondetail">
+          <div class="dh">
+            <span class="dd">Jun 8</span>
+            <span class="au-moon wan-c"></span>
+          </div>
+          <div class="grid">
+            <div>
+              <div class="k">Moon Sign</div>
+              <div class="v">Pisces</div>
+            </div>
+            <div>
+              <div class="k">Moon Phase</div>
+              <div class="v">Last Quarter</div>
+            </div>
+            <div>
+              <div class="k">Quality Rating</div>
+              <div class="v">Very Fruitful</div>
+            </div>
+            <div>
+              <div class="k">Offspring Prediction</div>
+              <div class="v">Waning moon favors smaller litters</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div></div>
+    <p class="preview-label">Moon Breeding</p>
+  </div>
+</body></html>

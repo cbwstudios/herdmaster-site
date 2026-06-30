@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HerdMaster, App Screen Components</title>
+  <style>
+    :root{ --teal:#227673; --navy:#222B37; --line:#e1e6e4; --muted:#5a6a6f; }
+    *{ box-sizing:border-box; }
+    body{ margin:0; font-family:"Inter",system-ui,sans-serif; color:#16201c; background:#f4f7f6; }
+    header{ padding:46px 24px 28px; text-align:center; border-bottom:1px solid var(--line); background:#fff; }
+    header h1{ margin:0 0 8px; font-size:1.9rem; letter-spacing:-.02em; }
+    header h1 b{ color:var(--teal); }
+    header p{ margin:0 auto; max-width:680px; color:var(--muted); line-height:1.6; }
+    .wrap{ max-width:1200px; margin:0 auto; padding:40px 24px 80px; }
+    h2.sec{ font-size:1.1rem; letter-spacing:.02em; text-transform:uppercase; color:var(--teal); margin:36px 0 18px; }
+    .grid{ display:grid; grid-template-columns:repeat(auto-fill, minmax(300px,1fr)); gap:26px; }
+    figure{ margin:0; background:#fff; border:1px solid var(--line); border-radius:16px; overflow:hidden; box-shadow:0 10px 30px -18px rgba(34,43,55,.3); display:flex; flex-direction:column; }
+    figure .frame{ background:#e9eeec; }
+    figure iframe{ width:100%; height:760px; border:0; display:block; }
+    figure.wide{ grid-column:1 / -1; }
+    figure.wide iframe{ height:560px; }
+    figcaption{ padding:14px 18px; border-top:1px solid var(--line); }
+    figcaption .t{ font-weight:700; }
+    figcaption .m{ font-size:.82rem; color:var(--muted); margin-top:3px; }
+    figcaption .tag{ display:inline-block; font-size:.68rem; font-weight:700; letter-spacing:.05em; text-transform:uppercase; padding:2px 8px; border-radius:999px; margin-right:6px; }
+    .tag.new{ color:#1f6f6b; background:#dcefe9; }
+    .tag.live{ color:#7a5a14; background:#fbe8c6; }
+    .tag.ex{ color:#5a4ea8; background:#e7e3f7; }
+    figcaption a{ color:var(--teal); font-weight:600; text-decoration:none; }
+    .linkcards{ display:grid; grid-template-columns:repeat(auto-fill, minmax(280px,1fr)); gap:18px; }
+    .linkcard{ background:#fff; border:1px solid var(--line); border-radius:14px; padding:20px 22px; }
+    .linkcard .t{ font-weight:700; }
+    .linkcard .m{ font-size:.86rem; color:var(--muted); margin:4px 0 10px; }
+    .note{ color:var(--muted); font-size:.92rem; max-width:760px; line-height:1.6; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>HerdMaster, <b>App Screen Components</b></h1>
+    <p>Every recreated app screen, built in HTML and CSS (the namespaced <code>.au</code> kit), so they can sit in a phone frame, be themed, and drop into any page. Click a tile to open it full size.</p>
+  </header>
+
+  <div class="wrap">
+
+    <h2 class="sec">New components (built from screenshots)</h2>
+    <div class="grid">
+
+      <figure>
+        <div class="frame"><iframe src="new-breeding.html" title="New Breeding" loading="lazy"></iframe></div>
+        <figcaption><div class="t">New Breeding</div><div class="m"><span class="tag new">New</span>Breeding &middot; img-3409 &middot; <a href="new-breeding.html" target="_blank">open</a></div></figcaption>
+      </figure>
+
+      <figure>
+        <div class="frame"><iframe src="moon-breeding.html" title="Moon Breeding" loading="lazy"></iframe></div>
+        <figcaption><div class="t">Moon Breeding</div><div class="m"><span class="tag new">New</span>Breeding &middot; img-3410 &middot; <a href="moon-breeding.html" target="_blank">open</a></div></figcaption>
+      </figure>
+
+      <figure>
+        <div class="frame"><iframe src="kit-tracking.html" title="Kit Tracking" loading="lazy"></iframe></div>
+        <figcaption><div class="t">Kit Tracking</div><div class="m"><span class="tag new">New</span>Litters &amp; Kits &middot; img-3336 &middot; <a href="kit-tracking.html" target="_blank">open</a></div></figcaption>
+      </figure>
+
+      <figure>
+        <div class="frame"><iframe src="kit-record.html" title="Kit Record" loading="lazy"></iframe></div>
+        <figcaption><div class="t">Kit Record</div><div class="m"><span class="tag new">New</span>Litters &amp; Kits &middot; img-3337 &middot; <a href="kit-record.html" target="_blank">open</a></div></figcaption>
+      </figure>
+
+      <figure>
+        <div class="frame"><iframe src="add-health-record.html" title="Add Health Record" loading="lazy"></iframe></div>
+        <figcaption><div class="t">Add Health Record</div><div class="m"><span class="tag new">New</span>Health &middot; img-3340 &middot; <a href="add-health-record.html" target="_blank">open</a></div></figcaption>
+      </figure>
+
+      <figure>
+        <div class="frame"><iframe src="health-detail.html" title="Health detail" loading="lazy"></iframe></div>
+        <figcaption><div class="t">Health detail</div><div class="m"><span class="tag new">New</span>Health &middot; img-3342 &middot; <a href="health-detail.html" target="_blank">open</a></div></figcaption>
+      </figure>
+
+      <figure>
+        <div class="frame"><iframe src="dashboard-dark.html" title="Dashboard, dark" loading="lazy"></iframe></div>
+        <figcaption><div class="t">Dashboard (dark)</div><div class="m"><span class="tag new">New</span>Dashboard variant &middot; img-3315 &middot; <a href="dashboard-dark.html" target="_blank">open</a></div></figcaption>
+      </figure>
+
+      <figure class="wide">
+        <div class="frame"><iframe src="pedigree-record.html" title="Pedigree Record" loading="lazy"></iframe></div>
+        <figcaption><div class="t">Pedigree Record (landscape document)</div><div class="m"><span class="tag new">New</span>Pedigrees &middot; img-1618 &middot; <a href="pedigree-record.html" target="_blank">open</a></div></figcaption>
+      </figure>
+
+    </div>
+
+    <h2 class="sec">Designed example screens (no source screenshot)</h2>
+    <p class="note">These two had no screenshot to work from, so they are designed from what the rest of the app does plus standard rabbitry conventions (ear number, left-ear tattoo, breed and variety, sire and dam, ARBA Grand Champion leg tracking). Treat them as a starting point to refine against the real app.</p>
+    <div class="grid" style="margin-top:16px">
+      <figure>
+        <div class="frame"><iframe src="herd-list.html" title="Herd list" loading="lazy"></iframe></div>
+        <figcaption><div class="t">Herd list</div><div class="m"><span class="tag ex">Example</span>Herd (HERD tab) &middot; <a href="herd-list.html" target="_blank">open</a></div></figcaption>
+      </figure>
+      <figure>
+        <div class="frame"><iframe src="show-records.html" title="Show Records" loading="lazy"></iframe></div>
+        <figcaption><div class="t">Show Records</div><div class="m"><span class="tag ex">Example</span>Shows, GC leg tracking &middot; <a href="show-records.html" target="_blank">open</a></div></figcaption>
+      </figure>
+    </div>
+
+    <h2 class="sec">Already live on the site</h2>
+    <p class="note">These three were built earlier and are already used on the pages, so they are not duplicated here. Open the page to see them in context.</p>
+    <div class="linkcards" style="margin-top:16px">
+      <div class="linkcard"><div class="t">Dashboard (light)</div><div class="m"><span class="tag live">Live</span>Home hero, with scroll parallax &middot; img-3314</div><a href="../index.html" target="_blank">View on Home &rarr;</a></div>
+      <div class="linkcard"><div class="t">Active Breedings</div><div class="m"><span class="tag live">Live</span>Home, How it works &middot; img-3317</div><a href="../index.html" target="_blank">View on Home &rarr;</a></div>
+      <div class="linkcard"><div class="t">Evans Import</div><div class="m"><span class="tag live">Live</span>Features, Imports section &middot; img-3407</div><a href="../features/index.html" target="_blank">View on Features &rarr;</a></div>
+    </div>
+
+    <h2 class="sec">Note</h2>
+    <p class="note">The <b>Herd list</b> and <b>Show Records</b> screens above are designed examples: the app's Herd-list rows were mid-correction and no Shows screenshot was supplied, so there was nothing to recreate from. Confirm their fields and wording against the real app before using them as final.</p>
+
+  </div>
+</body>
+</html>

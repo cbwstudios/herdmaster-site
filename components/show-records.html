@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Component: Show Records</title>
+<link rel="stylesheet" href="../assets/site.css">
+<style>
+  body{ margin:0; padding:48px 20px; background:#e9eeec; font-family:-apple-system,system-ui,sans-serif; }
+  .preview{ max-width:340px; margin:0 auto; }
+  .preview-phone{ background:#0e1620; border-radius:42px; padding:12px; box-shadow:0 24px 60px -24px rgba(0,0,0,.45); }
+  .preview-phone .au{ border-radius:30px; overflow:hidden; height:auto; }
+  .preview-label{ text-align:center; color:#46566e; font-weight:600; margin-top:16px; }
+
+  /* Show Records screen, scoped under .au */
+  .au-spad{ padding:8px 16px 20px; }
+  .au-shead{ display:flex; align-items:center; gap:12px; background:var(--au-tint); border-radius:16px; padding:13px 14px; }
+  .au-shead .tile{ flex:0 0 auto; width:46px; height:46px; border-radius:12px; background:#fff; color:var(--au-teal); display:grid; place-items:center; border:1px solid var(--au-tile-bd); } .au-shead .tile svg{ width:26px; height:26px; }
+  .au-shead .nm{ display:flex; align-items:center; gap:7px; font-size:1.05rem; font-weight:800; }
+  .au-shead .gc{ font-size:.58rem; font-weight:800; letter-spacing:.04em; color:#7a5a14; background:#fbe8c6; border-radius:999px; padding:2px 6px; }
+  .au-shead .sub{ font-size:.82rem; color:var(--au-tealink); margin-top:1px; }
+  .au-shead .sub2{ font-size:.78rem; color:var(--au-sec); margin-top:1px; }
+
+  .au-gccard{ background:#fff; border:1px solid var(--au-sep); border-radius:16px; padding:15px; margin-top:14px; box-shadow:0 1px 3px rgba(16,32,28,.06); }
+  .au-gctop{ display:flex; align-items:center; gap:10px; }
+  .au-gctop .medal{ flex:0 0 auto; width:34px; height:34px; border-radius:10px; background:rgba(205,173,88,.16); color:var(--au-gold); display:grid; place-items:center; } .au-gctop .medal svg{ width:19px; height:19px; }
+  .au-gctop .gt{ font-size:1rem; font-weight:800; }
+  .au-gctop .gs{ font-size:.78rem; color:var(--au-sec); margin-top:1px; }
+  .au-gctop .count{ margin-left:auto; text-align:right; }
+  .au-gctop .count b{ font-size:1.35rem; font-weight:800; color:var(--au-teal); }
+  .au-gctop .count span{ display:block; font-size:.68rem; color:var(--au-sec); letter-spacing:.02em; }
+  .au-legbar{ display:flex; gap:8px; margin:14px 0 4px; }
+  .au-leg{ flex:1; height:7px; border-radius:4px; background:var(--au-sep); }
+  .au-leg.done{ background:var(--au-teal); }
+  .au-reqs{ display:grid; grid-template-columns:1fr 1fr; gap:7px 12px; margin-top:13px; }
+  .au-req{ display:flex; align-items:center; gap:7px; font-size:.78rem; color:var(--au-ink); }
+  .au-req svg{ flex:0 0 auto; width:15px; height:15px; }
+  .au-req.ok svg{ color:var(--au-teal); }
+  .au-req.pending{ color:var(--au-sec); } .au-req.pending svg{ color:#c2ccd3; }
+
+  .au-listhd{ display:flex; align-items:center; margin:22px 0 10px; }
+  .au-listhd .lt{ font-size:1.05rem; font-weight:800; }
+  .au-listhd .add{ margin-left:auto; font-size:.82rem; font-weight:600; color:var(--au-tealink); display:flex; align-items:center; gap:4px; } .au-listhd .add svg{ width:14px; height:14px; }
+
+  .au-show{ background:#fff; border:1px solid var(--au-sep); border-radius:14px; padding:13px 14px; margin-bottom:10px; box-shadow:0 1px 2px rgba(16,32,28,.04); }
+  .au-show .r1{ display:flex; align-items:center; gap:8px; }
+  .au-show .award{ font-size:.95rem; font-weight:700; }
+  .au-show .star{ color:var(--au-gold); display:flex; } .au-show .star svg{ width:15px; height:15px; }
+  .au-show .legtag{ margin-left:auto; font-size:.6rem; font-weight:800; letter-spacing:.04em; color:#1f6f6b; background:var(--au-tint); border-radius:999px; padding:3px 8px; }
+  .au-show .legtag.senior{ color:#7a5a14; background:#fbe8c6; }
+  .au-show .show-nm{ font-size:.84rem; color:var(--au-ink); margin-top:5px; }
+  .au-show .meta{ font-size:.77rem; color:var(--au-sec); margin-top:3px; }
+</style>
+</head><body>
+  <div class="preview">
+    <div class="preview-phone">
+      <div class="au" role="img" aria-label="HerdMaster Show Records screen">
+        <div class="au-status">
+          <span class="t">9:41</span>
+          <span class="sys">
+            <svg viewBox="0 0 256 256" fill="currentColor"><rect x="12" y="148" width="40" height="80" rx="10"/><rect x="80" y="108" width="40" height="120" rx="10"/><rect x="148" y="64" width="40" height="164" rx="10"/><rect x="216" y="20" width="40" height="208" rx="10"/></svg>
+            <svg viewBox="0 0 256 256" fill="currentColor"><path d="M140,204a12,12,0,1,1-12-12A12,12,0,0,1,140,204ZM237.08,87A172,172,0,0,0,18.92,87,8,8,0,0,0,29.08,99.37a156,156,0,0,1,197.84,0A8,8,0,0,0,237.08,87ZM205,122.77a124,124,0,0,0-153.94,0A8,8,0,0,0,61,135.31a108,108,0,0,1,134.06,0,8,8,0,0,0,11.24-1.3A8,8,0,0,0,205,122.77Zm-32.26,35.76a76.05,76.05,0,0,0-89.42,0,8,8,0,0,0,9.42,12.94,60,60,0,0,1,70.58,0,8,8,0,1,0,9.42-12.94Z"/></svg>
+            <svg viewBox="0 0 256 256" fill="currentColor"><path d="M200,56H32A24,24,0,0,0,8,80v96a24,24,0,0,0,24,24H200a24,24,0,0,0,24-24V80A24,24,0,0,0,200,56Zm8,120a8,8,0,0,1-8,8H32a8,8,0,0,1-8-8V80a8,8,0,0,1,8-8H200a8,8,0,0,1,8,8ZM104,96v64a8,8,0,0,1-16,0V96a8,8,0,0,1,16,0ZM64,96v64a8,8,0,0,1-16,0V96a8,8,0,0,1,16,0Zm192,0v64a8,8,0,0,1-16,0V96a8,8,0,0,1,16,0Z"/></svg>
+          </span>
+        </div>
+        <div class="au-nav">
+          <span class="back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m15 6-6 6 6 6"/></svg></span>
+          <span class="title">Show Records</span>
+        </div>
+        <div class="au-spad">
+          <div class="au-shead">
+            <span class="tile"><svg viewBox="0 0 256 256" fill="currentColor"><path d="M199.28,149.8A71.58,71.58,0,0,0,193,129c19-37.94,30.45-88.28,17.34-110A22,22,0,0,0,190.94,8c-14.12,0-26,11.89-36.44,36.36-6.22,14.62-10.85,31.32-14,44.74a71.8,71.8,0,0,0-25,0c-3.13-13.42-7.76-30.12-14-44.74C91.1,19.89,79.18,8,65.06,8A22,22,0,0,0,45.64,19.08C32.53,40.76,44,91.1,63,129a71.58,71.58,0,0,0-6.26,20.76A52,52,0,1,0,128,225.52l-21.12-19.37a8,8,0,1,1,10.24-12.3L128,202.9l10.88-9.05a8,8,0,0,1,10.24,12.3L128,225.52a52,52,0,1,0,71.28-75.72ZM100,176a12,12,0,1,1,12-12A12,12,0,0,1,100,176Zm56,0a12,12,0,1,1,12-12A12,12,0,0,1,156,176Z"/></svg></span>
+            <div>
+              <div class="nm">Cedar Hollow Flint</div>
+              <div class="sub">Holland Lop &middot; Tortoiseshell</div>
+              <div class="sub2">Ear 4F2 &middot; Senior Buck &middot; 4 lbs 11 oz</div>
+            </div>
+          </div>
+
+          <div class="au-gccard">
+            <div class="au-gctop">
+              <span class="medal"><svg viewBox="0 0 256 256" fill="currentColor"><path d="M232,64a16,16,0,0,0-16-16H180.92c.69-5.39,1-10.62,1.08-15.56A16.39,16.39,0,0,0,177.43,20.5,16,16,0,0,0,166,16H90a16,16,0,0,0-11.42,4.5,16.39,16.39,0,0,0-4.57,11.94c.09,4.94.39,10.17,1.08,15.56H40A16,16,0,0,0,24,64v16a40,40,0,0,0,40,40h2.27c9.21,24.34,25.79,40.94,49.73,46.66V200H96a8,8,0,0,0,0,16h64a8,8,0,0,0,0-16H140V166.66c23.94-5.72,40.52-22.32,49.73-46.66H192a40,40,0,0,0,40-40ZM64,104A24,24,0,0,1,40,80V64H77.13a127.66,127.66,0,0,0,21.6,40.24A57.5,57.5,0,0,1,66.8,104Zm152-24a24,24,0,0,1-24,24h-2.8a57.5,57.5,0,0,1-31.93.24A127.66,127.66,0,0,0,178.87,64H216Z"/></svg></span>
+              <div>
+                <div class="gt">Grand Champion</div>
+                <div class="gs">2 legs needed to certify</div>
+              </div>
+              <div class="count"><b>2/3</b><span>LEGS</span></div>
+            </div>
+            <div class="au-legbar"><span class="au-leg done"></span><span class="au-leg done"></span><span class="au-leg"></span></div>
+            <div class="au-reqs">
+              <div class="au-req ok"><svg viewBox="0 0 256 256" fill="currentColor"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg>2 of 3 legs</div>
+              <div class="au-req ok"><svg viewBox="0 0 256 256" fill="currentColor"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg>2 judges</div>
+              <div class="au-req pending"><svg viewBox="0 0 256 256" fill="currentColor"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Z"/></svg>2 of 3 shows</div>
+              <div class="au-req ok"><svg viewBox="0 0 256 256" fill="currentColor"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg>Senior win earned</div>
+            </div>
+          </div>
+
+          <div class="au-listhd">
+            <span class="lt">Show wins</span>
+            <span class="add"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>Add result</span>
+          </div>
+
+          <div class="au-show">
+            <div class="r1"><span class="award">Best of Variety, Tortoiseshell</span><span class="star"><svg viewBox="0 0 256 256" fill="currentColor"><path d="M239.2,97.29a16,16,0,0,0-13.81-11L166,81.17,142.72,25.81h0a15.95,15.95,0,0,0-29.44,0L90.07,81.17,30.61,86.32a16,16,0,0,0-9.11,28.06L66.61,153.8,53.09,212.34a16,16,0,0,0,23.84,17.34l51-31,51.11,31a16,16,0,0,0,23.84-17.34l-13.51-58.54,45.1-39.42A16,16,0,0,0,239.2,97.29Z"/></svg></span><span class="legtag">Leg 1</span></div>
+            <div class="show-nm">RMHRBA Spring Show</div>
+            <div class="meta">Apr 14, 2026 &middot; Judge D. Whitfield &middot; Class of 18</div>
+          </div>
+
+          <div class="au-show">
+            <div class="r1"><span class="award">1st Senior Buck (6/8)</span><span class="legtag senior">Senior leg</span></div>
+            <div class="show-nm">Front Range Specialty</div>
+            <div class="meta">Feb 18, 2026 &middot; Judge M. Alvarez &middot; Class of 11</div>
+          </div>
+
+          <div class="au-show">
+            <div class="r1"><span class="award">2nd Senior Buck</span></div>
+            <div class="show-nm">BVRBA Winter Classic</div>
+            <div class="meta">Jan 27, 2026 &middot; Judge M. Alvarez &middot; Class of 9</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="preview-label">Show Records (Grand Champion leg tracking)</p>
+  </div>
+  <script>if(location.hash.indexOf('embed')>-1)document.body.classList.add('embed');</script>
+</body></html>
