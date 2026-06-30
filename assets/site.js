@@ -38,8 +38,8 @@
           '<span class="eyebrow">Launch list</span>' +
           '<h2 id="launchModalTitle">Join the <b>launch list</b></h2>' +
           '<p class="modal-sub">One email when HerdMaster goes live. Free tier at launch, no credit card, no spam.</p>' +
-          '<form class="capture" data-capture novalidate>' +
-            '<input type="email" placeholder="Enter your email" aria-label="Email address" required>' +
+          '<form class="capture" data-capture data-formid="launch-list-modal" novalidate>' +
+            '<input type="email" name="email" placeholder="Enter your email" aria-label="Email address" required>' +
             '<button type="submit" class="btn btn-primary">Join Launch</button>' +
           '</form>' +
           '<p class="form-note" data-note aria-live="polite"></p>' +
