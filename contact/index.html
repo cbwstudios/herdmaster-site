@@ -110,6 +110,9 @@
             <!-- Mock submit handled in site.js. Wire to AIO/GHL: [GHL FORM ENDPOINT], notify [NOTIFY EMAIL]. Email only, no phone field. -->
             <form data-contact data-formid="contact-form" novalidate>
               <div class="hp" aria-hidden="true"><label>Company<input type="text" name="company" tabindex="-1" autocomplete="off"></label></div>
+              <input type="text" name="lc_tag_source" value="Contact Form" style="display:none" aria-hidden="true" tabindex="-1">
+              <input type="text" name="lc_tag_topic" value="Topic: Support" style="display:none" aria-hidden="true" tabindex="-1">
+              <input type="text" name="lc_tag_launchlist" value="" style="display:none" aria-hidden="true" tabindex="-1">
 
               <div class="field">
                 <label for="name">Name</label>

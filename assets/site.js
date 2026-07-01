@@ -40,6 +40,7 @@
           '<p class="modal-sub">One email when HerdMaster goes live. Free tier at launch, no credit card, no spam.</p>' +
           '<form class="capture" data-capture data-formid="launch-list-modal" novalidate>' +
             '<input type="email" name="email" placeholder="Enter your email" aria-label="Email address" required>' +
+            '<input type="text" name="lc_tag" value="Launch List" style="display:none" aria-hidden="true" tabindex="-1">' +
             '<button type="submit" class="btn btn-primary">Join Launch</button>' +
           '</form>' +
           '<p class="form-note" data-note aria-live="polite"></p>' +
@@ -161,6 +162,23 @@
     (function(){
       var forms = document.querySelectorAll('[data-contact]');
       forms.forEach(function(form){
+        // Keep the hidden lc_tag_* fields in sync BEFORE submit, since the
+        // tracking script reads FormData in the capture phase (fires before
+        // this handler), so values must already be current when clicked.
+        var topicSel = form.querySelector('select[name=topic]');
+        var topicTag = form.querySelector('input[name=lc_tag_topic]');
+        if(topicSel && topicTag){
+          topicSel.addEventListener('change', function(){
+            topicTag.value = 'Topic: ' + topicSel.value;
+          });
+        }
+        var launchCheck = form.querySelector('input[name=launchopt]');
+        var launchTag = form.querySelector('input[name=lc_tag_launchlist]');
+        if(launchCheck && launchTag){
+          launchCheck.addEventListener('change', function(){
+            launchTag.value = launchCheck.checked ? 'Launch List' : '';
+          });
+        }
         form.addEventListener('submit', function(e){
           e.preventDefault();
           var hp = form.querySelector('.hp input');           // honeypot, must stay empty
