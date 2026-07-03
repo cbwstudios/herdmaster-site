@@ -248,3 +248,73 @@
       }, { rootMargin:'-45% 0px -50% 0px', threshold:0 });
       secs.forEach(function(s){ io.observe(s); });
     })();
+
+    // Features Alt 3: scroll-linked parallax of the app screens inside their frames.
+    // The parent can't reach into the iframes under file:// (unique origins), so it
+    // posts a 0..1 progress and the component's own script sets .au scrollTop.
+    (function(){
+      var host = document.querySelector('[data-phone-parallax]'); if(!host) return;
+      if(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      var frames = Array.prototype.slice.call(host.querySelectorAll('iframe'));
+      if(!frames.length) return;
+      // progress is anchored to each panel's DOCUMENT position (cached before any
+      // pinning), not its viewport rect: a sticky panel's rect freezes at top:88
+      // while pinned, which would freeze the parallax right when the user reads it
+      var slots = [];
+      function measure(){
+        // compute each panel's STATIC slot from the stack's origin (a pinned panel's own
+        // rect reports the stuck position, which would mis-slot deep-linked loads)
+        var panels = frames.map(function(f){ return f.closest('.fs3-panel') || f; });
+        var stack = panels[0] && panels[0].parentElement;
+        var acc = stack ? stack.getBoundingClientRect().top + window.pageYOffset : 0;
+        var gap = stack ? (parseFloat(getComputedStyle(stack).rowGap) || 0) : 0;
+        slots = panels.map(function(p){
+          var s = { top: acc, h: p.offsetHeight };
+          acc += p.offsetHeight + gap;
+          return s;
+        });
+      }
+      measure();
+      var ticking = false;
+      function update(){
+        ticking = false;
+        var vh = window.innerHeight, y = window.pageYOffset;
+        frames.forEach(function(f, i){
+          var s = slots[i];
+          if(!s || !f.contentWindow) return;
+          var p = (y + vh - s.top) / (vh + s.h);   // 0 as the slot enters at the bottom, 1 once it has fully passed
+          if(p < -0.05 || p > 1.05) return;
+          p = Math.max(0, Math.min(1, p));
+          f.contentWindow.postMessage({ hmAuScroll: p }, '*');
+        });
+      }
+      function onScroll(){ if(!ticking){ ticking = true; requestAnimationFrame(update); } }
+      window.addEventListener('scroll', onScroll, { passive:true });
+      window.addEventListener('resize', function(){ measure(); onScroll(); });
+      window.addEventListener('load', function(){ measure(); onScroll(); });   // re-slot after fonts/images settle
+      frames.forEach(function(f){ f.addEventListener('load', onScroll); });
+      onScroll();
+    })();
+
+    // Features Alt 3: screen-switcher chips (fade the phone, swap the src)
+    (function(){
+      var wraps = document.querySelectorAll('.fs3-chips');
+      if(!wraps.length) return;
+      Array.prototype.forEach.call(wraps, function(wrap){
+        wrap.addEventListener('click', function(e){
+          var btn = e.target.closest ? e.target.closest('.fs3-chip') : null;
+          if(!btn || btn.classList.contains('on')) return;
+          var scene = wrap.parentElement;
+          var ifr = scene.querySelector('.fs3-phone iframe'); if(!ifr) return;
+          wrap.querySelectorAll('.fs3-chip').forEach(function(c){ c.classList.remove('on'); });
+          btn.classList.add('on');
+          ifr.style.opacity = '0';
+          setTimeout(function(){
+            var done = function(){ ifr.style.opacity = '1'; ifr.removeEventListener('load', done); };
+            ifr.addEventListener('load', done);
+            ifr.src = btn.getAttribute('data-src');
+            if(btn.getAttribute('data-title')) ifr.title = btn.getAttribute('data-title');
+          }, 200);
+        });
+      });
+    })();

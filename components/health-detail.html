@@ -102,5 +102,5 @@
 </div></div>
     <p class="preview-label">Health detail</p>
   </div>
-  <script>['embed','fit','scroll'].forEach(function(c){if(location.hash.indexOf(c)>-1)document.body.classList.add(c)});</script>
+  <script>['embed','fit','scroll'].forEach(function(c){if(location.hash.indexOf(c)>-1)document.body.classList.add(c)});window.addEventListener('message',function(e){var d=e.data;if(!d||typeof d.hmAuScroll!=='number')return;var au=document.querySelector('.au');if(au)au.scrollTop=d.hmAuScroll*(au.scrollHeight-au.clientHeight);});</script>
 </body></html>

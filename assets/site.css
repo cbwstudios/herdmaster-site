@@ -804,8 +804,15 @@
     table.cmp th:first-child, table.cmp td:first-child{ text-align:left; font-weight:600; color:var(--navy); }
     table.cmp thead th{ font-size:.86rem; letter-spacing:.03em; color:var(--teal-dark); padding-top:18px; padding-bottom:18px; }
     table.cmp thead th .pp{ display:block; font-size:.72rem; font-weight:600; letter-spacing:0; color:var(--muted); margin-top:3px; }
-    table.cmp td:nth-child(3), table.cmp th:nth-child(3){ background:var(--mint-q); }   /* Popular column */
-    table.cmp thead th:nth-child(3){ color:var(--gold-deep); }
+    /* Popular (Breeder) column: dark teal with white content so it reads at a glance */
+    table.cmp td:nth-child(3), table.cmp th:nth-child(3){ background:var(--teal-dark); color:#fff;
+      border-bottom-color:rgba(255,255,255,.16); }
+    table.cmp thead th:nth-child(3){ color:#fff; }
+    table.cmp thead th:nth-child(3) .pp{ color:rgba(255,255,255,.78); }
+    table.cmp td:nth-child(3) .num{ color:#fff; }
+    table.cmp td:nth-child(3) .yes svg{ color:#fff; }
+    table.cmp td:nth-child(3) .no svg{ color:rgba(255,255,255,.45); }
+    table.cmp td:nth-child(3) .tbd{ color:rgba(255,255,255,.7); }
     .cmp .num{ font-weight:700; color:var(--navy); }
     .cmp .yes{ display:inline-flex; } .cmp .yes svg{ width:20px; height:20px; color:var(--teal); }
     .cmp .no{ display:inline-flex; } .cmp .no svg{ width:16px; height:16px; color:#c4cecb; }
@@ -973,7 +980,7 @@
       background:var(--navy); color:var(--teal-ice); margin-bottom:14px; }
     .fc-icon svg{ width:25px; height:25px; }
     .fc-title{ margin:0 0 8px; font-size:1.22rem; }
-    .fc-desc{ margin:0 0 18px; color:var(--ink); line-height:1.55; min-height:3em; }   /* equalize so the phones line up */
+    .fc-desc{ margin:0 0 18px; color:var(--ink); line-height:1.55; min-height:6em; }   /* ~4 lines; equalize so the phones line up */
     .fc-screen{ height:430px; border-radius:22px; overflow:hidden;
       background:linear-gradient(180deg,#eef6f3 0%,#dcece7 100%); box-shadow:0 12px 28px -12px rgba(34,43,55,.28); }
     .fc-screen iframe{ width:100%; height:840px; border:0; display:block; pointer-events:none; }
@@ -1071,6 +1078,44 @@
       .fz-row{ grid-template-columns:1fr; gap:26px; }
       .fz-row:nth-child(even) .fz-art{ order:0; }   /* phone stays on top when stacked */
       .fz-phone{ max-width:300px; margin-inline:auto; }
+    }
+
+    /* ============================================================
+       FEATURES ALT 3 (/features-alt-3/): stacked sticky panels.
+       Each feature is a full-width card pinned at top:88px; the next
+       card scrolls up and stacks over it, deck style. Reuses the
+       .fz-scene green box and .fz-copy/.fz-list copy styles. Screens
+       parallax inside their frames via postMessage (site.js), and
+       .fs3-chips swap between sibling screens of the same feature.
+       ============================================================ */
+    .fs3-stack{ display:flex; flex-direction:column; gap:clamp(28px,4vw,48px); margin-top:var(--sp-8); }
+    .fs3-panel{ position:sticky; top:88px; background:#fff; border:1px solid var(--line); border-radius:28px;
+      box-shadow:0 -22px 44px -34px rgba(34,43,55,.4), var(--shadow); padding:clamp(28px,4vw,48px);
+      scroll-margin-top:96px; }
+    .fs3-grid{ display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:clamp(32px,4.5vw,64px); align-items:center; }
+    .fs3-panel:nth-child(even) .fs3-art{ order:2; }   /* zig-zag inside the stack */
+    .fs3-panel:nth-child(even) .fz-scene{ --sx:74%; --dx:70%; }   /* glow follows the phone's side */
+    .fs3-art{ min-width:0; }
+    /* clamp by viewport height so a pinned panel always fits on laptop screens */
+    .fs3-phone{ position:relative; width:100%; max-width:min(340px, calc((100vh - 320px)/2.0824)); border-radius:42px;
+      box-shadow:0 30px 60px -26px rgba(14,22,32,.5); }
+    .fs3-phone iframe{ width:100%; aspect-ratio:340/708; height:auto; border:0; display:block; pointer-events:none;
+      transition:opacity .22s ease; }
+    .fs3-chips{ position:relative; z-index:1; display:flex; flex-wrap:wrap; justify-content:center; gap:8px; margin-top:18px; }
+    .fs3-chip{ font:inherit; font-size:.8rem; font-weight:700; color:var(--teal-dark); background:#fff;
+      border:1px solid var(--line); border-radius:999px; padding:7px 14px; cursor:pointer;
+      transition:background .15s ease, color .15s ease, border-color .15s ease; }
+    .fs3-chip:hover{ border-color:var(--teal); }
+    .fs3-chip.on{ background:var(--teal); border-color:var(--teal); color:#fff; }
+    @media (max-width:860px){
+      .fs3-stack{ gap:26px; }
+      .fs3-panel{ position:static; padding:22px 18px; }
+      .fs3-grid{ grid-template-columns:1fr; gap:24px; }
+      .fs3-panel:nth-child(even) .fs3-art{ order:0; }   /* phone stays on top when stacked */
+      .fs3-phone{ max-width:300px; margin-inline:auto; }
+    }
+    @media (prefers-reduced-motion:reduce){
+      .fs3-panel{ position:static; }
     }
 
     /* ============================================================
