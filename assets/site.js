@@ -287,7 +287,9 @@
       onScroll();
     })();
 
-    // Features Alt 3: screen-switcher chips (fade the phone, swap the src)
+    // Features Alt 3: screen-switcher chips. The sibling screens are pre-stacked as
+    // identical phones inside .fs3-phone; a chip just crossfades to its screen, so
+    // the frame never reloads and only the screen appears to change.
     (function(){
       var wraps = document.querySelectorAll('.fs3-chips');
       if(!wraps.length) return;
@@ -295,17 +297,13 @@
         wrap.addEventListener('click', function(e){
           var btn = e.target.closest ? e.target.closest('.fs3-chip') : null;
           if(!btn || btn.classList.contains('on')) return;
-          var scene = wrap.parentElement;
-          var ifr = scene.querySelector('.fs3-phone iframe'); if(!ifr) return;
+          var phone = wrap.parentElement.querySelector('.fs3-phone'); if(!phone) return;
+          var target = phone.querySelector('iframe[data-screen="' + btn.getAttribute('data-screen') + '"]');
+          if(!target) return;
           wrap.querySelectorAll('.fs3-chip').forEach(function(c){ c.classList.remove('on'); });
           btn.classList.add('on');
-          ifr.style.opacity = '0';
-          setTimeout(function(){
-            var done = function(){ ifr.style.opacity = '1'; ifr.removeEventListener('load', done); };
-            ifr.addEventListener('load', done);
-            ifr.src = btn.getAttribute('data-src');
-            if(btn.getAttribute('data-title')) ifr.title = btn.getAttribute('data-title');
-          }, 200);
+          phone.querySelectorAll('iframe').forEach(function(f){ f.classList.remove('show'); });
+          target.classList.add('show');
         });
       });
     })();

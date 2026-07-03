@@ -1094,8 +1094,12 @@
     .fs3-art{ min-width:0; display:flex; flex-direction:column; align-items:center; }
     .fs3-phone{ position:relative; width:100%; max-width:340px; border-radius:42px;
       box-shadow:0 30px 60px -26px rgba(14,22,32,.5); }
+    /* sibling screens stack inside ONE phone: identical bezels sit on top of each other
+       and the chips crossfade opacity, so only the screen appears to change (no reload) */
     .fs3-phone iframe{ width:100%; aspect-ratio:340/708; height:auto; border:0; display:block; pointer-events:none;
-      transition:opacity .22s ease; }
+      transition:opacity .28s ease; }
+    .fs3-phone iframe + iframe{ position:absolute; inset:0; }
+    .fs3-phone iframe:not(.show){ opacity:0; }
     .fs3-chips{ position:relative; z-index:1; display:flex; flex-wrap:wrap; justify-content:center; gap:8px; margin-top:20px; }
     .fs3-chip{ font:inherit; font-size:.8rem; font-weight:700; color:var(--teal-dark); background:#fff;
       border:1px solid var(--line); border-radius:999px; padding:7px 14px; cursor:pointer;

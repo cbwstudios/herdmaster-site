@@ -30,7 +30,7 @@
   <meta name="theme-color" content="#222B37">
 
 
-  <link rel="stylesheet" href="../assets/site.css">
+  <link rel="stylesheet" href="../assets/site.css?v=alt3b">
 
   <!-- Google Analytics 4. Replace [GA4 ID] with the real Measurement ID to activate; inert while it is a placeholder. -->
   <script>
@@ -190,19 +190,44 @@
       </div>
     </section>
 
-    <!-- 2 · One full-width section per feature (alternating white / green scene; parallax + chips) -->
-    <section class="fs3-intro">
-      <div class="container center section-head fade" style="margin-bottom:0">
-        <span class="eyebrow">Features</span>
-        <h2>Everything HerdMaster does, <b>organized the way breeders work.</b></h2>
-        <p class="muted measure">Built for rabbit and cavy breeders, from the herd list to Grand Champion legs.</p>
+    <!-- 2 · Overview panel: heading, the light dashboard, and the feature roster -->
+    <section id="overview" class="fs3-sec" data-phone-parallax>
+      <div class="container">
+        <div class="center section-head fade">
+          <span class="eyebrow">Features</span>
+          <h2>Everything HerdMaster does, <b>organized the way breeders work.</b></h2>
+          <p class="muted measure">Built for rabbit and cavy breeders, from the herd list to Grand Champion legs.</p>
+        </div>
+        <div class="fs3-grid">
+          <div class="fs3-art fade">
+            <div class="fs3-phone">
+              <iframe class="show" data-screen="dashboard-light" src="../components/dashboard-light.html#embed-scroll" title="HerdMaster dashboard on an iPhone" loading="lazy" scrolling="no"></iframe>
+            </div>
+          </div>
+          <div class="fz-copy fade">
+            <h2>Your whole barn, <b>on one dashboard.</b></h2>
+            <p>Open the app to live counts of your animals, open dams, active breedings, and recent litters, with quick actions one tap away. Everything below hangs off that same workflow.</p>
+            <ul class="fz-list">
+            <li><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg><span><b>Herd.</b> Every animal in one searchable, breed-validated list.</span></li>
+            <li><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg><span><b>Breeding.</b> Dam-first pairings with the full timeline built in.</span></li>
+            <li><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg><span><b>Litters &amp; kits.</b> From the nest box to a permanent record.</span></li>
+            <li><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg><span><b>Health.</b> Recurring tasks, treatments, and weight history.</span></li>
+            <li><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg><span><b>Shows.</b> Every leg tracked toward Grand Champion.</span></li>
+            <li><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg><span><b>Pedigrees.</b> Four generations, printable and shareable.</span></li>
+            <li><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg><span><b>Imports.</b> One-pass Evans XML and scan-and-confirm OCR.</span></li>
+            <li><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg><span><b>Offline + iCloud.</b> Works with no signal, syncs privately.</span></li>
+            </ul>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section id="herd" class="fs3-sec" data-phone-parallax>
+    <section id="herd" class="fs3-sec scene rev" data-phone-parallax>
       <div class="container fs3-grid">
         <div class="fs3-art fade">
-          <div class="fs3-phone"><iframe src="../components/herd-list.html#embed-scroll" title="HerdMaster herd list on an iPhone" loading="lazy" scrolling="no"></iframe></div>
+          <div class="fs3-phone">
+            <iframe class="show" data-screen="herd-list" src="../components/herd-list.html#embed-scroll" title="HerdMaster herd list on an iPhone" loading="lazy" scrolling="no"></iframe>
+          </div>
         </div>
         <div class="fz-copy fade">
           <span class="eyebrow">01 &middot; Herd Management</span>
@@ -217,14 +242,18 @@
       </div>
     </section>
 
-    <section id="breeding" class="fs3-sec scene rev" data-phone-parallax>
+    <section id="breeding" class="fs3-sec" data-phone-parallax>
       <div class="container fs3-grid">
         <div class="fs3-art fade">
-          <div class="fs3-phone"><iframe src="../components/active-breedings.html#embed-scroll" title="HerdMaster active breedings on an iPhone" loading="lazy" scrolling="no"></iframe></div>
+          <div class="fs3-phone">
+            <iframe class="show" data-screen="active-breedings" src="../components/active-breedings.html#embed-scroll" title="HerdMaster active breedings on an iPhone" loading="lazy" scrolling="no"></iframe>
+            <iframe data-screen="new-breeding" src="../components/new-breeding.html#embed-scroll" title="HerdMaster new breeding screen on an iPhone" loading="lazy" scrolling="no"></iframe>
+            <iframe data-screen="moon-breeding" src="../components/moon-breeding.html#embed-scroll" title="HerdMaster moon breeding calendar on an iPhone" loading="lazy" scrolling="no"></iframe>
+          </div>
           <div class="fs3-chips" role="group" aria-label="Switch app screen">
-                <button class="fs3-chip on" type="button" data-src="../components/active-breedings.html#embed-scroll" data-title="HerdMaster active breedings on an iPhone">Active breedings</button>
-                <button class="fs3-chip" type="button" data-src="../components/new-breeding.html#embed-scroll" data-title="HerdMaster new breeding screen on an iPhone">New pairing</button>
-                <button class="fs3-chip" type="button" data-src="../components/moon-breeding.html#embed-scroll" data-title="HerdMaster moon breeding calendar on an iPhone">Moon calendar</button>
+                <button class="fs3-chip on" type="button" data-screen="active-breedings">Active breedings</button>
+                <button class="fs3-chip" type="button" data-screen="new-breeding">New pairing</button>
+                <button class="fs3-chip" type="button" data-screen="moon-breeding">Moon calendar</button>
           </div>
         </div>
         <div class="fz-copy fade">
@@ -241,13 +270,16 @@
       </div>
     </section>
 
-    <section id="litters" class="fs3-sec" data-phone-parallax>
+    <section id="litters" class="fs3-sec scene rev" data-phone-parallax>
       <div class="container fs3-grid">
         <div class="fs3-art fade">
-          <div class="fs3-phone"><iframe src="../components/kit-tracking.html#embed-scroll" title="HerdMaster kit tracking on an iPhone" loading="lazy" scrolling="no"></iframe></div>
+          <div class="fs3-phone">
+            <iframe class="show" data-screen="kit-tracking" src="../components/kit-tracking.html#embed-scroll" title="HerdMaster kit tracking on an iPhone" loading="lazy" scrolling="no"></iframe>
+            <iframe data-screen="kit-record" src="../components/kit-record.html#embed-scroll" title="HerdMaster kit record on an iPhone" loading="lazy" scrolling="no"></iframe>
+          </div>
           <div class="fs3-chips" role="group" aria-label="Switch app screen">
-                <button class="fs3-chip on" type="button" data-src="../components/kit-tracking.html#embed-scroll" data-title="HerdMaster kit tracking on an iPhone">Kit tracking</button>
-                <button class="fs3-chip" type="button" data-src="../components/kit-record.html#embed-scroll" data-title="HerdMaster kit record on an iPhone">Kit record</button>
+                <button class="fs3-chip on" type="button" data-screen="kit-tracking">Kit tracking</button>
+                <button class="fs3-chip" type="button" data-screen="kit-record">Kit record</button>
           </div>
         </div>
         <div class="fz-copy fade">
@@ -264,13 +296,16 @@
       </div>
     </section>
 
-    <section id="health" class="fs3-sec scene rev" data-phone-parallax>
+    <section id="health" class="fs3-sec" data-phone-parallax>
       <div class="container fs3-grid">
         <div class="fs3-art fade">
-          <div class="fs3-phone"><iframe src="../components/health-detail.html#embed-scroll" title="HerdMaster animal health overview on an iPhone" loading="lazy" scrolling="no"></iframe></div>
+          <div class="fs3-phone">
+            <iframe class="show" data-screen="health-detail" src="../components/health-detail.html#embed-scroll" title="HerdMaster animal health overview on an iPhone" loading="lazy" scrolling="no"></iframe>
+            <iframe data-screen="add-health-record" src="../components/add-health-record.html#embed-scroll" title="HerdMaster add health record on an iPhone" loading="lazy" scrolling="no"></iframe>
+          </div>
           <div class="fs3-chips" role="group" aria-label="Switch app screen">
-                <button class="fs3-chip on" type="button" data-src="../components/health-detail.html#embed-scroll" data-title="HerdMaster animal health overview on an iPhone">Health overview</button>
-                <button class="fs3-chip" type="button" data-src="../components/add-health-record.html#embed-scroll" data-title="HerdMaster add health record on an iPhone">Add a record</button>
+                <button class="fs3-chip on" type="button" data-screen="health-detail">Health overview</button>
+                <button class="fs3-chip" type="button" data-screen="add-health-record">Add a record</button>
           </div>
         </div>
         <div class="fz-copy fade">
@@ -287,10 +322,12 @@
       </div>
     </section>
 
-    <section id="shows" class="fs3-sec" data-phone-parallax>
+    <section id="shows" class="fs3-sec scene rev" data-phone-parallax>
       <div class="container fs3-grid">
         <div class="fs3-art fade">
-          <div class="fs3-phone"><iframe src="../components/show-records.html#embed-scroll" title="HerdMaster show records on an iPhone" loading="lazy" scrolling="no"></iframe></div>
+          <div class="fs3-phone">
+            <iframe class="show" data-screen="show-records" src="../components/show-records.html#embed-scroll" title="HerdMaster show records on an iPhone" loading="lazy" scrolling="no"></iframe>
+          </div>
         </div>
         <div class="fz-copy fade">
           <span class="eyebrow">05 &middot; Show Records</span>
@@ -306,10 +343,12 @@
       </div>
     </section>
 
-    <section id="imports" class="fs3-sec scene rev" data-phone-parallax>
+    <section id="imports" class="fs3-sec" data-phone-parallax>
       <div class="container fs3-grid">
         <div class="fs3-art fade">
-          <div class="fs3-phone"><iframe src="../components/evans-import.html#embed-scroll" title="HerdMaster Evans import on an iPhone" loading="lazy" scrolling="no"></iframe></div>
+          <div class="fs3-phone">
+            <iframe class="show" data-screen="evans-import" src="../components/evans-import.html#embed-scroll" title="HerdMaster Evans import on an iPhone" loading="lazy" scrolling="no"></iframe>
+          </div>
         </div>
         <div class="fz-copy fade">
           <span class="eyebrow">06 &middot; Imports &amp; Migration</span>
@@ -326,7 +365,7 @@
     </section>
 
     <!-- 3 · Pedigrees panel (landscape document) -->
-    <section id="pedigrees" class="feat-panel">
+    <section id="pedigrees" class="feat-panel scene">
       <div class="container">
         <div class="panel-head section-head fade">
           <span class="feat-icon"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M160,112h48a16,16,0,0,0,16-16V48a16,16,0,0,0-16-16H160a16,16,0,0,0-16,16V64H128a24,24,0,0,0-24,24v32H72v-8A16,16,0,0,0,56,96H24A16,16,0,0,0,8,112v32a16,16,0,0,0,16,16H56a16,16,0,0,0,16-16v-8h32v32a24,24,0,0,0,24,24h16v16a16,16,0,0,0,16,16h48a16,16,0,0,0,16-16V160a16,16,0,0,0-16-16H160a16,16,0,0,0-16,16v16H128a8,8,0,0,1-8-8V88a8,8,0,0,1,8-8h16V96A16,16,0,0,0,160,112ZM56,144H24V112H56v32Zm104,16h48v48H160Zm0-112h48V96H160Z"/></svg></span>
@@ -338,7 +377,7 @@
     </section>
 
     <!-- 3b · Offline & iCloud panel -->
-    <section id="offline" class="feat-panel scene">
+    <section id="offline" class="feat-panel">
       <div class="container split fade">
         <div class="feat-copy">
           <span class="feat-icon"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M247.93,124.52C246.11,77.54,207.07,40,160.06,40A88.1,88.1,0,0,0,81.29,88.67h0A87.48,87.48,0,0,0,72,127.73,8.18,8.18,0,0,1,64.57,136,8,8,0,0,1,56,128a103.66,103.66,0,0,1,5.34-32.92,4,4,0,0,0-4.75-5.18A64.09,64.09,0,0,0,8,152c0,35.19,29.75,64,65,64H160A88.09,88.09,0,0,0,247.93,124.52Zm-50.27-6.86-48,48a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L144,148.69l42.34-42.35a8,8,0,0,1,11.32,11.32Z"/></svg></span>
@@ -387,7 +426,7 @@
     </div>
   </footer>
 
-  <script src="../assets/site.js" defer></script>
+  <script src="../assets/site.js?v=alt3b" defer></script>
   <script src="https://link.codedesign.co/js/external-tracking.js" data-tracking-id="tk_7690a9e126c04c42888dca34cfc4551e"></script>
 </body>
 </html>
