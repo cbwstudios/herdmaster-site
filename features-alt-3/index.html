@@ -4,10 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- ALTERNATE FEATURES LAYOUT 3 for client review: same hero + panels as /features/,
-       but section 2 is a stacked deck of full-width panels (each pins at the top and the
-       next scrolls over it), screens parallax inside their frames, and switcher chips
-       swap between sibling screens of a feature. Not linked in nav, not in sitemap. -->
+  <!-- ALTERNATE FEATURES LAYOUT 3 for client review: same hero as /features/, then one
+       full-width section PER FEATURE, alternating white and green .scene texture, with a
+       free-floating phone (no box) beside the copy. Screens parallax inside their frames
+       (site.js posts progress via postMessage) and switcher chips swap between sibling
+       screens of a feature. Not linked in nav, not in sitemap. -->
   <meta name="robots" content="noindex, follow">
 
   <title>HerdMaster Features (Alternate Layout 3), Pedigrees, Breeding, Litters, Health and Show Records</title>
@@ -189,160 +190,143 @@
       </div>
     </section>
 
-    <!-- 2 · Feature deck (stacked sticky panels; screens parallax + switcher chips) -->
-    <section id="features" data-phone-parallax>
-      <div class="container">
-        <div class="center section-head fade">
-          <span class="eyebrow">Features</span>
-          <h2>Everything HerdMaster does, <b>organized the way breeders work.</b></h2>
-          <p class="muted measure">Built for rabbit and cavy breeders, from the herd list to Grand Champion legs.</p>
+    <!-- 2 · One full-width section per feature (alternating white / green scene; parallax + chips) -->
+    <section class="fs3-intro">
+      <div class="container center section-head fade" style="margin-bottom:0">
+        <span class="eyebrow">Features</span>
+        <h2>Everything HerdMaster does, <b>organized the way breeders work.</b></h2>
+        <p class="muted measure">Built for rabbit and cavy breeders, from the herd list to Grand Champion legs.</p>
+      </div>
+    </section>
+
+    <section id="herd" class="fs3-sec" data-phone-parallax>
+      <div class="container fs3-grid">
+        <div class="fs3-art fade">
+          <div class="fs3-phone"><iframe src="../components/herd-list.html#embed-scroll" title="HerdMaster herd list on an iPhone" loading="lazy" scrolling="no"></iframe></div>
         </div>
-        <div class="fs3-stack">
+        <div class="fz-copy fade">
+          <span class="eyebrow">01 &middot; Herd Management</span>
+          <h2>Every animal, every breed, <b>one organized list.</b></h2>
+          <p>Your whole herd lives in one searchable list, grouped into collapsible breed sections with live buck and doe counts, so a barn with three breeds reads as easily as a barn with one.</p>
+          <ul class="fz-list">
+              <li><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg><span><b>Complete records.</b> Photos, statuses, barn names, genotype fields, and cull reasons on every animal.</span></li>
+              <li><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg><span><b>Breed and variety validation.</b> 53 rabbit and 13 cavy breeds built in, so every entry stays show-accurate.</span></li>
+              <li><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg><span><b>Find anything fast.</b> Search by name, ear number, or tattoo, with long-press quick actions on any row.</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-          <div class="fs3-panel" id="herd">
-            <div class="fs3-grid">
-              <div class="fs3-art fade">
-                <div class="fz-scene">
-                  <div class="fs3-phone"><iframe src="../components/herd-list.html#embed-scroll" title="HerdMaster herd list on an iPhone" loading="lazy" scrolling="no"></iframe></div>
-                </div>
-              </div>
-              <div class="fz-copy fade">
-                <span class="eyebrow">01 &middot; Herd Management</span>
-                <h2>Every animal, every breed, <b>one organized list.</b></h2>
-                <p>Your whole herd lives in one searchable list, grouped into collapsible breed sections with live buck and doe counts, so a barn with three breeds reads as easily as a barn with one.</p>
-                <ul class="fz-list">
-                <li><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg><span><b>Complete records.</b> Photos, statuses, barn names, genotype fields, and cull reasons on every animal.</span></li>
-                <li><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg><span><b>Breed and variety validation.</b> 53 rabbit and 13 cavy breeds built in, so every entry stays show-accurate.</span></li>
-                <li><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg><span><b>Find anything fast.</b> Search by name, ear number, or tattoo, with long-press quick actions on any row.</span></li>
-                </ul>
-              </div>
-            </div>
+    <section id="breeding" class="fs3-sec scene rev" data-phone-parallax>
+      <div class="container fs3-grid">
+        <div class="fs3-art fade">
+          <div class="fs3-phone"><iframe src="../components/active-breedings.html#embed-scroll" title="HerdMaster active breedings on an iPhone" loading="lazy" scrolling="no"></iframe></div>
+          <div class="fs3-chips" role="group" aria-label="Switch app screen">
+                <button class="fs3-chip on" type="button" data-src="../components/active-breedings.html#embed-scroll" data-title="HerdMaster active breedings on an iPhone">Active breedings</button>
+                <button class="fs3-chip" type="button" data-src="../components/new-breeding.html#embed-scroll" data-title="HerdMaster new breeding screen on an iPhone">New pairing</button>
+                <button class="fs3-chip" type="button" data-src="../components/moon-breeding.html#embed-scroll" data-title="HerdMaster moon breeding calendar on an iPhone">Moon calendar</button>
           </div>
+        </div>
+        <div class="fz-copy fade">
+          <span class="eyebrow">02 &middot; Breeding</span>
+          <h2>Plan every pairing, <b>organized by doe.</b></h2>
+          <p>One buck breeds many does, so HerdMaster organizes breedings the way a rabbitry actually runs: by doe. Pair a sire and dam, and the whole timeline builds itself.</p>
+          <ul class="fz-list">
+              <li><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg><span><b>The full timeline.</b> Palpation windows, nest box timing, and expected kindle dates, all from one breeding date.</span></li>
+              <li><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg><span><b>Moon phase calendar.</b> Breeders who plan by the moon get the phases built right into the picker.</span></li>
+              <li><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg><span><b>Duplicate detection.</b> Get flagged before a duplicate breeding slips into the records.</span></li>
+              <li><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg><span><b>History that follows the doe.</b> Past breedings and status updates stay right on her record.</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-          <div class="fs3-panel" id="breeding">
-            <div class="fs3-grid">
-              <div class="fs3-art fade">
-                <div class="fz-scene">
-                  <div class="fs3-phone"><iframe src="../components/active-breedings.html#embed-scroll" title="HerdMaster active breedings on an iPhone" loading="lazy" scrolling="no"></iframe></div>
-                  <div class="fs3-chips" role="group" aria-label="Switch app screen">
-                  <button class="fs3-chip on" type="button" data-src="../components/active-breedings.html#embed-scroll" data-title="HerdMaster active breedings on an iPhone">Active breedings</button>
-                  <button class="fs3-chip" type="button" data-src="../components/new-breeding.html#embed-scroll" data-title="HerdMaster new breeding screen on an iPhone">New pairing</button>
-                  <button class="fs3-chip" type="button" data-src="../components/moon-breeding.html#embed-scroll" data-title="HerdMaster moon breeding calendar on an iPhone">Moon calendar</button>
-                  </div>
-                </div>
-              </div>
-              <div class="fz-copy fade">
-                <span class="eyebrow">02 &middot; Breeding</span>
-                <h2>Plan every pairing, <b>organized by doe.</b></h2>
-                <p>One buck breeds many does, so HerdMaster organizes breedings the way a rabbitry actually runs: by doe. Pair a sire and dam, and the whole timeline builds itself.</p>
-                <ul class="fz-list">
-                <li><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg><span><b>The full timeline.</b> Palpation windows, nest box timing, and expected kindle dates, all from one breeding date.</span></li>
-                <li><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg><span><b>Moon phase calendar.</b> Breeders who plan by the moon get the phases built right into the picker.</span></li>
-                <li><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg><span><b>Duplicate detection.</b> Get flagged before a duplicate breeding slips into the records.</span></li>
-                <li><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg><span><b>History that follows the doe.</b> Past breedings and status updates stay right on her record.</span></li>
-                </ul>
-              </div>
-            </div>
+    <section id="litters" class="fs3-sec" data-phone-parallax>
+      <div class="container fs3-grid">
+        <div class="fs3-art fade">
+          <div class="fs3-phone"><iframe src="../components/kit-tracking.html#embed-scroll" title="HerdMaster kit tracking on an iPhone" loading="lazy" scrolling="no"></iframe></div>
+          <div class="fs3-chips" role="group" aria-label="Switch app screen">
+                <button class="fs3-chip on" type="button" data-src="../components/kit-tracking.html#embed-scroll" data-title="HerdMaster kit tracking on an iPhone">Kit tracking</button>
+                <button class="fs3-chip" type="button" data-src="../components/kit-record.html#embed-scroll" data-title="HerdMaster kit record on an iPhone">Kit record</button>
           </div>
+        </div>
+        <div class="fz-copy fade">
+          <span class="eyebrow">03 &middot; Litters &amp; Kit Tracking</span>
+          <h2>From the nest box <b>to a permanent record.</b></h2>
+          <p>Log the litter the day it arrives, then track every kit through weaning: counts, sexes, and outcomes stay current without a paper tally in the barn.</p>
+          <ul class="fz-list">
+              <li><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg><span><b>Full litter records.</b> Born dates and kit counts, with alive, deceased, and culled tracked separately, including cull reasons.</span></li>
+              <li><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg><span><b>Show-quality designations.</b> Mark the keepers early and watch the promising ones develop.</span></li>
+              <li><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg><span><b>Weaning summaries.</b> A clean summary of the litter when it leaves the nest box.</span></li>
+              <li><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg><span><b>Tattoo promotion.</b> Promote a kit to a permanent herd record with its tattoo and ear number, history intact.</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-          <div class="fs3-panel" id="litters">
-            <div class="fs3-grid">
-              <div class="fs3-art fade">
-                <div class="fz-scene">
-                  <div class="fs3-phone"><iframe src="../components/kit-tracking.html#embed-scroll" title="HerdMaster kit tracking on an iPhone" loading="lazy" scrolling="no"></iframe></div>
-                  <div class="fs3-chips" role="group" aria-label="Switch app screen">
-                  <button class="fs3-chip on" type="button" data-src="../components/kit-tracking.html#embed-scroll" data-title="HerdMaster kit tracking on an iPhone">Kit tracking</button>
-                  <button class="fs3-chip" type="button" data-src="../components/kit-record.html#embed-scroll" data-title="HerdMaster kit record on an iPhone">Kit record</button>
-                  </div>
-                </div>
-              </div>
-              <div class="fz-copy fade">
-                <span class="eyebrow">03 &middot; Litters &amp; Kit Tracking</span>
-                <h2>From the nest box <b>to a permanent record.</b></h2>
-                <p>Log the litter the day it arrives, then track every kit through weaning: counts, sexes, and outcomes stay current without a paper tally in the barn.</p>
-                <ul class="fz-list">
-                <li><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg><span><b>Full litter records.</b> Born dates and kit counts, with alive, deceased, and culled tracked separately, including cull reasons.</span></li>
-                <li><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg><span><b>Show-quality designations.</b> Mark the keepers early and watch the promising ones develop.</span></li>
-                <li><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg><span><b>Weaning summaries.</b> A clean summary of the litter when it leaves the nest box.</span></li>
-                <li><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg><span><b>Tattoo promotion.</b> Promote a kit to a permanent herd record with its tattoo and ear number, history intact.</span></li>
-                </ul>
-              </div>
-            </div>
+    <section id="health" class="fs3-sec scene rev" data-phone-parallax>
+      <div class="container fs3-grid">
+        <div class="fs3-art fade">
+          <div class="fs3-phone"><iframe src="../components/health-detail.html#embed-scroll" title="HerdMaster animal health overview on an iPhone" loading="lazy" scrolling="no"></iframe></div>
+          <div class="fs3-chips" role="group" aria-label="Switch app screen">
+                <button class="fs3-chip on" type="button" data-src="../components/health-detail.html#embed-scroll" data-title="HerdMaster animal health overview on an iPhone">Health overview</button>
+                <button class="fs3-chip" type="button" data-src="../components/add-health-record.html#embed-scroll" data-title="HerdMaster add health record on an iPhone">Add a record</button>
           </div>
+        </div>
+        <div class="fz-copy fade">
+          <span class="eyebrow">04 &middot; Health Records</span>
+          <h2>Set it once, <b>never miss a treatment.</b></h2>
+          <p>Set a health task once and let it recur on its own. Custom frequencies, repeat-until scheduling, and calendar recurrence keep the whole barn on protocol without a wall calendar.</p>
+          <ul class="fz-list">
+              <li><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg><span><b>Custom frequencies.</b> Daily, weekly, or whatever schedule your protocol calls for.</span></li>
+              <li><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg><span><b>Repeat-until scheduling.</b> Treatments end when they should, not when you remember.</span></li>
+              <li><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg><span><b>Health tests on record.</b> Log tests alongside treatments, so the full history lives with the animal.</span></li>
+              <li><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg><span><b>Weight tracking.</b> Quick weight entry with the full history charted per animal.</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-          <div class="fs3-panel" id="health">
-            <div class="fs3-grid">
-              <div class="fs3-art fade">
-                <div class="fz-scene">
-                  <div class="fs3-phone"><iframe src="../components/health-detail.html#embed-scroll" title="HerdMaster animal health overview on an iPhone" loading="lazy" scrolling="no"></iframe></div>
-                  <div class="fs3-chips" role="group" aria-label="Switch app screen">
-                  <button class="fs3-chip on" type="button" data-src="../components/health-detail.html#embed-scroll" data-title="HerdMaster animal health overview on an iPhone">Health overview</button>
-                  <button class="fs3-chip" type="button" data-src="../components/add-health-record.html#embed-scroll" data-title="HerdMaster add health record on an iPhone">Add a record</button>
-                  </div>
-                </div>
-              </div>
-              <div class="fz-copy fade">
-                <span class="eyebrow">04 &middot; Health Records</span>
-                <h2>Set it once, <b>never miss a treatment.</b></h2>
-                <p>Set a health task once and let it recur on its own. Custom frequencies, repeat-until scheduling, and calendar recurrence keep the whole barn on protocol without a wall calendar.</p>
-                <ul class="fz-list">
-                <li><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg><span><b>Custom frequencies.</b> Daily, weekly, or whatever schedule your protocol calls for.</span></li>
-                <li><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg><span><b>Repeat-until scheduling.</b> Treatments end when they should, not when you remember.</span></li>
-                <li><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg><span><b>Health tests on record.</b> Log tests alongside treatments, so the full history lives with the animal.</span></li>
-                <li><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg><span><b>Weight tracking.</b> Quick weight entry with the full history charted per animal.</span></li>
-                </ul>
-              </div>
-            </div>
-          </div>
+    <section id="shows" class="fs3-sec" data-phone-parallax>
+      <div class="container fs3-grid">
+        <div class="fs3-art fade">
+          <div class="fs3-phone"><iframe src="../components/show-records.html#embed-scroll" title="HerdMaster show records on an iPhone" loading="lazy" scrolling="no"></iframe></div>
+        </div>
+        <div class="fz-copy fade">
+          <span class="eyebrow">05 &middot; Show Records</span>
+          <h2>Count every leg <b>toward Grand Champion.</b></h2>
+          <p>Log a win once at the show table and it lands where it counts. HerdMaster keeps each animal's record show-ready, with the legs adding up toward the title.</p>
+          <ul class="fz-list">
+              <li><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg><span><b>Grand Champion leg tracking.</b> See exactly where every animal stands on its way to GC.</span></li>
+              <li><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg><span><b>Multiple awards per entry.</b> One show entry holds every award it earned that day.</span></li>
+              <li><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg><span><b>Importance rankings.</b> Primary win flags keep the result that matters front and center.</span></li>
+              <li><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg><span><b>Judge names, optional.</b> Note the judge when it's worth remembering.</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-          <div class="fs3-panel" id="shows">
-            <div class="fs3-grid">
-              <div class="fs3-art fade">
-                <div class="fz-scene">
-                  <div class="fs3-phone"><iframe src="../components/show-records.html#embed-scroll" title="HerdMaster show records on an iPhone" loading="lazy" scrolling="no"></iframe></div>
-                </div>
-              </div>
-              <div class="fz-copy fade">
-                <span class="eyebrow">05 &middot; Show Records</span>
-                <h2>Count every leg <b>toward Grand Champion.</b></h2>
-                <p>Log a win once at the show table and it lands where it counts. HerdMaster keeps each animal's record show-ready, with the legs adding up toward the title.</p>
-                <ul class="fz-list">
-                <li><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg><span><b>Grand Champion leg tracking.</b> See exactly where every animal stands on its way to GC.</span></li>
-                <li><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg><span><b>Multiple awards per entry.</b> One show entry holds every award it earned that day.</span></li>
-                <li><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg><span><b>Importance rankings.</b> Primary win flags keep the result that matters front and center.</span></li>
-                <li><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg><span><b>Judge names, optional.</b> Note the judge when it's worth remembering.</span></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <div class="fs3-panel" id="imports">
-            <div class="fs3-grid">
-              <div class="fs3-art fade">
-                <div class="fz-scene">
-                  <div class="fs3-phone"><iframe src="../components/evans-import.html#embed-scroll" title="HerdMaster Evans import on an iPhone" loading="lazy" scrolling="no"></iframe></div>
-                </div>
-              </div>
-              <div class="fz-copy fade">
-                <span class="eyebrow">06 &middot; Imports &amp; Migration</span>
-                <h2>Your whole herd, moved <b>in one pass.</b></h2>
-                <p>A full Evans XML import brings animals, winnings, and litters across in a single pass, and a paper pedigree is one photo away with scan-and-confirm OCR.</p>
-                <ul class="fz-list">
-                <li><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg><span><b>Evans XML, the lead path.</b> The entire export comes across: animals, winnings, and litters, one pass.</span></li>
-                <li><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg><span><b>OCR pedigree scan.</b> Photo, PDF, or scan; HerdMaster reads it in and you review and confirm every field.</span></li>
-                <li><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg><span><b>Every other road in.</b> Evans PDF, Everbreed Share Link, Everbreed Litters CSV, XPEDX and HTM fallbacks, and manual entry.</span></li>
-                <li><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg><span><b>Safe by design.</b> Autofill suggestions, import summaries, duplicate handling, and rollback if an import fails.</span></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
+    <section id="imports" class="fs3-sec scene rev" data-phone-parallax>
+      <div class="container fs3-grid">
+        <div class="fs3-art fade">
+          <div class="fs3-phone"><iframe src="../components/evans-import.html#embed-scroll" title="HerdMaster Evans import on an iPhone" loading="lazy" scrolling="no"></iframe></div>
+        </div>
+        <div class="fz-copy fade">
+          <span class="eyebrow">06 &middot; Imports &amp; Migration</span>
+          <h2>Your whole herd, moved <b>in one pass.</b></h2>
+          <p>A full Evans XML import brings animals, winnings, and litters across in a single pass, and a paper pedigree is one photo away with scan-and-confirm OCR.</p>
+          <ul class="fz-list">
+              <li><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg><span><b>Evans XML, the lead path.</b> The entire export comes across: animals, winnings, and litters, one pass.</span></li>
+              <li><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg><span><b>OCR pedigree scan.</b> Photo, PDF, or scan; HerdMaster reads it in and you review and confirm every field.</span></li>
+              <li><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg><span><b>Every other road in.</b> Evans PDF, Everbreed Share Link, Everbreed Litters CSV, XPEDX and HTM fallbacks, and manual entry.</span></li>
+              <li><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg><span><b>Safe by design.</b> Autofill suggestions, import summaries, duplicate handling, and rollback if an import fails.</span></li>
+          </ul>
         </div>
       </div>
     </section>
 
     <!-- 3 · Pedigrees panel (landscape document) -->
-    <section id="pedigrees" class="bg-mint-3 feat-panel">
+    <section id="pedigrees" class="feat-panel">
       <div class="container">
         <div class="panel-head section-head fade">
           <span class="feat-icon"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M160,112h48a16,16,0,0,0,16-16V48a16,16,0,0,0-16-16H160a16,16,0,0,0-16,16V64H128a24,24,0,0,0-24,24v32H72v-8A16,16,0,0,0,56,96H24A16,16,0,0,0,8,112v32a16,16,0,0,0,16,16H56a16,16,0,0,0,16-16v-8h32v32a24,24,0,0,0,24,24h16v16a16,16,0,0,0,16,16h48a16,16,0,0,0,16-16V160a16,16,0,0,0-16-16H160a16,16,0,0,0-16,16v16H128a8,8,0,0,1-8-8V88a8,8,0,0,1,8-8h16V96A16,16,0,0,0,160,112ZM56,144H24V112H56v32Zm104,16h48v48H160Zm0-112h48V96H160Z"/></svg></span>
@@ -354,7 +338,7 @@
     </section>
 
     <!-- 3b · Offline & iCloud panel -->
-    <section id="offline" class="feat-panel">
+    <section id="offline" class="feat-panel scene">
       <div class="container split fade">
         <div class="feat-copy">
           <span class="feat-icon"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M247.93,124.52C246.11,77.54,207.07,40,160.06,40A88.1,88.1,0,0,0,81.29,88.67h0A87.48,87.48,0,0,0,72,127.73,8.18,8.18,0,0,1,64.57,136,8,8,0,0,1,56,128a103.66,103.66,0,0,1,5.34-32.92,4,4,0,0,0-4.75-5.18A64.09,64.09,0,0,0,8,152c0,35.19,29.75,64,65,64H160A88.09,88.09,0,0,0,247.93,124.52Zm-50.27-6.86-48,48a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L144,148.69l42.34-42.35a8,8,0,0,1,11.32,11.32Z"/></svg></span>

@@ -253,25 +253,16 @@
     // The parent can't reach into the iframes under file:// (unique origins), so it
     // posts a 0..1 progress and the component's own script sets .au scrollTop.
     (function(){
-      var host = document.querySelector('[data-phone-parallax]'); if(!host) return;
-      if(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-      var frames = Array.prototype.slice.call(host.querySelectorAll('iframe'));
+      var frames = Array.prototype.slice.call(document.querySelectorAll('[data-phone-parallax] iframe'));
       if(!frames.length) return;
-      // progress is anchored to each panel's DOCUMENT position (cached before any
-      // pinning), not its viewport rect: a sticky panel's rect freezes at top:88
-      // while pinned, which would freeze the parallax right when the user reads it
+      if(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      // progress is anchored to each feature section's document position
       var slots = [];
       function measure(){
-        // compute each panel's STATIC slot from the stack's origin (a pinned panel's own
-        // rect reports the stuck position, which would mis-slot deep-linked loads)
-        var panels = frames.map(function(f){ return f.closest('.fs3-panel') || f; });
-        var stack = panels[0] && panels[0].parentElement;
-        var acc = stack ? stack.getBoundingClientRect().top + window.pageYOffset : 0;
-        var gap = stack ? (parseFloat(getComputedStyle(stack).rowGap) || 0) : 0;
-        slots = panels.map(function(p){
-          var s = { top: acc, h: p.offsetHeight };
-          acc += p.offsetHeight + gap;
-          return s;
+        slots = frames.map(function(f){
+          var sec = f.closest('[data-phone-parallax]') || f;
+          var r = sec.getBoundingClientRect();
+          return { top: r.top + window.pageYOffset, h: r.height };
         });
       }
       measure();
