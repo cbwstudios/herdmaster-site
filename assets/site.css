@@ -993,9 +993,11 @@
        (316x684 ≈ 19.5:9) with the full bezel visible all the way round.
        ============================================================ */
     body.embed.fit .preview{ margin:0 auto !important; }
-    body.embed.fit .preview-phone{ box-shadow:none; position:relative; }   /* shadow moves to .fz-phone (iframe would clip it) */
+    /* percentage bezel (12/340) keeps the phone's total ratio exactly 340:708 at ANY
+       width, so it always fills its aspect-ratio iframe with no sliver at the bottom */
+    body.embed.fit .preview-phone{ box-shadow:none; position:relative; padding:3.5294%; }   /* shadow moves to .fz-phone (iframe would clip it) */
     body.embed.fit .preview-phone::after{ content:""; position:absolute; top:24px; left:50%; transform:translateX(-50%);
-      width:92px; height:23px; border-radius:12px; background:#0e1620; }   /* dynamic island */
+      width:92px; height:23px; border-radius:12px; background:#0e1620; z-index:7; }   /* dynamic island */
     body.embed.fit .preview-phone .au{ height:auto; aspect-ratio:316/684; overflow:hidden; }
     body.embed.fit .preview-phone .au-tabs{ margin-top:auto; }   /* short screens: tab bar still hugs the bottom */
 
@@ -1003,9 +1005,12 @@
        content SCROLLS inside the frame like a real phone: no scrollbar, wheel or
        touch to swipe. Status bar and tab bar stay pinned; content passes under. */
     body.embed.scroll .preview{ margin:0 auto !important; }
-    body.embed.scroll .preview-phone{ box-shadow:none; position:relative; }
+    /* percentage bezel (12/340) keeps the phone's total ratio exactly 340:708 at ANY
+       width, so it always fills its aspect-ratio iframe with no sliver at the bottom */
+    body.embed.scroll .preview-phone{ box-shadow:none; position:relative; padding:3.5294%; }
     body.embed.scroll .preview-phone::after{ content:""; position:absolute; top:24px; left:50%; transform:translateX(-50%);
-      width:92px; height:23px; border-radius:12px; background:#0e1620; pointer-events:none; }   /* dynamic island */
+      width:92px; height:23px; border-radius:12px; background:#0e1620; pointer-events:none;
+      z-index:7; }   /* dynamic island; above the sticky status bar, like a real phone */
     body.embed.scroll .preview-phone .au{ height:auto; aspect-ratio:316/684; overflow-y:auto; overflow-x:hidden;
       overscroll-behavior:contain; scrollbar-width:none; }
     body.embed.scroll .preview-phone .au::-webkit-scrollbar{ display:none; }
