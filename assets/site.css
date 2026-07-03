@@ -451,11 +451,11 @@
       --au-pink:#f7cdd2; --au-pinkink:#b15563; --au-blue:#3b6ea5; --au-gold:#bf9540;
       /* kit type scale + spacing: every screen maps its text onto these eight sizes
          so headings, body, meta, and tags stay consistent across all components */
-      --au-fs-display:1.5rem; --au-fs-title:1.2rem; --au-fs-heading:1.05rem; --au-fs-body:.95rem;
+      --au-fs-display:1.38rem; --au-fs-title:1.12rem; --au-fs-heading:1rem; --au-fs-body:.92rem;
       --au-fs-sub:.84rem; --au-fs-meta:.76rem; --au-fs-small:.66rem; --au-fs-tag:.58rem;
       --au-pad-x:16px; --au-bot:26px;   /* shared side padding + uniform bottom bumper above the tab bar */
       font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI Variable",system-ui,sans-serif;
-      line-height:1.4;
+      line-height:1.35;
       color:var(--au-ink); background:#eef2f1; height:100%; display:flex; flex-direction:column; text-align:left; }
     .au *{ box-sizing:border-box; }
     .au svg{ display:block; }
@@ -533,7 +533,7 @@
     .au-dates{ display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); border:1px solid var(--au-sep); border-radius:10px; margin-top:12px; }
     .au-dates div{ padding:7px 6px; min-width:0; border-right:1px solid var(--au-sep); }
     .au-dates div:last-child{ border-right:0; }
-    .au-dates .k{ font-size:var(--au-fs-tag); color:var(--au-sec); } .au-dates .v{ font-size:var(--au-fs-small); font-weight:700; margin-top:2px; }
+    .au-dates .k{ font-size:var(--au-fs-tag); color:var(--au-sec); } .au-dates .v{ font-size:var(--au-fs-tag); font-weight:700; margin-top:2px; white-space:nowrap; }
     .au-dates .due .v{ color:var(--au-teal); }
     .au-fab{ position:absolute; right:16px; bottom:14px; width:46px; height:46px; border-radius:50%; background:var(--au-teal); color:#fff; display:grid; place-items:center; box-shadow:0 8px 18px -6px rgba(47,158,152,.6); }
     .au-fab svg{ width:22px; height:22px; }
@@ -1006,8 +1006,11 @@
     /* percentage bezel (12/340) keeps the phone's total ratio exactly 340:708 at ANY
        width, so it always fills its aspect-ratio iframe with no sliver at the bottom */
     body.embed.fit .preview-phone{ box-shadow:none; position:relative; padding:3.5294%; }   /* shadow moves to .fz-phone (iframe would clip it) */
-    body.embed.fit .preview-phone .au{ height:auto; aspect-ratio:316/684; overflow:hidden; }
-    body.embed.fit .preview-phone .au-tabs{ margin-top:auto; }   /* short screens: tab bar still hugs the bottom */
+    body.embed.fit .preview-phone .au{ height:auto; aspect-ratio:316/684; overflow:hidden; position:relative; }
+    /* pin the tab bar flush over the screen bottom (content taller than the crop would
+       push it below the fold); anchored inside .au so it clips with the screen corners */
+    body.embed.fit .preview-phone .au-tabs{ position:absolute; left:0; right:0; bottom:0;
+      z-index:6; border-radius:0 0 30px 30px; }
 
     /* Shared status-bar treatment for both phone modes: symmetric padding so the row
        centers, and the dynamic island lives ON the status bar (its ::after), so it is
