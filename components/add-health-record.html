@@ -10,30 +10,30 @@
   .preview-phone .au{ border-radius:30px; overflow:hidden; height:auto; }
   .preview-label{ text-align:center; color:#46566e; font-weight:600; margin-top:16px; }
   /* screen-specific classes below, all under .au */
-  .au .au-hrpad{ padding:4px 18px 0; }
+  .au .au-hrpad{ padding:6px var(--au-pad-x) var(--au-bot); }
   .au .au-patient{ display:flex; align-items:center; gap:12px; background:var(--au-tint); border-radius:16px; padding:13px 14px; margin-bottom:18px; }
   .au .au-patient .pic{ flex:0 0 auto; width:48px; height:48px; border-radius:13px; background:#fff; border:1px solid var(--au-tile-bd); color:var(--au-teal); display:grid; place-items:center; }
   .au .au-patient .pic svg{ width:28px; height:28px; }
   .au .au-patient .pm{ flex:1; min-width:0; }
   .au .au-patient .nmrow{ display:flex; align-items:center; gap:8px; }
-  .au .au-patient .nm{ font-size:1.02rem; font-weight:800; letter-spacing:.01em; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-  .au .au-patient .ptag{ flex:0 0 auto; font-size:.58rem; font-weight:800; letter-spacing:.04em; color:#fff; background:var(--au-teal); border-radius:999px; padding:3px 8px; max-width:108px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-  .au .au-patient .breed{ font-size:.82rem; color:var(--au-sec); margin-top:3px; }
-  .au .au-patient .upd{ display:flex; align-items:center; gap:5px; font-size:.74rem; color:var(--au-sec); margin-top:7px; }
+  .au .au-patient .nm{ font-size:var(--au-fs-heading); font-weight:800; letter-spacing:.01em; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .au .au-patient .ptag{ flex:0 0 auto; font-size:var(--au-fs-tag); font-weight:800; letter-spacing:.04em; color:#fff; background:var(--au-teal); border-radius:999px; padding:3px 8px; max-width:108px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .au .au-patient .breed{ font-size:var(--au-fs-sub); color:var(--au-sec); margin-top:3px; }
+  .au .au-patient .upd{ display:flex; align-items:center; gap:5px; font-size:var(--au-fs-meta); color:var(--au-sec); margin-top:7px; }
   .au .au-patient .upd svg{ width:13px; height:13px; flex:0 0 auto; }
-  .au .au-hrh{ font-size:1.18rem; font-weight:800; margin:0 0 12px; }
+  .au .au-hrh{ font-size:var(--au-fs-title); font-weight:800; margin:0 0 12px; }
   .au .au-seg{ display:flex; gap:9px; margin-bottom:24px; }
-  .au .au-seg .sg{ flex:1; text-align:center; font-size:.82rem; font-weight:700; padding:9px 4px; border-radius:999px; background:var(--au-card); border:1px solid var(--au-sep); color:var(--au-ink); white-space:nowrap; }
+  .au .au-seg .sg{ flex:1; text-align:center; font-size:var(--au-fs-sub); font-weight:700; padding:9px 4px; border-radius:999px; background:var(--au-card); border:1px solid var(--au-sep); color:var(--au-ink); white-space:nowrap; }
   .au .au-seg .sg.on{ background:var(--au-teal); border-color:var(--au-teal); color:#fff; }
   .au .au-field{ margin-bottom:18px; }
-  .au .au-field .lbl{ display:block; font-size:.92rem; font-weight:700; margin-bottom:9px; }
-  .au .au-input{ display:flex; align-items:center; gap:8px; background:var(--au-card); border:1px solid var(--au-sep); border-radius:12px; padding:13px 15px; font-size:.92rem; }
+  .au .au-field .lbl{ display:block; font-size:var(--au-fs-body); font-weight:700; margin-bottom:9px; }
+  .au .au-input{ display:flex; align-items:center; gap:8px; background:var(--au-card); border:1px solid var(--au-sep); border-radius:12px; padding:13px 15px; font-size:var(--au-fs-body); }
   .au .au-input .ph{ flex:1; min-width:0; color:var(--au-sec); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
   .au .au-input .cal{ flex:0 0 auto; color:var(--au-ink); } .au .au-input .cal svg{ width:18px; height:18px; }
-  .au .au-select{ display:flex; align-items:center; gap:8px; background:var(--au-card); border:1px solid var(--au-sep); border-radius:12px; padding:13px 15px; font-size:.92rem; color:var(--au-tealink); }
+  .au .au-select{ display:flex; align-items:center; gap:8px; background:var(--au-card); border:1px solid var(--au-sep); border-radius:12px; padding:13px 15px; font-size:var(--au-fs-body); color:var(--au-tealink); }
   .au .au-select .v{ flex:1; min-width:0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
   .au .au-select .chev{ flex:0 0 auto; color:var(--au-ink); } .au .au-select .chev svg{ width:16px; height:16px; }
-  .au .au-savebtn{ margin-top:8px; text-align:center; font-size:1.05rem; font-weight:800; color:#fff; background:var(--au-teal); border-radius:14px; padding:16px; box-shadow:0 8px 18px -8px rgba(47,158,152,.55); }
+  .au .au-savebtn{ margin-top:8px; text-align:center; font-size:var(--au-fs-heading); font-weight:800; color:#fff; background:var(--au-teal); border-radius:14px; padding:16px; box-shadow:0 8px 18px -8px rgba(47,158,152,.55); }
 </style>
 </head><body>
   <div class="preview">

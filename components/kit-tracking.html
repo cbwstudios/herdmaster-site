@@ -10,32 +10,32 @@
   .preview-phone .au{ border-radius:30px; overflow:hidden; height:auto; }
   .preview-label{ text-align:center; color:#46566e; font-weight:600; margin-top:16px; }
   /* screen-specific classes below, all under .au */
-  .au .au-pad{ padding:6px 18px 20px; }
+  .au .au-pad{ padding:6px var(--au-pad-x) var(--au-bot); }
   /* litter summary card */
   .au .au-litcard{ background:var(--au-card); border-radius:16px; padding:15px; box-shadow:0 1px 3px rgba(16,32,28,.06); }
   .au .au-litcard .top{ display:flex; align-items:center; gap:8px; }
-  .au .au-litcard .nm{ font-size:1.18rem; font-weight:800; }
-  .au .au-litcard .tag{ font-size:.7rem; font-weight:700; color:var(--au-tealink); background:var(--au-tint); border-radius:999px; padding:3px 10px; }
-  .au .au-litcard .par{ font-size:.82rem; color:var(--au-sec); margin-top:8px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-  .au .au-litcard .par2{ font-size:.82rem; color:var(--au-sec); margin-top:3px; }
+  .au .au-litcard .nm{ font-size:var(--au-fs-title); font-weight:800; }
+  .au .au-litcard .tag{ font-size:var(--au-fs-small); font-weight:700; color:var(--au-tealink); background:var(--au-tint); border-radius:999px; padding:3px 10px; }
+  .au .au-litcard .par{ font-size:var(--au-fs-sub); color:var(--au-sec); margin-top:8px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .au .au-litcard .par2{ font-size:var(--au-fs-sub); color:var(--au-sec); margin-top:3px; }
   /* full-width teal buttons */
   .au .au-bigbtn{ display:flex; align-items:center; gap:9px; width:100%; background:var(--au-teal); color:#fff;
-    border-radius:13px; padding:14px 16px; margin-top:13px; font-size:.98rem; font-weight:700; }
+    border-radius:13px; padding:14px 16px; margin-top:13px; font-size:var(--au-fs-body); font-weight:700; }
   .au .au-bigbtn svg{ width:18px; height:18px; flex:0 0 auto; }
-  .au .au-bigbtn .end{ margin-left:auto; font-size:.9rem; font-weight:600; opacity:.92; }
+  .au .au-bigbtn .end{ margin-left:auto; font-size:var(--au-fs-sub); font-weight:600; opacity:.92; }
   /* kits list head */
   .au .au-kithead{ display:flex; align-items:baseline; justify-content:space-between; margin:24px 0 6px; }
-  .au .au-kithead .lt{ font-size:1.35rem; font-weight:800; }
-  .au .au-kithead .ct{ font-size:.85rem; color:var(--au-sec); }
+  .au .au-kithead .lt{ font-size:var(--au-fs-title); font-weight:800; }
+  .au .au-kithead .ct{ font-size:var(--au-fs-sub); color:var(--au-sec); }
   /* kit rows */
   .au .au-kitrow{ padding:16px 0; border-top:1px solid var(--au-sep); }
   .au .au-kitrow:first-of-type{ border-top:0; }
   .au .au-kitrow .ktop{ display:flex; align-items:center; gap:8px; }
   .au .au-kitrow .dot{ width:8px; height:8px; border-radius:50%; background:var(--au-teal); flex:0 0 auto; }
-  .au .au-kitrow .ktitle{ font-size:1.05rem; font-weight:800; }
-  .au .au-kitrow .kmeta{ font-size:.92rem; color:var(--au-sec); margin:6px 0 0 16px; }
+  .au .au-kitrow .ktitle{ font-size:var(--au-fs-heading); font-weight:800; }
+  .au .au-kitrow .kmeta{ font-size:var(--au-fs-body); color:var(--au-sec); margin:6px 0 0 16px; }
   .au .au-kitrow .ktags{ display:flex; gap:8px; margin:9px 0 0 16px; }
-  .au .au-kt{ font-size:.74rem; font-weight:700; border-radius:999px; padding:3px 11px; }
+  .au .au-kt{ font-size:var(--au-fs-meta); font-weight:700; border-radius:999px; padding:3px 11px; }
   .au .au-kt.gray{ color:#5b6a66; background:#e7ecea; }
   .au .au-kt.amber{ color:#c47f1a; background:#fbedd2; }
   .au .au-kt.green{ color:#2f8a52; background:#dcf0e2; }

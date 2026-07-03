@@ -10,27 +10,27 @@
   .preview-phone .au{ border-radius:30px; overflow:hidden; height:auto; }
   .preview-label{ text-align:center; color:#46566e; font-weight:600; margin-top:16px; }
   /* screen-specific classes below, all under .au */
-  .au-bpad{ padding:6px 18px 18px; display:flex; flex-direction:column; }
+  .au-bpad{ padding:6px var(--au-pad-x) var(--au-bot); display:flex; flex-direction:column; }
   .au-seg{ display:flex; gap:12px; margin:2px 0 18px; }
-  .au-seg .sg{ flex:1; display:flex; align-items:center; justify-content:center; gap:8px; border-radius:14px; padding:13px 10px; font-size:1rem; font-weight:700; border:1.5px solid var(--au-sep); background:#f3f6f5; color:var(--au-sec); }
+  .au-seg .sg{ flex:1; display:flex; align-items:center; justify-content:center; gap:8px; border-radius:14px; padding:13px 10px; font-size:var(--au-fs-body); font-weight:700; border:1.5px solid var(--au-sep); background:#f3f6f5; color:var(--au-sec); }
   .au-seg .sg svg{ width:22px; height:22px; }
   .au-seg .sg.on{ background:var(--au-card); border-color:var(--au-teal); color:var(--au-teal); }
   .au-cols{ display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:14px; }
-  .au-field .lab{ font-size:1.02rem; font-weight:800; margin-bottom:8px; }
-  .au-select{ position:relative; background:#f6f8f7; border:1px solid var(--au-sep); border-radius:13px; padding:13px 14px; font-size:.95rem; color:var(--au-sec); display:flex; align-items:center; }
+  .au-field .lab{ font-size:var(--au-fs-heading); font-weight:800; margin-bottom:8px; }
+  .au-select{ position:relative; background:#f6f8f7; border:1px solid var(--au-sep); border-radius:13px; padding:13px 14px; font-size:var(--au-fs-body); color:var(--au-sec); display:flex; align-items:center; }
   .au-select .cv{ margin-left:auto; color:var(--au-ink); } .au-select .cv svg{ width:16px; height:16px; }
-  .au-pairpill{ background:var(--au-card); border-radius:14px; padding:17px 14px; text-align:center; font-size:1.12rem; font-weight:700; box-shadow:0 1px 3px rgba(16,32,28,.06); margin-bottom:18px; }
-  .au-datefield{ position:relative; background:#f6f8f7; border:1px solid var(--au-sep); border-radius:13px; padding:14px 14px; font-size:1rem; color:var(--au-sec); display:flex; align-items:center; margin-top:8px; }
+  .au-pairpill{ background:var(--au-card); border-radius:14px; padding:17px 14px; text-align:center; font-size:var(--au-fs-heading); font-weight:700; box-shadow:0 1px 3px rgba(16,32,28,.06); margin-bottom:18px; }
+  .au-datefield{ position:relative; background:#f6f8f7; border:1px solid var(--au-sep); border-radius:13px; padding:14px 14px; font-size:var(--au-fs-body); color:var(--au-sec); display:flex; align-items:center; margin-top:8px; }
   .au-datefield .cal{ margin-left:auto; color:var(--au-ink); } .au-datefield .cal svg{ width:18px; height:18px; }
-  .au-bdh{ font-size:1.02rem; font-weight:800; margin:20px 0 12px; }
+  .au-bdh{ font-size:var(--au-fs-heading); font-weight:800; margin:20px 0 12px; }
   .au-dayrow{ display:flex; align-items:center; gap:12px; background:var(--au-card); border-radius:14px; padding:13px 14px; margin-bottom:11px; box-shadow:0 1px 3px rgba(16,32,28,.06); }
   .au-dayrow .dot{ flex:0 0 auto; width:9px; height:9px; border-radius:50%; background:#b9a7e6; }
   .au-dayrow .mid{ flex:1; min-width:0; }
-  .au-dayrow .mid .dt{ font-size:1rem; font-weight:800; }
-  .au-dayrow .mid .meta{ font-size:.82rem; color:var(--au-sec); margin-top:2px; }
+  .au-dayrow .mid .dt{ font-size:var(--au-fs-body); font-weight:800; }
+  .au-dayrow .mid .meta{ font-size:var(--au-fs-sub); color:var(--au-sec); margin-top:2px; }
   .au-dayrow .add{ flex:0 0 auto; width:34px; height:34px; border-radius:10px; background:var(--au-tint); color:var(--au-teal); display:grid; place-items:center; }
   .au-dayrow .add svg{ width:18px; height:18px; }
-  .au-savebtn{ margin-top:14px; background:var(--au-teal); color:#fff; border-radius:14px; padding:16px; text-align:center; font-size:1.05rem; font-weight:800; box-shadow:0 10px 22px -10px rgba(47,158,152,.7); }
+  .au-savebtn{ margin-top:14px; background:var(--au-teal); color:#fff; border-radius:14px; padding:16px; text-align:center; font-size:var(--au-fs-heading); font-weight:800; box-shadow:0 10px 22px -10px rgba(47,158,152,.7); }
 </style>
 </head><body>
   <div class="preview">

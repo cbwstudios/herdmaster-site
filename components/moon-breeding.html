@@ -10,21 +10,21 @@
   .preview-phone .au{ border-radius:30px; overflow:hidden; height:auto; }
   .preview-label{ text-align:center; color:#46566e; font-weight:600; margin-top:16px; }
   /* screen-specific classes below, all under .au */
-  .au .au-pad2{ padding:6px 16px 18px; }
+  .au .au-pad2{ padding:6px var(--au-pad-x) var(--au-bot); }
 
   /* calendar card */
   .au .au-cal{ background:var(--au-card); border-radius:18px; padding:16px 14px 14px; box-shadow:0 1px 3px rgba(16,32,28,.06); }
   .au .au-calhead{ display:flex; align-items:center; justify-content:space-between; padding:0 2px 12px; }
-  .au .au-calhead .mo{ font-size:1.1rem; font-weight:800; }
+  .au .au-calhead .mo{ font-size:var(--au-fs-heading); font-weight:800; }
   .au .au-calhead .nav{ display:flex; align-items:center; gap:18px; color:var(--au-ink); }
   .au .au-calhead .nav svg{ width:15px; height:15px; }
   .au .au-calwk{ display:grid; grid-template-columns:repeat(7,1fr); border-top:1px solid var(--au-sep); }
-  .au .au-calwk span{ text-align:center; font-size:.7rem; font-weight:700; color:var(--au-sec); padding:7px 0 6px; border-right:1px solid var(--au-sep); }
+  .au .au-calwk span{ text-align:center; font-size:var(--au-fs-small); font-weight:700; color:var(--au-sec); padding:7px 0 6px; border-right:1px solid var(--au-sep); }
   .au .au-calwk span:last-child{ border-right:0; }
   .au .au-calgrid{ display:grid; grid-template-columns:repeat(7,1fr); }
   .au .au-day{ position:relative; min-height:46px; padding:5px 6px 4px; border-top:1px solid var(--au-sep); border-right:1px solid var(--au-sep); display:flex; flex-direction:column; }
   .au .au-day:nth-child(7n){ border-right:0; }
-  .au .au-day .dn{ font-size:.74rem; font-weight:600; line-height:1; }
+  .au .au-day .dn{ font-size:var(--au-fs-meta); font-weight:600; line-height:1; }
   .au .au-day.out .dn{ color:#c2ccc8; }
   .au .au-day.sel{ outline:2px solid var(--au-teal); outline-offset:-2px; border-radius:7px; }
   .au .au-day .dot{ position:absolute; top:6px; right:6px; width:5px; height:5px; border-radius:50%; }
@@ -52,16 +52,16 @@
   .au .au-legend .lg .d.f{ background:#3aa760; }
   .au .au-legend .lg .d.m{ background:#e0524a; }
   .au .au-legend .lg .d.n{ background:#c2ccc8; }
-  .au .au-legend .lg .t{ font-size:.72rem; font-weight:600; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .au .au-legend .lg .t{ font-size:var(--au-fs-meta); font-weight:600; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
 
   /* selected-day detail card */
   .au .au-moondetail{ background:var(--au-card); border-radius:18px; padding:16px; margin-top:14px; box-shadow:0 1px 3px rgba(16,32,28,.06); }
   .au .au-moondetail .dh{ display:flex; align-items:center; justify-content:space-between; margin-bottom:14px; }
-  .au .au-moondetail .dh .dd{ font-size:1.15rem; font-weight:800; }
+  .au .au-moondetail .dh .dd{ font-size:var(--au-fs-heading); font-weight:800; }
   .au .au-moondetail .dh .au-moon{ width:24px; height:24px; margin:0; }
   .au .au-moondetail .grid{ display:grid; grid-template-columns:1fr 1fr; gap:16px 14px; }
-  .au .au-moondetail .k{ font-size:.74rem; color:var(--au-sec); margin-bottom:3px; }
-  .au .au-moondetail .v{ font-size:1.02rem; font-weight:800; line-height:1.25; }
+  .au .au-moondetail .k{ font-size:var(--au-fs-meta); color:var(--au-sec); margin-bottom:3px; }
+  .au .au-moondetail .v{ font-size:var(--au-fs-heading); font-weight:800; line-height:1.25; }
 </style>
 </head><body>
   <div class="preview">

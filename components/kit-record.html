@@ -10,22 +10,22 @@
   .preview-phone .au{ border-radius:30px; overflow:hidden; height:auto; }
   .preview-label{ text-align:center; color:#46566e; font-weight:600; margin-top:16px; }
   /* screen-specific classes below, all under .au */
-  .au-krwrap{ padding:2px 20px 20px; }
+  .au-krwrap{ padding:2px var(--au-pad-x) var(--au-bot); }
   .au-krtile{ width:84px; height:84px; border-radius:21px; margin:6px auto 14px; background:var(--au-tile); border:1px solid var(--au-tile-bd); color:var(--au-tealink); display:grid; place-items:center; }
   .au-krtile svg{ width:40px; height:40px; }
-  .au-krtitle{ text-align:center; font-size:1.7rem; font-weight:800; letter-spacing:-.01em; margin:0 0 8px; }
-  .au-krsub{ text-align:center; font-size:.95rem; line-height:1.45; color:var(--au-sec); margin:0 8px 22px; }
-  .au-krlabel{ font-size:1.18rem; font-weight:800; margin:0 0 12px; }
-  .au-krid{ display:flex; align-items:center; gap:8px; font-size:1.12rem; font-weight:700; margin-bottom:7px; }
+  .au-krtitle{ text-align:center; font-size:var(--au-fs-display); font-weight:800; letter-spacing:-.01em; margin:0 0 8px; }
+  .au-krsub{ text-align:center; font-size:var(--au-fs-body); line-height:1.45; color:var(--au-sec); margin:0 8px 22px; }
+  .au-krlabel{ font-size:var(--au-fs-title); font-weight:800; margin:0 0 12px; }
+  .au-krid{ display:flex; align-items:center; gap:8px; font-size:var(--au-fs-heading); font-weight:700; margin-bottom:7px; }
   .au-krdot{ flex:0 0 auto; width:7px; height:7px; border-radius:50%; background:var(--au-teal); }
-  .au-krmeta{ font-size:.8rem; color:var(--au-sec); letter-spacing:.02em; margin-bottom:11px; }
+  .au-krmeta{ font-size:var(--au-fs-meta); color:var(--au-sec); letter-spacing:.02em; margin-bottom:11px; }
   .au-krpills{ display:flex; gap:8px; margin-bottom:24px; }
-  .au-krpill{ font-size:.7rem; font-weight:700; border-radius:999px; padding:4px 11px; }
+  .au-krpill{ font-size:var(--au-fs-small); font-weight:700; border-radius:999px; padding:4px 11px; }
   .au-krpill.gray{ color:#5b6864; background:#e7ecea; }
   .au-krpill.amber{ color:#9a7414; background:#f5ead0; }
   .au-field{ margin-bottom:18px; }
-  .au-field > .fl{ display:block; font-size:1.02rem; font-weight:700; margin-bottom:9px; }
-  .au-input, .au-select, .au-textarea{ width:100%; font:inherit; font-size:.96rem; color:var(--au-ink);
+  .au-field > .fl{ display:block; font-size:var(--au-fs-heading); font-weight:700; margin-bottom:9px; }
+  .au-input, .au-select, .au-textarea{ width:100%; font:inherit; font-size:var(--au-fs-body); color:var(--au-ink);
     background:var(--au-card); border:1px solid var(--au-sep); border-radius:12px; padding:13px 14px; outline:none;
     -webkit-appearance:none; appearance:none; }
   .au-input::placeholder, .au-textarea::placeholder{ color:#9aa6a2; }
@@ -33,12 +33,12 @@
   .au-textarea{ resize:none; min-height:96px; line-height:1.4; }
   .au-input + .au-input, .au-input + .au-textarea{ margin-top:11px; }
   .au-fieldrow{ display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:18px; }
-  .au-fieldrow .fl{ font-size:1.02rem; font-weight:700; }
+  .au-fieldrow .fl{ font-size:var(--au-fs-heading); font-weight:700; }
   .au-selectwrap{ position:relative; flex:0 0 auto; }
   .au-selectwrap .au-select{ width:auto; padding-right:34px; }
   .au-selectwrap .cv{ position:absolute; right:12px; top:50%; transform:translateY(-50%); pointer-events:none; color:var(--au-sec); }
   .au-selectwrap .cv svg{ width:13px; height:13px; }
-  .au-savebtn{ width:100%; font:inherit; font-size:1.02rem; font-weight:700; color:#fff; background:var(--au-teal);
+  .au-savebtn{ width:100%; font:inherit; font-size:var(--au-fs-heading); font-weight:700; color:#fff; background:var(--au-teal);
     border:0; border-radius:13px; padding:15px; margin-top:6px; cursor:pointer; }
 </style>
 </head><body>

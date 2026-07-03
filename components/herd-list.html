@@ -11,31 +11,31 @@
   .preview-label{ text-align:center; color:#46566e; font-weight:600; margin-top:16px; }
 
   /* Herd list screen, scoped under .au */
-  .au-hpad{ padding:6px 16px 84px; }
+  .au-hpad{ padding:6px var(--au-pad-x) var(--au-bot); }
   .au-toptitle{ display:flex; align-items:center; gap:9px; padding:2px 0 12px; }
-  .au-toptitle .ht{ font-size:1.6rem; font-weight:800; letter-spacing:-.01em; }
-  .au-toptitle .hc{ font-size:.72rem; font-weight:700; color:var(--au-tealink); background:var(--au-tint); border-radius:999px; padding:2px 9px; }
+  .au-toptitle .ht{ font-size:var(--au-fs-display); font-weight:800; letter-spacing:-.01em; }
+  .au-toptitle .hc{ font-size:var(--au-fs-meta); font-weight:700; color:var(--au-tealink); background:var(--au-tint); border-radius:999px; padding:2px 9px; }
   .au-toptitle .sortic{ margin-left:auto; color:var(--au-sec); } .au-toptitle .sortic svg{ width:20px; height:20px; }
   .au-search{ display:flex; align-items:center; gap:8px; background:#fff; border:1px solid var(--au-sep); border-radius:12px; padding:10px 12px; margin-bottom:13px; color:var(--au-sec); }
   .au-search svg{ width:16px; height:16px; flex:0 0 auto; }
-  .au-search .ph{ font-size:.9rem; }
+  .au-search .ph{ font-size:var(--au-fs-sub); }
   .au-chips{ display:flex; gap:7px; margin-bottom:6px; }
-  .au-chip{ font-size:.76rem; font-weight:600; padding:6px 12px; border-radius:999px; background:#fff; border:1px solid var(--au-sep); color:var(--au-sec); white-space:nowrap; }
+  .au-chip{ font-size:var(--au-fs-meta); font-weight:600; padding:6px 12px; border-radius:999px; background:#fff; border:1px solid var(--au-sep); color:var(--au-sec); white-space:nowrap; }
   .au-chip.on{ background:var(--au-teal); border-color:var(--au-teal); color:#fff; }
   .au-breedhdr{ display:flex; align-items:center; gap:9px; margin:18px 0 9px; }
-  .au-breedhdr .bn{ font-size:1.02rem; font-weight:800; }
-  .au-breedhdr .bc{ font-size:.78rem; color:var(--au-sec); }
+  .au-breedhdr .bn{ font-size:var(--au-fs-heading); font-weight:800; }
+  .au-breedhdr .bc{ font-size:var(--au-fs-meta); color:var(--au-sec); }
   .au-breedhdr .cv{ margin-left:auto; color:var(--au-sec); display:flex; } .au-breedhdr .cv svg{ width:16px; height:16px; }
   .au-animal{ display:flex; align-items:center; gap:11px; background:#fff; border:1px solid var(--au-sep); border-radius:14px; padding:10px 12px; margin-bottom:9px; box-shadow:0 1px 2px rgba(16,32,28,.04); }
   .au-avatar{ flex:0 0 auto; width:44px; height:44px; border-radius:12px; background:var(--au-tint); color:var(--au-tealink); display:grid; place-items:center; } .au-avatar svg{ width:25px; height:25px; }
   .au-arow{ flex:1; min-width:0; }
-  .au-aname{ display:flex; align-items:center; gap:6px; font-size:.97rem; font-weight:700; }
+  .au-aname{ display:flex; align-items:center; gap:6px; font-size:var(--au-fs-body); font-weight:700; }
   .au-aname .sx{ color:var(--au-sec); font-weight:700; }
-  .au-gc{ font-size:.58rem; font-weight:800; letter-spacing:.04em; color:#7a5a14; background:#fbe8c6; border-radius:999px; padding:2px 6px; }
-  .au-open{ font-size:.58rem; font-weight:800; letter-spacing:.04em; color:var(--au-tealink); background:var(--au-tint); border-radius:999px; padding:2px 6px; }
-  .au-ameta{ font-size:.8rem; color:var(--au-sec); margin-top:2px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .au-gc{ font-size:var(--au-fs-tag); font-weight:800; letter-spacing:.04em; color:#7a5a14; background:#fbe8c6; border-radius:999px; padding:2px 6px; }
+  .au-open{ font-size:var(--au-fs-tag); font-weight:800; letter-spacing:.04em; color:var(--au-tealink); background:var(--au-tint); border-radius:999px; padding:2px 6px; }
+  .au-ameta{ font-size:var(--au-fs-meta); color:var(--au-sec); margin-top:2px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
   .au-aright{ flex:0 0 auto; display:flex; align-items:center; gap:7px; }
-  .au-aright .age{ font-size:.74rem; color:var(--au-sec); }
+  .au-aright .age{ font-size:var(--au-fs-meta); color:var(--au-sec); }
   .au-aright .cv{ color:#c2ccd3; display:flex; } .au-aright .cv svg{ width:15px; height:15px; }
   .preview-phone .au-fab{ bottom:80px; }
 </style>

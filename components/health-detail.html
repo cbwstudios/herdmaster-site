@@ -10,34 +10,34 @@
   .preview-phone .au{ border-radius:30px; overflow:hidden; height:auto; }
   .preview-label{ text-align:center; color:#46566e; font-weight:600; margin-top:16px; }
   /* screen-specific classes below, all under .au */
-  .au-pad2{ padding:6px 18px 18px; }
+  .au-pad2{ padding:6px var(--au-pad-x) var(--au-bot); }
   .au-animalhead{ display:flex; flex-direction:column; align-items:center; text-align:center; padding:6px 0 4px; }
   .au-animalhead .tile{ position:relative; width:88px; height:88px; border-radius:20px; background:var(--au-card); border:2px solid var(--au-teal); box-shadow:0 1px 3px rgba(16,32,28,.06); display:grid; place-items:center; margin-bottom:14px; }
   .au-animalhead .tile svg{ width:46px; height:46px; color:var(--au-teal); }
-  .au-animalhead .tile .buck{ position:absolute; left:50%; bottom:-9px; transform:translateX(-50%); font-size:.56rem; font-weight:800; letter-spacing:.06em; color:#fff; background:var(--au-teal); border-radius:999px; padding:3px 9px; }
-  .au-animalhead .nm{ font-size:1.6rem; font-weight:800; letter-spacing:-.01em; line-height:1.1; }
-  .au-animalhead .breed{ font-size:1rem; font-weight:600; color:var(--au-teal); margin-top:3px; }
+  .au-animalhead .tile .buck{ position:absolute; left:50%; bottom:-9px; transform:translateX(-50%); font-size:var(--au-fs-tag); font-weight:800; letter-spacing:.06em; color:#fff; background:var(--au-teal); border-radius:999px; padding:3px 9px; }
+  .au-animalhead .nm{ font-size:var(--au-fs-display); font-weight:800; letter-spacing:-.01em; line-height:1.1; }
+  .au-animalhead .breed{ font-size:var(--au-fs-body); font-weight:600; color:var(--au-teal); margin-top:3px; }
   .au-subtabs{ display:flex; align-items:center; gap:18px; border-bottom:1px solid var(--au-sep); margin:18px 0 4px; overflow:hidden; }
-  .au-subtabs .st{ font-size:.92rem; font-weight:600; color:var(--au-sec); padding:8px 0 10px; white-space:nowrap; }
+  .au-subtabs .st{ font-size:var(--au-fs-body); font-weight:600; color:var(--au-sec); padding:8px 0 10px; white-space:nowrap; }
   .au-subtabs .st.on{ color:var(--au-teal); border-bottom:2px solid var(--au-teal); }
   .au-panel{ background:var(--au-tint); border-radius:16px; padding:16px; margin-top:16px; }
-  .au-panel .pt{ font-size:1.2rem; font-weight:800; margin-bottom:14px; }
+  .au-panel .pt{ font-size:var(--au-fs-title); font-weight:800; margin-bottom:14px; }
   .au-addbtn{ display:flex; flex-direction:column; align-items:center; gap:8px; background:var(--au-card); border:1.5px dashed var(--au-teal); border-radius:12px; padding:18px 14px; }
   .au-addbtn svg{ width:22px; height:22px; color:var(--au-teal); }
-  .au-addbtn .lbl{ font-size:.86rem; font-weight:700; }
+  .au-addbtn .lbl{ font-size:var(--au-fs-sub); font-weight:700; }
   .au-hcard{ background:var(--au-card); border-radius:16px; padding:16px; margin-top:14px; box-shadow:0 1px 3px rgba(16,32,28,.06); }
-  .au-hcard .ct{ font-size:1.18rem; font-weight:800; margin-bottom:12px; }
+  .au-hcard .ct{ font-size:var(--au-fs-title); font-weight:800; margin-bottom:12px; }
   .au-hrow{ display:flex; align-items:center; gap:12px; }
   .au-hrow .ic{ flex:0 0 auto; width:38px; height:38px; border-radius:10px; background:var(--au-tint); color:var(--au-teal); display:grid; place-items:center; }
   .au-hrow .ic svg{ width:20px; height:20px; }
   .au-hrow .m{ flex:1; min-width:0; }
-  .au-hrow .m b{ display:block; font-size:.95rem; font-weight:700; }
-  .au-hrow .m .sub{ display:block; font-size:.82rem; color:var(--au-sec); margin-top:2px; }
-  .au-hrow .when{ flex:0 0 auto; font-size:.86rem; font-weight:700; color:var(--au-teal); }
-  .au-evhead{ font-size:1.18rem; font-weight:800; margin:22px 0 12px; }
+  .au-hrow .m b{ display:block; font-size:var(--au-fs-body); font-weight:700; }
+  .au-hrow .m .sub{ display:block; font-size:var(--au-fs-sub); color:var(--au-sec); margin-top:2px; }
+  .au-hrow .when{ flex:0 0 auto; font-size:var(--au-fs-sub); font-weight:700; color:var(--au-teal); }
+  .au-evhead{ font-size:var(--au-fs-title); font-weight:800; margin:22px 0 12px; }
   .au-evrow{ display:flex; align-items:center; gap:12px; background:var(--au-tint); border-radius:14px; padding:14px 16px; }
   .au-evrow .ic{ flex:0 0 auto; color:var(--au-teal); } .au-evrow .ic svg{ width:20px; height:20px; }
-  .au-evrow .lbl{ flex:1; font-size:.86rem; font-weight:700; letter-spacing:.03em; }
+  .au-evrow .lbl{ flex:1; font-size:var(--au-fs-sub); font-weight:700; letter-spacing:.03em; }
   .au-evrow .cv{ flex:0 0 auto; color:var(--au-teal); } .au-evrow .cv svg{ width:16px; height:16px; }
 </style>
 </head><body>
