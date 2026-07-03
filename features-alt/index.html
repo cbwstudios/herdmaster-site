@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- ALTERNATE FEATURES LAYOUT for client review: same hero + panels as /features/,
+       but section 2 is zig-zag rows with full proportionate phones on green scene boxes,
+       copy expanded from the client's content folder. Not linked in nav, not in sitemap. -->
+  <meta name="robots" content="noindex, follow">
+
+  <title>HerdMaster Features (Alternate Layout), Pedigrees, Breeding, Litters, Health and Show Records</title>
+  <meta name="description" content="4-generation pedigrees, one-pass Evans import, OCR pedigree scan, breeding, litters, health, and Grand Champion show records. Offline, private iCloud sync.">
+  <link rel="canonical" href="https://herdmaster.app/features-alt/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="HerdMaster">
+  <meta property="og:title" content="HerdMaster Features for Rabbit and Cavy Breeders">
+  <meta property="og:description" content="4-generation pedigrees, one-pass Evans import, OCR pedigree scan, breeding, litters, health, and show records. Offline, with private iCloud sync.">
+  <meta property="og:url" content="https://herdmaster.app/features-alt/">
+  <meta property="og:image" content="https://herdmaster.app/assets/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="HerdMaster Features for Rabbit and Cavy Breeders">
+  <meta name="twitter:description" content="4-generation pedigrees, one-pass Evans import, OCR pedigree scan, breeding, litters, health, and show records. Offline, with private iCloud sync.">
+  <meta name="twitter:image" content="https://herdmaster.app/assets/og-image.png">
+
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#222B37">
+
+
+  <link rel="stylesheet" href="../assets/site.css">
+
+  <!-- Google Analytics 4. Replace [GA4 ID] with the real Measurement ID to activate; inert while it is a placeholder. -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    var GA_MEASUREMENT_ID = '[GA4 ID]';
+    if (GA_MEASUREMENT_ID.indexOf('[') === -1) {
+      var gaS = document.createElement('script'); gaS.async = true;
+      gaS.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_MEASUREMENT_ID;
+      document.head.appendChild(gaS);
+      gtag('js', new Date()); gtag('config', GA_MEASUREMENT_ID);
+    }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        "name": "HerdMaster",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "iOS 17",
+        "description": "Native iOS app for rabbit and cavy breeders: pedigrees, breeding, litters, health, and show records. Works offline, syncs privately through iCloud.",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+      },
+      {
+        "@type": "Organization",
+        "name": "HerdMaster",
+        "url": "https://herdmaster.app",
+        "founder": { "@type": "Person", "name": "Joseph Kim" }
+      }
+    ]
+  }
+  </script>
+</head>
+<body data-page="features">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ===== Sticky white header ===== -->
+  <header class="header-main" id="headerMain">
+    <div class="container hm-inner">
+      <a class="brand" href="../index.html" aria-label="HerdMaster home"><img src="../assets/logo.png" alt="HerdMaster"></a>
+      <nav class="hm-nav" aria-label="Primary">
+        <ul class="hm-links">
+          <li><a href="../features/index.html" aria-current="page">Features</a></li>
+          <li><a href="../pricing/index.html">Pricing</a></li>
+          <li><a href="../getting-started/index.html">Getting Started</a></li>
+          <li><a href="../faq/index.html">FAQ</a></li>
+          <li><a href="../contact/index.html">Contact</a></li>
+        </ul>
+        <a href="../index.html#launch" class="btn btn-primary">Join Launch</a>
+        <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      </nav>
+    </div>
+  </header>
+
+  <nav class="mnav" id="mnav" aria-label="Mobile menu">
+    <a class="mlink" href="../features/index.html" aria-current="page">Features</a>
+    <a class="mlink" href="../pricing/index.html">Pricing</a>
+    <a class="mlink" href="../getting-started/index.html">Getting Started</a>
+    <a class="mlink" href="../faq/index.html">FAQ</a>
+    <a class="mlink" href="../contact/index.html">Contact</a>
+    <div class="mnav-cta"><a href="../index.html#launch" class="btn btn-primary">Join Launch</a></div>
+  </nav>
+
+  <main id="main">
+
+    <!-- 1 · Intro hero (identical to /features/) -->
+    <section id="intro" class="fhero-section scene scene-right">
+      <div class="container">
+        <div class="fhero-grid fade">
+          <div class="fhero-copy">
+            <span class="eyebrow">Features</span>
+            <h1>Everything your rabbitry runs on, <b>in one app.</b></h1>
+            <p>Pedigrees, breeding, litters, health, and shows in one app, built for serious rabbit and cavy breeders. It works fully offline and syncs privately through your own iCloud, so your records are always with you and always yours.</p>
+          </div>
+          <div class="fhero-art">
+            <div class="fhx-frame">
+              <div class="fhx-stage" role="img" aria-label="The HerdMaster dark dashboard on a phone, framed by three proof cards: Best in Show, import time, and rabbits plus cavies.">
+                <svg class="fhx-lines" viewBox="0 0 680 600" aria-hidden="true">
+                  <path d="M475,400 L475,492 Q475,500 467,500 L147,500 Q139,500 139,492 L139,450" fill="none" stroke="var(--teal-soft)" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                <div class="fhx-device">
+                  <div class="fhx-panel" aria-hidden="true"></div>
+                  <div class="fhx-phone">
+                  <div class="phone">
+                    <div class="screen">
+                      <div class="au dark" role="img" aria-label="HerdMaster dashboard">
+                        <div class="au-status"><span class="t">9:13</span>
+                          <span class="sys">
+                            <svg viewBox="0 0 256 256" fill="currentColor"><rect x="12" y="148" width="40" height="80" rx="10"/><rect x="80" y="108" width="40" height="120" rx="10"/><rect x="148" y="64" width="40" height="164" rx="10"/><rect x="216" y="20" width="40" height="208" rx="10"/></svg>
+                            <svg viewBox="0 0 256 256" fill="currentColor"><path d="M140,204a12,12,0,1,1-12-12A12,12,0,0,1,140,204ZM237.08,87A172,172,0,0,0,18.92,87,8,8,0,0,0,29.08,99.37a156,156,0,0,1,197.84,0A8,8,0,0,0,237.08,87Z"/></svg>
+                            <svg viewBox="0 0 256 256" fill="currentColor"><path d="M200,56H32A24,24,0,0,0,8,80v96a24,24,0,0,0,24,24H200a24,24,0,0,0,24-24V80A24,24,0,0,0,200,56Zm8,120a8,8,0,0,1-8,8H32a8,8,0,0,1-8-8V80a8,8,0,0,1,8-8H200a8,8,0,0,1,8,8Z"/></svg>
+                          </span>
+                        </div>
+                        <div class="au-pad">
+                          <div class="au-greet"><div><div class="g1">Good morning</div><div class="g2">HERDMASTER</div></div>
+                            <span class="au-bell"><svg viewBox="0 0 256 256" fill="currentColor"><path d="M221.8,175.94C216.25,166.38,208,139.33,208,104a80,80,0,1,0-160,0c0,35.34-8.26,62.38-13.81,71.94A16,16,0,0,0,48,200H88.81a40,40,0,0,0,78.38,0H208a16,16,0,0,0,13.8-24.06ZM128,216a24,24,0,0,1-22.62-16h45.24A24,24,0,0,1,128,216Z"/></svg></span>
+                          </div>
+                          <div class="au-stats">
+                            <div class="au-stat"><span class="ic ic-teal"><svg viewBox="0 0 256 256" fill="currentColor"><path d="M216,188a52,52,0,0,1-88,37.52A52,52,0,1,1,56.72,149.8,71.58,71.58,0,0,1,63,129C44,91.1,32.53,40.76,45.64,19.08A22,22,0,0,1,65.06,8c14.12,0,26,11.89,36.44,36.36,6.22,14.62,10.85,31.32,14,44.74a71.8,71.8,0,0,1,25,0c3.13-13.42,7.76-30.12,14-44.74C164.9,19.89,176.82,8,190.94,8a22,22,0,0,1,19.42,11.08C223.47,40.76,212,91.1,193,129a71.58,71.58,0,0,1,6.26,20.76A51.77,51.77,0,0,1,216,188Z"/></svg></span><div class="n">79</div><div class="l">Total Active Animals</div></div>
+                            <div class="au-stat"><span class="ic ic-pink"><svg viewBox="0 0 256 256" fill="currentColor"><path d="M178,40c-20.65,0-38.73,8.88-50,23.89C116.73,48.88,98.65,40,78,40a62.07,62.07,0,0,0-62,62c0,70,103.79,126.66,108.21,129a8,8,0,0,0,7.58,0C136.21,228.66,240,172,240,102A62.07,62.07,0,0,0,178,40Z"/></svg></span><div class="n">27</div><div class="l">Open Dams</div></div>
+                            <div class="au-stat"><span class="ic ic-gold"><svg viewBox="0 0 256 256" fill="currentColor"><path d="M208,32H184V24a8,8,0,0,0-16,0v8H88V24a8,8,0,0,0-16,0v8H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V48A16,16,0,0,0,208,32Zm0,176H48V96H208V208Z"/></svg></span><div class="n">13</div><div class="l">Active Breeding</div></div>
+                            <div class="au-stat"><span class="ic ic-blue"><svg viewBox="0 0 256 256" fill="currentColor"><path d="M224,48V96a8,8,0,0,1-8,8H168a8,8,0,0,1,0-16h28.69L182.06,73.37a79.56,79.56,0,0,0-56.13-23.43h-.45A79.52,79.52,0,0,0,69.59,72.71,8,8,0,0,1,58.41,61.27a96,96,0,0,1,135,.79L208,76.69V48a8,8,0,0,1,16,0Z"/></svg></span><div class="n">4</div><div class="l">Recent Litters</div></div>
+                          </div>
+                          <div class="au-h">Quick Actions</div>
+                          <div class="au-quick">
+                            <div class="qa"><span class="b"><svg viewBox="0 0 256 256" fill="currentColor"><path d="M216,188a52,52,0,0,1-88,37.52A52,52,0,1,1,56.72,149.8,71.58,71.58,0,0,1,63,129C44,91.1,32.53,40.76,45.64,19.08A22,22,0,0,1,65.06,8c14.12,0,26,11.89,36.44,36.36,6.22,14.62,10.85,31.32,14,44.74a71.8,71.8,0,0,1,25,0c3.13-13.42,7.76-30.12,14-44.74C164.9,19.89,176.82,8,190.94,8a22,22,0,0,1,19.42,11.08C223.47,40.76,212,91.1,193,129a71.58,71.58,0,0,1,6.26,20.76A51.77,51.77,0,0,1,216,188Z"/></svg></span><span class="lbl">Add Animal</span></div>
+                            <div class="qa"><span class="b"><svg viewBox="0 0 256 256" fill="currentColor"><path d="M160,112h48a16,16,0,0,0,16-16V48a16,16,0,0,0-16-16H160a16,16,0,0,0-16,16V64H128a24,24,0,0,0-24,24v32H72v-8A16,16,0,0,0,56,96H24A16,16,0,0,0,8,112v32a16,16,0,0,0,16,16H56a16,16,0,0,0,16-16v-8h32v32a24,24,0,0,0,24,24h16v16a16,16,0,0,0,16,16h48a16,16,0,0,0,16-16V160a16,16,0,0,0-16-16H160a16,16,0,0,0-16,16Z"/></svg></span><span class="lbl">Add Pedigree</span></div>
+                            <div class="qa"><span class="b"><svg viewBox="0 0 256 256" fill="currentColor"><path d="M208,32H184V24a8,8,0,0,0-16,0v8H88V24a8,8,0,0,0-16,0v8H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V48A16,16,0,0,0,208,32Zm0,176H48V96H208Z"/></svg></span><span class="lbl">Calendar</span></div>
+                            <div class="qa"><span class="b"><svg viewBox="0 0 256 256" fill="currentColor"><path d="M240,96a8,8,0,0,1-8,8H216v16a8,8,0,0,1-16,0V104H184a8,8,0,0,1,0-16h16V72a8,8,0,0,1,16,0V88h16A8,8,0,0,1,240,96ZM197.38,167.86A80,80,0,1,1,88.14,58.62,104.11,104.11,0,0,0,197.38,167.86Z"/></svg></span><span class="lbl">Moon Calendar</span></div>
+                          </div>
+                        </div>
+                        <div class="au-tabs">
+                          <span class="tab on"><svg viewBox="0 0 256 256" fill="currentColor"><path d="M219.31,108.68l-80-80a16,16,0,0,0-22.62,0l-80,80A15.87,15.87,0,0,0,32,120v96a8,8,0,0,0,8,8h64a8,8,0,0,0,8-8V160h32v56a8,8,0,0,0,8,8h64a8,8,0,0,0,8-8V120A15.87,15.87,0,0,0,219.31,108.68Z"/></svg><span>HOME</span></span>
+                          <span class="tab"><svg viewBox="0 0 256 256" fill="currentColor"><path d="M164,88a28,28,0,1,0-28-28A28,28,0,0,0,164,88Zm23.12,60.86a35.3,35.3,0,0,1-16.87-21.14,44,44,0,0,0-84.5,0A35.25,35.25,0,0,1,69,148.82,40,40,0,0,0,88,224a39.48,39.48,0,0,0,15.52-3.13,64.09,64.09,0,0,1,48.87,0,40,40,0,0,0,34.73-72Z"/></svg><span>HERD</span></span>
+                          <span class="tab"><svg viewBox="0 0 256 256" fill="currentColor"><path d="M178,40c-20.65,0-38.73,8.88-50,23.89C116.73,48.88,98.65,40,78,40a62.07,62.07,0,0,0-62,62c0,70,103.79,126.66,108.21,129a8,8,0,0,0,7.58,0C136.21,228.66,240,172,240,102A62.07,62.07,0,0,0,178,40Z"/></svg><span>BREEDING</span></span>
+                          <span class="tab"><svg viewBox="0 0 256 256" fill="currentColor"><path d="M230.92,212c-15.23-26.33-38.7-45.21-66.09-54.16a72,72,0,1,0-73.66,0C63.78,166.78,40.31,185.66,25.08,212a8,8,0,1,0,13.85,8c18.84-32.56,52.14-52,89.07-52s70.23,19.44,89.07,52a8,8,0,1,0,13.85-8Z"/></svg><span>PROFILE</span></span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                </div>
+                <div class="fhx-card a">
+                  <svg class="fhx-trophy" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M200,48v63.1c0,39.7-31.75,72.6-71.45,72.9A72,72,0,0,1,56,112V48Z" opacity="0.2"/><path d="M232,64H208V48a8,8,0,0,0-8-8H56a8,8,0,0,0-8,8V64H24A16,16,0,0,0,8,80V96a40,40,0,0,0,40,40h3.65A80.13,80.13,0,0,0,120,191.61V216H96a8,8,0,0,0,0,16h64a8,8,0,0,0,0-16H136V191.58c31.94-3.23,58.44-25.64,68.08-55.58H208a40,40,0,0,0,40-40V80A16,16,0,0,0,232,64ZM48,120A24,24,0,0,1,24,96V80H48v32q0,4,.39,8Zm144-8.9c0,35.52-29,64.64-64,64.9a64,64,0,0,1-64-64V56H192ZM232,96a24,24,0,0,1-24,24h-.5a81.81,81.81,0,0,0,.5-8.9V80h24Z"/></svg>
+                  <div class="fhx-t">Best in Show</div>
+                  <div class="fhx-s">45-year ARBA breeder</div>
+                </div>
+                <div class="fhx-card b">
+                  <div class="fhx-brow"><svg viewBox="0 0 256 256" fill="currentColor"><path d="M128,40a96,96,0,1,0,96,96A96.11,96.11,0,0,0,128,40Zm0,176a80,80,0,1,1,80-80A80.09,80.09,0,0,1,128,216Zm45.66-93.66a8,8,0,0,1,0,11.32l-40,40a8,8,0,0,1-11.32-11.32L156.69,128H88a8,8,0,0,1,0-16h68.69l-34.35-34.34a8,8,0,0,1,11.32-11.32Z"/></svg> Import time</div>
+                  <svg class="fhx-area" viewBox="0 0 200 62" preserveAspectRatio="none">
+                    <defs><linearGradient id="fhxArea" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0" stop-color="var(--teal-soft)" stop-opacity=".5"/>
+                      <stop offset="1" stop-color="var(--teal-soft)" stop-opacity="0"/>
+                    </linearGradient></defs>
+                    <path d="M0,52 C30,48 50,32 78,34 C108,36 128,15 158,12 C176,10 188,17 200,11 L200,62 L0,62 Z" fill="url(#fhxArea)"/>
+                    <path d="M0,52 C30,48 50,32 78,34 C108,36 128,15 158,12 C176,10 188,17 200,11" fill="none" stroke="var(--teal-soft)" stroke-width="3" stroke-linecap="round"/>
+                    <circle cx="158" cy="12" r="4.5" fill="#fff" stroke="var(--teal-soft)" stroke-width="3"/>
+                  </svg>
+                  <div class="fhx-bh">Minutes<small>not weeks</small></div>
+                </div>
+                <div class="fhx-card c">
+                  <div class="fhx-stack">
+                    <span class="fhx-av" style="background:var(--gold)"><img src="../assets/breeds/holland-lop.webp" width="160" height="160" alt="Holland Lop rabbit"></span>
+                    <span class="fhx-av" style="background:var(--teal-soft)"><img src="../assets/breeds/netherland-dwarf.webp" width="160" height="160" alt="Netherland Dwarf rabbit"></span>
+                    <span class="fhx-av" style="background:var(--navy-3)"><img src="../assets/breeds/abyssinian-cavy.webp" width="160" height="160" alt="Abyssinian cavy"></span>
+                  </div>
+                  <div class="fhx-t">Rabbits + Cavies</div>
+                  <div class="fhx-s up">Every ARBA breed</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2 · Feature rows (zig-zag: full proportionate phone on a green scene box, expanded copy beside) -->
+    <section id="features">
+      <div class="container">
+        <div class="center section-head fade">
+          <span class="eyebrow">Features</span>
+          <h2>Everything HerdMaster does, <b>organized the way breeders work.</b></h2>
+          <p class="muted measure">Built for rabbit and cavy breeders, from the herd list to Grand Champion legs.</p>
+        </div>
+        <div class="fz-rows">
+
+          <div class="fz-row" id="herd">
+            <div class="fz-art fade">
+              <div class="fz-scene">
+                <div class="fz-phone"><iframe src="../components/herd-list.html#embed-fit" title="HerdMaster herd list on an iPhone" loading="lazy" scrolling="no"></iframe></div>
+              </div>
+            </div>
+            <div class="fz-copy fade">
+              <span class="eyebrow">Herd Management</span>
+              <h2>Every animal, every breed, <b>one organized list.</b></h2>
+              <p>Your whole herd lives in one searchable list, grouped into collapsible breed sections with live buck and doe counts, so a barn with three breeds reads as easily as a barn with one.</p>
+              <ul class="fz-list">
+                <li><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg><span><b>Complete records.</b> Photos, statuses, barn names, genotype fields, and cull reasons on every animal.</span></li>
+                <li><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg><span><b>Breed and variety validation.</b> 53 rabbit and 13 cavy breeds built in, so every entry stays show-accurate.</span></li>
+                <li><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg><span><b>Find anything fast.</b> Search by name, ear number, or tattoo, with long-press quick actions on any row.</span></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="fz-row" id="breeding">
+            <div class="fz-art fade">
+              <div class="fz-scene">
+                <div class="fz-phone"><iframe src="../components/new-breeding.html#embed-fit" title="HerdMaster new breeding screen on an iPhone" loading="lazy" scrolling="no"></iframe></div>
+              </div>
+            </div>
+            <div class="fz-copy fade">
+              <span class="eyebrow">Breeding</span>
+              <h2>Plan every pairing, <b>organized by doe.</b></h2>
+              <p>One buck breeds many does, so HerdMaster organizes breedings the way a rabbitry actually runs: by doe. Pair a sire and dam, and the whole timeline builds itself.</p>
+              <ul class="fz-list">
+                <li><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg><span><b>The full timeline.</b> Palpation windows, nest box timing, and expected kindle dates, all from one breeding date.</span></li>
+                <li><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg><span><b>Moon phase calendar.</b> Breeders who plan by the moon get the phases built right into the picker.</span></li>
+                <li><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg><span><b>Duplicate detection.</b> Get flagged before a duplicate breeding slips into the records.</span></li>
+                <li><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg><span><b>History that follows the doe.</b> Past breedings and status updates stay right on her record.</span></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="fz-row" id="litters">
+            <div class="fz-art fade">
+              <div class="fz-scene">
+                <div class="fz-phone"><iframe src="../components/kit-tracking.html#embed-fit" title="HerdMaster kit tracking on an iPhone" loading="lazy" scrolling="no"></iframe></div>
+              </div>
+            </div>
+            <div class="fz-copy fade">
+              <span class="eyebrow">Litters &amp; Kit Tracking</span>
+              <h2>From the nest box <b>to a permanent record.</b></h2>
+              <p>Log the litter the day it arrives, then track every kit through weaning: counts, sexes, and outcomes stay current without a paper tally in the barn.</p>
+              <ul class="fz-list">
+                <li><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg><span><b>Full litter records.</b> Born dates and kit counts, with alive, deceased, and culled tracked separately, including cull reasons.</span></li>
+                <li><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg><span><b>Show-quality designations.</b> Mark the keepers early and watch the promising ones develop.</span></li>
+                <li><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg><span><b>Weaning summaries.</b> A clean summary of the litter when it leaves the nest box.</span></li>
+                <li><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg><span><b>Tattoo promotion.</b> Promote a kit to a permanent herd record with its tattoo and ear number, history intact.</span></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="fz-row" id="health">
+            <div class="fz-art fade">
+              <div class="fz-scene">
+                <div class="fz-phone"><iframe src="../components/add-health-record.html#embed-fit" title="HerdMaster health record on an iPhone" loading="lazy" scrolling="no"></iframe></div>
+              </div>
+            </div>
+            <div class="fz-copy fade">
+              <span class="eyebrow">Health Records</span>
+              <h2>Set it once, <b>never miss a treatment.</b></h2>
+              <p>Set a health task once and let it recur on its own. Custom frequencies, repeat-until scheduling, and calendar recurrence keep the whole barn on protocol without a wall calendar.</p>
+              <ul class="fz-list">
+                <li><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg><span><b>Custom frequencies.</b> Daily, weekly, or whatever schedule your protocol calls for.</span></li>
+                <li><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg><span><b>Repeat-until scheduling.</b> Treatments end when they should, not when you remember.</span></li>
+                <li><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg><span><b>Health tests on record.</b> Log tests alongside treatments, so the full history lives with the animal.</span></li>
+                <li><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg><span><b>Weight tracking.</b> Quick weight entry with the full history charted per animal.</span></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="fz-row" id="shows">
+            <div class="fz-art fade">
+              <div class="fz-scene">
+                <div class="fz-phone"><iframe src="../components/show-records.html#embed-fit" title="HerdMaster show records on an iPhone" loading="lazy" scrolling="no"></iframe></div>
+              </div>
+            </div>
+            <div class="fz-copy fade">
+              <span class="eyebrow">Show Records</span>
+              <h2>Count every leg <b>toward Grand Champion.</b></h2>
+              <p>Log a win once at the show table and it lands where it counts. HerdMaster keeps each animal's record show-ready, with the legs adding up toward the title.</p>
+              <ul class="fz-list">
+                <li><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg><span><b>Grand Champion leg tracking.</b> See exactly where every animal stands on its way to GC.</span></li>
+                <li><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg><span><b>Multiple awards per entry.</b> One show entry holds every award it earned that day.</span></li>
+                <li><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg><span><b>Importance rankings.</b> Primary win flags keep the result that matters front and center.</span></li>
+                <li><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg><span><b>Judge names, optional.</b> Note the judge when it's worth remembering.</span></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="fz-row" id="imports">
+            <div class="fz-art fade">
+              <div class="fz-scene">
+                <div class="fz-phone"><iframe src="../components/evans-import.html#embed-fit" title="HerdMaster Evans import on an iPhone" loading="lazy" scrolling="no"></iframe></div>
+              </div>
+            </div>
+            <div class="fz-copy fade">
+              <span class="eyebrow">Imports &amp; Migration</span>
+              <h2>Your whole herd, moved <b>in one pass.</b></h2>
+              <p>A full Evans XML import brings animals, winnings, and litters across in a single pass, and a paper pedigree is one photo away with scan-and-confirm OCR.</p>
+              <ul class="fz-list">
+                <li><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg><span><b>Evans XML, the lead path.</b> The entire export comes across: animals, winnings, and litters, one pass.</span></li>
+                <li><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg><span><b>OCR pedigree scan.</b> Photo, PDF, or scan; HerdMaster reads it in and you review and confirm every field.</span></li>
+                <li><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg><span><b>Every other road in.</b> Evans PDF, Everbreed Share Link, Everbreed Litters CSV, XPEDX and HTM fallbacks, and manual entry.</span></li>
+                <li><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg><span><b>Safe by design.</b> Autofill suggestions, import summaries, duplicate handling, and rollback if an import fails.</span></li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 3 · Pedigrees panel (landscape document) -->
+    <section id="pedigrees" class="bg-mint-3 feat-panel">
+      <div class="container">
+        <div class="panel-head section-head fade">
+          <span class="feat-icon"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M160,112h48a16,16,0,0,0,16-16V48a16,16,0,0,0-16-16H160a16,16,0,0,0-16,16V64H128a24,24,0,0,0-24,24v32H72v-8A16,16,0,0,0,56,96H24A16,16,0,0,0,8,112v32a16,16,0,0,0,16,16H56a16,16,0,0,0,16-16v-8h32v32a24,24,0,0,0,24,24h16v16a16,16,0,0,0,16,16h48a16,16,0,0,0,16-16V160a16,16,0,0,0-16-16H160a16,16,0,0,0-16,16v16H128a8,8,0,0,1-8-8V88a8,8,0,0,1,8-8h16V96A16,16,0,0,0,160,112ZM56,144H24V112H56v32Zm104,16h48v48H160Zm0-112h48V96H160Z"/></svg></span>
+          <h2>Four generations, <b>built for you on import.</b></h2>
+          <p>View clean four-generation pedigree trees, scroll them full screen, and print or share a PDF. An Evans import fills the whole tree in one pass, and duplicate ancestors merge automatically so a linebred pedigree stays tidy.</p>
+        </div>
+        <div class="fp-doc fade"><iframe src="../components/pedigree-record.html#embed" title="HerdMaster four-generation pedigree document" loading="lazy"></iframe></div>
+      </div>
+    </section>
+
+    <!-- 3b · Offline & iCloud panel -->
+    <section id="offline" class="feat-panel">
+      <div class="container split fade">
+        <div class="feat-copy">
+          <span class="feat-icon"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M247.93,124.52C246.11,77.54,207.07,40,160.06,40A88.1,88.1,0,0,0,81.29,88.67h0A87.48,87.48,0,0,0,72,127.73,8.18,8.18,0,0,1,64.57,136,8,8,0,0,1,56,128a103.66,103.66,0,0,1,5.34-32.92,4,4,0,0,0-4.75-5.18A64.09,64.09,0,0,0,8,152c0,35.19,29.75,64,65,64H160A88.09,88.09,0,0,0,247.93,124.52Zm-50.27-6.86-48,48a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L144,148.69l42.34-42.35a8,8,0,0,1,11.32,11.32Z"/></svg></span>
+          <h2>Offline-first, synced through <b>your own iCloud.</b></h2>
+          <p>HerdMaster works fully offline, so you can add litters, log weights, and update records in the barn or at a show with no signal. Back online, everything syncs privately through your own iCloud, with no third-party server holding your records.</p>
+        </div>
+        <div class="step-figure" style="height:360px">
+          <div class="sync-visual">
+            <span class="cloud"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M247.93,124.52C246.11,77.54,207.07,40,160.06,40A88.1,88.1,0,0,0,81.29,88.67h0A87.48,87.48,0,0,0,72,127.73,8.18,8.18,0,0,1,64.57,136,8,8,0,0,1,56,128a103.66,103.66,0,0,1,5.34-32.92,4,4,0,0,0-4.75-5.18A64.09,64.09,0,0,0,8,152c0,35.19,29.75,64,65,64H160A88.09,88.09,0,0,0,247.93,124.52Zm-50.27-6.86-48,48a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L144,148.69l42.34-42.35a8,8,0,0,1,11.32,11.32Z"/></svg></span>
+            <div class="st">Synced to your iCloud</div>
+            <div class="ss">Updated just now</div>
+            <div class="sync-rows">
+              <div><span>Herd &amp; pedigrees</span><span class="ok">Up to date</span></div>
+              <div><span>Breedings &amp; litters</span><span class="ok">Up to date</span></div>
+              <div><span>Show records</span><span class="ok">Up to date</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="../assets/logo.png" alt="HerdMaster">
+          <p>Rabbit and cavy herd, breeding and show management for iPhone.</p>
+          <p class="cred">Built by a 45-year ARBA breeder.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Product</h4>
+          <ul><li><a href="../features/index.html">Features</a></li><li><a href="../pricing/index.html">Pricing</a></li><li><a href="../getting-started/index.html">Getting Started</a></li></ul>
+        </div>
+        <div class="footer-col">
+          <h4>Help</h4>
+          <ul><li><a href="../faq/index.html">FAQ</a></li><li><a href="../contact/index.html">Contact</a></li></ul>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul><li><a href="../privacy/index.html">Privacy Policy</a></li><li><a href="../terms/index.html">Terms of Service</a></li></ul>
+        </div>
+      </div>
+      <div class="footer-bottom">&copy; 2026 Herdmaster &middot; Joseph Kim dba Herdmaster &middot; herdmaster.app</div>
+    </div>
+  </footer>
+
+  <script src="../assets/site.js" defer></script>
+  <script src="https://link.codedesign.co/js/external-tracking.js" data-tracking-id="tk_7690a9e126c04c42888dca34cfc4551e"></script>
+</body>
+</html>
