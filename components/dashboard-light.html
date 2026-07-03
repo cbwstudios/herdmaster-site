@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Component: Dashboard (dark)</title>
+<title>Component: Dashboard (light)</title>
 <link rel="stylesheet" href="../assets/site.css">
 <style>
   body{ margin:0; padding:48px 20px; background:#e9eeec; font-family:-apple-system,system-ui,sans-serif; }
@@ -10,22 +10,11 @@
   .preview-phone .au{ border-radius:30px; overflow:hidden; height:auto; }
   .preview-label{ text-align:center; color:#46566e; font-weight:600; margin-top:16px; }
 
-  /* dark-mode override of the .au kit tokens */
-  .au.dark{
-    --au-card:#16232c; --au-tile:#1a2832; --au-tile-bd:#2b3a45; --au-ink:#eef3f4;
-    --au-sec:#90a4ab; --au-sep:#2b3a45; --au-tealink:#80d8d2; --au-tint:rgba(54,179,172,.16);
-    background:#0e1620;
-  }
-  .au.dark .au-greet .g1{ color:var(--au-sec); }
-  .au.dark .au-bell{ background:rgba(255,255,255,.06); color:#80d8d2; }
-  .au.dark .au-stat .ic{ background:rgba(255,255,255,.05); }
-  .au.dark .au-act{ box-shadow:none; border:1px solid var(--au-sep); }
-  .au.dark .au-pad{ padding:6px 18px 18px; }
 </style>
 </head><body>
   <div class="preview">
     <div class="preview-phone">
-      <div class="au dark" role="img" aria-label="HerdMaster dashboard, dark mode">
+      <div class="au" role="img" aria-label="HerdMaster dashboard">
         <div class="au-status">
           <span class="t">9:13</span>
           <span class="sys">
@@ -67,7 +56,7 @@
         </div>
       </div>
     </div>
-    <p class="preview-label">Dashboard (dark)</p>
+    <p class="preview-label">Dashboard (light)</p>
   </div>
   <script>['embed','fit','scroll'].forEach(function(c){if(location.hash.indexOf(c)>-1)document.body.classList.add(c)});</script>
 </body></html>

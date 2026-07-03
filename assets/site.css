@@ -999,6 +999,19 @@
     body.embed.fit .preview-phone .au{ height:auto; aspect-ratio:316/684; overflow:hidden; }
     body.embed.fit .preview-phone .au-tabs{ margin-top:auto; }   /* short screens: tab bar still hugs the bottom */
 
+    /* #embed-scroll (component gallery): same proportionate phone, but the screen
+       content SCROLLS inside the frame like a real phone: no scrollbar, wheel or
+       touch to swipe. Status bar and tab bar stay pinned; content passes under. */
+    body.embed.scroll .preview{ margin:0 auto !important; }
+    body.embed.scroll .preview-phone{ box-shadow:none; position:relative; }
+    body.embed.scroll .preview-phone::after{ content:""; position:absolute; top:24px; left:50%; transform:translateX(-50%);
+      width:92px; height:23px; border-radius:12px; background:#0e1620; pointer-events:none; }   /* dynamic island */
+    body.embed.scroll .preview-phone .au{ height:auto; aspect-ratio:316/684; overflow-y:auto; overflow-x:hidden;
+      overscroll-behavior:contain; scrollbar-width:none; }
+    body.embed.scroll .preview-phone .au::-webkit-scrollbar{ display:none; }
+    body.embed.scroll .preview-phone .au-status{ position:sticky; top:0; z-index:6; background:inherit; }
+    body.embed.scroll .preview-phone .au-tabs{ position:sticky; bottom:0; z-index:6; margin-top:auto; }
+
     .fz-rows{ display:flex; flex-direction:column; gap:var(--sp-10); margin-top:var(--sp-8); }
     .fz-row{ display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:clamp(36px,5vw,72px);
       align-items:center; scroll-margin-top:96px; }

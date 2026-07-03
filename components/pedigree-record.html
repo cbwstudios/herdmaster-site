@@ -435,5 +435,5 @@
 
   </div>
   <p class="preview-label">Pedigree Record (landscape document)</p>
-  <script>if(location.hash.indexOf('embed')>-1)document.body.classList.add('embed');</script>
+  <script>['embed','fit','scroll'].forEach(function(c){if(location.hash.indexOf(c)>-1)document.body.classList.add(c)});</script>
 </body></html>
