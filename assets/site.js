@@ -275,6 +275,10 @@
           if(!s || !f.contentWindow) return;
           var p = (y + vh - s.top) / (vh + s.h);   // 0 as the slot enters at the bottom, 1 once it has fully passed
           if(p < -0.05 || p > 1.05) return;
+          // concentrate the full screen sweep into the middle of the transit, when the
+          // phone is actually front-and-center; spread over the whole transit the motion
+          // mostly happens off-screen and reads as "barely moving"
+          p = (p - 0.28) / 0.44;
           p = Math.max(0, Math.min(1, p));
           f.contentWindow.postMessage({ hmAuScroll: p }, '*');
         });
