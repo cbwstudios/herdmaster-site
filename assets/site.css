@@ -259,7 +259,7 @@
        ============================================================ */
     /* Transparent header (home only): centered logo, menu below, sits over the hero gradient */
     .header-top{ position:relative; z-index:3; padding:26px 0 56px; text-align:center; }
-    .header-top .ht-logo img{ height:200px; width:auto; margin:0 auto 16px; }
+    .header-top .ht-logo img{ height:195px; width:auto; margin:0 auto 16px; }   /* native 144x195: displayed 1:1, no scaling */
     .header-top nav{ display:inline-flex; flex-wrap:wrap; justify-content:center; gap:10px; }
     .header-top nav a{ padding:10px 18px; border-radius:11px; background:rgba(255,255,255,.65);
       border:1px solid rgba(48,169,164,.22); color:var(--navy); font-weight:600; font-size:1rem;
