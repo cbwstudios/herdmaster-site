@@ -388,7 +388,6 @@
     .life{ border-top:2px solid rgba(48,169,164,.3); }   /* slightly darker teal divider between the hero and section 2 */
     .life-head{ display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:start; margin-bottom:50px; }
     .life-head h2{ margin:0; }
-    .life-head-copy .eyebrow{ margin-bottom:14px; }
     .life-head .intro{ margin:0; color:var(--ink); font-size:1.08rem; line-height:1.6; }
     .life-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:26px; }
     .life-card-wrap{ display:flex; flex-direction:column; }
