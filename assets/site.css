@@ -388,6 +388,7 @@
     .life{ border-top:2px solid rgba(48,169,164,.3); }   /* slightly darker teal divider between the hero and section 2 */
     .life-head{ display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:start; margin-bottom:50px; }
     .life-head h2{ margin:0; }
+    .life-head-copy .eyebrow{ margin-bottom:14px; }
     .life-head .intro{ margin:0; color:var(--ink); font-size:1.08rem; line-height:1.6; }
     .life-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:26px; }
     .life-card-wrap{ display:flex; flex-direction:column; }
@@ -655,6 +656,9 @@
     .footer-brand img{ height:76px; margin-bottom:16px; }
     .footer-brand p{ font-size:.95rem; margin:0 0 6px; max-width:300px; }
     .footer-brand .cred{ color:var(--gold); font-size:.88rem; font-weight:600; margin-bottom:14px; }
+    .footer-social{ display:inline-flex; align-items:center; gap:9px; color:rgba(255,255,255,.75); font-weight:600; font-size:.9rem; }
+    .footer-social svg{ width:20px; height:20px; flex:0 0 auto; }
+    .footer-social:hover{ color:var(--gold); }
     .footer-col h4{ font-size:.78rem; letter-spacing:.12em; text-transform:uppercase; color:#fff; margin:0 0 14px; }
     .footer-col ul{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:10px; }
     .footer-col a{ color:rgba(255,255,255,.75); font-weight:500; }
@@ -860,14 +864,6 @@
       .legal .toc ol{ columns:1; }
     }
 
-    /* Feature alternating row (Features page) */
-    .featrow{ display:grid; grid-template-columns:1fr 1fr; gap:52px; align-items:center; }
-    .featrow.rev .feat-copy{ order:2; } .featrow.rev .feat-visual{ order:1; }
-    @media (max-width:860px){
-      .featrow{ grid-template-columns:1fr; gap:30px; }
-      .featrow .feat-copy{ order:0 !important; } .featrow .feat-visual{ order:1 !important; }
-    }
-
     /* ============================================================
        FEATURES HERO (full-width section: soft teal gradient + dots, free-floating content)
        ============================================================ */
@@ -876,10 +872,6 @@
     .fhero-copy h1{ margin:0 0 18px; font-size:clamp(2.1rem,3.9vw,3.1rem); }
     .fhero-copy p{ color:var(--ink); line-height:1.6; margin:0; font-size:1.12rem; max-width:30em; }
     .fhero-art{ position:relative; }
-
-    /* Feature scroll-link menu (its own slim section) */
-    .chip-strip{ padding:34px 0; border-bottom:1px solid var(--line); }
-    .chip-strip .lead{ text-align:center; font-size:.78rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--teal-dark); margin:0 0 14px; }
 
     @media (max-width:860px){          /* tablet: stack, composition below the copy (gap matches the .split two-column convention) */
       .fhero-section{ padding:48px 0 56px; }
@@ -1003,35 +995,17 @@
     @media (max-width:620px){ .feat-cards{ grid-template-columns:1fr; max-width:420px; margin-inline:auto; } }
 
     /* ============================================================
-       FEATURES ALT (/features-alt/): zig-zag rows, one per feature.
-       Full proportionate phone on a green scene-textured box, expanded
-       copy beside it. Components load with #embed-fit: 'embed' strips
-       page chrome, 'fit' locks the screen to real iPhone proportions
-       (316x684 ≈ 19.5:9) with the full bezel visible all the way round.
+       PROPORTIONATE PHONE (#embed-scroll): real-iPhone-ratio phone whose screen
+       SCROLLS inside the frame (no scrollbar, wheel/touch to swipe). Status bar and
+       tab bar stay pinned; content passes under. Used by /features/ and the gallery.
        ============================================================ */
-    body.embed.fit .preview{ margin:0 auto !important; }
-    /* percentage bezel (12/340) keeps the phone's total ratio exactly 340:708 at ANY
-       width, so it always fills its aspect-ratio iframe with no sliver at the bottom */
-    body.embed.fit .preview-phone{ box-shadow:none; position:relative; padding:3.5294%; }   /* shadow moves to .fz-phone (iframe would clip it) */
-    body.embed.fit .preview-phone .au{ height:auto; aspect-ratio:316/684; overflow:hidden; position:relative; }
-    /* pin the tab bar flush over the screen bottom (content taller than the crop would
-       push it below the fold); anchored inside .au so it clips with the screen corners */
-    body.embed.fit .preview-phone .au-tabs{ position:absolute; left:0; right:0; bottom:0;
-      z-index:6; border-radius:0 0 30px 30px; }
-
-    /* Shared status-bar treatment for both phone modes: symmetric padding so the row
-       centers, and the dynamic island lives ON the status bar (its ::after), so it is
-       always vertically centered with the time and system icons at any phone width. */
-    body.embed.fit .preview-phone .au-status,
+    /* dynamic island lives ON the status bar (its ::after), vertically centered with
+       the time and system icons at any phone width */
     body.embed.scroll .preview-phone .au-status{ position:relative; padding:12px 22px; }
-    body.embed.fit .preview-phone .au-status::after,
     body.embed.scroll .preview-phone .au-status::after{ content:""; position:absolute; left:50%; top:50%;
       transform:translate(-50%,-50%); width:88px; height:22px; border-radius:11px; background:#0e1620;
       pointer-events:none; }   /* dynamic island */
 
-    /* #embed-scroll (component gallery): same proportionate phone, but the screen
-       content SCROLLS inside the frame like a real phone: no scrollbar, wheel or
-       touch to swipe. Status bar and tab bar stay pinned; content passes under. */
     body.embed.scroll .preview{ margin:0 auto !important; }
     /* percentage bezel (12/340) keeps the phone's total ratio exactly 340:708 at ANY
        width, so it always fills its aspect-ratio iframe with no sliver at the bottom */
@@ -1046,46 +1020,19 @@
     body.embed.scroll .preview-phone .au-tabs{ position:sticky; bottom:0; z-index:6; margin-top:auto; }
     body.embed.scroll .preview-phone .au-fab{ bottom:74px; z-index:7; }   /* floats above the tab bar; the screen scrolls beneath it */
 
-    .fz-rows{ display:flex; flex-direction:column; gap:var(--sp-10); margin-top:var(--sp-8); }
-    .fz-row{ display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:clamp(36px,5vw,72px);
-      align-items:center; scroll-margin-top:96px; }
-    .fz-row:nth-child(even) .fz-art{ order:2; }   /* zig-zag: phone left, then right, then left... */
-    .fz-art{ min-width:0; }
-    .fz-scene{ --sx:26%; --sy:0%; --sa:.30; --sb:.14; --dx:30%; --dy:18%;   /* .scene texture, boxed and a notch greener */
-      position:relative; overflow:hidden; isolation:isolate; border-radius:28px;
-      padding:clamp(30px,4.5vw,54px) clamp(18px,3vw,40px); display:grid; place-items:center;
-      background:
-        radial-gradient(74% 58% at var(--sx) var(--sy), rgba(48,169,164,var(--sa)), transparent 74%),
-        radial-gradient(96% 76% at 52% 30%, rgba(95,194,189,var(--sb)), transparent 82%),
-        linear-gradient(180deg, #f2faf8 0%, var(--mint-2) 52%, var(--mint-1) 100%);
-      box-shadow:inset 0 0 0 1px rgba(34,43,55,.06); }
-    .fz-scene::before{ content:""; position:absolute; inset:0; z-index:-1; pointer-events:none;
-      background-image:radial-gradient(circle, rgba(34,43,55,.11) 1.3px, transparent 1.6px); background-size:26px 26px;
-      -webkit-mask-image:radial-gradient(120% 92% at var(--dx) var(--dy), #000 0%, rgba(0,0,0,.32) 56%, transparent 84%);
-      mask-image:radial-gradient(120% 92% at var(--dx) var(--dy), #000 0%, rgba(0,0,0,.32) 56%, transparent 84%); }
-    .fz-row:nth-child(even) .fz-scene{ --sx:74%; --dx:70%; }   /* glow follows the phone's side */
-    .fz-phone{ position:relative; width:100%; max-width:340px; border-radius:42px;
-      box-shadow:0 30px 60px -26px rgba(14,22,32,.5); }
-    .fz-phone iframe{ width:100%; aspect-ratio:340/708; height:auto; border:0; display:block; pointer-events:none; }
+    /* Feature copy column + checklist (shared by the /features/ sections) */
     .fz-copy h2{ margin:10px 0 14px; }
     .fz-copy > p{ color:var(--ink); line-height:1.65; margin:0; }
     .fz-list{ list-style:none; margin:24px 0 0; padding:0; display:grid; gap:12px; }
     .fz-list li{ display:flex; gap:10px; align-items:flex-start; line-height:1.55; color:var(--ink); }
     .fz-list li svg{ flex:0 0 auto; width:18px; height:18px; color:var(--teal); margin-top:4px; }
 
-    @media (max-width:860px){
-      .fz-rows{ gap:var(--sp-9); }
-      .fz-row{ grid-template-columns:1fr; gap:26px; }
-      .fz-row:nth-child(even) .fz-art{ order:0; }   /* phone stays on top when stacked */
-      .fz-phone{ max-width:300px; margin-inline:auto; }
-    }
-
     /* ============================================================
-       FEATURES ALT 3 (/features-alt-3/): one full-width section per
-       feature, alternating white and green .scene texture, phone
-       free-floating (no box) beside .fz-copy/.fz-list copy. Screens
-       parallax inside their frames via postMessage (site.js), and
-       .fs3-chips swap between sibling screens of the same feature.
+       FEATURES sections (/features/): one full-width section per feature,
+       alternating white and green .scene texture, phone free-floating
+       beside .fz-copy/.fz-list copy. Screens parallax inside their frames
+       via postMessage (site.js), and .fs3-chips swap between sibling
+       screens of the same feature.
        ============================================================ */
     .fs3-intro{ padding:var(--sp-10) 0 var(--sp-2); }
     .fs3-sec{ scroll-margin-top:72px; }

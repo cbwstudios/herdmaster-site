@@ -35,13 +35,13 @@
         '<div class="modal-overlay" data-modal-close></div>' +
         '<div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="launchModalTitle">' +
           '<button class="modal-x" type="button" aria-label="Close" data-modal-close>' + X + '</button>' +
-          '<span class="eyebrow">Launch list</span>' +
-          '<h2 id="launchModalTitle">Join the <b>launch list</b></h2>' +
+          '<span class="eyebrow">Waitlist</span>' +
+          '<h2 id="launchModalTitle">Join the <b>waitlist</b></h2>' +
           '<p class="modal-sub">One email when HerdMaster goes live. Free tier at launch, no credit card, no spam.</p>' +
           '<form class="capture" data-capture data-formid="launch-list-modal" novalidate>' +
             '<input type="email" name="email" placeholder="Enter your email" aria-label="Email address" required>' +
             '<input type="text" name="lc_tag" value="Launch List" style="display:none" aria-hidden="true" tabindex="-1">' +
-            '<button type="submit" class="btn btn-primary">Join Launch</button>' +
+            '<button type="submit" class="btn btn-primary">Join Waitlist</button>' +
           '</form>' +
           '<p class="form-note" data-note aria-live="polite"></p>' +
         '</div>';
