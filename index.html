@@ -9,19 +9,19 @@
 
   <title>HerdMaster, Rabbit and Cavy Herd, Breeding and Show App for iPhone</title>
   <meta name="description" content="A native iOS app for serious rabbit and cavy breeders: pedigrees, breeding, litters, health, and shows. Works offline, syncs through your own iCloud.">
-  <link rel="canonical" href="https://herdmaster.app/">
+  <link rel="canonical" href="https://www.herdmaster.app/">
 
   <!-- Open Graph / Twitter -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="HerdMaster">
   <meta property="og:title" content="HerdMaster, Rabbit and Cavy Breeding and Show App for iPhone">
   <meta property="og:description" content="Pedigrees, breeding, litters, health, and show records for serious rabbit and cavy breeders. Offline, with private iCloud sync.">
-  <meta property="og:url" content="https://herdmaster.app/">
-  <meta property="og:image" content="https://herdmaster.app/assets/og-image.png">
+  <meta property="og:url" content="https://www.herdmaster.app/">
+  <meta property="og:image" content="https://www.herdmaster.app/assets/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="HerdMaster, Rabbit and Cavy Breeding and Show App for iPhone">
   <meta name="twitter:description" content="Pedigrees, breeding, litters, health, and show records for serious rabbit and cavy breeders. Offline, with private iCloud sync.">
-  <meta name="twitter:image" content="https://herdmaster.app/assets/og-image.png">
+  <meta name="twitter:image" content="https://www.herdmaster.app/assets/og-image.png">
 
   <!-- Favicons / PWA -->
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
@@ -39,10 +39,10 @@
     "@graph": [
       {
         "@type": "WebSite",
-        "@id": "https://herdmaster.app/#website",
+        "@id": "https://www.herdmaster.app/#website",
         "name": "HerdMaster",
-        "url": "https://herdmaster.app/",
-        "publisher": { "@id": "https://herdmaster.app/#org" }
+        "url": "https://www.herdmaster.app/",
+        "publisher": { "@id": "https://www.herdmaster.app/#org" }
       },
       {
         "@type": "MobileApplication",
@@ -50,35 +50,48 @@
         "applicationCategory": "BusinessApplication",
         "operatingSystem": "iOS 17",
         "description": "Native iOS app for rabbit and cavy breeders: pedigrees, breeding, litters, health, and show records. Works offline, syncs privately through iCloud.",
-        "publisher": { "@id": "https://herdmaster.app/#org" },
+        "publisher": { "@id": "https://www.herdmaster.app/#org" },
         "offers": { "@type": "AggregateOffer", "lowPrice": "0", "highPrice": "129.99", "priceCurrency": "USD", "offerCount": "4" }
       },
       {
         "@type": "Organization",
-        "@id": "https://herdmaster.app/#org",
+        "@id": "https://www.herdmaster.app/#org",
         "name": "HerdMaster",
-        "url": "https://herdmaster.app",
-        "logo": "https://herdmaster.app/assets/logo.png",
+        "url": "https://www.herdmaster.app",
+        "logo": "https://www.herdmaster.app/assets/logo.png",
         "founder": { "@type": "Person", "name": "Joseph Kim" }
       }
     ]
   }
   </script>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NJ4GDHK7XS"></script>
+  <!-- Environment gate: analytics + feedback load only on the production host; any
+       non-production host (Netlify preview, branch deploy, localhost) is marked noindex.
+       Keeps previews out of search results and out of GA4 / the CRM / Feedbucket. -->
   <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-NJ4GDHK7XS');
-  </script>
-  <!-- Feedbucket -->
-  <script type="text/javascript">
-    (function(k) {
-        let s=document.createElement('script');s.defer=true;
-        s.src="https://cdn.feedbucket.app/assets/feedbucket.js";
-        s.dataset.feedbucket=k;document.head.appendChild(s);
-    })('drOVGQCDSTOmWcrxShYB')
+    (function () {
+      var host = location.hostname;
+      var isProd = host === 'www.herdmaster.app' || host === 'herdmaster.app';
+      if (!isProd) {
+        var m = document.createElement('meta');
+        m.name = 'robots'; m.content = 'noindex, nofollow';
+        document.head.appendChild(m);
+        return;
+      }
+      // Google Analytics 4 (gtag.js)
+      var ga = document.createElement('script'); ga.async = true;
+      ga.src = 'https://www.googletagmanager.com/gtag/js?id=G-NJ4GDHK7XS';
+      document.head.appendChild(ga);
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function () { dataLayer.push(arguments); };
+      gtag('js', new Date());
+      gtag('config', 'G-NJ4GDHK7XS');
+      // Feedbucket
+      (function (k) {
+        var s = document.createElement('script'); s.defer = true;
+        s.src = 'https://cdn.feedbucket.app/assets/feedbucket.js';
+        s.dataset.feedbucket = k; document.head.appendChild(s);
+      })('drOVGQCDSTOmWcrxShYB');
+    })();
   </script>
 </head>
 <body data-page="home">
@@ -794,7 +807,17 @@
   </footer>
 
   <script src="assets/site.js" defer></script>
-  <!-- GoHighLevel (LeadConnector) tracking script, loads site-wide. Do not remove. -->
-  <script src="https://link.codedesign.co/js/external-tracking.js" data-tracking-id="tk_7690a9e126c04c42888dca34cfc4551e"></script>
+  <!-- GoHighLevel (LeadConnector) tracking: production host only, so preview/staging
+       form submits never reach the live CRM. Do not remove. -->
+  <script>
+    (function () {
+      var host = location.hostname;
+      if (host !== 'www.herdmaster.app' && host !== 'herdmaster.app') return;
+      var s = document.createElement('script');
+      s.src = 'https://link.codedesign.co/js/external-tracking.js';
+      s.setAttribute('data-tracking-id', 'tk_7690a9e126c04c42888dca34cfc4551e');
+      document.body.appendChild(s);
+    })();
+  </script>
 </body>
 </html>

@@ -1,0 +1,21 @@
+# Netlify configuration — HerdMaster marketing site.
+# Plain static site: no build step, publish the repo root verbatim (mirrors the
+# previous GitHub Pages setup). Full workflow: dev-production-deployment-plan.md
+
+[build]
+  publish = "."
+
+# --- Keep preview environments out of search engines --------------------------
+# Production (main -> www.herdmaster.app) stays indexable via each page's meta robots.
+# Deploy Previews (PRs) and branch deploys (e.g. dev) send X-Robots-Tag: noindex so a
+# staging URL can never be indexed. This backs up the client-side noindex guard that
+# also runs on any non-production hostname (see the env gate in each page's <head>).
+[[context.deploy-preview.headers]]
+  for = "/*"
+  [context.deploy-preview.headers.values]
+    X-Robots-Tag = "noindex"
+
+[[context.branch-deploy.headers]]
+  for = "/*"
+  [context.branch-deploy.headers.values]
+    X-Robots-Tag = "noindex"
