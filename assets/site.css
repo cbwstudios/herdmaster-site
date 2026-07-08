@@ -281,10 +281,8 @@
     .header-flow{ position:relative; z-index:5; background:#fff; border-bottom:1px solid var(--line); }
     .header-flow .container{ max-width:none; padding-left:32px; padding-right:32px; }
     .header-flow .btn-primary{ box-shadow:none; }
-    .hm-inner{ display:flex; align-items:center; justify-content:space-between; height:84px; gap:18px; }
-    .hm-inner .brand img{ height:60px; width:auto; }
-    body[data-page="home"] .hm-inner{ height:90px; }                    /* home only: taller sticky bar for the horizontal crest logo */
-    body[data-page="home"] .hm-inner .brand img{ height:80px; }
+    .hm-inner{ display:flex; align-items:center; justify-content:space-between; height:90px; gap:18px; }
+    .hm-inner .brand img{ height:80px; width:auto; }                    /* horizontal crest logo, uniform across every page's sticky header */
     .hm-nav{ display:flex; align-items:center; gap:28px; }
     .hm-links{ display:flex; align-items:center; gap:24px; list-style:none; margin:0; padding:0; }
     .hm-links a{ color:var(--text); font-weight:500; }
@@ -692,8 +690,7 @@
       /* sticky header bar on mobile: logo left, hamburger right */
       .header-main .container, .header-flow .container{ padding:0 20px; }
       .hm-inner{ height:76px; }
-      body[data-page="home"] .hm-inner{ height:76px; }                  /* home: standard bar height on phones */
-      body[data-page="home"] .hm-inner .brand img{ height:60px; }
+      .hm-inner .brand img{ height:60px; }                              /* sticky logo back to 60px on phones, every page */
       .hm-links{ display:none; }
       .hm-nav .btn{ display:none; }
       /* transparent header becomes a simple bar (logo + hamburger), white when menu open */
