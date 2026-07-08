@@ -951,7 +951,7 @@
     .fhx-card.b{ left:36px; top:278px; width:200px; text-align:left;
       background:linear-gradient(165deg,#26374e,#192434); border-color:#2c3a52; }
     .fhx-card.c{ left:346px; top:424px; width:262px; padding:20px 18px; }   /* centered under the panel, same width as the phone frame */
-    .fhx-trophy{ width:50px; height:50px; display:block; margin:0 auto 8px; color:var(--gold); fill:currentColor; }
+    .fhx-ic{ width:50px; height:50px; display:block; margin:0 auto 8px; color:var(--teal); fill:currentColor; }
     .fhx-t{ font-weight:800; color:var(--navy); font-size:18px; line-height:1.18; }
     .fhx-card.c .fhx-t{ font-size:23px; }
     .fhx-s{ color:var(--muted); font-size:13px; margin-top:4px; }
@@ -1095,16 +1095,51 @@
       transition:opacity .28s ease; }
     .fs3-phone iframe + iframe{ position:absolute; inset:0; }
     .fs3-phone iframe:not(.show){ opacity:0; }
-    .fs3-chips{ position:relative; z-index:1; display:flex; flex-wrap:wrap; justify-content:center; gap:8px; margin-top:20px; }
-    .fs3-chip{ font:inherit; font-size:.8rem; font-weight:700; color:var(--teal-dark); background:#fff;
-      border:1px solid var(--line); border-radius:999px; padding:7px 14px; cursor:pointer;
-      transition:background .15s ease, color .15s ease, border-color .15s ease; }
-    .fs3-chip:hover{ border-color:var(--teal); }
-    .fs3-chip.on{ background:var(--teal); border-color:var(--teal); color:#fff; }
+    /* multi-screen sections: vertical pill rail in the gutter between the phone and the copy */
+    .fs3-sec.multi .fs3-grid{ grid-template-columns:minmax(0,1fr) auto minmax(0,1fr); }
+    .fs3-sec.multi .fs3-art{ order:1; }  .fs3-sec.multi .fs3-rail{ order:2; }  .fs3-sec.multi .fz-copy{ order:3; }
+    .fs3-sec.multi.rev .fs3-art{ order:3; }  .fs3-sec.multi.rev .fz-copy{ order:1; }
+    .fs3-rail{ align-self:center; display:flex; align-items:center; gap:14px; height:210px; }
+    .fs3-rail-name{ writing-mode:vertical-rl; transform:rotate(180deg); text-transform:uppercase; letter-spacing:.14em;
+      font-size:.72rem; font-weight:800; color:var(--teal-dark); white-space:nowrap; }
+    .fs3-pills{ display:flex; flex-direction:column; gap:8px; height:100%; }
+    .fs3-pill{ flex:1; width:9px; padding:0; border:0; border-radius:999px; background:#d5e0dd; cursor:pointer;
+      transition:background .2s ease, box-shadow .2s ease; }
+    .fs3-pill:hover{ background:#bccfca; }
+    .fs3-pill.on, .fs3-pill.on:hover{ background:linear-gradient(180deg, var(--teal-soft), var(--teal-dark));
+      box-shadow:0 4px 12px -4px rgba(48,169,164,.5); }
+    .fs3-art .step-figure{ width:100%; max-width:360px; }   /* offline sync card fills the art column */
+    .fs3-art .fp-doc{ margin-top:0; }                       /* pedigrees document in the art column */
+    /* Sales & Payments: designed payment card (sync-visual family, white card, teal accents) */
+    .pay-card{ width:100%; max-width:340px; margin:0 auto; background:#fff; border:1px solid var(--line);
+      border-radius:20px; padding:22px 22px 20px; box-shadow:0 24px 50px -24px rgba(14,22,32,.35); text-align:left; }
+    .pay-head{ display:flex; align-items:center; justify-content:space-between; margin-bottom:14px; }
+    .pay-tag{ display:inline-flex; align-items:center; gap:7px; font-weight:700; font-size:.95rem; color:var(--navy); }
+    .pay-tag svg{ width:18px; height:18px; color:var(--teal); }
+    .pay-pill{ font-size:.66rem; font-weight:800; letter-spacing:.05em; text-transform:uppercase; color:var(--teal-dark);
+      background:var(--mint-3); border:1px solid rgba(48,169,164,.25); border-radius:999px; padding:4px 10px; }
+    .pay-buyer{ display:flex; align-items:center; gap:12px; padding:13px 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+    .pay-av{ flex:0 0 auto; width:42px; height:42px; border-radius:50%; background:var(--navy); color:#fff; display:grid; place-items:center; font-weight:700; font-size:.9rem; }
+    .pay-nm{ font-weight:700; color:var(--navy); }
+    .pay-sub{ font-size:.85rem; color:var(--muted); margin-top:1px; }
+    .pay-amt{ font-size:2.1rem; font-weight:800; color:var(--navy); letter-spacing:-.01em; margin:16px 0 6px; }
+    .pay-via{ font-size:.8rem; color:var(--muted); margin-bottom:8px; }
+    .pay-methods{ display:flex; gap:8px; margin-bottom:16px; }
+    .pay-method{ flex:1; text-align:center; font-weight:700; font-size:.9rem; color:var(--navy); background:#fff; border:1px solid var(--line); border-radius:12px; padding:10px 0; }
+    .pay-status{ display:flex; align-items:center; gap:8px; font-size:.86rem; font-weight:600; color:var(--teal-dark); background:var(--mint-3); border-radius:12px; padding:10px 12px; }
+    .pay-check{ flex:0 0 auto; display:inline-flex; width:20px; height:20px; border-radius:50%; background:var(--teal); color:#fff; align-items:center; justify-content:center; }
+    .pay-check svg{ width:12px; height:12px; }
     @media (max-width:860px){
       .fs3-grid{ grid-template-columns:1fr; gap:26px; }
       .fs3-sec.rev .fs3-art{ order:0; }   /* phone stays on top when stacked */
       .fs3-phone{ max-width:300px; margin-inline:auto; }
+      .fs3-sec.multi .fs3-grid{ grid-template-columns:1fr; }
+      .fs3-sec.multi .fs3-art{ order:1; }  .fs3-sec.multi .fs3-rail{ order:2; }  .fs3-sec.multi .fz-copy{ order:3; }
+      .fs3-sec.multi.rev .fs3-art{ order:1; }  .fs3-sec.multi.rev .fz-copy{ order:3; }
+      .fs3-rail{ height:auto; flex-direction:column-reverse; gap:10px; margin-top:6px; }
+      .fs3-rail-name{ writing-mode:horizontal-tb; transform:none; }
+      .fs3-pills{ flex-direction:row; height:auto; width:min(260px,72%); }
+      .fs3-pill{ width:auto; height:9px; }
     }
 
     /* ============================================================

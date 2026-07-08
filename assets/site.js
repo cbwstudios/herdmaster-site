@@ -249,65 +249,26 @@
       secs.forEach(function(s){ io.observe(s); });
     })();
 
-    // Features Alt 3: scroll-linked parallax of the app screens inside their frames.
-    // The parent can't reach into the iframes under file:// (unique origins), so it
-    // posts a 0..1 progress and the component's own script sets .au scrollTop.
-    (function(){
-      var frames = Array.prototype.slice.call(document.querySelectorAll('[data-phone-parallax] iframe'));
-      if(!frames.length) return;
-      if(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-      // progress is anchored to each feature section's document position
-      var slots = [];
-      function measure(){
-        slots = frames.map(function(f){
-          var sec = f.closest('[data-phone-parallax]') || f;
-          var r = sec.getBoundingClientRect();
-          return { top: r.top + window.pageYOffset, h: r.height };
-        });
-      }
-      measure();
-      var ticking = false;
-      function update(){
-        ticking = false;
-        var vh = window.innerHeight, y = window.pageYOffset;
-        frames.forEach(function(f, i){
-          var s = slots[i];
-          if(!s || !f.contentWindow) return;
-          var p = (y + vh - s.top) / (vh + s.h);   // 0 as the slot enters at the bottom, 1 once it has fully passed
-          if(p < -0.05 || p > 1.05) return;
-          // concentrate the full screen sweep into the middle of the transit, when the
-          // phone is actually front-and-center; spread over the whole transit the motion
-          // mostly happens off-screen and reads as "barely moving"
-          p = (p - 0.28) / 0.44;
-          p = Math.max(0, Math.min(1, p));
-          f.contentWindow.postMessage({ hmAuScroll: p }, '*');
-        });
-      }
-      function onScroll(){ if(!ticking){ ticking = true; requestAnimationFrame(update); } }
-      window.addEventListener('scroll', onScroll, { passive:true });
-      window.addEventListener('resize', function(){ measure(); onScroll(); });
-      window.addEventListener('load', function(){ measure(); onScroll(); });   // re-slot after fonts/images settle
-      frames.forEach(function(f){ f.addEventListener('load', onScroll); });
-      onScroll();
-    })();
+    // Features: scroll-linked parallax removed; feature-page screens are static crops.
 
-    // Features Alt 3: screen-switcher chips. The sibling screens are pre-stacked as
-    // identical phones inside .fs3-phone; a chip just crossfades to its screen, so
-    // the frame never reloads and only the screen appears to change.
+    // Features: vertical pill rail switches the pre-stacked screens inside .fs3-phone
+    // (crossfade opacity, no reload); the rail label reflects the active screen name.
     (function(){
-      var wraps = document.querySelectorAll('.fs3-chips');
-      if(!wraps.length) return;
-      Array.prototype.forEach.call(wraps, function(wrap){
-        wrap.addEventListener('click', function(e){
-          var btn = e.target.closest ? e.target.closest('.fs3-chip') : null;
+      var rails = document.querySelectorAll('.fs3-rail');
+      if(!rails.length) return;
+      Array.prototype.forEach.call(rails, function(rail){
+        var nameEl = rail.querySelector('.fs3-rail-name');
+        rail.addEventListener('click', function(e){
+          var btn = e.target.closest ? e.target.closest('.fs3-pill') : null;
           if(!btn || btn.classList.contains('on')) return;
-          var phone = wrap.parentElement.querySelector('.fs3-phone'); if(!phone) return;
+          var phone = rail.parentElement.querySelector('.fs3-phone'); if(!phone) return;
           var target = phone.querySelector('iframe[data-screen="' + btn.getAttribute('data-screen') + '"]');
           if(!target) return;
-          wrap.querySelectorAll('.fs3-chip').forEach(function(c){ c.classList.remove('on'); });
+          rail.querySelectorAll('.fs3-pill').forEach(function(c){ c.classList.remove('on'); });
           btn.classList.add('on');
           phone.querySelectorAll('iframe').forEach(function(f){ f.classList.remove('show'); });
           target.classList.add('show');
+          if(nameEl) nameEl.textContent = btn.getAttribute('aria-label');
         });
       });
     })();
