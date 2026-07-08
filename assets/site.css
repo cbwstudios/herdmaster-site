@@ -406,18 +406,21 @@
     /* ============================================================
        4 · FEATURE GRID
        ============================================================ */
-    .grid-features{ display:grid; grid-template-columns:repeat(4,1fr); gap:24px; }
+    .grid-features{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
     .fcard{
-      display:flex; flex-direction:column; gap:12px; background:#fff; border:1px solid var(--line);
-      border-radius:var(--radius); padding:28px 24px; box-shadow:var(--shadow-sm); transition:transform .18s var(--ease), box-shadow .18s, border-color .18s; height:100%;
+      display:flex; flex-direction:column; gap:12px; background:#fff; border:1px solid rgba(48,169,164,.25);
+      border-radius:var(--radius); padding:28px 24px; box-shadow:var(--shadow-sm); transition:transform .18s var(--ease), box-shadow .18s; height:100%;
     }
-    .fcard:hover{ transform:translateY(-4px); box-shadow:var(--shadow); border-color:var(--teal); }
+    .fcard:hover{ transform:translateY(-4px); box-shadow:var(--shadow); }
     .fcard .ic{ width:58px; height:58px; border-radius:15px; display:grid; place-items:center; color:#fff;
       background:var(--grad-btn);
       box-shadow:0 6px 14px -8px rgba(34,118,115,.35); }
     .fcard .ic svg{ width:28px; height:28px; }
     .fcard h3{ margin:4px 0 0; }
     .fcard p{ margin:0; color:var(--muted); font-size:.97rem; line-height:1.5; }
+    .fcard ul{ margin:2px 0 0; padding:0; list-style:none; display:flex; flex-direction:column; gap:7px; }
+    .fcard ul li{ position:relative; padding-left:16px; color:var(--muted); font-size:.9rem; line-height:1.45; }
+    .fcard ul li::before{ content:""; position:absolute; left:2px; top:.5em; width:5px; height:5px; border-radius:50%; background:var(--teal); }
 
     /* ============================================================
        5 · HOW IT WORKS
