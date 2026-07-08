@@ -281,8 +281,8 @@
     .header-flow{ position:relative; z-index:5; background:#fff; border-bottom:1px solid var(--line); }
     .header-flow .container{ max-width:none; padding-left:32px; padding-right:32px; }
     .header-flow .btn-primary{ box-shadow:none; }
-    .hm-inner{ display:flex; align-items:center; justify-content:space-between; height:90px; gap:18px; }
-    .hm-inner .brand img{ height:80px; width:auto; }                    /* horizontal crest logo, uniform across every page's sticky header */
+    .hm-inner{ display:flex; align-items:center; justify-content:space-between; height:92px; gap:18px; }
+    .hm-inner .brand img{ width:155px; height:82px; }                    /* horizontal crest logo at its exact native size (155x82); header height fitted to it */
     .hm-nav{ display:flex; align-items:center; gap:28px; }
     .hm-links{ display:flex; align-items:center; gap:24px; list-style:none; margin:0; padding:0; }
     .hm-links a{ color:var(--text); font-weight:500; }
@@ -421,6 +421,24 @@
     .fcard ul{ margin:2px 0 0; padding:0; list-style:none; display:flex; flex-direction:column; gap:7px; }
     .fcard ul li{ position:relative; padding-left:16px; color:var(--muted); font-size:.9rem; line-height:1.45; }
     .fcard ul li::before{ content:""; position:absolute; left:2px; top:.5em; width:5px; height:5px; border-radius:50%; background:var(--teal); }
+
+    /* ---------- 4A · Every kind of breeder ----------
+       Lighter companion to the feature grid: soft-tinted teal glyphs, hairline cards,
+       no gradient tiles, so the two grids read as distinct. */
+    /* breeders and how-it-works are both white; drop the doubled padding between them */
+    #breeders{ padding-bottom:0; }
+    .bgrid{ display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
+    .brcard{ position:relative; display:flex; flex-direction:column; gap:11px; background:#fff; border:1px solid var(--line);
+      border-radius:var(--radius); padding:24px 22px; transition:transform .18s var(--ease), box-shadow .18s; height:100%; }
+    .brcard:hover{ transform:translateY(-3px); box-shadow:var(--shadow-sm); }
+    .brcard .bic{ width:44px; height:44px; border-radius:12px; display:grid; place-items:center;
+      color:var(--teal); background:rgba(48,169,164,.1); }
+    .brcard .bic svg{ width:24px; height:24px; }
+    .brcard h3{ margin:2px 0 0; font-size:1.05rem; }
+    .brcard p{ margin:0; color:var(--muted); font-size:.92rem; line-height:1.5; }
+    .soon-tag{ position:absolute; top:47px; right:22px; transform:translateY(-50%);
+      font-size:.5rem; font-weight:700; letter-spacing:.05em; text-transform:uppercase;
+      color:var(--teal-dark); background:var(--mint-2); border:1px solid rgba(48,169,164,.3); border-radius:999px; padding:3px 8px; }
 
     /* ============================================================
        5 · HOW IT WORKS
@@ -719,6 +737,7 @@
     /* ---------- Responsive ---------- */
     @media (max-width:1000px){
       .grid-features{ grid-template-columns:repeat(2,1fr); }
+      .bgrid{ grid-template-columns:repeat(2,1fr); }
       .plans{ grid-template-columns:repeat(2,1fr); }
       .footer-grid{ grid-template-columns:1fr 1fr; gap:30px; }
       .split{ grid-template-columns:1fr; gap:36px; }
@@ -736,8 +755,7 @@
       body.menu-open{ overflow:hidden; }
       /* sticky header bar on mobile: logo left, hamburger right */
       .header-main .container, .header-flow .container{ padding:0 20px; }
-      .hm-inner{ height:76px; }
-      .hm-inner .brand img{ height:60px; }                              /* sticky logo back to 60px on phones, every page */
+      /* sticky logo stays at its exact native size (155x82) on phones too; header height matches */
       .hm-links{ display:none; }
       .hm-nav .btn{ display:none; }
       /* transparent header becomes a simple bar (logo + hamburger), white when menu open */
@@ -759,6 +777,7 @@
     @media (max-width:560px){
       section{ padding:var(--sp-8) 0; }
       .grid-features{ grid-template-columns:1fr; }
+      .bgrid{ grid-template-columns:1fr; }
       .plans{ grid-template-columns:1fr; }
       .footer-grid{ grid-template-columns:1fr; }
       .capture{ flex-direction:column; }
