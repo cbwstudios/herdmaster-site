@@ -347,7 +347,7 @@
     <div class="container">
       <div class="center section-head fade">
         <span class="eyebrow">How it works</span>
-        <h2>Here's what happens <b>once you dive in.</b></h2>
+        <h2>Less record keeping. <b>More time with your rabbits.</b></h2>
         <p class="muted measure">No long setup. You'll be tracking real records the same afternoon.</p>
       </div>
       <div class="steps fade">
@@ -391,7 +391,7 @@
           </div>
           <div class="step-body">
             <h3>Add or import your herd.</h3>
-            <p>Start fresh or bring everything over. Import a full Evans pedigree in one pass, or snap a paper pedigree and let OCR read it in.</p>
+            <p>Start fresh or bring it all over. One Evans pass brings animals, winnings, and litters across together, and a snapped paper pedigree is read in for you to confirm.</p>
           </div>
         </div>
         <div class="step-card">
@@ -438,30 +438,80 @@
           </div>
           <div class="step-body">
             <h3>Track right from the barn.</h3>
-            <p>Log breedings, litters, and shows on the spot. Everything works fully offline, so no signal is no problem.</p>
+            <p>Pair a sire and dam and the palpation, nest-box, and kindle dates build themselves. Health tasks recur on their own, all of it fully offline out at the cages.</p>
           </div>
         </div>
         <div class="step-card">
           <div class="step-bar">
             <span class="num">03</span>
-            <span class="sic"><svg width="20" height="20" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M160,36A92.09,92.09,0,0,0,79,84.36,68,68,0,1,0,72,220h88a92,92,0,0,0,0-184Zm0,160H72a44,44,0,0,1-1.82-88A91.86,91.86,0,0,0,68,128a12,12,0,0,0,24,0,68,68,0,1,1,68,68Zm40.49-92.49a12,12,0,0,1,0,17l-48,48a12,12,0,0,1-17,0l-24-24a12,12,0,1,1,17-17L144,143l39.51-39.52A12,12,0,0,1,200.49,103.51Z"/></svg></span>
+            <span class="sic"><svg width="20" height="20" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M232,64H208V48a8,8,0,0,0-8-8H56a8,8,0,0,0-8,8V64H24A16,16,0,0,0,8,80V96a40,40,0,0,0,40,40h3.65A80.13,80.13,0,0,0,120,191.61V216H96a8,8,0,0,0,0,16h64a8,8,0,0,0,0-16H136V191.58c31.94-3.23,58.44-25.64,68.08-55.58H208a40,40,0,0,0,40-40V80A16,16,0,0,0,232,64ZM48,120A24,24,0,0,1,24,96V80H48v32q0,4,.39,8ZM232,96a24,24,0,0,1-24,24h-.5a81.81,81.81,0,0,0,.5-8.9V80h24Z"/></svg></span>
           </div>
-          <!-- No sync/settings screenshot exists in the supplied content; designed iCloud visual keeps equal height -->
-          <div class="step-figure">
-            <div class="sync-visual">
-              <span class="cloud"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M247.93,124.52C246.11,77.54,207.07,40,160.06,40A88.1,88.1,0,0,0,81.29,88.67h0A87.48,87.48,0,0,0,72,127.73,8.18,8.18,0,0,1,64.57,136,8,8,0,0,1,56,128a103.66,103.66,0,0,1,5.34-32.92,4,4,0,0,0-4.75-5.18A64.09,64.09,0,0,0,8,152c0,35.19,29.75,64,65,64H160A88.09,88.09,0,0,0,247.93,124.52Zm-50.27-6.86-48,48a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L144,148.69l42.34-42.35a8,8,0,0,1,11.32,11.32Z"/></svg></span>
-              <div class="st">Synced to your iCloud</div>
-              <div class="ss">Updated just now</div>
-              <div class="sync-rows">
-                <div><span>Herd &amp; pedigrees</span><span class="ok">Up to date</span></div>
-                <div><span>Breedings &amp; litters</span><span class="ok">Up to date</span></div>
-                <div><span>Show records</span><span class="ok">Up to date</span></div>
+          <!-- recreated inline in HTML/CSS: the Show Records screen (Grand Champion leg tracker + show-win list), cropped at the bottom via .steps CSS. Separate from the standalone components/show-records.html. -->
+          <div class="step-figure has-screen show-figure">
+            <div class="au" role="img" aria-label="HerdMaster show records">
+              <div class="au-status">
+                <span class="t">9:41</span>
+                <span class="sys">
+                  <svg viewBox="0 0 256 256" fill="currentColor"><rect x="12" y="148" width="40" height="80" rx="10"/><rect x="80" y="108" width="40" height="120" rx="10"/><rect x="148" y="64" width="40" height="164" rx="10"/><rect x="216" y="20" width="40" height="208" rx="10"/></svg>
+                  <svg viewBox="0 0 256 256" fill="currentColor"><path d="M140,204a12,12,0,1,1-12-12A12,12,0,0,1,140,204ZM237.08,87A172,172,0,0,0,18.92,87,8,8,0,0,0,29.08,99.37a156,156,0,0,1,197.84,0A8,8,0,0,0,237.08,87ZM205,122.77a124,124,0,0,0-153.94,0A8,8,0,0,0,61,135.31a108,108,0,0,1,134.06,0,8,8,0,0,0,11.24-1.3A8,8,0,0,0,205,122.77Zm-32.26,35.76a76.05,76.05,0,0,0-89.42,0,8,8,0,0,0,9.42,12.94,60,60,0,0,1,70.58,0,8,8,0,1,0,9.42-12.94Z"/></svg>
+                  <svg viewBox="0 0 256 256" fill="currentColor"><path d="M200,56H32A24,24,0,0,0,8,80v96a24,24,0,0,0,24,24H200a24,24,0,0,0,24-24V80A24,24,0,0,0,200,56Zm8,120a8,8,0,0,1-8,8H32a8,8,0,0,1-8-8V80a8,8,0,0,1,8-8H200a8,8,0,0,1,8,8ZM104,96v64a8,8,0,0,1-16,0V96a8,8,0,0,1,16,0ZM64,96v64a8,8,0,0,1-16,0V96a8,8,0,0,1,16,0Zm192,0v64a8,8,0,0,1-16,0V96a8,8,0,0,1,16,0Z"/></svg>
+                </span>
+              </div>
+              <div class="au-nav">
+                <span class="back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m15 6-6 6 6 6"/></svg></span>
+                <span class="title">Show Records</span>
+              </div>
+              <div class="au-spad">
+                <div class="au-shead">
+                  <span class="tile"><svg viewBox="0 0 256 256" fill="currentColor"><path d="M199.28,149.8A71.58,71.58,0,0,0,193,129c19-37.94,30.45-88.28,17.34-110A22,22,0,0,0,190.94,8c-14.12,0-26,11.89-36.44,36.36-6.22,14.62-10.85,31.32-14,44.74a71.8,71.8,0,0,0-25,0c-3.13-13.42-7.76-30.12-14-44.74C91.1,19.89,79.18,8,65.06,8A22,22,0,0,0,45.64,19.08C32.53,40.76,44,91.1,63,129a71.58,71.58,0,0,0-6.26,20.76A52,52,0,1,0,128,225.52l-21.12-19.37a8,8,0,1,1,10.24-12.3L128,202.9l10.88-9.05a8,8,0,0,1,10.24,12.3L128,225.52a52,52,0,1,0,71.28-75.72ZM100,176a12,12,0,1,1,12-12A12,12,0,0,1,100,176Zm56,0a12,12,0,1,1,12-12A12,12,0,0,1,156,176Z"/></svg></span>
+                  <div>
+                    <div class="nm">Cedar Hollow Flint</div>
+                    <div class="sub">Holland Lop &middot; Tortoiseshell</div>
+                    <div class="sub2">Ear 4F2 &middot; Senior Buck &middot; 4 lbs 11 oz</div>
+                  </div>
+                </div>
+                <div class="au-gccard">
+                  <div class="au-gctop">
+                    <span class="medal"><svg viewBox="0 0 256 256" fill="currentColor"><path d="M232,64a16,16,0,0,0-16-16H180.92c.69-5.39,1-10.62,1.08-15.56A16.39,16.39,0,0,0,177.43,20.5,16,16,0,0,0,166,16H90a16,16,0,0,0-11.42,4.5,16.39,16.39,0,0,0-4.57,11.94c.09,4.94.39,10.17,1.08,15.56H40A16,16,0,0,0,24,64v16a40,40,0,0,0,40,40h2.27c9.21,24.34,25.79,40.94,49.73,46.66V200H96a8,8,0,0,0,0,16h64a8,8,0,0,0,0-16H140V166.66c23.94-5.72,40.52-22.32,49.73-46.66H192a40,40,0,0,0,40-40ZM64,104A24,24,0,0,1,40,80V64H77.13a127.66,127.66,0,0,0,21.6,40.24A57.5,57.5,0,0,1,66.8,104Zm152-24a24,24,0,0,1-24,24h-2.8a57.5,57.5,0,0,1-31.93.24A127.66,127.66,0,0,0,178.87,64H216Z"/></svg></span>
+                    <div>
+                      <div class="gt">Grand Champion</div>
+                      <div class="gs">2 legs needed to certify</div>
+                    </div>
+                    <div class="count"><b>2/3</b><span>LEGS</span></div>
+                  </div>
+                  <div class="au-legbar"><span class="au-leg done"></span><span class="au-leg done"></span><span class="au-leg"></span></div>
+                  <div class="au-reqs">
+                    <div class="au-req ok"><svg viewBox="0 0 256 256" fill="currentColor"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg>2 of 3 legs</div>
+                    <div class="au-req ok"><svg viewBox="0 0 256 256" fill="currentColor"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg>2 judges</div>
+                    <div class="au-req pending"><svg viewBox="0 0 256 256" fill="currentColor"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Z"/></svg>2 of 3 shows</div>
+                    <div class="au-req ok"><svg viewBox="0 0 256 256" fill="currentColor"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg>Senior win earned</div>
+                  </div>
+                </div>
+                <div class="au-listhd">
+                  <span class="lt">Show wins</span>
+                  <span class="add"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>Add result</span>
+                </div>
+                <div class="au-show">
+                  <div class="r1"><span class="award">Best of Variety, Tortoiseshell</span><span class="star"><svg viewBox="0 0 256 256" fill="currentColor"><path d="M239.2,97.29a16,16,0,0,0-13.81-11L166,81.17,142.72,25.81h0a15.95,15.95,0,0,0-29.44,0L90.07,81.17,30.61,86.32a16,16,0,0,0-9.11,28.06L66.61,153.8,53.09,212.34a16,16,0,0,0,23.84,17.34l51-31,51.11,31a16,16,0,0,0,23.84-17.34l-13.51-58.54,45.1-39.42A16,16,0,0,0,239.2,97.29Z"/></svg></span><span class="legtag">Leg 1</span></div>
+                  <div class="show-nm">RMHRBA Spring Show</div>
+                  <div class="meta">Apr 14, 2026 &middot; Judge D. Whitfield &middot; Class of 18</div>
+                </div>
+                <div class="au-show">
+                  <div class="r1"><span class="award">1st Senior Buck (6/8)</span><span class="legtag senior">Senior leg</span></div>
+                  <div class="show-nm">Front Range Specialty</div>
+                  <div class="meta">Feb 18, 2026 &middot; Judge M. Alvarez &middot; Class of 11</div>
+                </div>
+                <div class="au-show">
+                  <div class="r1"><span class="award">2nd Senior Buck</span></div>
+                  <div class="show-nm">BVRBA Winter Classic</div>
+                  <div class="meta">Jan 27, 2026 &middot; Judge M. Alvarez &middot; Class of 9</div>
+                </div>
               </div>
             </div>
           </div>
           <div class="step-body">
-            <h3>Sync privately via iCloud.</h3>
-            <p>Back online, your records sync through your own private iCloud. No third-party servers, nothing for us to see.</p>
+            <h3>Track Grand Champion legs.</h3>
+            <p>Log a show win and it lands on the right animal, with the leg tracked toward Grand Champion. You see exactly where each one stands, two of three legs and closing in.</p>
           </div>
         </div>
       </div>
@@ -539,25 +589,39 @@
   <section class="privacy">
     <div class="container">
       <div class="center fade">
-        <h2>Your herd data is <b>yours.</b></h2>
+        <h2>Your herd data is yours.</h2>
         <p class="lead">Your records live in your own private iCloud, not on our servers, and they're yours to export any time.</p>
         <div class="teal-rule"></div>
       </div>
-      <div class="bento fade">
-        <div class="bcard big">
-          <span class="ic"><svg width="26" height="26" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M213.92,210.62a8,8,0,1,1-11.84,10.76l-33.67-37-28.1,33.88A15.93,15.93,0,0,1,128,224h0a15.93,15.93,0,0,1-12.31-5.77L11.65,92.8A15.65,15.65,0,0,1,8.11,80.91,15.93,15.93,0,0,1,14.28,70.1,188.26,188.26,0,0,1,46.6,50.35l-4.29-4.72a8.22,8.22,0,0,1,.13-11.38,8,8,0,0,1,11.48.37Zm34-129.71a15.93,15.93,0,0,0-6.17-10.81A186.67,186.67,0,0,0,128,32a191,191,0,0,0-42.49,4.75,4,4,0,0,0-2,6.59L186,156.07a4,4,0,0,0,6-.14L244.35,92.8A15.65,15.65,0,0,0,247.89,80.91Z"/></svg></span>
-          <h3>Offline is the default.</h3>
-          <p>Every feature works with no signal at all. Out in the barn, in a metal shed, or anywhere off the grid, the app keeps working exactly the same. Sync happens later, on its own, when you're back online.</p>
+      <div class="split fade">
+        <div class="priv-visual">
+          <div class="sync-visual">
+            <span class="cloud"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M247.93,124.52C246.11,77.54,207.07,40,160.06,40A88.1,88.1,0,0,0,81.29,88.67h0A87.48,87.48,0,0,0,72,127.73,8.18,8.18,0,0,1,64.57,136,8,8,0,0,1,56,128a103.66,103.66,0,0,1,5.34-32.92,4,4,0,0,0-4.75-5.18A64.09,64.09,0,0,0,8,152c0,35.19,29.75,64,65,64H160A88.09,88.09,0,0,0,247.93,124.52Zm-50.27-6.86-48,48a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L144,148.69l42.34-42.35a8,8,0,0,1,11.32,11.32Z"/></svg></span>
+            <div class="st">Synced to your iCloud</div>
+            <div class="ss">Updated just now</div>
+            <div class="sync-rows">
+              <div><span>Herd &amp; pedigrees</span><span class="ok">Up to date</span></div>
+              <div><span>Breedings &amp; litters</span><span class="ok">Up to date</span></div>
+              <div><span>Show records</span><span class="ok">Up to date</span></div>
+            </div>
+          </div>
         </div>
-        <div class="bcard">
-          <span class="ic"><svg width="24" height="24" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M208,80H176V56a48,48,0,0,0-96,0V80H48A16,16,0,0,0,32,96V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V96A16,16,0,0,0,208,80Zm-72,78.63V184a8,8,0,0,1-16,0V158.63a24,24,0,1,1,16,0ZM160,80H96V56a32,32,0,0,1,64,0Z"/></svg></span>
-          <h3>Saved to your iCloud, not a server.</h3>
-          <p>Your records sync through Apple's CloudKit on your own personal iCloud, not to any HerdMaster server.</p>
-        </div>
-        <div class="bcard">
-          <span class="ic"><svg width="24" height="24" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M216,112v96a16,16,0,0,1-16,16H56a16,16,0,0,1-16-16V112A16,16,0,0,1,56,96h64v48a8,8,0,0,0,16,0V96h64A16,16,0,0,1,216,112ZM136,43.31l26.34,26.35a8,8,0,0,0,11.32-11.32l-40-40a8,8,0,0,0-11.32,0l-40,40A8,8,0,0,0,93.66,69.66L120,43.31V96h16Z"/></svg></span>
-          <h3>No lock-in, ever.</h3>
-          <p>Your data is never trapped in the app. Export it and take it to another system any time you like.</p>
+        <div class="priv-cards">
+          <div class="bcard">
+            <span class="ic"><svg width="26" height="26" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M213.92,210.62a8,8,0,1,1-11.84,10.76l-33.67-37-28.1,33.88A15.93,15.93,0,0,1,128,224h0a15.93,15.93,0,0,1-12.31-5.77L11.65,92.8A15.65,15.65,0,0,1,8.11,80.91,15.93,15.93,0,0,1,14.28,70.1,188.26,188.26,0,0,1,46.6,50.35l-4.29-4.72a8.22,8.22,0,0,1,.13-11.38,8,8,0,0,1,11.48.37Zm34-129.71a15.93,15.93,0,0,0-6.17-10.81A186.67,186.67,0,0,0,128,32a191,191,0,0,0-42.49,4.75,4,4,0,0,0-2,6.59L186,156.07a4,4,0,0,0,6-.14L244.35,92.8A15.65,15.65,0,0,0,247.89,80.91Z"/></svg></span>
+            <h3>Offline is the default.</h3>
+            <p>Every feature works with no signal at all. Out in the barn, in a metal shed, or anywhere off the grid, the app keeps working exactly the same. Sync happens later, on its own, when you're back online.</p>
+          </div>
+          <div class="bcard">
+            <span class="ic"><svg width="24" height="24" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M208,80H176V56a48,48,0,0,0-96,0V80H48A16,16,0,0,0,32,96V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V96A16,16,0,0,0,208,80Zm-72,78.63V184a8,8,0,0,1-16,0V158.63a24,24,0,1,1,16,0ZM160,80H96V56a32,32,0,0,1,64,0Z"/></svg></span>
+            <h3>Saved to your iCloud, not a server.</h3>
+            <p>Your records sync through Apple's CloudKit on your own personal iCloud, not to any HerdMaster server.</p>
+          </div>
+          <div class="bcard">
+            <span class="ic"><svg width="24" height="24" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M216,112v96a16,16,0,0,1-16,16H56a16,16,0,0,1-16-16V112A16,16,0,0,1,56,96h64v48a8,8,0,0,0,16,0V96h64A16,16,0,0,1,216,112ZM136,43.31l26.34,26.35a8,8,0,0,0,11.32-11.32l-40-40a8,8,0,0,0-11.32,0l-40,40A8,8,0,0,0,93.66,69.66L120,43.31V96h16Z"/></svg></span>
+            <h3>No lock-in, ever.</h3>
+            <p>Your data is never trapped in the app. Export it and take it to another system any time you like.</p>
+          </div>
         </div>
       </div>
     </div>
