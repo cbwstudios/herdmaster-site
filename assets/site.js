@@ -272,3 +272,9 @@
         });
       });
     })();
+
+    // Footer: set the copyright year dynamically (avoids a hardcoded year going stale).
+    (function(){
+      var y = String(new Date().getFullYear());
+      Array.prototype.forEach.call(document.querySelectorAll('[data-year]'), function(el){ el.textContent = y; });
+    })();

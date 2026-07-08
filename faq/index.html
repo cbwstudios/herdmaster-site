@@ -28,18 +28,6 @@
 
   <link rel="stylesheet" href="../assets/site.css">
 
-  <!-- Google Analytics 4. Replace [GA4 ID] with the real Measurement ID to activate; inert while it is a placeholder. -->
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){ dataLayer.push(arguments); }
-    var GA_MEASUREMENT_ID = '[GA4 ID]';
-    if (GA_MEASUREMENT_ID.indexOf('[') === -1) {
-      var gaS = document.createElement('script'); gaS.async = true;
-      gaS.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_MEASUREMENT_ID;
-      document.head.appendChild(gaS);
-      gtag('js', new Date()); gtag('config', GA_MEASUREMENT_ID);
-    }
-  </script>
 
   <script type="application/ld+json">
   {
@@ -140,8 +128,13 @@
       },
       {
         "@type": "Question",
+        "name": "Can I delete my data?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Your records live only in your own iCloud, never on a HerdMaster server, so there's nothing on our side to delete. You stay in full control: manage or remove them through your own iCloud. If you joined our email list, you can ask us to remove you any time at support@herdmaster.app." }
+      },
+      {
+        "@type": "Question",
         "name": "Which breeds are supported?",
-        "acceptedAnswer": { "@type": "Answer", "text": "ARBA show breeds for both rabbits and cavies. (Confirm the final counts; the client referenced 53 rabbit and 13 cavy from the show-class data.)" }
+        "acceptedAnswer": { "@type": "Answer", "text": "ARBA show breeds for both rabbits and cavies: 53 rabbit and 13 cavy breeds." }
       },
       {
         "@type": "Question",
@@ -151,7 +144,7 @@
       {
         "@type": "Question",
         "name": "How many generations does a pedigree show?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Pedigrees view as 4-generation trees on screen; the printable PDF is a standard multi-generation export (confirm the 15-position PDF ships at launch)." }
+        "acceptedAnswer": { "@type": "Answer", "text": "Pedigrees view as 4-generation trees on screen, and you can print or share them as a PDF." }
       },
       {
         "@type": "Question",
@@ -196,7 +189,7 @@
       {
         "@type": "Question",
         "name": "How do I get help?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Email [SUPPORT EMAIL, placeholder, to be provided] or use the Contact page." }
+        "acceptedAnswer": { "@type": "Answer", "text": "Email support@herdmaster.app or use the Contact page." }
       }
     ]
   }
@@ -370,6 +363,12 @@
             </button>
             <div class="faq-a"><p>Your data stays in your own iCloud and you revert to the free-tier limits for adding new records.</p></div>
           </div>
+          <div class="faq-item" id="can-i-delete-my-data">
+            <button class="faq-q" aria-expanded="false">Can I delete my data?
+              <span class="chev" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M216.49,104.49l-80,80a12,12,0,0,1-17,0l-80-80a12,12,0,0,1,17-17L128,159l71.51-71.52a12,12,0,0,1,17,17Z"/></svg></span>
+            </button>
+            <div class="faq-a"><p>Your records live only in your own iCloud, never on a HerdMaster server, so there's nothing on our side to delete. You stay in full control: manage or remove them through your own iCloud. If you joined our email list, you can ask us to remove you any time at support@herdmaster.app.</p></div>
+          </div>
         </div>
       </div>
 
@@ -380,7 +379,7 @@
             <button class="faq-q" aria-expanded="false">Which breeds are supported?
               <span class="chev" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M216.49,104.49l-80,80a12,12,0,0,1-17,0l-80-80a12,12,0,0,1,17-17L128,159l71.51-71.52a12,12,0,0,1,17,17Z"/></svg></span>
             </button>
-            <div class="faq-a"><p>ARBA show breeds for both rabbits and cavies. (Confirm the final counts; the client referenced 53 rabbit and 13 cavy from the show-class data.)</p></div>
+            <div class="faq-a"><p>ARBA show breeds for both rabbits and cavies: 53 rabbit and 13 cavy breeds.</p></div>
           </div>
           <div class="faq-item" id="does-it-support-cavies">
             <button class="faq-q" aria-expanded="false">Does it support cavies?
@@ -392,7 +391,7 @@
             <button class="faq-q" aria-expanded="false">How many generations does a pedigree show?
               <span class="chev" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M216.49,104.49l-80,80a12,12,0,0,1-17,0l-80-80a12,12,0,0,1,17-17L128,159l71.51-71.52a12,12,0,0,1,17,17Z"/></svg></span>
             </button>
-            <div class="faq-a"><p>Pedigrees view as 4-generation trees on screen; the printable PDF is a standard multi-generation export (confirm the 15-position PDF ships at launch).</p></div>
+            <div class="faq-a"><p>Pedigrees view as 4-generation trees on screen, and you can print or share them as a PDF.</p></div>
           </div>
           <div class="faq-item" id="can-i-print-or-share-a-pedigree">
             <button class="faq-q" aria-expanded="false">Can I print or share a pedigree?
@@ -458,7 +457,7 @@
             <button class="faq-q" aria-expanded="false">How do I get help?
               <span class="chev" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M216.49,104.49l-80,80a12,12,0,0,1-17,0l-80-80a12,12,0,0,1,17-17L128,159l71.51-71.52a12,12,0,0,1,17,17Z"/></svg></span>
             </button>
-            <div class="faq-a"><p>Email [SUPPORT EMAIL, placeholder, to be provided] or use the Contact page.</p></div>
+            <div class="faq-a"><p>Email support@herdmaster.app or use the Contact page.</p></div>
           </div>
         </div>
       </div>
@@ -489,7 +488,7 @@
           <ul><li><a href="../privacy/">Privacy Policy</a></li><li><a href="../terms/">Terms of Service</a></li></ul>
         </div>
       </div>
-      <div class="footer-bottom">&copy; 2026 HerdMaster &middot; Joseph Kim dba HerdMaster &middot; herdmaster.app</div>
+      <div class="footer-bottom">&copy; <span data-year>2026</span> HERDMASTER RABBIT &amp; CAVY</div>
     </div>
   </footer>
 
