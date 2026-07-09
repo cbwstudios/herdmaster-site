@@ -214,16 +214,16 @@
       if(document.fonts && document.fonts.ready){ document.fonts.ready.then(fitAll); }
     })();
 
-    // Features: scale the fixed-size pedigree document (.fp-doc iframe, 1080x1606) to fit its panel width.
+    // Features: scale the inlined pedigree document (.ped-doc, 1080px design width) to fit its panel.
     (function(){
-      var DESIGN_W = 1080, DESIGN_H = 1606;
+      var DESIGN_W = 1080;
       var docs = document.querySelectorAll('.fp-doc');
       if(!docs.length) return;
       function fit(box){
-        var ifr = box.querySelector('iframe'); if(!ifr) return;
+        var doc = box.querySelector('.ped-doc'); if(!doc) return;
         var s = box.clientWidth / DESIGN_W;
-        ifr.style.transform = 'scale(' + s + ')';
-        box.style.height = (DESIGN_H * s) + 'px';
+        doc.style.transform = 'scale(' + s + ')';
+        box.style.height = (doc.offsetHeight * s) + 'px';   // offsetHeight = unscaled layout height
       }
       function fitAll(){ docs.forEach(fit); }
       fitAll();
@@ -262,11 +262,11 @@
           var btn = e.target.closest ? e.target.closest('.fs3-pill') : null;
           if(!btn || btn.classList.contains('on')) return;
           var phone = rail.parentElement.querySelector('.fs3-phone'); if(!phone) return;
-          var target = phone.querySelector('iframe[data-screen="' + btn.getAttribute('data-screen') + '"]');
+          var target = phone.querySelector('.au[data-screen="' + btn.getAttribute('data-screen') + '"]');
           if(!target) return;
           rail.querySelectorAll('.fs3-pill').forEach(function(c){ c.classList.remove('on'); });
           btn.classList.add('on');
-          phone.querySelectorAll('iframe').forEach(function(f){ f.classList.remove('show'); });
+          phone.querySelectorAll('.au[data-screen]').forEach(function(f){ f.classList.remove('show'); });
           target.classList.add('show');
           if(nameEl) nameEl.textContent = btn.getAttribute('aria-label');
         });

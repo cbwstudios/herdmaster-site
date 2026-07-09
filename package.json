@@ -1,0 +1,11 @@
+{
+  "name": "herdmaster-site",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "HerdMaster marketing site (static). Screen mockups are inlined from components/ via a dependency-free build script.",
+  "scripts": {
+    "build:screens": "node scripts/inline-screens.mjs",
+    "check:screens": "node scripts/inline-screens.mjs --check"
+  }
+}
