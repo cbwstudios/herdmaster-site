@@ -278,3 +278,47 @@
       var y = String(new Date().getFullYear());
       Array.prototype.forEach.call(document.querySelectorAll('[data-year]'), function(el){ el.textContent = y; });
     })();
+
+    // Speed comparison band (Features #speed): count the two stopwatches up ONCE when the
+    // band scrolls into view, then disconnect. Renders the finished state under reduced motion.
+    (function(){
+      var band = document.querySelector('[data-spd]');
+      if(!band) return;
+      var R = 54, C = 2*Math.PI*R;
+      var hmRing = band.querySelector('[data-spd-ring="hm"]'), ebRing = band.querySelector('[data-spd-ring="eb"]');
+      var hmNum  = band.querySelector('[data-spd-num="hm"]'),  ebNum  = band.querySelector('[data-spd-num="eb"]');
+      var hmBox  = band.querySelector('[data-spd-status="hm"]'), ebBox = band.querySelector('[data-spd-status="eb"]');
+      var HM_T = 1500, EB_T = 2600, HM_FRAC = 45/78;   /* EB is 1.73x longer, matching 45s vs 78s */
+
+      function fmt(s){ var m = Math.floor(s/60), ss = String(s%60); if(ss.length<2) ss = '0'+ss; return m+':'+ss; }
+      function paint(hp, ep){
+        hmRing.setAttribute('stroke-dashoffset', C - C*HM_FRAC*hp);
+        ebRing.setAttribute('stroke-dashoffset', C - C*ep);
+        hmNum.textContent = Math.round(45*hp);
+        ebNum.textContent = fmt(Math.round(78*ep));
+        hmBox.classList.toggle('is-done', hp >= 1);
+        ebBox.classList.toggle('is-done', ep >= 1);
+      }
+      hmRing.setAttribute('stroke-dasharray', C);
+      ebRing.setAttribute('stroke-dasharray', C);
+
+      var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if(reduce){ paint(1,1); return; }
+      paint(0,0);
+
+      function run(){
+        var t0 = null;
+        requestAnimationFrame(function frame(now){
+          if(t0 === null) t0 = now;
+          var e = now - t0;
+          paint(Math.min(e/HM_T,1), Math.min(e/EB_T,1));
+          if(e < EB_T) requestAnimationFrame(frame);
+        });
+      }
+
+      if(!('IntersectionObserver' in window)){ run(); return; }
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(en){ if(en.isIntersecting){ run(); io.disconnect(); } });
+      }, { threshold: 0.4 });
+      io.observe(band);
+    })();

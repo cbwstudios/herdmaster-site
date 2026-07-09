@@ -1259,3 +1259,80 @@
 
     /* Contact: header + cards in one hero (green texture); modest gap between intro and the cards */
     .contact-intro{ margin-bottom:48px; }
+
+    /* ============================================================
+       ABOUT PAGE (founder story)
+       ============================================================ */
+    /* Reversed .split so a section can put the copy left and the photo right (hero). */
+    .split.rev{ grid-template-columns:minmax(0,560px) auto; }
+    /* Rounded founder/story photo inside a .split column, reusing .life-card framing. */
+    .about-photo{ width:100%; max-width:360px; margin-inline:auto; }
+    .about-lead{ margin-top:18px; }
+    /* Pull-quote treatment for the two founder quotes, modeled on the teal .life-close line. */
+    .pull-quote{ text-align:center; font-weight:800; color:var(--teal-dark);
+      font-size:clamp(1.35rem,3vw,1.7rem); line-height:1.4; max-width:760px; margin:38px auto 0; }
+    .pull-quote.on-dark{ color:var(--teal-soft); }               /* teal-ice on the navy band */
+    /* Credential strip on "On the show table": teal-outline pills, like the hero bubbles. */
+    .cred-strip{ display:flex; flex-wrap:wrap; justify-content:center; gap:10px; margin-top:28px; }
+    .cred-pill{ border:1px solid var(--teal); color:var(--teal-dark); background:rgba(48,169,164,.06);
+      border-radius:999px; padding:8px 15px; font-size:.85rem; font-weight:600; }
+    .about-dedication{ text-align:center; color:var(--muted); font-size:.92rem; margin:22px auto 0; max-width:640px; }
+    @media (max-width:900px){ .split.rev{ grid-template-columns:1fr; } }
+
+    /* ============================================================
+       SPEED COMPARISON BAND (#speed, Features page) — lifted from
+       build/speed-compare-component.html; JS lives in site.js.
+       ============================================================ */
+    .spd-band{ background:var(--mint-3, #f2f7f5); padding:56px 0; }
+    .spd-inner{ max-width:760px; margin-inline:auto; }
+    .spd-title{ display:flex; align-items:center; justify-content:center; gap:10px;
+      font-size:1.6rem; font-weight:800; color:var(--text,#0c1116); margin:0 0 24px; text-align:center; }
+    .spd-title svg{ width:30px; height:30px; flex:0 0 auto; }
+
+    .spd-grid{ display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+    .spd-card{ background:#fff; border:1px solid var(--line,#e6e6e6); border-radius:16px; padding:18px; }
+
+    .spd-head{ display:flex; align-items:center; gap:11px; margin-bottom:14px; }
+    .spd-mark{ width:48px; height:48px; flex:0 0 auto; border-radius:11px; background:#16181a;
+      display:grid; place-items:center; overflow:hidden; }
+    .spd-mark img{ width:38px; height:auto; display:block; }
+    .spd-mark.is-alt{ background:#3d4247; }
+    .spd-mark.is-alt svg{ width:26px; height:26px; color:#fff; }
+    .spd-brand{ line-height:1.15; }
+    .spd-name{ font-size:1.32rem; font-weight:800; }
+    .spd-name .a{ color:var(--text,#0c1116); } .spd-name .b{ color:var(--gold,#CDAD58); }
+    .spd-name.is-alt{ font-size:1.2rem; letter-spacing:.02em; color:#3d4247; }
+    .spd-tag{ font-size:.53rem; letter-spacing:.16em; font-weight:700; color:#8a918e; margin-top:3px; }
+
+    .spd-bar{ border-radius:8px; padding:7px 0; text-align:center; color:#fff;
+      font-size:.7rem; font-weight:700; letter-spacing:.09em; margin-bottom:12px; background:var(--teal-dark,#227673); }
+    .spd-bar.is-alt{ background:#6f7671; }
+
+    .spd-mid{ display:flex; align-items:center; gap:10px; margin-bottom:12px; }
+    .spd-rabbit{ flex:0 0 39%; height:auto; border-radius:12px; display:block; }
+    .spd-watch{ flex:1; height:150px; }
+
+    .spd-status{ background:var(--mint-q,#e9f5ef); border-radius:10px; padding:10px 12px;
+      display:flex; align-items:center; gap:10px; opacity:.28; transition:opacity .35s; }
+    .spd-status.is-done{ opacity:1; }
+    .spd-status.is-alt{ background:#f1f3f2; }
+    .spd-ico{ width:21px; height:21px; flex:0 0 auto; border-radius:50%; background:var(--teal,#30A9A4);
+      display:grid; place-items:center; }
+    .spd-ico.is-alt{ background:none; color:#8b938f; border-radius:0; }
+    .spd-s1{ display:block; font-size:.63rem; color:#7d8985; }
+    .spd-s2{ display:block; font-size:.72rem; font-weight:800; color:var(--teal-dark,#227673); letter-spacing:.02em; }
+    .spd-s2.is-alt{ color:#5f6763; }
+
+    .spd-foot{ margin-top:18px; background:var(--navy,#222B37); border-radius:12px; padding:14px 20px;
+      display:flex; align-items:center; justify-content:center; gap:12px; text-align:center; }
+    .spd-foot svg{ width:26px; height:26px; flex:0 0 auto; color:var(--teal-soft,#5FC2BD); }
+    .spd-foot .l1{ color:#fff; font-size:1rem; font-weight:700; }
+    .spd-foot .l1 em{ font-style:normal; color:var(--teal-soft,#5FC2BD); }
+    .spd-foot .l2{ color:rgba(255,255,255,.72); font-size:.78rem; }
+
+    .spd-note{ margin:12px 0 0; text-align:center; font-size:.72rem; color:var(--muted,#555); }
+
+    @media (max-width:720px){
+      .spd-grid{ grid-template-columns:1fr; }
+      .spd-title{ font-size:1.3rem; }
+    }
