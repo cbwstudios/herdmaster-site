@@ -2,25 +2,24 @@
 
 How the HerdMaster marketing site is developed, previewed, and shipped.
 
-**Host:** Netlify (production **and** dev preview).
-**Repo:** `cbwstudios/herdmaster-site` (personal account).
-**Production URL:** `https://herdmaster.app` (apex; `www` redirects here).
-**Dev preview URL:** `https://dev.herdmaster.app` (password-gated, not indexed).
-**DNS:** GoDaddy.
+**Host:** Netlify · **Repo:** `cbwstudios/herdmaster-site` · **Netlify project:** `herdmaster-site`
+**Production:** `https://herdmaster.app` (apex; `www` 301-redirects here)
+**Dev preview:** `https://dev--herdmaster-site.netlify.app` (password-gated, not indexed)
+**DNS:** GoDaddy
 
 ---
 
 ## 1. The flow at a glance
 
 ```
- work locally  ──►  push to dev  ──►  dev.herdmaster.app  ──►  approve  ──►  merge dev → main  ──►  herdmaster.app
- (localhost)        (git push)        (private preview)        (review)      (git merge)            (production)
+ work locally  ──►  push to dev  ──►  dev--herdmaster-site.netlify.app  ──►  approve  ──►  merge dev → main  ──►  herdmaster.app
+ (localhost)        (git push)        (password-gated preview)              (review)      (git merge)            (production)
 ```
 
-1. **Work locally**, preview on `localhost` (see §5).
-2. **Push the `dev` branch.** Netlify builds it and updates **`https://dev.herdmaster.app`** — private (password) and `noindex`.
-3. **Review / share** the dev URL for sign-off.
-4. **Promote:** merge `dev` → **`main`**. Netlify deploys `main` to **`https://herdmaster.app`**.
+1. **Work locally**, preview on `localhost` (no build step; serve the folder).
+2. **Push `dev`.** Netlify builds it to the password-gated preview URL.
+3. **Review / share** the preview (behind the dev password).
+4. **Promote:** merge `dev` → `main`. Netlify auto-deploys `main` to `herdmaster.app`.
 
 GitHub Pages is retired; Netlify is the only deployer.
 
@@ -31,86 +30,85 @@ GitHub Pages is retired; Netlify is the only deployer.
 | Environment | Branch | URL | Public? | Indexed? | Analytics / CRM |
 |---|---|---|---|---|---|
 | **Production** | `main` | `https://herdmaster.app` (www → apex) | Yes | Yes | **On** (GA4, GoHighLevel, Feedbucket) |
-| **Dev preview** | `dev` | `https://dev.herdmaster.app` | **No — password** | No | Off |
-| **PR preview** | any PR | `https://deploy-preview-<n>--<site>.netlify.app` | No | No | Off |
+| **Dev preview** | `dev` | `https://dev--herdmaster-site.netlify.app` | **No — password** | No | Off |
+| **PR preview** | any PR | `https://deploy-preview-<n>--herdmaster-site.netlify.app` | No — password | No | Off |
 | **Local** | working tree | `http://localhost:<port>` | — | No | Off |
+
+The always-on production Netlify URL `herdmaster-site.netlify.app` mirrors production (public, tracking on, but client-side `noindex`).
 
 ---
 
 ## 3. Branch model
 
 - **`main`** — production; always deployable. Never commit experiments straight to `main`.
-- **`dev`** — integration branch; drives `dev.herdmaster.app` for client/stakeholder review.
-- **`feature/*`** — optional; each opens a PR with its own throwaway preview URL.
+- **`dev`** — integration branch; drives the password-gated preview for review.
+- **`feature/*`** — optional; open a PR → gets its own password-gated Deploy Preview.
 
-**Promotion:** `feature/*` → `dev` (review on `dev.herdmaster.app`) → `main` (production). Small, low-risk edits may go `dev` → `main` directly.
+**Promotion:** `feature/*` → `dev` (review on the preview) → `main` (production). Small edits may go `dev` → `main` directly.
 
 ---
 
 ## 4. Why previews are safe (do not remove)
 
-Every guard is keyed to the **hostname**, so production behaviour turns on only for `herdmaster.app` / `www.herdmaster.app`; every other host (dev, PR previews, localhost) is treated as non-production automatically.
+Every guard keys off the **hostname**, so production behaviour turns on only for `herdmaster.app` / `www.herdmaster.app`; all other hosts are treated as non-production automatically.
 
-1. **Tracking is production-host-only.** In each page's `<head>`, an env gate loads **GA4 (`G-NJ4GDHK7XS`)** + **Feedbucket** only on the production host; the **GoHighLevel / LeadConnector** tag at the end of `<body>` is gated the same way. On `dev.herdmaster.app` (or anywhere else) none of them load — previews never touch analytics or the CRM.
-2. **Previews are `noindex`.** The head gate injects `<meta name="robots" content="noindex, nofollow">` on any non-production host, and `netlify.toml` sends `X-Robots-Tag: noindex` on Deploy Previews and branch deploys.
-3. **Dev is password-gated.** `dev.herdmaster.app` requires a password (Netlify site protection on Pro; otherwise a Netlify Edge Function enforcing Basic Auth on the branch — see §7). Combined with #2, the dev site is both private and unindexed.
+1. **Tracking is production-host-only.** In each page's `<head>`, an env gate loads **GA4 (`G-NJ4GDHK7XS`)** + **Feedbucket** only on the production host; the **GoHighLevel/LeadConnector** tag at the end of `<body>` is gated the same way. Previews load none of them.
+2. **Previews are `noindex`.** The head gate injects `<meta name="robots" content="noindex, nofollow">` on any non-production host; `netlify.toml` also sends `X-Robots-Tag: noindex` on Deploy Previews and branch deploys.
+3. **Dev is password-gated.** `netlify/edge-functions/dev-preview-auth.js` requires HTTP Basic-Auth on every non-production host. Production hosts pass straight through. The password comes from the **`DEV_PREVIEW_PASSWORD`** environment variable (set in Netlify; never committed); username defaults to `herdmaster` (override with `DEV_PREVIEW_USER`). It **fails closed** — if the env var is unset, the preview stays locked.
 
 Production (`herdmaster.app`) is unaffected: analytics/CRM run and each page keeps its `index, follow` meta.
 
-> If the production hostname ever changes, update the allowed hostnames in the `<head>` gate and the `<body>` GHL gate on every page, plus canonicals/sitemap (§6).
+> If the production hostname ever changes, update: the allowed hosts in the `<head>` gate and `<body>` GHL gate on every page; `PROD_HOSTS` in the edge function; and canonicals/sitemap (§6).
 
 ---
 
 ## 5. Local development
 
-Plain static files, no build step. Serve the folder with any static server (project config: `herdmaster-static`) and open `localhost`. Because localhost isn't the production host, analytics/CRM stay off and the page is `noindex` — expected. Verify production tracking on the real domain after deploy, not locally.
+Plain static files, no build step. Serve the folder (project config `herdmaster-static`) and open `localhost`. Analytics/CRM stay off and the page is `noindex` there — expected. Verify production tracking on the real domain after deploy, not locally.
 
 ---
 
 ## 6. Domain & DNS (GoDaddy)
 
 - **Canonical / primary host:** apex `herdmaster.app`. All `<link rel=canonical>`, `og:url`, Twitter, JSON-LD, `og:image`, and `sitemap.xml` point at `https://herdmaster.app`.
-- **`www.herdmaster.app` 301-redirects to the apex** (set in Netlify → Domain management).
-- **`dev.herdmaster.app`** is a **branch subdomain** mapped to the `dev` branch (Netlify → Domain management → branch subdomains).
+- **`www.herdmaster.app` 301-redirects to the apex** (configured in Netlify → Domain management).
 
-**GoDaddy DNS records** (add under *My Products → DNS* for herdmaster.app; the exact CNAME target is the Netlify site name, filled in once the site exists):
+**GoDaddy DNS records** (GoDaddy → My Products → herdmaster.app → DNS — *edit the existing `@` and `www` records; leave MX/TXT/other records untouched*):
 
 | Type | Name | Value | Purpose |
 |---|---|---|---|
-| `A` | `@` | `75.2.60.5` | apex → Netlify (GoDaddy can't CNAME the apex) |
-| `CNAME` | `www` | `<site-name>.netlify.app` | www → Netlify (redirects to apex) |
-| `CNAME` | `dev` | `<site-name>.netlify.app` | dev subdomain → Netlify branch deploy |
+| `A` | `@` | `75.2.60.5` | apex → Netlify load balancer (GoDaddy can't ALIAS the apex) |
+| `CNAME` | `www` | `herdmaster-site.netlify.app` | www → Netlify (redirects to apex) |
 
-Enable Netlify's automatic HTTPS once records resolve. (If we later move DNS to Netlify nameservers, these become automatic — but that's an optional bigger change.)
+After the records propagate, in Netlify → Domain management click **Verify DNS configuration** so HTTPS (Let's Encrypt) provisions.
 
-To flip the canonical to `www` instead of apex, reverse the redirect in Netlify and change `https://herdmaster.app` → `https://www.herdmaster.app` across the pages, `sitemap.xml`, and `robots.txt`.
+The dev preview needs no DNS — it lives on the free `dev--herdmaster-site.netlify.app` Netlify subdomain.
 
 ---
 
-## 7. One-time Netlify setup (done via the Netlify CLI + a few UI/DNS steps)
+## 7. One-time Netlify setup (state at handoff)
 
-CLI-driven where possible; the GitHub App is already installed on the account.
-
-- [ ] **Authenticate:** `netlify login` (browser OAuth; the token is stored locally, never shared).
-- [ ] **Create + link the site** to `cbwstudios/herdmaster-site`, production branch `main`, publish dir `.` (pinned by `netlify.toml`).
-- [ ] **Confirm continuous deploy** from GitHub (push `main` → production; push `dev` → dev deploy).
-- [ ] **Domains:** add `herdmaster.app` (primary), `www` (redirect to apex), and the `dev` branch subdomain; add the GoDaddy DNS records above; enable HTTPS.
-- [ ] **Gate dev:** enable password protection scoped to non-production (Netlify Pro), or deploy the Basic Auth Edge Function fallback for `dev.herdmaster.app`.
-- [ ] **Verify:** `dev.herdmaster.app` prompts for a password, serves `X-Robots-Tag: noindex`, and loads no `googletagmanager` / `codedesign.co` / `feedbucket` requests; `herdmaster.app` serves 200 with tracking on and `www` 301s to it.
+- [x] Site `herdmaster-site` created from `cbwstudios/herdmaster-site`; production branch `main`; publish `.` (pinned by `netlify.toml`); no build command.
+- [x] Custom domains added: `herdmaster.app` (primary) + `www.herdmaster.app` (redirect) — **pending DNS**.
+- [x] Branch deploys enabled for `dev`.
+- [x] Basic-Auth edge function committed (gates all non-production hosts).
+- [ ] **You:** add the GoDaddy DNS records above, then Netlify → Verify DNS configuration.
+- [ ] **You:** set the dev password — Netlify → Project configuration → Environment variables → add `DEV_PREVIEW_PASSWORD` = a password of your choice (optionally `DEV_PREVIEW_USER`). Redeploy `dev` to apply.
 
 ---
 
 ## 8. Rollback
 
-- **Instant:** Netlify → Deploys → last good production deploy → **Publish deploy** (reverts live with no git change).
+- **Instant:** Netlify → Deploys → last good production deploy → **Publish deploy** (reverts live, no git change).
 - **Durable:** revert the commit on `main` and push; Netlify redeploys.
 
 ---
 
 ## Repo files that implement this
 
-- `netlify.toml` — publish dir + `X-Robots-Tag: noindex` on preview/branch deploys (+ Basic Auth edge function config if used).
+- `netlify.toml` — publish dir + `X-Robots-Tag: noindex` on preview/branch deploys.
+- `netlify/edge-functions/dev-preview-auth.js` — Basic-Auth on non-production hosts.
 - `<head>` env gate on every page — host-gated GA4 + Feedbucket + non-prod `noindex`.
 - End-of-`<body>` gate on every page — host-gated GoHighLevel/LeadConnector.
 - `robots.txt`, `sitemap.xml` — canonical host = `herdmaster.app`.
-- GitHub Pages workflow (`.github/workflows/pages.yml`) — **removed**; Netlify is the sole deployer.
+- GitHub Pages workflow — **removed**; Netlify is the sole deployer.
