@@ -1279,14 +1279,12 @@
     .about-dedication{ text-align:center; color:var(--muted); font-size:.92rem; margin:22px auto 0; max-width:640px; }
     /* Pull-quote sitting inside a copy column (under the paragraph), left-aligned. */
     .pull-quote.in-col{ text-align:left; max-width:none; margin:26px 0 0; }
-    /* "Why HerdMaster": dark dashboard phone left, copy right, left-aligned on the navy band.
-       Match the base .split grid (auto + 560, gap 48, centered) so the columns line up with
-       the sections above, overriding the wider .privacy .split. */
-    #why .split{ grid-template-columns:auto minmax(0,560px); gap:48px; align-items:center; justify-content:center; margin-top:0; }
-    #why .fs3-phone{ width:360px; max-width:360px; }  /* explicit width (iframes default to 300) so the column matches the 360px photos above */
-    #why .lead{ margin:0; max-width:none; }
-    #why .pull-quote.on-dark{ text-align:left; max-width:none; margin:26px 0 0; }
-    @media (max-width:900px){ .split.rev, #why .split{ grid-template-columns:1fr; } #why .fs3-phone{ width:100%; max-width:320px; margin-inline:auto; } }
+    /* "Why HerdMaster": white section, phone left (features .fs3-phone treatment), copy right,
+       left-aligned. Uses the base .split grid so it aligns with the photo sections above. */
+    #why .fs3-phone{ width:360px; max-width:360px; }  /* explicit width (iframes default to 300) so the auto column matches the 360px photos above */
+    #why .pull-quote{ text-align:left; max-width:none; margin:26px 0 0; }
+    /* Stack the reversed and Why splits at the same breakpoint the base .split stacks (1000). */
+    @media (max-width:1000px){ .split.rev{ grid-template-columns:1fr; } #why .fs3-phone{ width:100%; max-width:320px; margin-inline:auto; } }
 
     /* ============================================================
        SPEED COMPARISON BAND (#speed, Features page) — lifted from
