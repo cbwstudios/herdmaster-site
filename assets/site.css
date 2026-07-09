@@ -553,8 +553,7 @@
     .au-bcard .par{ font-size:.8rem; color:var(--au-sec); margin-top:7px; letter-spacing:.02em; }
     .au-bcard .par2{ font-size:.8rem; color:var(--au-sec); margin-top:2px; }
     .au-dates{ display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); border:1px solid var(--au-sep); border-radius:10px; margin-top:12px; }
-    .au-dates div{ padding:7px 6px; min-width:0; border-right:1px solid var(--au-sep); }
-    .au-dates div:last-child{ border-right:0; }
+    .au-dates div{ padding:7px 6px; min-width:0; }
     .au-dates .k{ font-size:var(--au-fs-tag); color:var(--au-sec); } .au-dates .v{ font-size:var(--au-fs-tag); font-weight:700; margin-top:2px; white-space:nowrap; }
     .au-dates .due .v{ color:var(--au-teal); }
     .au-fab{ position:absolute; right:16px; bottom:14px; width:46px; height:46px; border-radius:50%; background:var(--au-teal); color:#fff; display:grid; place-items:center; box-shadow:0 8px 18px -6px rgba(47,158,152,.6); }
@@ -1132,11 +1131,13 @@
     .fs3-sec.multi:not(.rev) .fz-copy{ margin-left:clamp(14px,2.2vw,32px); }   /* extra separation from the rail */
     .fs3-sec.multi.rev .fz-copy{ margin-right:clamp(14px,2.2vw,32px); }
     .fs3-sec.multi:not(.rev) .fs3-rail{ flex-direction:row-reverse; }          /* tabs hug the phone, label sits outside */
-    .fs3-rail{ align-self:center; display:flex; align-items:center; gap:12px; height:210px; }
+    .fs3-rail{ align-self:center; display:flex; align-items:center; gap:12px; }
     .fs3-rail-name{ writing-mode:vertical-rl; transform:rotate(180deg); text-transform:uppercase; letter-spacing:.14em;
       font-size:.72rem; font-weight:800; color:var(--teal-dark); white-space:nowrap; }
-    .fs3-pills{ display:flex; flex-direction:column; gap:8px; height:100%; }
-    .fs3-pill{ flex:1; width:9px; padding:0; border:0; border-radius:999px; background:#d5e0dd; cursor:pointer;
+    /* Uniform pill size across every section: a fixed 68px pill so even the 2-pill rails span
+       ~146px, covering the longest switcher label (~138px) with room to spare. */
+    .fs3-pills{ display:flex; flex-direction:column; gap:10px; }
+    .fs3-pill{ height:68px; width:9px; padding:0; border:0; border-radius:999px; background:#d5e0dd; cursor:pointer;
       transition:background .2s ease, box-shadow .2s ease; }
     .fs3-pill:hover{ background:#bccfca; }
     .fs3-pill.on, .fs3-pill.on:hover{ background:linear-gradient(180deg, var(--teal-soft), var(--teal-dark));
@@ -1180,7 +1181,7 @@
       .fs3-sec.multi:not(.rev) .fs3-rail, .fs3-sec.multi.rev .fs3-rail{ flex-direction:column-reverse; height:auto; gap:10px; margin-top:6px; }
       .fs3-rail-name{ writing-mode:horizontal-tb; transform:none; }
       .fs3-pills{ flex-direction:row; height:auto; width:min(260px,72%); }
-      .fs3-pill{ width:auto; height:9px; }
+      .fs3-pill{ flex:1; width:auto; height:9px; }
     }
 
     /* ============================================================
