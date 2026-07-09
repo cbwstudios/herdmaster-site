@@ -26,7 +26,7 @@
   <meta name="theme-color" content="#222B37">
 
 
-  <link rel="stylesheet" href="../assets/site.css">
+  <link rel="stylesheet" href="../assets/site.css?v=tabs1">
 
   <!-- Environment gate: GA4 loads only on the production host. Feedbucket (the client
        point-and-comment review tool) loads only on non-production hosts (dev preview,
@@ -96,12 +96,18 @@
         <article class="legal">
           <header id="top">
             <h1>Privacy <b>Policy</b></h1>
-            <p class="updated">Last updated: July 8, 2026</p>
           </header>
 
+          <div class="legal-tabs" role="tablist" aria-label="Which privacy policy to view">
+            <button class="legal-tab" role="tab" id="tab-privacy-website" aria-controls="panel-privacy-website" aria-selected="true" tabindex="0">Website Privacy</button>
+            <button class="legal-tab" role="tab" id="tab-privacy-app" aria-controls="panel-privacy-app" aria-selected="false" tabindex="-1">HerdMaster app privacy</button>
+          </div>
+
+          <div class="legal-panel" id="panel-privacy-website" role="tabpanel" aria-labelledby="tab-privacy-website">
+          <p class="updated">Last updated: July 8, 2026</p>
           <p class="disclaimer">This is an AI-assisted draft prepared for human and legal review before publish. It is not legal advice. HERDMASTER RABBIT &amp; CAVY signs off or supplies replacement language.</p>
 
-          <p>This Privacy Policy explains how HERDMASTER RABBIT &amp; CAVY ("HerdMaster," "we," "us") handles information on the herdmaster.app website (the "Site"). It applies to the Site only. The HerdMaster iPhone app is covered by a separate app privacy policy provided at app launch.</p>
+          <p>This Privacy Policy explains how HERDMASTER RABBIT &amp; CAVY ("HerdMaster," "we," "us") handles information on the herdmaster.app website (the "Site"). It applies to the Site only. The HerdMaster app has its own privacy policy &mdash; see the HerdMaster app privacy tab above.</p>
 
           <nav class="toc" aria-label="Contents">
             <h2>Contents</h2>
@@ -166,6 +172,182 @@
             <h2 id="contact">12. <b>Contact us</b></h2>
             <p>Questions about privacy? Email support@herdmaster.app, or call (voice only) at (503) 943-0001.</p>
           </div>
+          </div>
+
+          <div class="legal-panel" id="panel-privacy-app" role="tabpanel" aria-labelledby="tab-privacy-app" hidden>
+          <p class="updated">Effective date: set at app launch.</p>
+          <p class="disclaimer">This is the privacy policy for the HerdMaster mobile app, provided ahead of launch. The effective date is finalized before release.</p>
+          <p>This policy covers the HerdMaster app itself. For how this website handles information, see the Website Privacy tab above.</p>
+          <nav class="toc" aria-label="Contents">
+            <h2>Contents</h2>
+            <ol>
+              <li><a href="#app-introduction">Introduction</a></li>
+              <li><a href="#app-age-restrictions">Age Restrictions</a></li>
+              <li><a href="#app-information-we-collect">Information We Collect</a></li>
+              <li><a href="#app-how-we-use-your-information">How We Use Your Information</a></li>
+              <li><a href="#app-data-storage-sync">Data Storage &amp; Sync</a></li>
+              <li><a href="#app-third-party-services">Third-Party Services</a></li>
+              <li><a href="#app-animal-share-codes">Animal Share Codes</a></li>
+              <li><a href="#app-partner-attribution-promo-codes">Partner Attribution &amp; Promo Codes</a></li>
+              <li><a href="#app-analytics-event-tracking">Analytics &amp; Event Tracking</a></li>
+              <li><a href="#app-data-retention">Data Retention</a></li>
+              <li><a href="#app-your-rights-choices">Your Rights &amp; Choices</a></li>
+              <li><a href="#app-security">Security</a></li>
+              <li><a href="#app-children-s-privacy-coppa">Children’s Privacy (COPPA)</a></li>
+              <li><a href="#app-california-privacy-rights-ccpa">California Privacy Rights (CCPA)</a></li>
+              <li><a href="#app-changes-to-this-privacy-policy">Changes to This Privacy Policy</a></li>
+              <li><a href="#app-contact-us">Contact Us</a></li>
+            </ol>
+          </nav>
+          <div class="legal-body">
+
+            <h2 id="app-introduction">1. Introduction</h2>
+            <p>HerdMaster LLC (“we,” “our,” or “us”) operates the HerdMaster mobile application (“the App”). This Privacy Policy explains how we collect, use, store, and protect your information when you use HerdMaster.</p>
+            <p>By downloading or using HerdMaster, you agree to the practices described in this Privacy Policy. If you do not agree, please do not use the App.</p>
+
+            <h2 id="app-age-restrictions">2. Age Restrictions</h2>
+            <p>HerdMaster is not directed at children under the age of 13. We do not knowingly collect personal information from children under 13. Users must be at least 13 years of age to create an account.</p>
+            <p>4-H and FFA users who are under the age of 13 must have verifiable parental or guardian consent before using the App. If we become aware that we have collected personal information from a child under 13 without parental consent, we will delete that information promptly.</p>
+            <p>Users between the ages of 13 and 18 should review this Privacy Policy with a parent or guardian.</p>
+
+            <h2 id="app-information-we-collect">3. Information We Collect</h2>
+            <h3>3.1 Information You Provide</h3>
+            <ul>
+              <li>Account information: name, email address, and password</li>
+              <li>Rabbitry or farm name (optional)</li>
+              <li>Animal records: breed, variety, ear number, date of birth, weight, health notes, photos</li>
+              <li>Breeding records: pairing information, litter records, kit counts</li>
+              <li>Harvest records: live weight, dressed weight, yield percentage, harvest date</li>
+              <li>Financial records: sale amounts, expense categories, invoice data</li>
+              <li>Customer records: buyer names, contact information, purchase history</li>
+              <li>Pedigree information: ancestor names and ear numbers up to four generations</li>
+              <li>Photos uploaded to animal records</li>
+            </ul>
+            <h3>3.2 Information Collected Automatically</h3>
+            <ul>
+              <li>Device type, operating system version, and app version</li>
+              <li>App usage events: screens viewed, features used, upgrade prompts triggered</li>
+              <li>Subscription and purchase events via Apple App Store and RevenueCat</li>
+              <li>Crash reports and diagnostic data</li>
+              <li>Partner attribution data when you use a promo code at signup</li>
+              <li>iCloud account identifier for CloudKit sync (Apple-managed, not accessible to us directly)</li>
+            </ul>
+            <h3>3.3 Information We Do NOT Collect</h3>
+            <ul>
+              <li>We do not collect your precise GPS location</li>
+              <li>We do not access your contacts, camera roll, or other apps without explicit permission</li>
+              <li>We do not sell your personal information to third parties</li>
+              <li>We do not collect payment card information — all purchases are processed by Apple</li>
+            </ul>
+
+            <h2 id="app-how-we-use-your-information">4. How We Use Your Information</h2>
+            <ul>
+              <li>To provide and operate the HerdMaster app and its features</li>
+              <li>To sync your data across your devices via iCloud CloudKit</li>
+              <li>To process and validate your subscription through Apple App Store and RevenueCat</li>
+              <li>To validate promo codes and attribute partner referrals</li>
+              <li>To analyze app usage and improve features (anonymized and aggregated)</li>
+              <li>To send account-related communications (subscription confirmations, support responses)</li>
+              <li>To diagnose technical issues and crashes</li>
+              <li>To comply with legal obligations</li>
+            </ul>
+
+            <h2 id="app-data-storage-sync">5. Data Storage &amp; Sync</h2>
+            <h3>5.1 On-Device Storage</h3>
+            <p>Your animal records, breeding records, harvest logs, financial data, and customer records are stored locally on your device using SwiftData. The App is designed to work offline. Your data is available without an internet connection.</p>
+            <h3>5.2 iCloud CloudKit Sync</h3>
+            <p>If you are signed into iCloud, your data is synced across your devices using Apple’s CloudKit service. CloudKit data is stored in your personal iCloud account and governed by Apple’s Privacy Policy (apple.com/legal/privacy). HerdMaster LLC does not have direct access to your CloudKit data.</p>
+            <h3>5.3 Backend Services</h3>
+            <p>HerdMaster uses a backend server (Google Cloud Run) for the following limited purposes:</p>
+            <ul>
+              <li>Subscription and entitlement validation via RevenueCat and Apple App Store</li>
+              <li>Promo code validation and partner attribution</li>
+              <li>Animal Share Code generation and temporary storage (30-day expiration, animal record only)</li>
+              <li>Anonymous analytics event processing</li>
+            </ul>
+            <p>Data transmitted to our backend is encrypted in transit using HTTPS. We do not store your full animal records, customer records, or financial data on our backend servers.</p>
+
+            <h2 id="app-third-party-services">6. Third-Party Services</h2>
+            <h3>6.1 RevenueCat</h3>
+            <p>We use RevenueCat to manage subscriptions, process entitlements, and handle subscription events. RevenueCat receives your App Store transaction data and subscription status. RevenueCat’s Privacy Policy is available at revenuecat.com/privacy.</p>
+            <h3>6.2 Apple App Store</h3>
+            <p>All purchases and subscriptions are processed by Apple. Apple’s Privacy Policy governs payment processing and transaction data. We do not receive or store your payment card information.</p>
+            <h3>6.3 Google Cloud Run</h3>
+            <p>Our backend services are hosted on Google Cloud Run. Google’s Privacy Policy is available at policies.google.com/privacy.</p>
+            <h3>6.4 Apple CloudKit</h3>
+            <p>Data sync between your devices is handled by Apple’s CloudKit service. Apple’s Privacy Policy governs CloudKit data storage and transmission.</p>
+
+            <h2 id="app-animal-share-codes">7. Animal Share Codes</h2>
+            <p>When you generate an Animal Share Code, a snapshot of that animal’s record (name, ear number, breed, variety, sex, date of birth, weight, and up to four generations of pedigree) is temporarily stored on our backend servers. This snapshot:</p>
+            <ul>
+              <li>Expires and is permanently deleted after 30 days</li>
+              <li>Is invalidated when you generate a new code for the same animal</li>
+              <li>Does not include your customer records, financial data, sales history, or account information</li>
+              <li>Contains only human-readable animal record values — no internal database identifiers or schema metadata</li>
+              <li>Can only be accessed by a HerdMaster user who has the specific share code</li>
+            </ul>
+
+            <h2 id="app-partner-attribution-promo-codes">8. Partner Attribution &amp; Promo Codes</h2>
+            <p>If you use a promo code at signup (such as an ARBA member code or creator partner code), we record which code was used and the resulting subscription to calculate revenue share payments to our partners. This data is used only for partner compensation purposes and is not shared with third parties beyond the partner organization associated with your code.</p>
+
+            <h2 id="app-analytics-event-tracking">9. Analytics &amp; Event Tracking</h2>
+            <p>We collect anonymized event data to understand how the app is used and to improve features. This includes events such as screens viewed, features accessed, upgrade prompts triggered, and tier transitions. This data is aggregated and anonymized — it is not linked to your personal identity or animal records.</p>
+            <p>We do not sell analytics data to third parties or use it for advertising purposes.</p>
+
+            <h2 id="app-data-retention">10. Data Retention</h2>
+            <ul>
+              <li>Your on-device data is retained until you delete the app or delete specific records</li>
+              <li>Your iCloud CloudKit data is retained in your iCloud account per Apple’s policies</li>
+              <li>Animal Share Code snapshots are deleted after 30 days</li>
+              <li>Backend analytics events are retained for up to 12 months then deleted</li>
+              <li>If you request account deletion, we will delete any backend records associated with your account within 30 days</li>
+            </ul>
+
+            <h2 id="app-your-rights-choices">11. Your Rights &amp; Choices</h2>
+            <h3>11.1 Access &amp; Correction</h3>
+            <p>All of your animal records, breeding records, financial data, and customer records are accessible and editable directly within the app at any time.</p>
+            <h3>11.2 Data Export</h3>
+            <p>You can export your data at any time using the data export feature (JSON and CSV formats). This export includes your complete animal records, pedigrees, breeding history, financial records, and customer records.</p>
+            <h3>11.3 Account Deletion</h3>
+            <p>To request deletion of your account and all associated backend data, contact us at privacy@herdmaster.app. We will process deletion requests within 30 days. Note that data stored in your iCloud account must be deleted separately through your iCloud settings.</p>
+            <h3>11.4 Subscription Management</h3>
+            <p>You can manage, pause, or cancel your subscription at any time through your Apple ID settings. Cancellation instructions are available at apple.com/support.</p>
+
+            <h2 id="app-security">12. Security</h2>
+            <p>We take reasonable measures to protect your information:</p>
+            <ul>
+              <li>All data transmitted between the app and our backend is encrypted using HTTPS/TLS</li>
+              <li>iCloud CloudKit data is encrypted by Apple at rest and in transit</li>
+              <li>Our backend services use Google Cloud’s security infrastructure</li>
+              <li>We do not store payment information — all transactions are handled by Apple</li>
+            </ul>
+            <p>No method of transmission or storage is 100% secure. We cannot guarantee absolute security of your data.</p>
+
+            <h2 id="app-children-s-privacy-coppa">13. Children’s Privacy (COPPA)</h2>
+            <p>HerdMaster is not directed at children under 13. We do not knowingly collect personal information from children under 13. The 4-H/FFA free tier is available to users 13 and older. Users under 18 should use the app under parental supervision.</p>
+            <p>If you believe we have inadvertently collected information from a child under 13, please contact us immediately at privacy@herdmaster.app and we will delete that information promptly.</p>
+
+            <h2 id="app-california-privacy-rights-ccpa">14. California Privacy Rights (CCPA)</h2>
+            <p>California residents have the right to:</p>
+            <ul>
+              <li>Know what personal information we collect and how it is used</li>
+              <li>Request deletion of their personal information</li>
+              <li>Opt out of the sale of personal information (we do not sell personal information)</li>
+              <li>Non-discrimination for exercising their privacy rights</li>
+            </ul>
+            <p>To exercise these rights, contact us at privacy@herdmaster.app.</p>
+
+            <h2 id="app-changes-to-this-privacy-policy">15. Changes to This Privacy Policy</h2>
+            <p>We may update this Privacy Policy from time to time. We will notify you of material changes by posting the updated policy in the app and updating the “Last Updated” date above. Your continued use of the app after any changes constitutes acceptance of the updated policy.</p>
+
+            <h2 id="app-contact-us">16. Contact Us</h2>
+            <p>If you have questions, concerns, or requests regarding this Privacy Policy or your data, please contact us:</p>
+            <p>HerdMaster LLC</p>
+            <p>Email: privacy@herdmaster.app</p>
+            <p>Website: herdmaster.app</p>
+            <p>McMinnville, Oregon, USA</p>
+          </div>
+          </div>
         </article>
       </div>
     </section>
@@ -198,7 +380,7 @@
     </div>
   </footer>
 
-  <script src="../assets/site.js" defer></script>
+  <script src="../assets/site.js?v=tabs1" defer></script>
   <!-- GoHighLevel (LeadConnector) tracking: production host only, so preview/staging
        form submits never reach the live CRM. Do not remove. -->
   <script>

@@ -273,6 +273,44 @@
       });
     })();
 
+    // Legal pages: Website vs HerdMaster-app policy tabs (ARIA tablist, arrow-key nav, deep-link aware).
+    (function(){
+      var groups = document.querySelectorAll('.legal-tabs');
+      if(!groups.length) return;
+      Array.prototype.forEach.call(groups, function(tabs){
+        var buttons = Array.prototype.slice.call(tabs.querySelectorAll('.legal-tab'));
+        function activate(btn, focus){
+          buttons.forEach(function(b){
+            var on = b === btn;
+            b.setAttribute('aria-selected', on ? 'true' : 'false');
+            b.tabIndex = on ? 0 : -1;
+            var panel = document.getElementById(b.getAttribute('aria-controls'));
+            if(panel) panel.hidden = !on;
+          });
+          if(focus) btn.focus();
+        }
+        tabs.addEventListener('click', function(e){
+          var btn = e.target.closest ? e.target.closest('.legal-tab') : null;
+          if(btn) activate(btn);
+        });
+        tabs.addEventListener('keydown', function(e){
+          var i = buttons.indexOf(document.activeElement);
+          if(i < 0 || (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft')) return;
+          e.preventDefault();
+          activate(buttons[(i + (e.key === 'ArrowRight' ? 1 : -1) + buttons.length) % buttons.length], true);
+        });
+        // Deep link: if the URL hash points into a non-default panel, open that tab.
+        if(location.hash.length > 1){
+          var target = document.getElementById(location.hash.slice(1));
+          var panel = target && target.closest ? target.closest('.legal-panel') : null;
+          if(panel){
+            var btn = tabs.querySelector('[aria-controls="' + panel.id + '"]');
+            if(btn && btn.getAttribute('aria-selected') !== 'true'){ activate(btn); target.scrollIntoView(); }
+          }
+        }
+      });
+    })();
+
     // Footer: set the copyright year dynamically (avoids a hardcoded year going stale).
     (function(){
       var y = String(new Date().getFullYear());
