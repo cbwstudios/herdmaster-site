@@ -48,9 +48,9 @@
     ]
   }
   </script>
-  <!-- Environment gate: analytics + feedback load only on the production host; any
-       non-production host (Netlify preview, branch deploy, localhost) is marked noindex.
-       Keeps previews out of search results and out of GA4 / the CRM / Feedbucket. -->
+  <!-- Environment gate: GA4 loads only on the production host. Feedbucket (the client
+       point-and-comment review tool) loads only on non-production hosts (dev preview,
+       branch deploys, localhost), which are also marked noindex, so it never reaches live. -->
   <script>
     (function () {
       var host = location.hostname;
@@ -59,9 +59,15 @@
         var m = document.createElement('meta');
         m.name = 'robots'; m.content = 'noindex, nofollow';
         document.head.appendChild(m);
+        // Feedbucket: client review tool, previews and dev only, never production
+        (function (k) {
+          var s = document.createElement('script'); s.defer = true;
+          s.src = 'https://cdn.feedbucket.app/assets/feedbucket.js';
+          s.dataset.feedbucket = k; document.head.appendChild(s);
+        })('drOVGQCDSTOmWcrxShYB');
         return;
       }
-      // Google Analytics 4 (gtag.js)
+      // Google Analytics 4 (gtag.js), production only
       var ga = document.createElement('script'); ga.async = true;
       ga.src = 'https://www.googletagmanager.com/gtag/js?id=G-NJ4GDHK7XS';
       document.head.appendChild(ga);
@@ -69,12 +75,6 @@
       window.gtag = function () { dataLayer.push(arguments); };
       gtag('js', new Date());
       gtag('config', 'G-NJ4GDHK7XS');
-      // Feedbucket
-      (function (k) {
-        var s = document.createElement('script'); s.defer = true;
-        s.src = 'https://cdn.feedbucket.app/assets/feedbucket.js';
-        s.dataset.feedbucket = k; document.head.appendChild(s);
-      })('drOVGQCDSTOmWcrxShYB');
     })();
   </script>
 </head>

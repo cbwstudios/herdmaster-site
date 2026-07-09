@@ -29,10 +29,10 @@ GitHub Pages is retired; Netlify is the only deployer.
 
 | Environment | Branch | URL | Public? | Indexed? | Analytics / CRM |
 |---|---|---|---|---|---|
-| **Production** | `main` | `https://herdmaster.app` (www → apex) | Yes | Yes | **On** (GA4, GoHighLevel, Feedbucket) |
-| **Dev preview** | `dev` | `https://dev--herdmaster-site.netlify.app` | **No — password** | No | Off |
-| **PR preview** | any PR | `https://deploy-preview-<n>--herdmaster-site.netlify.app` | No — password | No | Off |
-| **Local** | working tree | `http://localhost:<port>` | — | No | Off |
+| **Production** | `main` | `https://herdmaster.app` (www → apex) | Yes | Yes | GA4 + GoHighLevel **on**; Feedbucket **off** |
+| **Dev preview** | `dev` | `https://dev--herdmaster-site.netlify.app` | **No — password** | No | GA4/CRM off; **Feedbucket on** |
+| **PR preview** | any PR | `https://deploy-preview-<n>--herdmaster-site.netlify.app` | No — password | No | GA4/CRM off; **Feedbucket on** |
+| **Local** | working tree | `http://localhost:<port>` | — | No | GA4/CRM off; Feedbucket injected |
 
 The always-on production Netlify URL `herdmaster-site.netlify.app` mirrors production (public, tracking on, but client-side `noindex`).
 
@@ -52,7 +52,7 @@ The always-on production Netlify URL `herdmaster-site.netlify.app` mirrors produ
 
 Every guard keys off the **hostname**, so production behaviour turns on only for `herdmaster.app` / `www.herdmaster.app`; all other hosts are treated as non-production automatically.
 
-1. **Tracking is production-host-only.** In each page's `<head>`, an env gate loads **GA4 (`G-NJ4GDHK7XS`)** + **Feedbucket** only on the production host; the **GoHighLevel/LeadConnector** tag at the end of `<body>` is gated the same way. Previews load none of them.
+1. **Analytics/CRM are production-host-only; Feedbucket is the inverse.** In each page's `<head>`, an env gate loads **GA4 (`G-NJ4GDHK7XS`)** only on the production host, and the **GoHighLevel/LeadConnector** tag at the end of `<body>` is gated the same way. **Feedbucket** (the client point-and-comment review tool) is deliberately the opposite: it loads **only on non-production hosts** (dev preview, PR previews, localhost) and is **never** present on the live site, so real visitors never see the review widget. Production loads GA4 + GoHighLevel and no Feedbucket; previews load Feedbucket and no GA4/CRM.
 2. **Previews are `noindex`.** The head gate injects `<meta name="robots" content="noindex, nofollow">` on any non-production host; `netlify.toml` also sends `X-Robots-Tag: noindex` on Deploy Previews and branch deploys.
 3. **Dev is password-gated.** `netlify/edge-functions/dev-preview-auth.js` requires HTTP Basic-Auth on every non-production host. Production hosts pass straight through. The password comes from the **`DEV_PREVIEW_PASSWORD`** environment variable (set in Netlify; never committed); username defaults to `herdmaster` (override with `DEV_PREVIEW_USER`). It **fails closed** — if the env var is unset, the preview stays locked.
 
@@ -108,7 +108,7 @@ The dev preview needs no DNS — it lives on the free `dev--herdmaster-site.netl
 
 - `netlify.toml` — publish dir + `X-Robots-Tag: noindex` on preview/branch deploys.
 - `netlify/edge-functions/dev-preview-auth.js` — Basic-Auth on non-production hosts.
-- `<head>` env gate on every page — host-gated GA4 + Feedbucket + non-prod `noindex`.
+- `<head>` env gate on every page — GA4 on prod only, Feedbucket on non-prod only, non-prod `noindex`.
 - End-of-`<body>` gate on every page — host-gated GoHighLevel/LeadConnector.
 - `robots.txt`, `sitemap.xml` — canonical host = `herdmaster.app`.
 - GitHub Pages workflow — **removed**; Netlify is the sole deployer.
