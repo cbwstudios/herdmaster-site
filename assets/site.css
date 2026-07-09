@@ -197,6 +197,10 @@
       background:var(--grad-head);   /* vertical: light at top, dark at bottom */
       -webkit-background-clip:text; background-clip:text; color:transparent;
     }
+    /* Desktop-only heading break: forces a balanced line break on wide screens where a
+       lone word would otherwise orphan. Collapses on tablet/phone so text wraps naturally. */
+    .br-d{ display:none; }
+    @media (min-width:1120px){ .br-d{ display:inline; } }
     h1{ font-size:clamp(2.35rem,5.2vw,3.75rem); }
     h2{ font-size:clamp(1.85rem,3.6vw,2.5rem); }
     h3{ margin:0 0 .4em; font-size:1.18rem; font-weight:700; letter-spacing:-.01em; line-height:1.25; }
