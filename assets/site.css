@@ -1058,6 +1058,13 @@
     .fp-doc{ position:relative; width:100%; overflow:hidden; border-radius:18px; background:#e9eeec; box-shadow:var(--shadow); margin-top:28px; }
     .fp-doc iframe{ width:1080px; height:1606px; border:0; display:block; transform-origin:top left; }
 
+    /* Pedigrees is a full-width section: centered header, then the pedigree document rendered large
+       across the container (not squeezed into a two-column phone rail). */
+    .fp-panel{ text-align:center; }
+    .fp-panel .panel-head{ max-width:640px; margin:0 auto; }
+    .fp-panel .panel-head > p{ margin-inline:auto; }
+    .fp-panel .fp-doc{ max-width:960px; margin:32px auto 0; }
+
     @media (max-width:900px){ .feat-cards{ grid-template-columns:1fr 1fr; } }
     @media (max-width:620px){ .feat-cards{ grid-template-columns:1fr; max-width:420px; margin-inline:auto; } }
 
