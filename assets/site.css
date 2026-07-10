@@ -1338,6 +1338,8 @@
     /* On the show table: an app screenshot sits in the right column (reversed split) */
     #show-table .split.rev{ grid-template-columns:minmax(0,560px) 360px; }
     #show-table .fs3-phone{ width:340px; max-width:340px; justify-self:end; }
+    /* credential pills live under the copy in the left column, left-aligned */
+    #show-table .cred-strip{ justify-content:flex-start; margin-top:24px; }
     @media (max-width:1000px){
       .split.rev, #why .split{ grid-template-columns:1fr; }
       #why .fs3-phone, #show-table .fs3-phone{ width:100%; max-width:340px; justify-self:center; margin-inline:auto; }
