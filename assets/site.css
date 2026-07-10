@@ -745,7 +745,9 @@
       .footer-grid{ grid-template-columns:1fr 1fr; gap:30px; }
       .split{ grid-template-columns:1fr; gap:36px; }
       .privacy .split{ grid-template-columns:1fr; }   /* stack: sync visual over the cards */
-      .split .device{ margin:0 auto; order:-1; }
+      /* content first, screen/photo second on mobile (homepage import screen, About story photo) */
+      .split .device{ margin:0 auto; order:2; }
+      #where-it-started .about-photo{ order:2; }
       .bento{ grid-template-columns:1fr; }
       .bcard.big{ grid-row:auto; }
       .steps{ grid-template-columns:1fr; gap:30px; max-width:520px; margin:0 auto; }
@@ -1348,6 +1350,8 @@
          two-column rule (higher specificity) wins and the section won't stack on mobile. */
       .split.rev, #why .split, #show-table .split.rev{ grid-template-columns:1fr; }
       #why .fs3-phone, #show-table .fs3-phone{ width:100%; max-width:340px; justify-self:center; margin-inline:auto; }
+      /* content first, screen second: #why has the phone first in source, so push it below */
+      #why .fs3-phone{ order:2; }
     }
 
     /* ============================================================
