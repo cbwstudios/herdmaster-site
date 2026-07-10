@@ -1139,9 +1139,12 @@
       background:var(--screen); border-radius:42px; padding:3.5294%; box-shadow:0 30px 60px -26px rgba(14,22,32,.5); }
     /* every screen occupies the same grid cell so they overlay EXACTLY (identical box,
        even bezel) and crossfade opacity on switch — no axis-relative inset mismatch */
+    /* pointer-events:none keeps the framed screen a STATIC crop: touch/wheel pass through
+       to the page instead of scrolling the screen, while overflow-y:auto still lets the
+       status bar and tab bar stay pinned. (Mirrors the old iframe's pointer-events:none.) */
     .fs3-phone .au{ grid-area:1/1; height:auto; aspect-ratio:316/684; align-self:start; border-radius:30px;
       overflow-y:auto; overflow-x:hidden; overscroll-behavior:contain; scrollbar-width:none; position:static;
-      clip-path:inset(0 round 30px); transition:opacity .28s ease; }
+      clip-path:inset(0 round 30px); pointer-events:none; transition:opacity .28s ease; }
     .fs3-phone .au::-webkit-scrollbar{ display:none; }
     .fs3-phone .au:not(.show){ opacity:0; }
     /* pinned chrome + dynamic island (mirrors the #embed-scroll rules, keyed page-side) */
