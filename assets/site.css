@@ -892,7 +892,9 @@
     .cmp .num{ font-weight:700; color:var(--navy); }
     .cmp .yes{ display:inline-flex; } .cmp .yes svg{ width:20px; height:20px; color:var(--teal); }
     .cmp .no{ display:inline-flex; } .cmp .no svg{ width:16px; height:16px; color:#c4cecb; }
-    table.cmp .tbd{ color:var(--muted); font-style:italic; }
+    /* Unreleased-feature marker. Unscoped from table.cmp so the same treatment can be
+       reused inline inside .plan card bullets, e.g. "Color genetics (Coming Soon)". */
+    .tbd{ color:var(--muted); font-style:italic; }
 
     /* Contact two-column + form fields */
     .contact-grid{ display:grid; grid-template-columns:1.3fr .9fr; gap:42px; align-items:start; }
