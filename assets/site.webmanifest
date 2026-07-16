@@ -1,0 +1,14 @@
+{
+  "name": "HerdMaster",
+  "short_name": "HerdMaster",
+  "description": "Rabbit and cavy breeding and show records for serious breeders.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#222B37",
+  "icons": [
+    { "src": "/assets/web-app-manifest-192x192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/assets/web-app-manifest-512x512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}
