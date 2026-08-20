@@ -5,6 +5,17 @@
 [build]
   publish = "."
 
+# --- /app: stable redirect for convention signage & QR codes ------------------
+# 302 (temporary) on purpose: the public /app address stays fixed while the target
+# changes. For now it points at the on-site "coming soon" placeholder; once the
+# App Store listing is live, retarget `to` to the App Store URL (keep status 302
+# until it is truly permanent). force = true so /app is always a redirect.
+[[redirects]]
+  from = "/app"
+  to = "/app-coming-soon/"
+  status = 302
+  force = true
+
 # --- Keep preview environments out of search engines --------------------------
 # Production (main -> www.herdmaster.app) stays indexable via each page's meta robots.
 # Deploy Previews (PRs) and branch deploys (e.g. dev) send X-Robots-Tag: noindex so a
