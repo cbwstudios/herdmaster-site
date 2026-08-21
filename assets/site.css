@@ -431,7 +431,7 @@
        no gradient tiles, so the two grids read as distinct. */
     /* breeders and how-it-works are both white; drop the doubled padding between them */
     #breeders{ padding-bottom:0; }
-    .bgrid{ display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
+    .bgrid{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
     .brcard{ position:relative; display:flex; flex-direction:column; gap:11px; background:#fff; border:1px solid var(--line);
       border-radius:var(--radius); padding:24px 22px; transition:transform .18s var(--ease), box-shadow .18s; height:100%; }
     .brcard:hover{ transform:translateY(-3px); box-shadow:var(--shadow-sm); }

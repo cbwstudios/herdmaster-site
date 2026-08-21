@@ -158,7 +158,7 @@
             <p>We keep newsletter and contact information until you unsubscribe or ask us to delete it. Analytics data is retained according to our Google Analytics configuration.</p>
 
             <h2 id="children">8. Children's <b>privacy</b></h2>
-            <p>The Site is intended for adult breeders and is not directed to children under 13. We do not knowingly collect personal information from children through the Site. (The app's 4-H and FFA youth access is an app matter, addressed in the app's own policy, not here.)</p>
+            <p>The Site is intended for adult breeders and is not directed to children under 13. We do not knowingly collect personal information from children through the Site.</p>
 
             <h2 id="security">9. <b>Security</b></h2>
             <p>We use reasonable measures to protect the limited information the Site collects. No method of transmission or storage is completely secure, so we cannot guarantee absolute security.</p>
@@ -187,7 +187,6 @@
               <li><a href="#app-how-we-use-your-information">How We Use Your Information</a></li>
               <li><a href="#app-data-storage-sync">Data Storage &amp; Sync</a></li>
               <li><a href="#app-third-party-services">Third-Party Services</a></li>
-              <li><a href="#app-animal-share-codes">Animal Share Codes</a></li>
               <li><a href="#app-partner-attribution-promo-codes">Partner Attribution &amp; Promo Codes</a></li>
               <li><a href="#app-analytics-event-tracking">Analytics &amp; Event Tracking</a></li>
               <li><a href="#app-data-retention">Data Retention</a></li>
@@ -206,9 +205,9 @@
             <p>By downloading or using HerdMaster, you agree to the practices described in this Privacy Policy. If you do not agree, please do not use the App.</p>
 
             <h2 id="app-age-restrictions">2. Age Restrictions</h2>
-            <p>HerdMaster is not directed at children under the age of 13. We do not knowingly collect personal information from children under 13. Users must be at least 13 years of age to create an account.</p>
-            <p>4-H and FFA users who are under the age of 13 must have verifiable parental or guardian consent before using the App. If we become aware that we have collected personal information from a child under 13 without parental consent, we will delete that information promptly.</p>
-            <p>Users between the ages of 13 and 18 should review this Privacy Policy with a parent or guardian.</p>
+            <p>HerdMaster is not directed to children under the age of 13, and we do not knowingly collect personal information from children under 13. You must be at least 13 years of age to create a HerdMaster account.</p>
+            <p>Users between the ages of 13 and 18 must have permission from, and should use the App under the supervision of, a parent or guardian. Youth participants in 4-H, FFA, and similar programs who are under 13 may participate in a project managed under an account held by a parent, guardian, or club leader who meets the age requirement.</p>
+            <p>If we become aware that we have collected personal information from a child under 13, we will delete that information promptly. To report such a case, contact us at support@herdmaster.app.</p>
 
             <h2 id="app-information-we-collect">3. Information We Collect</h2>
             <h3>3.1 Information You Provide</h3>
@@ -262,7 +261,6 @@
             <ul>
               <li>Subscription and entitlement validation via RevenueCat and Apple App Store</li>
               <li>Promo code validation and partner attribution</li>
-              <li>Animal Share Code generation and temporary storage (30-day expiration, animal record only)</li>
               <li>Anonymous analytics event processing</li>
             </ul>
             <p>Data transmitted to our backend is encrypted in transit using HTTPS. We do not store your full animal records, customer records, or financial data on our backend servers.</p>
@@ -277,16 +275,6 @@
             <h3>6.4 Apple CloudKit</h3>
             <p>Data sync between your devices is handled by Apple’s CloudKit service. Apple’s Privacy Policy governs CloudKit data storage and transmission.</p>
 
-            <h2 id="app-animal-share-codes">7. Animal Share Codes</h2>
-            <p>When you generate an Animal Share Code, a snapshot of that animal’s record (name, ear number, breed, variety, sex, date of birth, weight, and up to four generations of pedigree) is temporarily stored on our backend servers. This snapshot:</p>
-            <ul>
-              <li>Expires and is permanently deleted after 30 days</li>
-              <li>Is invalidated when you generate a new code for the same animal</li>
-              <li>Does not include your customer records, financial data, sales history, or account information</li>
-              <li>Contains only human-readable animal record values — no internal database identifiers or schema metadata</li>
-              <li>Can only be accessed by a HerdMaster user who has the specific share code</li>
-            </ul>
-
             <h2 id="app-partner-attribution-promo-codes">8. Partner Attribution &amp; Promo Codes</h2>
             <p>If you use a promo code at signup (such as an ARBA member code or creator partner code), we record which code was used and the resulting subscription to calculate revenue share payments to our partners. This data is used only for partner compensation purposes and is not shared with third parties beyond the partner organization associated with your code.</p>
 
@@ -298,18 +286,21 @@
             <ul>
               <li>Your on-device data is retained until you delete the app or delete specific records</li>
               <li>Your iCloud CloudKit data is retained in your iCloud account per Apple’s policies</li>
-              <li>Animal Share Code snapshots are deleted after 30 days</li>
               <li>Backend analytics events are retained for up to 12 months then deleted</li>
               <li>If you request account deletion, we will delete any backend records associated with your account within 30 days</li>
             </ul>
+            <p>If you enable iCloud sync, HerdMaster synchronizes herd data to a dedicated CloudKit record zone in your private iCloud database. When you delete your HerdMaster account, HerdMaster’s account-deletion workflow is configured to delete the HerdMaster account-binding and herd-state records and the dedicated CloudKit record zone used for the synchronized herd before finalizing deletion of the HerdMaster backend account. If you never enabled iCloud sync, there is no synchronized HerdMaster herd in CloudKit to delete. This process is limited to HerdMaster records and HerdMaster’s dedicated CloudKit record zone and does not delete other data in your private iCloud database.</p>
 
             <h2 id="app-your-rights-choices">11. Your Rights &amp; Choices</h2>
             <h3>11.1 Access &amp; Correction</h3>
             <p>All of your animal records, breeding records, financial data, and customer records are accessible and editable directly within the app at any time.</p>
             <h3>11.2 Data Export</h3>
-            <p>You can export your data at any time using the data export feature (JSON and CSV formats). This export includes your complete animal records, pedigrees, breeding history, financial records, and customer records.</p>
+            <p>You can create a complete backup of your herd data at any time from the app. The backup is a single file in JSON format (.herdbackup) containing your animal records, pedigrees, breeding records, litters, kits, weight records, show records, health records, tasks, activity history, animal and litter photos, and your profile image.</p>
+            <p>The backup can be saved to Files, stored elsewhere, or sent to us if you need support. You can restore from a backup file at any time.</p>
             <h3>11.3 Account Deletion</h3>
-            <p>To request deletion of your account and all associated backend data, contact us at privacy@herdmaster.app. We will process deletion requests within 30 days. Note that data stored in your iCloud account must be deleted separately through your iCloud settings.</p>
+            <p>To request deletion of your account and all associated backend data, contact us at support@herdmaster.app. We will process deletion requests within 30 days.</p>
+            <p>Deleting your HerdMaster account does not cancel an auto-renewable subscription purchased through the App Store. Apple manages that subscription separately, and billing can continue until you cancel the subscription through Apple. To prevent future renewal charges, cancel the subscription before deleting your HerdMaster account. You may still delete the HerdMaster account immediately without first canceling the subscription.</p>
+            <p>When you delete your HerdMaster account, the app deletes the local herd. If iCloud sync was enabled, HerdMaster’s account-deletion workflow is configured to delete the HerdMaster account-binding and herd-state records and the dedicated CloudKit record zone used for the synchronized herd before finalizing deletion of the HerdMaster backend account. If iCloud sync was never enabled, there is no synchronized HerdMaster herd in CloudKit to delete. The CloudKit deletion is limited to HerdMaster records and HerdMaster’s dedicated record zone and does not affect other data in your private iCloud database.</p>
             <h3>11.4 Subscription Management</h3>
             <p>You can manage, pause, or cancel your subscription at any time through your Apple ID settings. Cancellation instructions are available at apple.com/support.</p>
 
@@ -324,8 +315,9 @@
             <p>No method of transmission or storage is 100% secure. We cannot guarantee absolute security of your data.</p>
 
             <h2 id="app-children-s-privacy-coppa">13. Children’s Privacy (COPPA)</h2>
-            <p>HerdMaster is not directed at children under 13. We do not knowingly collect personal information from children under 13. The 4-H/FFA free tier is available to users 13 and older. Users under 18 should use the app under parental supervision.</p>
-            <p>If you believe we have inadvertently collected information from a child under 13, please contact us immediately at privacy@herdmaster.app and we will delete that information promptly.</p>
+            <p>HerdMaster is not directed to children under 13 and we do not knowingly collect personal information from children under 13. Accounts require users to be at least 13 years of age. Users under 18 should use the App with parental permission and supervision.</p>
+            <p>Youth livestock projects involving participants under 13 are managed under an account held by an eligible adult. We do not create or maintain accounts for children under 13.</p>
+            <p>If you believe we have inadvertently collected information from a child under 13, contact us at support@herdmaster.app and we will delete that information promptly.</p>
 
             <h2 id="app-california-privacy-rights-ccpa">14. California Privacy Rights (CCPA)</h2>
             <p>California residents have the right to:</p>
@@ -335,7 +327,7 @@
               <li>Opt out of the sale of personal information (we do not sell personal information)</li>
               <li>Non-discrimination for exercising their privacy rights</li>
             </ul>
-            <p>To exercise these rights, contact us at privacy@herdmaster.app.</p>
+            <p>To exercise these rights, contact us at support@herdmaster.app.</p>
 
             <h2 id="app-changes-to-this-privacy-policy">15. Changes to This Privacy Policy</h2>
             <p>We may update this Privacy Policy from time to time. We will notify you of material changes by posting the updated policy in the app and updating the “Last Updated” date above. Your continued use of the app after any changes constitutes acceptance of the updated policy.</p>
@@ -343,7 +335,7 @@
             <h2 id="app-contact-us">16. Contact Us</h2>
             <p>If you have questions, concerns, or requests regarding this Privacy Policy or your data, please contact us:</p>
             <p>HerdMaster LLC</p>
-            <p>Email: privacy@herdmaster.app</p>
+            <p>Email: support@herdmaster.app</p>
             <p>Website: herdmaster.app</p>
             <p>McMinnville, Oregon, USA</p>
           </div>
