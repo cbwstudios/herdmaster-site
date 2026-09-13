@@ -1263,12 +1263,12 @@
         <div class="fz-copy fade">
           <span class="eyebrow">04 &middot; Litters &amp; Kit Tracking</span>
           <h2>From the nest box <b>to a permanent record.</b></h2>
-          <p>Log the litter the day it arrives, then track every kit through weaning: counts, sexes, and outcomes stay current without a paper tally in the barn.</p>
+          <p>Record a litter from the sire, dam, and birth date, then track every kit through weaning from your phone in the barn: counts, sexes, and outcomes stay current without a paper tally.</p>
           <ul class="fz-list">
-              <li><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg><span><b>Full litter records.</b> Born dates and kit counts, with alive, deceased, and culled tracked separately, including cull reasons.</span></li>
+              <li><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg><span><b>Litter records from sire, dam, and birth date.</b> Kit counts with alive, deceased, and culled tracked separately, including cull reasons.</span></li>
               <li><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg><span><b>Show-quality designations.</b> Mark the keepers early and watch the promising ones develop.</span></li>
               <li><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg><span><b>Weaning summaries.</b> A clean summary of the litter when it leaves the nest box.</span></li>
-              <li><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg><span><b>Tattoo promotion.</b> Promote a kit to a permanent herd record with its tattoo and ear number, history intact.</span></li>
+              <li><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg><span><b>Promote retained kits into the herd.</b> A kept kit becomes an animal in your herd with its tattoo and ear number, and the litter and the resulting animals stay connected to their pedigrees.</span></li>
           </ul>
         </div>
       </div>
@@ -1606,9 +1606,16 @@
           <ul class="fz-list">
               <li><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg><span><b>Evans XML, the lead path.</b> The entire export comes across: animals, winnings, and litters, one pass.</span></li>
               <li><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg><span><b>OCR pedigree scan.</b> Photo, PDF, or scan; HerdMaster reads it in and you review and confirm every field.</span></li>
-              <li><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg><span><b>Every other road in.</b> Evans PDF, Everbreed Share Link, Everbreed Litters CSV, XPEDX and HTM fallbacks, and manual entry.</span></li>
+              <li><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg><span><b>Every other road in.</b> Evans PDF, XPEDX and HTM fallbacks, and manual entry.</span></li>
               <li><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg><span><b>Safe by design.</b> Autofill suggestions, import summaries, duplicate handling, and rollback if an import fails.</span></li>
           </ul>
+          <div class="path" id="everbreed">
+            <span class="ic"><svg width="22" height="22" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M240,88.23a54.43,54.43,0,0,1-16,37L189.25,160a54.27,54.27,0,0,1-38.63,16h-.05A54.63,54.63,0,0,1,96,119.84a8,8,0,0,1,16,.45A38.62,38.62,0,0,0,150.58,160h0a38.39,38.39,0,0,0,27.31-11.31l34.75-34.75a38.63,38.63,0,0,0-54.63-54.63l-11,11A8,8,0,0,1,135.7,59l11-11A54.65,54.65,0,0,1,224,48,54.86,54.86,0,0,1,240,88.23ZM109,185.66l-11,11A38.41,38.41,0,0,1,70.6,208h0a38.63,38.63,0,0,1-27.29-65.94L78,107.31A38.63,38.63,0,0,1,144,135.71a8,8,0,0,0,16,.45A54.86,54.86,0,0,0,144,96a54.65,54.65,0,0,0-77.27,0L32,130.75A54.62,54.62,0,0,0,70.56,224h0a54.28,54.28,0,0,0,38.64-16l11-11A8,8,0,0,0,109,185.66Z"/></svg></span>
+            <div>
+              <h3>Coming from Everbreed?</h3>
+              <p>Import your herd with a Share Link or a Litters CSV. Animals, pedigrees and litters come across, and you check the result before anything is saved.</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
