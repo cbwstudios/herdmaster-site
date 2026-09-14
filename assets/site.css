@@ -1210,7 +1210,7 @@
       .fs3-phone{ max-width:300px; margin-inline:auto; }
       /* center the eyebrow + title; body copy stays left-aligned */
       .fs3-sec .fz-copy{ text-align:center; }
-      .fs3-sec .fz-copy > p, .fs3-sec .fz-list{ text-align:left; }
+      .fs3-sec .fz-copy > p, .fs3-sec .fz-list, .fs3-sec .path{ text-align:left; }
       /* rail: a compact horizontal strip under the phone (reset the desktop row-reverse) */
       .fs3-sec.multi:not(.rev) .fs3-rail, .fs3-sec.multi.rev .fs3-rail{ flex-direction:column-reverse; height:auto; gap:10px; margin-top:6px; }
       .fs3-rail-name{ writing-mode:horizontal-tb; transform:none; }
