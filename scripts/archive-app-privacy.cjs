@@ -69,7 +69,17 @@ const after = a.slice(iArt);
 const panelOpenEnd = panel.indexOf(">");
 panel = '<div class="legal-panel" id="panel-privacy-app">' + panel.slice(panelOpenEnd + 1);
 
-a = before + panel + after;
+// Archive navigation note. Sits OUTSIDE the policy panel (so it is not part of
+// the operative policy text or its hash) and replaces the tablist the canonical
+// page has here: the archived app policy refers readers to the Website Privacy
+// tab, which lives on the current /privacy page, not in this archive.
+const note =
+  '<nav class="callout note" aria-label="Archive navigation">\n' +
+  '            <div><b>Archived copy</b>This is a frozen archive of the HerdMaster app privacy policy (' + id + '). ' +
+  'The Website Privacy policy is not part of this archive; it is on the current <a href="../privacy/">Privacy page</a> under the Website Privacy tab.</div>\n' +
+  '          </nav>\n\n          ';
+
+a = before + note + panel + after;
 
 // --- Archive head conventions (same as archive-privacy.cjs) ---------------------
 // Depth: /privacy/ (1) -> /privacy/archive/<id>/ (3). Rewrite every root-relative
