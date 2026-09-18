@@ -620,6 +620,7 @@
       background:radial-gradient(circle at 30% 22%, var(--teal-soft), var(--teal-dark)); box-shadow:0 8px 18px -8px rgba(34,118,115,.6); }
     .path h3{ margin:0 0 4px; }
     .path p{ margin:0; color:var(--muted); font-size:.98rem; line-height:1.5; }
+    .path p + p{ margin-top:var(--sp-5); }   /* one line of separation between consecutive paragraphs */
     .chips{ display:flex; flex-wrap:wrap; gap:8px; margin:20px 0; }
     .chip{ font-size:.82rem; font-weight:600; color:var(--navy); background:#fff; border:1px solid var(--navy-2); border-radius:999px; padding:6px 13px; }
     .reassure-row{ display:flex; gap:11px; align-items:flex-start; font-size:.98rem; color:#333; }
@@ -671,10 +672,12 @@
     .plan li{ display:flex; gap:9px; align-items:flex-start; }
     .plan li svg{ flex:0 0 auto; color:var(--teal); margin-top:3px; }
     .plan .btn{ margin-top:auto; width:100%; }
-    .lifetime-note{ text-align:center; margin:14px auto 0; max-width:760px; font-size:.95rem; color:#39434d; line-height:1.6; }
-    .lifetime-note + .lifetime-note{ margin-top:10px; }
+    .plan-notes{ max-width:calc(56ch + 2 * var(--sp-5));   /* ~70 characters per line at 16px Inter */ margin:var(--sp-6) auto 0; padding:var(--sp-5); text-align:left;
+      background:var(--mint-3); border:1px solid var(--mint-border); border-radius:var(--radius); }
+    .lifetime-note{ margin:0; font-size:1rem; color:var(--ink); line-height:1.55; }
+    .lifetime-note + .lifetime-note{ margin-top:var(--sp-5); }
     .plan.free .price{ color:var(--teal-dark); }
-    .arba-note{ text-align:center; margin:28px auto 0; max-width:none; font-size:.97rem; color:#39434d; }   /* no cap so the sentence stays on one line on desktop; wraps naturally on small screens */
+    .arba-note{ text-align:center; margin:28px auto 0; max-width:56ch; font-size:.97rem; color:var(--ink); line-height:1.55; }
     .see-pricing{ text-align:center; margin-top:18px; font-weight:600; }
 
     /* ============================================================
@@ -690,6 +693,7 @@
     .faq-item.open .faq-q .chev{ transform:translateY(-50%) rotate(180deg); }
     .faq-a{ max-height:0; overflow:hidden; background:#fff; transition:max-height .3s var(--ease); }
     .faq-a p{ color:#39434d; padding:20px 24px; margin:0; }
+    .faq-a p + p{ padding-top:0; }
 
     /* ============================================================
        FOOTER (navy)
@@ -763,6 +767,7 @@
       .hero-cta{ flex-direction:column; align-items:stretch; }
       .hero-cta .btn{ width:100%; }
       .hero .subhead{ white-space:normal; }
+      .plan-notes{ padding:var(--sp-4); }
     }
 
     /* ============================================================
@@ -846,8 +851,9 @@
     .scene .plans{ margin-top:var(--sp-7); }
 
     /* Comparison table (Pricing): tier columns, check/x icons, highlighted Popular (Breeder) column */
-    .cmp-wrap{ overflow-x:auto; margin-top:44px; background:#fff; border:1px solid var(--line);
+    .cmp-wrap{ overflow-x:auto; margin-top:var(--sp-6); background:#fff; border:1px solid var(--line);
       border-radius:18px; box-shadow:var(--shadow); }
+    .cmp-wrap:focus-visible{ outline-offset:-3px; }
     table.cmp{ width:100%; border-collapse:collapse; min-width:680px; font-size:.95rem; }
     table.cmp th, table.cmp td{ padding:14px 16px; border-bottom:1px solid var(--line); text-align:center; }
     table.cmp tr:last-child td{ border-bottom:0; }
@@ -869,6 +875,18 @@
     /* Unreleased-feature marker. Unscoped from table.cmp so the same treatment can be
        reused inline inside .plan card bullets, e.g. "Color genetics (Coming Soon)". */
     .tbd{ color:var(--muted); font-style:italic; }
+    /* Below 768px the table scrolls inside .cmp-wrap: feature names stay sticky and opaque, plan columns
+       scroll beneath them. .has-more (toggled in site.js) paints a right-edge shade while columns are offscreen. */
+    @media (max-width:767.98px){
+      table.cmp{ min-width:100%; width:auto; }
+      table.cmp th, table.cmp td{ padding:12px 12px; }
+      table.cmp thead th{ padding-top:16px; padding-bottom:16px; }
+      table.cmp th:first-child, table.cmp td:first-child{ position:sticky; left:0; z-index:2; width:140px; min-width:140px; max-width:140px;
+        background:#fff; box-shadow:inset -1px 0 0 var(--line), inset 0 -1px 0 var(--line); }
+      table.cmp tr:last-child td:first-child{ box-shadow:inset -1px 0 0 var(--line); }
+      table.cmp th:not(:first-child), table.cmp td:not(:first-child){ min-width:116px; }
+      .cmp-wrap.has-more{ background:linear-gradient(to left, rgba(34,43,55,.16), rgba(34,43,55,0)) right center / 36px 100% no-repeat, #fff; }
+    }
 
     /* Contact two-column + form fields */
     .contact-grid{ display:grid; grid-template-columns:1.3fr .9fr; gap:42px; align-items:start; }
@@ -1163,7 +1181,7 @@
       .fs3-phone{ max-width:300px; margin-inline:auto; }
       /* center the eyebrow + title; body copy stays left-aligned */
       .fs3-sec .fz-copy{ text-align:center; }
-      .fs3-sec .fz-copy > p, .fs3-sec .fz-list, .fs3-sec .path{ text-align:left; }
+      .fs3-sec .fz-copy > p, .fs3-sec .fz-list, .fs3-sec .path, .fs3-sec .callout{ text-align:left; }
       /* rail: a compact horizontal strip under the phone (reset the desktop row-reverse) */
       .fs3-sec.multi:not(.rev) .fs3-rail, .fs3-sec.multi.rev .fs3-rail{ flex-direction:column-reverse; height:auto; gap:10px; margin-top:6px; }
       .fs3-rail-name{ writing-mode:horizontal-tb; transform:none; }

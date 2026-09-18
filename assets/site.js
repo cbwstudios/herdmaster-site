@@ -99,6 +99,16 @@
       update();
     })();
 
+    // Pricing comparison table: flag the scroll container while plan columns sit offscreen (right-edge cue in CSS)
+    (function(){
+      var wraps = Array.prototype.slice.call(document.querySelectorAll('.cmp-wrap'));
+      if(!wraps.length) return;
+      function update(w){ w.classList.toggle('has-more', w.scrollLeft + w.clientWidth < w.scrollWidth - 1); }
+      wraps.forEach(function(w){ update(w); w.addEventListener('scroll', function(){ update(w); }, { passive:true }); });
+      window.addEventListener('resize', function(){ wraps.forEach(update); });
+      window.addEventListener('load', function(){ wraps.forEach(update); });
+    })();
+
     // Contact form (accessible, mock submit, honeypot). Wire [GHL FORM ENDPOINT] or swap for GHL's native form later.
     (function(){
       var forms = document.querySelectorAll('[data-contact]');
