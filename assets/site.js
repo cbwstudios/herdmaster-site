@@ -24,49 +24,6 @@
       onScroll();
     })();
 
-    // Launch-list modal: one shared dialog (a second copy of the sign-up form), injected once.
-    // Opened by every ".btn" LINK whose text starts with "Join" (all CTAs across the site).
-    // The home hero form is a <button type=submit>, not a link, so it stays inline and is never trapped here.
-    (function(){
-      var X = '<svg viewBox="0 0 256 256" fill="currentColor"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"/></svg>';
-      var modal = document.createElement('div');
-      modal.className = 'modal'; modal.id = 'launchModal'; modal.hidden = true;
-      modal.innerHTML =
-        '<div class="modal-overlay" data-modal-close></div>' +
-        '<div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="launchModalTitle">' +
-          '<button class="modal-x" type="button" aria-label="Close" data-modal-close>' + X + '</button>' +
-          '<span class="eyebrow">Waitlist</span>' +
-          '<h2 id="launchModalTitle">Join the <b>waitlist</b></h2>' +
-          '<p class="modal-sub">One email when HerdMaster goes live. Free tier at launch, no credit card, no spam.</p>' +
-          '<form class="capture" data-capture data-formid="launch-list-modal" novalidate>' +
-            '<input type="email" name="email" placeholder="Enter your email" aria-label="Email address" required>' +
-            '<button type="submit" class="btn btn-primary">Join Waitlist</button>' +
-          '</form>' +
-          '<p class="form-note" data-note aria-live="polite"></p>' +
-        '</div>';
-      document.body.appendChild(modal);
-
-      var lastFocus = null;
-      function open(){
-        lastFocus = document.activeElement;
-        modal.hidden = false; document.body.classList.add('modal-open');
-        var input = modal.querySelector('input'); if(input) input.focus();
-      }
-      function close(){
-        modal.hidden = true; document.body.classList.remove('modal-open');
-        var note = modal.querySelector('[data-note]'); if(note) note.textContent = '';
-        if(lastFocus && lastFocus.focus) lastFocus.focus();
-      }
-      document.addEventListener('click', function(e){
-        if(!e.target.closest) return;
-        if(e.target.closest('[data-modal-close]')){ close(); return; }
-        if(modal.contains(e.target)) return;                 // clicks inside the modal card
-        var cta = e.target.closest('a.btn');
-        if(cta && /^join\b/i.test((cta.textContent || '').trim())){ e.preventDefault(); open(); }
-      });
-      document.addEventListener('keydown', function(e){ if(e.key === 'Escape' && !modal.hidden) close(); });
-    })();
-
     // Mobile menu: shared full-height panel toggled by either header's hamburger
     (function(){
       var toggles = document.querySelectorAll('.nav-toggle');
@@ -92,21 +49,6 @@
           var isOpen = item.classList.contains('open');
           items.forEach(function(o){ o.classList.remove('open'); o.querySelector('.faq-a').style.maxHeight=null; o.querySelector('.faq-q').setAttribute('aria-expanded','false'); });
           if(!isOpen){ item.classList.add('open'); a.style.maxHeight = a.scrollHeight + 'px'; q.setAttribute('aria-expanded','true'); }
-        });
-      });
-    })();
-
-    // Launch-list capture (mockup, no backend yet)
-    (function(){
-      document.querySelectorAll('[data-capture]').forEach(function(form){
-        form.addEventListener('submit', function(e){
-          e.preventDefault();
-          var input = form.querySelector('input[type=email]');
-          var note = form.parentElement.querySelector('[data-note]');
-          var val = (input.value||'').trim();
-          var ok = /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(val);
-          if(note){ note.textContent = ok ? "Thanks, you're on the list. We'll email you when it's live." : "Please enter a valid email address."; }
-          if(ok){ input.value=''; }
         });
       });
     })();
@@ -299,46 +241,3 @@
       Array.prototype.forEach.call(document.querySelectorAll('[data-year]'), function(el){ el.textContent = y; });
     })();
 
-    // Speed comparison band (Features #speed): count the two stopwatches up ONCE when the
-    // band scrolls into view, then disconnect. Renders the finished state under reduced motion.
-    (function(){
-      var band = document.querySelector('[data-spd]');
-      if(!band) return;
-      var R = 54, C = 2*Math.PI*R;
-      var hmRing = band.querySelector('[data-spd-ring="hm"]'), ebRing = band.querySelector('[data-spd-ring="eb"]');
-      var hmNum  = band.querySelector('[data-spd-num="hm"]'),  ebNum  = band.querySelector('[data-spd-num="eb"]');
-      var hmBox  = band.querySelector('[data-spd-status="hm"]'), ebBox = band.querySelector('[data-spd-status="eb"]');
-      var HM_T = 1500, EB_T = 2600, HM_FRAC = 45/78;   /* EB is 1.73x longer, matching 45s vs 78s */
-
-      function fmt(s){ var m = Math.floor(s/60), ss = String(s%60); if(ss.length<2) ss = '0'+ss; return m+':'+ss; }
-      function paint(hp, ep){
-        hmRing.setAttribute('stroke-dashoffset', C - C*HM_FRAC*hp);
-        ebRing.setAttribute('stroke-dashoffset', C - C*ep);
-        hmNum.textContent = Math.round(45*hp);
-        ebNum.textContent = fmt(Math.round(78*ep));
-        hmBox.classList.toggle('is-done', hp >= 1);
-        ebBox.classList.toggle('is-done', ep >= 1);
-      }
-      hmRing.setAttribute('stroke-dasharray', C);
-      ebRing.setAttribute('stroke-dasharray', C);
-
-      var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      if(reduce){ paint(1,1); return; }
-      paint(0,0);
-
-      function run(){
-        var t0 = null;
-        requestAnimationFrame(function frame(now){
-          if(t0 === null) t0 = now;
-          var e = now - t0;
-          paint(Math.min(e/HM_T,1), Math.min(e/EB_T,1));
-          if(e < EB_T) requestAnimationFrame(frame);
-        });
-      }
-
-      if(!('IntersectionObserver' in window)){ run(); return; }
-      var io = new IntersectionObserver(function(entries){
-        entries.forEach(function(en){ if(en.isIntersecting){ run(); io.disconnect(); } });
-      }, { threshold: 0.4 });
-      io.observe(band);
-    })();

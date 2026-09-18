@@ -343,23 +343,17 @@
     .hero-copy h1{ max-width:1080px; margin-inline:auto; }   /* full size, two lines; capped width keeps it off a third line on desktop */
     .hero-copy h1 .hb{ display:inline; }   /* forced break for a balanced two-line title; removed on small screens so it flows */
     @media (max-width:600px){ .hero-copy h1 .hb{ display:none; } }
-    .hero-copy .subhead, .hero-copy .capture, .hero-copy .reassure, .hero-copy .form-note{ max-width:660px; margin-inline:auto; }
+    .hero-copy .subhead, .hero-copy .hero-cta{ max-width:660px; margin-inline:auto; }
     .hero .subhead{ font-size:1.2rem; color:#23303a; max-width:660px; margin:0 auto 28px; line-height:1.5; white-space:nowrap; }
 
-    .capture{ display:flex; gap:10px; justify-content:center; max-width:500px; margin:0 auto 14px; }
-    .capture input[type=email]{
-      flex:1; min-width:0; height:50px; padding:0 16px; border:1.5px solid #c6d6d3; border-radius:var(--radius-sm);
-      font-size:1rem; font-family:inherit; background:#fff;
-    }
-    .capture input[type=email]:focus{ outline:none; border-color:var(--teal); box-shadow:0 0 0 3px rgba(48,169,164,.2); }
-    .reassure{ font-size:.92rem; color:var(--muted); margin:0; }
-    .form-note{ font-size:.92rem; font-weight:600; color:var(--teal-dark); margin:.55rem 0 0; min-height:1.1em; }
+    /* Interim pre-launch CTA row (replaces the retired waitlist form); also used by the Features final CTA */
+    .hero-cta{ display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin:0 auto 16px; }
     .hero-or{ display:flex; align-items:center; justify-content:center; gap:14px; margin:20px auto 14px; max-width:300px; color:var(--muted); font-size:.85rem; }
     .hero-or::before,.hero-or::after{ content:""; height:1px; flex:1; background:var(--line); }
 
     /* hero stage: three columns, bubbles | phone | bubbles */
     .hero-stage{ display:grid; grid-template-columns:1fr auto 1fr; align-items:stretch; gap:40px;
-      max-width:1180px; margin:31px auto 0; }   /* +25px from the empty form-note above = 56px gap below the form, matching the gap below the menu */
+      max-width:1180px; margin:31px auto 0; }  
     .phone{
       position:relative; z-index:2; width:404px; padding:12px 12px 0; background:var(--screen);
       border-radius:50px 50px 0 0; box-shadow:0 26px 44px -20px rgba(14,22,32,.42); align-self:end;
@@ -431,7 +425,7 @@
        no gradient tiles, so the two grids read as distinct. */
     /* breeders and how-it-works are both white; drop the doubled padding between them */
     #breeders{ padding-bottom:0; }
-    .bgrid{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+    .bgrid{ display:grid; grid-template-columns:repeat(2,1fr); gap:20px; max-width:760px; margin-inline:auto; }
     .brcard{ position:relative; display:flex; flex-direction:column; gap:11px; background:#fff; border:1px solid var(--line);
       border-radius:var(--radius); padding:24px 22px; transition:transform .18s var(--ease), box-shadow .18s; height:100%; }
     .brcard:hover{ transform:translateY(-3px); box-shadow:var(--shadow-sm); }
@@ -440,9 +434,6 @@
     .brcard .bic svg{ width:24px; height:24px; }
     .brcard h3{ margin:2px 0 0; font-size:1.05rem; }
     .brcard p{ margin:0; color:var(--muted); font-size:.92rem; line-height:1.5; }
-    .soon-tag{ position:absolute; top:47px; right:22px; transform:translateY(-50%);
-      font-size:.5rem; font-weight:700; letter-spacing:.05em; text-transform:uppercase;
-      color:var(--teal-dark); background:var(--mint-2); border:1px solid rgba(48,169,164,.3); border-radius:999px; padding:3px 8px; }
 
     /* ============================================================
        5 · HOW IT WORKS
@@ -615,19 +606,6 @@
     .step-body{ padding:26px 20px 0; }                 /* space between image and heading; 20px side indent for heading + paragraph */
     .step-body h3{ margin-bottom:8px; font-size:1.22rem; }
     .step-body p{ color:#384450; margin:0; }
-    /* designed iCloud sync visual (step 3) */
-    .sync-visual{ height:100%; display:flex; flex-direction:column; gap:14px; justify-content:center; align-items:center;
-      padding:30px 24px; text-align:center;
-      background:radial-gradient(120% 90% at 50% 25%, #2c3b4e, var(--navy)); color:#fff; }
-    .sync-visual .cloud{ width:92px; height:92px; border-radius:50%; display:grid; place-items:center;
-      background:radial-gradient(circle at 30% 25%, var(--teal-soft), var(--teal-dark)); box-shadow:0 14px 30px -8px rgba(48,169,164,.6); }
-    .sync-visual .cloud svg{ width:46px; height:46px; color:#fff; }
-    .sync-visual .st{ font-weight:700; font-size:1.1rem; }
-    .sync-visual .ss{ font-size:.86rem; color:rgba(255,255,255,.66); margin-top:-8px; }
-    .sync-rows{ width:100%; display:flex; flex-direction:column; gap:8px; margin-top:6px; }
-    .sync-rows div{ display:flex; align-items:center; gap:9px; justify-content:space-between; background:rgba(255,255,255,.07);
-      border:1px solid rgba(255,255,255,.1); border-radius:10px; padding:9px 12px; font-size:.84rem; }
-    .sync-rows .ok{ color:var(--teal-ice); }
 
     /* ============================================================
        5b · IMPORT SPLIT
@@ -670,18 +648,14 @@
     .bcard h3{ color:#fff; font-size:1.3rem; }
     .bcard p{ color:rgba(255,255,255,.74); margin:0; line-height:1.55; }
     .bcard.big h3{ font-size:1.5rem; }
-    /* Section 6 relayout: split with the relocated sync visual on the left, three equal cards on the right */
-    .privacy .split{ grid-template-columns:0.85fr 1.15fr; gap:32px; align-items:stretch; justify-content:normal; margin-top:56px; }
-    .priv-visual{ background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.12); border-radius:18px; padding:30px; display:flex; align-items:center; justify-content:center; }
-    .privacy .sync-visual{ background:transparent; height:auto; padding:8px 6px; }
-    .privacy .sync-visual .cloud{ box-shadow:none; }   /* keep the radial teal fill, drop the glow */
-    .priv-cards{ display:flex; flex-direction:column; gap:20px; }
-    .priv-cards .bcard{ flex:1; display:flex; flex-direction:column; justify-content:center; }
+    /* Section 6: three equal cards (offline / sync pilot / no lock-in) */
+    .priv-cards{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:56px; }
+    .priv-cards .bcard{ display:flex; flex-direction:column; justify-content:flex-start; }
 
     /* ============================================================
        7 · PRICING
        ============================================================ */
-    .plans{ display:grid; grid-template-columns:repeat(4,1fr); gap:22px; align-items:stretch; }
+    .plans{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; align-items:stretch; max-width:1040px; margin-inline:auto; }
     .plan{ position:relative; display:flex; flex-direction:column; background:#fff; border:1px solid var(--line);
       border-radius:var(--radius); padding:28px 22px; box-shadow:var(--shadow-sm); }
     .plan.free{ border-color:var(--teal); background:linear-gradient(180deg,#fff,var(--mint-3)); }
@@ -697,6 +671,8 @@
     .plan li{ display:flex; gap:9px; align-items:flex-start; }
     .plan li svg{ flex:0 0 auto; color:var(--teal); margin-top:3px; }
     .plan .btn{ margin-top:auto; width:100%; }
+    .lifetime-note{ text-align:center; margin:14px auto 0; max-width:760px; font-size:.95rem; color:#39434d; line-height:1.6; }
+    .lifetime-note + .lifetime-note{ margin-top:10px; }
     .plan.free .price{ color:var(--teal-dark); }
     .arba-note{ text-align:center; margin:28px auto 0; max-width:none; font-size:.97rem; color:#39434d; }   /* no cap so the sentence stays on one line on desktop; wraps naturally on small screens */
     .see-pricing{ text-align:center; margin-top:18px; font-weight:600; }
@@ -740,11 +716,10 @@
     /* ---------- Responsive ---------- */
     @media (max-width:1000px){
       .grid-features{ grid-template-columns:repeat(2,1fr); }
-      .bgrid{ grid-template-columns:repeat(2,1fr); }
-      .plans{ grid-template-columns:repeat(2,1fr); }
+      .plans{ grid-template-columns:1fr; max-width:520px; margin-inline:auto; }
       .footer-grid{ grid-template-columns:1fr 1fr; gap:30px; }
       .split{ grid-template-columns:1fr; gap:36px; }
-      .privacy .split{ grid-template-columns:1fr; }   /* stack: sync visual over the cards */
+      .priv-cards{ grid-template-columns:1fr; max-width:560px; margin-inline:auto; }
       /* content first, screen/photo second on mobile (homepage import screen, About story photo) */
       .split .device{ margin:0 auto; order:2; }
       #where-it-started .about-photo{ order:2; }
@@ -785,9 +760,8 @@
       .bgrid{ grid-template-columns:1fr; }
       .plans{ grid-template-columns:1fr; }
       .footer-grid{ grid-template-columns:1fr; }
-      .capture{ flex-direction:column; }
-      .capture input[type=email]{ flex:0 0 auto; width:100%; }   /* stacked: keep height:50px (flex:1 would collapse it on the vertical axis) */
-      .capture .btn{ width:100%; }
+      .hero-cta{ flex-direction:column; align-items:stretch; }
+      .hero-cta .btn{ width:100%; }
       .hero .subhead{ white-space:normal; }
     }
 
@@ -1026,28 +1000,6 @@
     }
 
     /* ============================================================
-       LAUNCH-LIST MODAL (injected by site.js; opened by every "Join" CTA except the home hero form)
-       ============================================================ */
-    .modal[hidden]{ display:none; }
-    .modal{ position:fixed; inset:0; z-index:200; display:grid; place-items:center; padding:20px; }
-    .modal-overlay{ position:absolute; inset:0; background:rgba(34,43,55,.55); -webkit-backdrop-filter:blur(2px); backdrop-filter:blur(2px); }
-    .modal-card{ position:relative; z-index:1; width:min(460px,100%); background:#fff; border-radius:22px;
-      padding:36px 30px 28px; box-shadow:0 30px 80px rgba(34,43,55,.34); text-align:left;
-      animation:modalIn .22s ease both; }
-    @keyframes modalIn{ from{ opacity:0; transform:translateY(12px) scale(.98); } to{ opacity:1; transform:none; } }
-    .modal-x{ position:absolute; top:14px; right:14px; width:36px; height:36px; padding:0; border:0; border-radius:10px;
-      background:transparent; color:var(--muted); display:grid; place-items:center; cursor:pointer; }
-    .modal-x:hover{ background:var(--mint-3); color:var(--navy); }
-    .modal-x svg{ width:20px; height:20px; }
-    .modal-card .eyebrow{ margin-bottom:14px; }
-    .modal-card h2{ margin:0 0 8px; font-size:clamp(1.4rem,3.4vw,1.7rem); }
-    .modal-sub{ color:var(--muted); margin:0 0 18px; line-height:1.5; }
-    .modal-card .capture{ margin:0; }
-    .modal-card .form-note{ margin:10px 2px 0; }
-    @media (prefers-reduced-motion: reduce){ .modal-card{ animation:none; } }
-    body.modal-open{ overflow:hidden; }
-
-    /* ============================================================
        FEATURES: six-card grid (icon + title + screen peek + description),
        styled like the home "How it works" cards. Screens are the real .au
        component files, embedded via iframe in #embed (frameless) mode.
@@ -1115,6 +1067,8 @@
     body.embed.scroll .preview-phone .au-fab{ bottom:74px; z-index:7; }   /* floats above the tab bar; the screen scrolls beneath it */
 
     /* Feature copy column + checklist (shared by the /features/ sections) */
+    .fs3-solo{ max-width:760px; margin-inline:auto; }
+    .fs3-solo .fz-copy .callout{ margin-top:22px; }
     .fz-copy h2{ margin:10px 0 14px; }
     .fz-copy > p{ color:var(--ink); line-height:1.65; margin:0; }
     .fz-list{ list-style:none; margin:24px 0 0; padding:0; display:grid; gap:12px; }
@@ -1176,7 +1130,6 @@
     .fs3-pill:hover{ background:#bccfca; }
     .fs3-pill.on, .fs3-pill.on:hover{ background:linear-gradient(180deg, var(--teal-soft), var(--teal-dark));
       box-shadow:0 4px 12px -4px rgba(48,169,164,.5); }
-    .fs3-art .step-figure{ width:100%; max-width:360px; }   /* offline sync card fills the art column */
     .fs3-art .fp-doc{ margin-top:0; }                       /* pedigrees document in the art column */
     /* Sales & Payments: designed payment card (sync-visual family, white card, teal accents) */
     .pay-card{ width:100%; max-width:340px; margin:0 auto; background:#fff; border:1px solid var(--line);
@@ -1354,65 +1307,6 @@
       #why .fs3-phone, #show-table .fs3-phone{ width:100%; max-width:340px; justify-self:center; margin-inline:auto; }
       /* content first, screen second: #why has the phone first in source, so push it below */
       #why .fs3-phone{ order:2; }
-    }
-
-    /* ============================================================
-       SPEED COMPARISON BAND (#speed, Features page) — lifted from
-       build/speed-compare-component.html; JS lives in site.js.
-       ============================================================ */
-    .spd-band{ background:var(--mint-3, #f2f7f5); padding:56px 0; }
-    .spd-inner{ max-width:1040px; margin-inline:auto; }
-    .spd-title{ display:flex; align-items:center; justify-content:center; gap:12px;
-      font-size:1.9rem; font-weight:800; color:var(--text,#0c1116); margin:0 0 28px; text-align:center; }
-    .spd-title svg{ width:34px; height:34px; flex:0 0 auto; }
-
-    .spd-grid{ display:grid; grid-template-columns:1fr 1fr; gap:22px; }
-    .spd-card{ background:#fff; border:1px solid var(--line,#e6e6e6); border-radius:18px; padding:24px 26px; }
-
-    .spd-head{ display:flex; align-items:center; gap:11px; margin-bottom:14px; }
-    .spd-mark{ width:56px; height:56px; flex:0 0 auto; border-radius:13px; background:#16181a;
-      display:grid; place-items:center; overflow:hidden; }
-    .spd-mark img{ width:44px; height:auto; display:block; }
-    .spd-mark.is-alt{ background:#3d4247; }
-    .spd-mark.is-alt svg{ width:30px; height:30px; color:#fff; }
-    .spd-brand{ line-height:1.15; }
-    .spd-name{ font-size:1.55rem; font-weight:800; }
-    .spd-name .a{ color:var(--text,#0c1116); } .spd-name .b{ color:var(--gold,#CDAD58); }
-    .spd-name.is-alt{ font-size:1.4rem; letter-spacing:.02em; color:#3d4247; }
-    .spd-tag{ font-size:.6rem; letter-spacing:.16em; font-weight:700; color:#8a918e; margin-top:3px; }
-
-    .spd-bar{ border-radius:9px; padding:9px 0; text-align:center; color:#fff;
-      font-size:.8rem; font-weight:700; letter-spacing:.09em; margin-bottom:14px; background:var(--teal-dark,#227673); }
-    .spd-bar.is-alt{ background:#6f7671; }
-
-    .spd-mid{ display:flex; align-items:center; gap:16px; margin-bottom:14px; }
-    .spd-rabbit{ flex:0 0 40%; height:auto; border-radius:14px; display:block; }
-    .spd-watch{ flex:1; height:230px; }
-
-    .spd-status{ background:var(--mint-q,#e9f5ef); border-radius:12px; padding:13px 16px;
-      display:flex; align-items:center; gap:12px; opacity:.28; transition:opacity .35s; }
-    .spd-status.is-done{ opacity:1; }
-    .spd-status.is-alt{ background:#f1f3f2; }
-    .spd-ico{ width:24px; height:24px; flex:0 0 auto; border-radius:50%; background:var(--teal,#30A9A4);
-      display:grid; place-items:center; }
-    .spd-ico.is-alt{ background:none; color:#8b938f; border-radius:0; }
-    .spd-s1{ display:block; font-size:.72rem; color:#7d8985; }
-    .spd-s2{ display:block; font-size:.84rem; font-weight:800; color:var(--teal-dark,#227673); letter-spacing:.02em; }
-    .spd-s2.is-alt{ color:#5f6763; }
-
-    .spd-foot{ margin-top:22px; background:var(--navy,#222B37); border-radius:14px; padding:16px 24px;
-      display:flex; align-items:center; justify-content:center; gap:14px; text-align:center; }
-    .spd-foot svg{ width:30px; height:30px; flex:0 0 auto; color:var(--teal-soft,#5FC2BD); }
-    .spd-foot .l1{ color:#fff; font-size:1.18rem; font-weight:700; }
-    .spd-foot .l1 em{ font-style:normal; color:var(--teal-soft,#5FC2BD); }
-    .spd-foot .l2{ color:rgba(255,255,255,.72); font-size:.86rem; }
-
-    .spd-note{ margin:12px 0 0; text-align:center; font-size:.72rem; color:var(--muted,#555); }
-
-    @media (max-width:720px){
-      .spd-grid{ grid-template-columns:1fr; }
-      .spd-title{ font-size:1.3rem; }
-      .spd-watch{ height:175px; }
     }
 
 /* ==== screens:start (generated by scripts/inline-screens.mjs — do not edit by hand) ==== */
