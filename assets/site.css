@@ -875,6 +875,8 @@
     /* Unreleased-feature marker. Unscoped from table.cmp so the same treatment can be
        reused inline inside .plan card bullets, e.g. "Color genetics (Coming Soon)". */
     .tbd{ color:var(--muted); font-style:italic; }
+    /* Future-feature line beneath the comparison table: plain muted text, outside any plan card or row */
+    .coming-later{ text-align:center; margin:var(--sp-5) auto 0; font-size:.95rem; color:var(--muted); }
     /* Below 768px the table scrolls inside .cmp-wrap: feature names stay sticky and opaque, plan columns
        scroll beneath them. .has-more (toggled in site.js) paints a right-edge shade while columns are offscreen. */
     @media (max-width:767.98px){
