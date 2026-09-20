@@ -672,6 +672,18 @@
     .plan li{ display:flex; gap:9px; align-items:flex-start; }
     .plan li svg{ flex:0 0 auto; color:var(--teal); margin-top:3px; }
     .plan .btn{ margin-top:auto; width:100%; }
+    .plan-subtitle{ margin:6px 0 0; font-size:.92rem; font-weight:500; line-height:1.4; color:var(--ink); }   /* Show Breeder subtitle: below the plan name, above the price */
+    @supports (grid-template-rows:subgrid){
+      @media (min-width:1001px){   /* three-column layout: share row tracks so name, subtitle, price, alt, list and button align across the cards */
+        .plans > .plan{ display:grid; grid-template-rows:subgrid; grid-row:span 6; row-gap:0; align-content:start; }   /* row-gap:0 so the cards' own 22px grid gap is not inherited between rows */
+        .plans > .plan > .plan-head{ grid-row:1; }
+        .plans > .plan > .plan-subtitle{ grid-row:2; }
+        .plans > .plan > .price{ grid-row:3; }
+        .plans > .plan > .alt{ grid-row:4; }
+        .plans > .plan > ul{ grid-row:5; }
+        .plans > .plan > .btn{ grid-row:6; }
+      }
+    }
     .plan-notes{ max-width:calc(56ch + 2 * var(--sp-5));   /* ~70 characters per line at 16px Inter */ margin:var(--sp-6) auto 0; padding:var(--sp-5); text-align:left;
       background:var(--mint-3); border:1px solid var(--mint-border); border-radius:var(--radius); }
     .lifetime-note{ margin:0; font-size:1rem; color:var(--ink); line-height:1.55; }
