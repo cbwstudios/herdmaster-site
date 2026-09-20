@@ -176,9 +176,9 @@
           </div>
 
           <div class="legal-panel" id="panel-privacy-app" role="tabpanel" aria-labelledby="tab-privacy-app">
-          <p class="updated">Version Identifier: HM-PRIVACY-2026-08-25-v1.3</p>
-          <p class="updated">App Policy Identifier: HM-APP-PRIVACY-2026-09-14-v1.3</p>
-          <p class="updated">Effective Date: August 25, 2026</p>
+          <p class="updated">App Policy Identifier: </p>
+          <p class="updated">Effective Date: </p>
+          <p class="updated">Last Updated: </p>
           <p class="disclaimer">This is the privacy policy for the HerdMaster mobile app.</p>
           <p>This policy covers the HerdMaster app itself. For how this website handles information, see the Website Privacy tab above.</p>
           <nav class="toc" aria-label="Contents">
@@ -190,6 +190,7 @@
               <li><a href="#app-how-we-use-your-information">How We Use Your Information</a></li>
               <li><a href="#app-data-storage-sync">Data Storage &amp; Sync</a></li>
               <li><a href="#app-third-party-services">Third-Party Services</a></li>
+              <li><a href="#app-reserved">Reserved</a></li>
               <li><a href="#app-partner-attribution-promo-codes">Partner Attribution &amp; Promo Codes</a></li>
               <li><a href="#app-analytics-event-tracking">Analytics and Subscription Events</a></li>
               <li><a href="#app-data-retention">Data Retention</a></li>
@@ -242,17 +243,22 @@
 
             <h2 id="app-data-storage-sync">5. Data Storage &amp; Sync</h2>
             <h3>5.1 On-Device Storage</h3>
-            <p>Your animal records, breeding records, harvest logs, financial data, and customer records are stored locally on your device using SwiftData. The App is designed to work offline. Your data is available without an internet connection.</p>
+            <p>Your animal and breeding records, including buyer information recorded on animal records, are stored locally on your device using SwiftData. After sign-in and completion of any required account checks, you can work with locally stored herd records offline. Features that require an internet connection are described separately in this policy.</p>
             <h3>5.2 iCloud CloudKit Sync</h3>
             <p>If you are signed into iCloud, your data is synced across your devices using Apple’s CloudKit service. CloudKit data is stored in your personal iCloud account and governed by Apple’s Privacy Policy (apple.com/legal/privacy). HerdMaster LLC does not have direct access to your CloudKit data.</p>
             <h3>5.3 Backend Services</h3>
-            <p>HerdMaster uses a backend server (Google Cloud Run) for the following limited purposes:</p>
+            <p>HerdMaster operates a backend service hosted on Google Cloud Run. The backend handles the following account-linked records:</p>
             <ul>
-              <li>Subscription and entitlement validation via RevenueCat and Apple App Store</li>
-              <li>Promo code validation and partner attribution</li>
-              <li>Anonymous analytics event processing</li>
+              <li>Account and sign-in records: your sign-in identity, email address, account identifier, and email-verified status, held in Google Firebase Authentication; and an account profile containing your email address, account identifier, and any age band you selected with the age-policy version in effect.</li>
+              <li>Adult-role affirmation records: when the adult account holder affirms the 13-through-17 use path, we record the account identifier, statement version and affirmation time. An affirmation completed offline is first stored on the device and reconciled with our backend before iCloud sync resumes; the backend also records when it receives that affirmation. The selection that a 13-through-17-year-old uses the App on a particular device remains stored on that device.</li>
+              <li>iCloud sync pilot eligibility: a record of whether your account is approved for the iCloud sync pilot.</li>
+              <li>Email-verification records: HerdMaster’s backend runs the four-digit email-verification process and sends the code to your email address from HerdMaster’s Google Workspace email account. It stores a keyed digest of the code, not the code itself, together with your account identifier, normalized email address, the verification status, remaining attempts, and creation, expiry, delivery, and acceptance times. A code expires after 10 minutes.</li>
+              <li>Terms and Privacy acceptance records: the Terms version you accepted, the Privacy Policy version in effect at the time of acceptance, the acceptance timestamp, your account identifier, and associated audit data.</li>
+              <li>Subscription, entitlement, and promo-code records: subscription and entitlement status received through RevenueCat and the Apple App Store, and promo-code validation and partner-attribution records (see Section 8).</li>
+              <li>Limited account-linked conversion measurement records and optional survey-response records, as described in Section 9.</li>
             </ul>
-            <p>Data transmitted to our backend is encrypted in transit using HTTPS. We do not store your full animal records, customer records, or financial data on our backend servers.</p>
+            <p>Data transmitted to our backend is encrypted in transit using HTTPS.</p>
+            <p>Our ordinary account backend does not store your full animal records or the buyer information recorded on those animal records. Information or backup files you choose to send us for support are handled as described in this policy.</p>
 
             <h2 id="app-third-party-services">6. Third-Party Services</h2>
             <h3>6.1 RevenueCat</h3>
@@ -263,6 +269,12 @@
             <p>Our backend services are hosted on Google Cloud Run. Google’s Privacy Policy is available at policies.google.com/privacy.</p>
             <h3>6.4 Apple CloudKit</h3>
             <p>Data sync between your devices is handled by Apple’s CloudKit service. Apple’s Privacy Policy governs CloudKit data storage and transmission.</p>
+            <h3>6.5 Google Firebase Authentication</h3>
+            <p>Account sign-in is provided through Google Firebase Authentication, which processes your email address and sign-in credentials and holds your email-verified status. HerdMaster does not use Firebase Analytics. Google’s Privacy Policy is available at policies.google.com/privacy.</p>
+            <h3>6.6 Google Workspace (Gmail)</h3>
+            <p>Email-verification codes are sent to your email address from HerdMaster’s Google Workspace email account (Gmail). Google’s Privacy Policy is available at policies.google.com/privacy.</p>
+
+            <h2 id="app-reserved">7. Reserved.</h2>
 
             <h2 id="app-partner-attribution-promo-codes">8. Partner Attribution &amp; Promo Codes</h2>
             <p>If you use a promo code at signup (such as an ARBA member code or creator partner code), we record which code was used and the resulting subscription to calculate revenue share payments to our partners. This data is used only for partner compensation purposes and is not shared with third parties beyond the partner organization associated with your code.</p>
@@ -279,16 +291,18 @@
               <li>Complimentary subscription entitlement records. Event records relating to complimentary entitlements not retained as transaction-of-record data are retained while the entitlement remains active and for 12 months after it expires or is revoked, then deleted or de-identified.</li>
               <li>Subscription and purchase transaction records. Limited transaction-of-record fields are retained for 7 years for financial, tax, and audit purposes, then deleted or de-identified. A subscription or purchase event is not retained for 7 years merely because it concerns a subscription or purchase.</li>
               <li>Operational diagnostics. Deletion-operation diagnostics and subscription-event delivery, retry, and operational duplicate-payload diagnostics are retained for 30 days, then deleted.</li>
+              <li>Email-verification records. Verification challenge records are scheduled for automatic deletion 24 hours after creation, and related rate-limit counters are scheduled for deletion within 48 hours. Deletion runs asynchronously and may occur after the scheduled time. Verification codes expire after 10 minutes.</li>
               <li>Ordinary support correspondence. Retained for 24 months after the support matter is closed, then deleted.</li>
               <li>Privacy-request correspondence. Privacy, access, correction, and deletion-request correspondence is retained for 3 years after the request is closed, then deleted. During that period, we retain only what is reasonably necessary to document the request and our response.</li>
               <li>Deletion audit record. A minimal, privacy-safe record that an account-deletion request was completed is retained for 3 years, then deleted.</li>
               <li>Terms and Privacy Acceptance Records. We retain records showing the Terms version accepted and the Privacy Policy version in effect at the time of acceptance, together with the acceptance timestamp, account identifier, and associated audit data, for 10 years after account closure, subject to longer retention where required for a legal hold, dispute, or applicable law.</li>
             </ul>
             <p>When you request account deletion, we delete your profile, herd data, and other personal account information from our backend systems within 30 days. The limited records described above may remain only for their stated retention periods or criteria. Retained support or privacy-request correspondence is not used as a substitute archive of deleted account data.</p>
+            <p>Adult-role affirmation and sync-pilot eligibility records are deleted as part of account deletion, subject to any applicable legal hold or other legally required preservation.</p>
 
             <h2 id="app-your-rights-choices">11. Your Rights &amp; Choices</h2>
             <h3>11.1 Access &amp; Correction</h3>
-            <p>All of your animal records, breeding records, financial data, and customer records are accessible and editable directly within the app at any time.</p>
+            <p>You can access and edit your animal and breeding records, including buyer information recorded on animal records, within the app.</p>
             <h3>11.2 Data Export</h3>
             <p>You can create a complete backup of your herd data at any time from the app. The backup is a single file in JSON format (.herdbackup) containing your animal records, pedigrees, breeding records, litters, kits, weight records, show records, health records, tasks, activity history, animal and litter photos, and your profile image.</p>
             <p>The backup can be saved to Files, stored elsewhere, or sent to us if you need support. You can restore from a backup file at any time.</p>
@@ -304,7 +318,7 @@
               <li>All data transmitted between the app and our backend is encrypted using HTTPS/TLS</li>
               <li>iCloud CloudKit data is encrypted by Apple at rest and in transit</li>
               <li>Our backend services use Google Cloud’s security infrastructure</li>
-              <li>We do not store payment information — all transactions are handled by Apple</li>
+              <li>We do not receive or store your payment-card information — all transactions are handled by Apple</li>
             </ul>
             <p>No method of transmission or storage is 100% secure. We cannot guarantee absolute security of your data.</p>
 
