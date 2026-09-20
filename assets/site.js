@@ -5,22 +5,38 @@
       if(!headerMain) return;
       var headerTop = document.querySelector('.header-top');
       var INNER_THRESHOLD = 340;   // matches the home transparent-header height (~346), so inner pages reveal at the same scroll
+      // Only the header that is currently visible is exposed to assistive technology and the tab order.
+      // The frozen policy archives load this file too; they keep their original behavior.
+      var A11Y_HEADERS = !/\/archive\//i.test(location.pathname);
+      var flow = null;
       // Inner pages (no transparent header): clone the header into a static bar at the top so it is
       // present on load and scrolls away with the page; the fixed .header-main then slides back in.
       if(!headerTop && document.body.getAttribute('data-page') !== 'home'){
-        var flow = headerMain.cloneNode(true);
+        flow = headerMain.cloneNode(true);
         flow.removeAttribute('id');
         flow.className = 'header-flow';
         headerMain.parentNode.insertBefore(flow, headerMain.nextSibling);
       }
       function threshold(){ return headerTop ? headerTop.offsetHeight - 8 : INNER_THRESHOLD; }
       var t = threshold();
+      function expose(el, on){
+        if(!el) return;
+        el.inert = !on;
+        if(on) el.removeAttribute('aria-hidden'); else el.setAttribute('aria-hidden', 'true');
+      }
+      function syncA11y(shown){
+        if(!A11Y_HEADERS) return;
+        expose(headerMain, shown);
+        expose(headerTop || flow, !shown);
+      }
       function onScroll(){
-        if(window.scrollY > t){ headerMain.classList.add('show'); }
-        else{ headerMain.classList.remove('show'); }
+        var shown = window.scrollY > t;
+        headerMain.classList.toggle('show', shown);
+        syncA11y(shown);
       }
       window.addEventListener('scroll', onScroll, { passive:true });
       window.addEventListener('resize', function(){ t = threshold(); onScroll(); });
+      window.addEventListener('pageshow', onScroll);   // back/forward cache restores keep the right header exposed
       onScroll();
     })();
 
@@ -40,15 +56,28 @@
       window.addEventListener('resize', function(){ if(window.innerWidth > 860) setOpen(false); });
     })();
 
-    // FAQ accordion, one open at a time
+    // FAQ accordion, one open at a time. Collapsed answers are removed from the accessibility tree
+    // (aria-hidden + inert); the open answer is exposed as a region labelled by its question.
     (function(){
       var items = document.querySelectorAll('.faq-item');
+      function collapse(o){
+        var oa = o.querySelector('.faq-a'), oq = o.querySelector('.faq-q');
+        o.classList.remove('open');
+        oa.style.maxHeight = null; oa.setAttribute('aria-hidden', 'true'); oa.inert = true;
+        oq.setAttribute('aria-expanded', 'false');
+      }
       items.forEach(function(item){
         var q = item.querySelector('.faq-q'); var a = item.querySelector('.faq-a');
+        if(!item.classList.contains('open')) collapse(item);
         q.addEventListener('click', function(){
           var isOpen = item.classList.contains('open');
-          items.forEach(function(o){ o.classList.remove('open'); o.querySelector('.faq-a').style.maxHeight=null; o.querySelector('.faq-q').setAttribute('aria-expanded','false'); });
-          if(!isOpen){ item.classList.add('open'); a.style.maxHeight = a.scrollHeight + 'px'; q.setAttribute('aria-expanded','true'); }
+          items.forEach(collapse);
+          if(!isOpen){
+            item.classList.add('open');
+            a.removeAttribute('aria-hidden'); a.inert = false;
+            a.style.maxHeight = a.scrollHeight + 'px';
+            q.setAttribute('aria-expanded', 'true');
+          }
         });
       });
     })();

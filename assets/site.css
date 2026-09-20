@@ -706,7 +706,8 @@
     .footer-social{ display:inline-flex; align-items:center; gap:9px; color:rgba(255,255,255,.75); font-weight:600; font-size:.9rem; }
     .footer-social svg{ width:20px; height:20px; flex:0 0 auto; }
     .footer-social:hover{ color:var(--gold); }
-    .footer-col h4{ font-size:.78rem; letter-spacing:.12em; text-transform:uppercase; color:#fff; margin:0 0 14px; }
+    .footer-col h4, .footer-col h2{ font-size:.78rem; letter-spacing:.12em; text-transform:uppercase; color:#fff; margin:0 0 14px; }
+    .footer-col h2{ font-weight:700; line-height:1.6; }   /* group labels are h2 for heading order; typography matches the former h4 exactly */
     .footer-col ul{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:10px; }
     .footer-col a{ color:rgba(255,255,255,.75); font-weight:500; }
     .footer-col a:hover{ color:var(--gold); }
@@ -922,6 +923,8 @@
     .legal .toc h2{ font-size:.85rem; text-transform:uppercase; letter-spacing:.12em; color:var(--teal-dark); margin:0 0 12px; }
     .legal .toc ol{ margin:0; padding-left:20px; columns:2; column-gap:28px; font-size:.95rem; }
     .legal .toc a{ line-height:1.95; }
+    .legal .toc ol.toc-self-numbered{ list-style:none; padding-left:0; }   /* Terms: link text already carries the section number */
+    .legal-body.wrap-safe{ overflow-wrap:anywhere; }   /* Terms: long raw URLs wrap at narrow widths instead of widening the page */
     .legal-body{ font-size:1.0625rem; line-height:1.7; }
     .legal-body h2{ font-size:1.4rem; margin:42px 0 12px; letter-spacing:-.01em; }
     .legal-body h2 b{ font-weight:800; }
@@ -1262,7 +1265,8 @@
     .path-card{ background:#fff; border:1px solid var(--line); border-radius:14px; padding:18px 16px; }
     .path-card .pc-ic{ width:38px; height:38px; border-radius:11px; display:grid; place-items:center; background:var(--mint-q); color:var(--teal-dark); margin-bottom:11px; }
     .path-card .pc-ic svg{ width:21px; height:21px; }
-    .path-card h4{ margin:0 0 5px; font-size:1rem; color:var(--navy); }
+    .path-card h3{ line-height:1.6; letter-spacing:normal; }   /* card titles are h3 for heading order; typography matches the former h4 exactly */
+    .path-card h4, .path-card h3{ margin:0 0 5px; font-size:1rem; color:var(--navy); }
     .path-card p{ margin:0; font-size:.9rem; color:var(--muted); line-height:1.5; }
 
     /* quiet end block (no hard sell) */
