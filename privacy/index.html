@@ -188,7 +188,7 @@
               <li><a href="#app-how-we-use-your-information">How We Use Your Information</a></li>
               <li><a href="#app-data-storage-sync">Data Storage &amp; Sync</a></li>
               <li><a href="#app-third-party-services">Third-Party Services</a></li>
-              <li><a href="#app-reserved">Reserved</a></li>
+              <li class="self-numbered"><a href="#app-reserved">7. Reserved</a></li>
               <li><a href="#app-partner-attribution-promo-codes">Partner Attribution &amp; Promo Codes</a></li>
               <li><a href="#app-analytics-event-tracking">Analytics and Subscription Events</a></li>
               <li><a href="#app-data-retention">Data Retention</a></li>
@@ -230,11 +230,11 @@
             <h2 id="app-how-we-use-your-information">4. How We Use Your Information</h2>
             <ul>
               <li>To provide and operate the HerdMaster app and its features</li>
-              <li>To sync your data across your devices via iCloud CloudKit</li>
+              <li>For approved iCloud sync pilot participants who have an eligible Breeder or Show Breeder plan and who enable iCloud sync, to sync herd data across their devices through Apple’s CloudKit service (see Section 5.2)</li>
               <li>To process and validate your subscription through Apple App Store and RevenueCat</li>
               <li>To validate promo codes and attribute partner referrals</li>
-              <li>To analyze app usage and improve features (anonymized and aggregated)</li>
-              <li>To send account-related communications (subscription confirmations, support responses)</li>
+              <li>To perform limited account-linked conversion measurement and to review optional survey responses, as described in Section 9, and to use those records to improve the App</li>
+              <li>To send account-related communications (subscription confirmations, support responses) and email-verification codes</li>
               <li>To diagnose technical issues and crashes</li>
               <li>To comply with legal obligations</li>
             </ul>
@@ -243,7 +243,8 @@
             <h3>5.1 On-Device Storage</h3>
             <p>Your animal and breeding records, including buyer information recorded on animal records, are stored locally on your device using SwiftData. After sign-in and completion of any required account checks, you can work with locally stored herd records offline. Features that require an internet connection are described separately in this policy.</p>
             <h3>5.2 iCloud CloudKit Sync</h3>
-            <p>If you are signed into iCloud, your data is synced across your devices using Apple’s CloudKit service. CloudKit data is stored in your personal iCloud account and governed by Apple’s Privacy Policy (apple.com/legal/privacy). HerdMaster LLC does not have direct access to your CloudKit data.</p>
+            <p>iCloud sync is currently available only to approved participants in a limited pilot who also have an eligible Breeder or Show Breeder plan and who enable iCloud sync in the App. Being signed into iCloud on your device does not by itself cause HerdMaster data to sync, and purchasing a plan does not grant pilot access. For participants who enable iCloud sync, herd data is synced across their devices through Apple’s CloudKit service and stored in a dedicated record zone in their private iCloud database, governed by Apple’s Privacy Policy (apple.com/legal/privacy).</p>
+            <p>HerdMaster LLC does not have direct access to your CloudKit data.</p>
             <h3>5.3 Backend Services</h3>
             <p>HerdMaster operates a backend service hosted on Google Cloud Run. The backend handles the following account-linked records:</p>
             <ul>
@@ -266,7 +267,7 @@
             <h3>6.3 Google Cloud Run</h3>
             <p>Our backend services are hosted on Google Cloud Run. Google’s Privacy Policy is available at policies.google.com/privacy.</p>
             <h3>6.4 Apple CloudKit</h3>
-            <p>Data sync between your devices is handled by Apple’s CloudKit service. Apple’s Privacy Policy governs CloudKit data storage and transmission.</p>
+            <p>For iCloud sync pilot participants who enable iCloud sync, data sync between their devices is handled by Apple’s CloudKit service. Apple’s Privacy Policy governs CloudKit data storage and transmission.</p>
             <h3>6.5 Google Firebase Authentication</h3>
             <p>Account sign-in is provided through Google Firebase Authentication, which processes your email address and sign-in credentials and holds your email-verified status. HerdMaster does not use Firebase Analytics. Google’s Privacy Policy is available at policies.google.com/privacy.</p>
             <h3>6.6 Google Workspace (Gmail)</h3>
@@ -282,7 +283,7 @@
             <p>RevenueCat separately handles subscription and transaction events. See Section 10 for the applicable retention provisions.</p>
 
             <h2 id="app-data-retention">10. Data Retention</h2>
-            <p>Your on-device data is retained until you delete specific records or delete the App. If you enable iCloud sync, HerdMaster synchronizes herd data to a dedicated CloudKit record zone in your private iCloud database. When you delete your HerdMaster account, HerdMaster's account-deletion workflow is configured to delete the HerdMaster account-binding and herd-state records and the dedicated CloudKit record zone used for the synchronized herd before finalizing deletion of the HerdMaster backend account. If you never enabled iCloud sync, there is no synchronized HerdMaster herd in CloudKit to delete. This process is limited to HerdMaster records and HerdMaster's dedicated CloudKit record zone and does not delete other data in your private iCloud database. For HerdMaster backend and operational records:</p>
+            <p>Your on-device data is retained until you delete specific records or delete the App. If you are an iCloud sync pilot participant and enable iCloud sync, HerdMaster synchronizes herd data to a dedicated CloudKit record zone in your private iCloud database. When you delete your HerdMaster account, HerdMaster's account-deletion workflow is configured to delete the HerdMaster account-binding and herd-state records and the dedicated CloudKit record zone used for the synchronized herd before finalizing deletion of the HerdMaster backend account. If you never enabled iCloud sync, there is no synchronized HerdMaster herd in CloudKit to delete. This process is limited to HerdMaster records and HerdMaster's dedicated CloudKit record zone and does not delete other data in your private iCloud database. For HerdMaster backend and operational records:</p>
             <ul>
               <li>Backend conversion measurement, survey-response, and subscription-lifecycle records. Limited account-linked conversion measurement records, optional survey-response records, and routine subscription-lifecycle event records not subject to a more specific retention period below, including controlled production test records that do not produce a settled charge, refund or reversal, tax entry, or booked accounting entry, are retained for up to 12 months, then deleted or de-identified so they are no longer reasonably linkable to you.</li>
               <li>Beta and test-environment subscription event records. Sandbox and TestFlight event records are retained for up to 90 days from record creation, then deleted or de-identified.</li>
@@ -295,7 +296,7 @@
               <li>Deletion audit record. A minimal, privacy-safe record that an account-deletion request was completed is retained for 3 years, then deleted.</li>
               <li>Terms and Privacy Acceptance Records. We retain records showing the Terms version accepted and the Privacy Policy version in effect at the time of acceptance, together with the acceptance timestamp, account identifier, and associated audit data, for 10 years after account closure, subject to longer retention where required for a legal hold, dispute, or applicable law.</li>
             </ul>
-            <p>When you request account deletion, we delete your profile, herd data, and other personal account information from our backend systems within 30 days. The limited records described above may remain only for their stated retention periods or criteria. Retained support or privacy-request correspondence is not used as a substitute archive of deleted account data.</p>
+            <p>When you request account deletion, we delete your HerdMaster account, including your Firebase Authentication sign-in record, and the account-linked backend records described in Section 5.3 within 30 days. The limited records described above may remain only for their stated retention periods or criteria. Retained support or privacy-request correspondence is not used as a substitute archive of deleted account data.</p>
             <p>Adult-role affirmation and sync-pilot eligibility records are deleted as part of account deletion, subject to any applicable legal hold or other legally required preservation.</p>
 
             <h2 id="app-your-rights-choices">11. Your Rights &amp; Choices</h2>
@@ -305,7 +306,7 @@
             <p>You can create a complete backup of your herd data at any time from the app. The backup is a single file in JSON format (.herdbackup) containing your animal records, pedigrees, breeding records, litters, kits, weight records, show records, health records, tasks, activity history, animal and litter photos, and your profile image.</p>
             <p>The backup can be saved to Files, stored elsewhere, or sent to us if you need support. You can restore from a backup file at any time.</p>
             <h3>11.3 Account Deletion</h3>
-            <p>When you request account deletion, we will delete your profile, herd data, and other personal account information from our backend systems within 30 days. Limited records may remain after deletion only for the retention periods or criteria described in Section 10.</p>
+            <p>When you request account deletion, we will delete your HerdMaster account, including your Firebase Authentication sign-in record, and the account-linked backend records described in Section 5.3 within 30 days. Limited records may remain after deletion only for the retention periods or criteria described in Section 10.</p>
             <p>When you delete your HerdMaster account, the app deletes the local herd. If iCloud sync was enabled, HerdMaster's account-deletion workflow is configured to delete the HerdMaster account-binding and herd-state records and the dedicated CloudKit record zone used for the synchronized herd before finalizing deletion of the HerdMaster backend account. If iCloud sync was never enabled, there is no synchronized HerdMaster herd in CloudKit to delete. The CloudKit deletion is limited to HerdMaster records and HerdMaster's dedicated record zone and does not affect other data in your private iCloud database.</p>
             <h3>11.4 Subscription Management</h3>
             <p>You can manage, pause, or cancel your subscription at any time through your Apple ID settings. Cancellation instructions are available at apple.com/support.</p>

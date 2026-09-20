@@ -924,6 +924,7 @@
     .legal .toc ol{ margin:0; padding-left:20px; columns:2; column-gap:28px; font-size:.95rem; }
     .legal .toc a{ line-height:1.95; }
     .legal .toc ol.toc-self-numbered{ list-style:none; padding-left:0; }   /* Terms: link text already carries the section number */
+    .legal .toc li.self-numbered{ list-style:none; margin-left:-20px; }   /* entry text carries its own number ("7. Reserved") */
     .legal-body.wrap-safe{ overflow-wrap:anywhere; }   /* Terms: long raw URLs wrap at narrow widths instead of widening the page */
     .legal-body{ font-size:1.0625rem; line-height:1.7; }
     .legal-body h2{ font-size:1.4rem; margin:42px 0 12px; letter-spacing:-.01em; }
