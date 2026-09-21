@@ -1,4 +1,12 @@
 /* latin-ext */
+@font-face {   /* header wordmark only ("Rabbit & Cavy"); Fredoka 600, SIL OFL (assets/fonts/OFL-Fredoka.txt) */
+  font-family: 'Fredoka';
+  font-style: normal;
+  font-weight: 600;
+  font-display: block;
+  src: url(fonts/fredoka-latin-600.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
 @font-face {
   font-family: 'Inter';
   font-style: italic;
@@ -287,6 +295,16 @@
     .header-flow .btn-primary{ box-shadow:none; }
     .hm-inner{ display:flex; align-items:center; justify-content:space-between; height:92px; gap:18px; }
     .hm-inner .brand img{ width:155px; height:82px; }                    /* horizontal crest logo at its exact native size (155x82); header height fitted to it */
+    /* Header lockups (live wordmark): shield artwork + "Rabbit & Cavy" in the lockup gold. The former flattened
+       WebP lockups (with the retired third line) remain in assets/ only for the frozen policy archives. */
+    .lockup{ display:inline-flex; align-items:center; color:#c38d31; font-family:'Fredoka','Nunito',Arial,sans-serif; font-weight:600; line-height:1; white-space:nowrap; }
+    .lockup img{ display:block; }
+    .lockup-h{ min-width:155px; height:82px; gap:3px; }
+    .hm-inner .brand .lockup-h img{ width:auto; height:80px; }
+    .lockup-h .lockup-text{ font-size:12.2px; }
+    .lockup-c{ flex-direction:column; align-items:center; justify-content:flex-start; width:144px; height:195px; margin:0 auto 45px; }
+    .header-top .ht-logo .lockup-c img{ width:144px; height:148px; margin:0; }
+    .lockup-c .lockup-text{ font-size:15.9px; margin-top:3px; }
     .hm-nav{ display:flex; align-items:center; gap:28px; }
     .hm-links{ display:flex; align-items:center; gap:24px; list-style:none; margin:0; padding:0; }
     .hm-links a{ color:var(--text); font-weight:500; }
@@ -759,6 +777,8 @@
       /* transparent header becomes a simple bar (logo + hamburger), white when menu open */
       .header-top{ display:flex; align-items:center; justify-content:space-between; height:76px; padding:0 20px; text-align:left; }
       .header-top .ht-logo img{ height:52px; margin:0; }
+      .header-top .ht-logo{ display:inline-block; width:38.4px; height:52px; }
+      .header-top .ht-logo .lockup-c{ transform:scale(.2667); transform-origin:top left; margin:0; }
       .header-top nav{ display:none; }
       body.menu-open .header-top{ background:#fff; }
       /* hero: stacked; bubbles in a 2-wide grid BEFORE the phone; phone cut off at the section bottom */
