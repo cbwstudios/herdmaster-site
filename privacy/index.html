@@ -233,8 +233,7 @@
               <li>To provide and operate the HerdMaster app and its features</li>
               <li>For approved iCloud sync pilot participants who have an eligible Breeder or Show Breeder plan and who enable iCloud sync, to sync herd data across their devices through Apple’s CloudKit service (see Section 5.2)</li>
               <li>To process and validate your subscription through Apple App Store and RevenueCat</li>
-              <li>To validate promo codes and attribute partner referrals</li>
-              <li>To perform limited account-linked conversion measurement and to review optional survey responses, as described in Section 9, and to use those records to improve the App</li>
+              <li>To perform limited account-linked conversion measurement for purchase outcomes, upgrade prompts and actions, tier transitions, product/source, and optional conversion-survey responses as described in Section 9.</li>
               <li>To send account-related communications (subscription confirmations, support responses) and email-verification codes</li>
               <li>To diagnose technical issues and crashes</li>
               <li>To comply with legal obligations</li>
@@ -254,7 +253,7 @@
               <li>iCloud sync pilot eligibility: a record of whether your account is approved for the iCloud sync pilot.</li>
               <li>Email-verification records: HerdMaster’s backend runs the four-digit email-verification process and sends the code to your email address from HerdMaster’s Google Workspace email account. It stores a keyed digest of the code, not the code itself, together with your account identifier, normalized email address, the verification status, remaining attempts, and creation, expiry, delivery, and acceptance times. A code expires after 10 minutes.</li>
               <li>Terms and Privacy acceptance records: the Terms version you accepted, the Privacy Policy version in effect at the time of acceptance, the acceptance timestamp, your account identifier, and associated audit data.</li>
-              <li>Subscription, entitlement, and promo-code records: subscription and entitlement status received through RevenueCat and the Apple App Store, and promo-code validation and partner-attribution records (see Section 8).</li>
+              <li>Subscription, entitlement, and historical promo-code and partner-attribution records: subscription and entitlement status received through RevenueCat and the Apple App Store, and historical promo-code validation and partner-attribution records created under earlier App versions (see Section 8).</li>
               <li>Limited account-linked conversion measurement records and optional survey-response records, as described in Section 9.</li>
             </ul>
             <p>Data transmitted to our backend is encrypted in transit using HTTPS.</p>
@@ -276,11 +275,11 @@
 
             <h2 id="app-reserved">7. Reserved.</h2>
 
-            <h2 id="app-partner-attribution-promo-codes">8. Partner Attribution &amp; Promo Codes</h2>
-            <p>If you use a promo code at signup (such as an ARBA member code or creator partner code), we record which code was used and the resulting subscription to calculate revenue share payments to our partners. This data is used only for partner compensation purposes and is not shared with third parties beyond the partner organization associated with your code.</p>
+            <h2 id="app-partner-attribution-promo-codes">8. Historical Partner Attribution and Promo-Code Records</h2>
+            <p>The current App does not provide a promo-code or partner-code entry point and does not collect new promo-code or partner-attribution data through the App. Historical partner-attribution or promo-code records created under earlier App versions may remain subject to the applicable retention periods in Section 10. The Build 141 migration removes prior locally stored promo-code and partner-attribution data from the device.</p>
 
             <h2 id="app-analytics-event-tracking">9. Analytics and Subscription Events</h2>
-            <p>HerdMaster does not use Firebase Analytics or general behavioral analytics. HerdMaster performs limited account-linked conversion measurement for purchase outcomes, promo-code validation, upgrade prompts and actions, tier transitions, product/source, and optional conversion-survey responses. The survey fields are herdDescription, upgradeReason, and partnerInfluence. In the app, each survey field is presented through fixed-choice buttons, including a literal “Other” choice that does not open a text field. The backend stores each submitted answer as an account-linked, trimmed, non-empty string of up to 100 characters and does not currently enforce the interface’s enumerated values. If the survey is dismissed, those answer fields are stored as null.</p>
+            <p>HerdMaster does not use Firebase Analytics or general behavioral analytics. HerdMaster performs limited account-linked conversion measurement for purchase outcomes, upgrade prompts and actions, tier transitions, product/source, and optional conversion-survey responses. The survey fields are herdDescription and upgradeReason. In the app, each survey field is presented through fixed-choice buttons, including a literal 'Other' choice that does not open a text field. The backend stores each submitted answer as an account-linked, trimmed, non-empty string of up to 100 characters and does not currently enforce the interface's enumerated values. If the survey is dismissed, those answer fields are stored as null.</p>
             <p>RevenueCat separately handles subscription and transaction events. See Section 10 for the applicable retention provisions.</p>
 
             <h2 id="app-data-retention">10. Data Retention</h2>
