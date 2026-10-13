@@ -12,7 +12,7 @@
 # until it is truly permanent). force = true so /app is always a redirect.
 [[redirects]]
   from = "/app"
-  to = "/app-coming-soon/"
+  to = "https://apps.apple.com/app/id6764652231"
   status = 302
   force = true
 

@@ -394,6 +394,9 @@
     .bubble.light.gold-bd{ border-color:rgba(205,173,88,.6); }                                /* gold border for gold-icon bubbles */
     .bubble.dark{ background:var(--navy); color:#fff; border-color:var(--navy-2); }
     .as-badge{ box-shadow:0 6px 16px -6px rgba(34,43,55,.24); }
+    /* Apple's official "Download on the App Store" badge, unmodified: min 40px tall on screen, clear space = 1/4 badge height (10px) on all sides */
+    .as-badge-official{ display:inline-block; padding:10px; line-height:0; }
+    .as-badge-official img{ display:block; width:auto; height:40px; }
     .bubble .bi{ flex:0 0 auto; width:34px; height:34px; border-radius:10px; display:grid; place-items:center; }
     .bi-gold{ background:rgba(205,173,88,.16); color:var(--gold-deep); }
     .bi-teal{ background:rgba(48,169,164,.14); color:var(--teal-dark); }
