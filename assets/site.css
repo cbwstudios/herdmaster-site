@@ -1333,6 +1333,14 @@
     /* Contact: header + cards in one hero (green texture); modest gap between intro and the cards */
     .contact-intro{ margin-bottom:48px; }
 
+    /* Android waitlist: headline + AIO form card on the same hero texture. form_embed.js sets the iframe
+       height to the form's real content height; the modest min-height only softens the first paint. */
+    .android-intro{ margin-bottom:40px; }
+    .android-intro h1{ max-width:900px; margin-inline:auto; }
+    .android-form{ max-width:720px; margin:0 auto; }
+    .android-form iframe{ display:block; min-height:380px; }
+    .android-form noscript p{ margin:0 0 16px; font-weight:600; }
+
     /* ============================================================
        ABOUT PAGE (founder story)
        ============================================================ */
